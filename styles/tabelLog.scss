@@ -1,0 +1,212 @@
+@import "color";
+@import "fonts";
+
+// ТАБЛИЦА ЛОГОВ
+.icon-pin--disabled {
+  display: none !important;
+}
+.icon-pin,
+.icon-search {
+  display: flex;
+}
+
+.icon-arrow {
+  margin: 0;
+}
+
+.log {
+  box-sizing: content-box;
+
+  margin-top: 15px;
+  padding-right: 3px;
+
+  overflow-x: auto;
+
+  //стилизая scrollbar
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $main30;
+    border-radius: 2px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $main;
+    border-radius: 2px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $accent;
+  }
+}
+table {
+  min-width: 100%;
+
+  border-collapse: separate;
+  border-spacing: 0 6px;
+}
+tbody {
+  & tr {
+    height: 36px;
+  }
+}
+
+.log tbody {
+  & tr {
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: $accent-table;
+      }
+    }
+  }
+}
+
+th {
+  position: relative;
+  @include ProximaNovaBlod14Primary;
+
+  border-right: 1px solid $border-table;
+
+  & .headerCell {
+    min-width: 59px;
+
+    padding: 4px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+    @media (hover: hover) {
+      & svg:hover {
+        & path {
+          fill: $accent;
+        }
+      }
+      &:hover {
+        background-color: $accent-table;
+
+        & .icon-pin {
+          display: flex !important;
+        }
+      }
+    }
+  }
+}
+
+.log th:nth-child(1),
+.log th:nth-child(2) {
+  border: none;
+}
+
+th,
+td {
+  height: 36px;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+th {
+  padding: 0 6px;
+}
+td {
+  padding: 0 10px;
+  overflow: hidden;
+}
+.filterCell {
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+}
+
+// Граница на всю длинну
+.log td:nth-child(2),
+.log th:nth-child(2) {
+  position: relative;
+  overflow: visible;
+}
+
+.log td:nth-child(2)::after,
+.log th:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: -6px;
+  width: 1px;
+  background-color: $border-table;
+}
+
+// включаю overflow чтобы граница не выходила запределы
+.log tr:last-child td:nth-child(2) {
+  overflow: hidden;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 11px;
+
+  padding: 0;
+  & svg {
+    transform: rotate(-90deg);
+  }
+}
+
+.lineTable--warning {
+  background-color: $warning;
+}
+.lineTable--error {
+  background-color: $error;
+}
+.status__activ,
+.status__warning,
+.status__error {
+  width: 6px;
+  height: 36px;
+  border-radius: 3px;
+}
+.status__activ {
+  background-color: $accent;
+}
+.status__warning {
+  background-color: $status-warning;
+}
+.status__error {
+  background-color: $status-error;
+}
+
+.lineTable__date {
+  @include ProximaNovaRegular14Neutral;
+}
+.role {
+  padding: 3px 16.5px;
+}
+.role__agent,
+.role__client {
+  @include Roles;
+  padding: 6px 12px;
+  text-align: center;
+
+  border-radius: 8px;
+}
+.role__agent {
+  color: $agent-text;
+  background-color: $agent-back;
+}
+.role__client {
+  color: $client-text;
+  background-color: $client-back;
+}
+
+.lineTable__message {
+  max-width: 193px;
+}
+.lineTable__email {
+  max-width: 167px;
+}

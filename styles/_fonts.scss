@@ -1,0 +1,95 @@
+// 400
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/ProximaNova-Regular.eot");
+  src: url("../fonts/ProximaNova-Regular.woff2") format("woff2"),
+    url("../fonts/ProximaNova-Regular.woff") format("woff"),
+    url("../fonts/ProximaNova-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+// 600
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/ProximaNova-Semibold.eot");
+  src: url("../fonts/ProximaNova-Semibold.woff2") format("woff2"),
+    url("../fonts/ProximaNova-Semibold.woff") format("woff"),
+    url("../fonts/ProximaNova-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+// 700
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/ProximaNova-Bold.eot");
+  src: url("../fonts/ProximaNova-Bold.woff2") format("woff2"),
+    url("../fonts/ProximaNova-Bold.woff") format("woff"),
+    url("../fonts/ProximaNova-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@mixin ProximaNovaBlod20Primary {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: $main;
+}
+@mixin ProximaNovaBlod16Primary {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: $main;
+}
+@mixin ProximaNovaBlod14White {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+}
+@mixin ProximaNovaBlod14Primary {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: $main;
+}
+@mixin ProximaNovaBlod12White {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #fff;
+}
+
+@mixin ProximaNovaRegular12Neutral {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: $neutral60;
+}
+@mixin ProximaNovaRegular14Neutral {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: $neutral60;
+}
+@mixin ProximaNovaRegular14Primary {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: $main;
+}
+@mixin ProximaNovaRegular14 {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+@mixin Roles {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+@mixin TableCell {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: $main;
+}

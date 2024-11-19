@@ -1,0 +1,33 @@
+// COUNT LOGO
+.countLog {
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  & p {
+    @include ProximaNovaBlod14Primary;
+  }
+}
+.countLog-dropdown {
+  width: auto;
+  height: 100%;
+
+  margin-top: 0;
+  &__button {
+    padding: 4px 11px;
+
+    display: flex;
+    gap: 8px;
+  }
+  &__title,
+  &__content a {
+    @include ProximaNovaRegular14Primary;
+  }
+  &__content a {
+    padding: 5px;
+
+    display: flex;
+    flex-direction: column;
+  }
+}

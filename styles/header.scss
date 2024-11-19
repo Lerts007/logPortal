@@ -1,0 +1,34 @@
+// HEADER
+header {
+  background-color: $main;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 17px;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 32px;
+  & li {
+    cursor: pointer;
+    & a {
+      @include ProximaNovaBlod14White;
+      background: none;
+      border: none;
+      color: white;
+    }
+  }
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  & p {
+    @include ProximaNovaBlod14White;
+  }
+}

@@ -1,0 +1,60 @@
+// PAGINATION
+.pagination {
+  margin-top: 70px;
+
+  display: flex;
+  justify-content: center;
+}
+.page {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  &__icon {
+    cursor: pointer;
+    @media (hover: hover) {
+      &:hover svg path {
+        fill: $accent;
+      }
+    }
+  }
+
+  &__item {
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        color: $accent;
+
+        & svg path {
+          fill: $accent;
+        }
+      }
+    }
+  }
+
+  &__next {
+    transform: rotate(180deg);
+  }
+  &__item--activ {
+    padding: 9px 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    background-color: #fff;
+    border-radius: 17px;
+
+    & span {
+      display: flex;
+    }
+  }
+  li {
+    @include ProximaNovaBlod16Primary;
+  }
+
+  &__ellipsis {
+    cursor: default;
+  }
+}

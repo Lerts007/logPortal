@@ -1,0 +1,103 @@
+// SETTINGS TABLE
+.settingsTable {
+  margin-top: 10px;
+
+  display: flex;
+  justify-content: space-between;
+}
+// FILTER
+.filter {
+  display: flex;
+  gap: 16px;
+}
+
+// FILTER TYPE
+.filter-type {
+  margin-top: 0;
+  width: 112px;
+
+  &__button {
+    padding: 5px 12px;
+
+    justify-content: flex-start;
+    gap: 8px;
+  }
+  &__select {
+    @include ProximaNovaRegular12Neutral;
+    margin-right: 14px;
+  }
+}
+
+// CALENDAR
+
+.filter-datetime {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  height: 30px;
+
+  border: 1px solid $neutral;
+  border-radius: 4px;
+  padding: 4px 8px;
+  background-color: #ffffff;
+}
+
+.filter-datetime svg {
+  margin-right: 10px;
+}
+
+.filter-datetime::before {
+  content: "";
+  position: absolute;
+  right: 69px;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 60%;
+  background-color: $neutral;
+  pointer-events: none;
+}
+
+.filter-datetime__input {
+  @include ProximaNovaRegular14Primary;
+  -webkit-appearance: none;
+  -moz-appearance: nones;
+  appearance: none;
+  border: none;
+  outline: none;
+}
+
+// удаление иконки календаря
+.filter-datetime__input::-webkit-inner-spin-button,
+.filter-datetime__input::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+.filter__find {
+  padding: 6.5px 35.5px !important;
+}
+.filter__reset {
+  @include ProximaNovaBlod14Primary;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  & svg {
+    transition: transform 0.8s ease;
+  }
+  @media (hover: hover) {
+    &:hover {
+      color: $accent;
+      svg {
+        transform: rotate(360deg);
+
+        & path {
+          fill: $accent;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@import "color";
+@import "fonts";
+@import "header";
+@import "log-info";
+@import "dropdown";
+@import "countLog";
+@import "settingsTable";
+@import "tabelLog";
+@import "modalWindowSearch";
+@import "modalWindowLog";
+@import "footer";
+@import "adminTable";
+@import "pagination";
+@import "addUser";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  background-color: #f4f4f5;
+}
+body {
+  position: relative;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+li {
+  list-style-type: none;
+}
+
+// кнопки
+.button {
+  @include ProximaNovaBlod14White;
+
+  height: 30px;
+  padding: 0 12px;
+
+  background-color: #3498db;
+  border: none;
+
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+// container
+.container {
+  width: 1300px;
+  margin: 0 auto;
+}
+
+// MAIN
+.container-main {
+  padding: 13px 17px;
+}
+
+.noScroll {
+  width: 100vw;
+  min-height: 100vh;
+  height: auto;
+  overflow: hidden;
+}
+
+.modalWindowLog {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  padding: 63px 47px;
+}

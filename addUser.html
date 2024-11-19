@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="container container-header">
+        <nav class="navbar">
+          <ul class="navbar__links">
+            <li><a href="./index.html">Журнал событий</a></li>
+            <li><a href="./admin.html">Администрирование</a></li>
+          </ul>
+        </nav>
+        <div class="user-info">
+          <p>support@corteos.travel</p>
+          <button class="logout-button button">Выйти</button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container addUser">
+        <div class="form-container">
+          <h4>Создание пользователя</h4>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="example@mail.ru" />
+          </div>
+          <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" placeholder="Придумайте пароль" />
+          </div>
+          <div class="form-group">
+            <label>Роль админа</label>
+            <div class="admin-role">
+              <button class="addUser__button addUser__button--active" onclick="selectRole(0)">
+                Да
+              </button>
+              <button class="addUser__button" onclick="selectRole(1)">Нет</button>
+              <div class="slider"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="domain">Домены</label>
+            <input type="text" id="domain" placeholder="corteos.ru" />
+          </div>
+          <div class="form-container__button">
+            <button class="button">Сохранить</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="./js/addUSer.js"></script>
+</html>
