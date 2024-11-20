@@ -1,6 +1,8 @@
 @import "color";
 @import "fonts";
 @import "header";
+@import "h4";
+@import "button";
 @import "log-info";
 @import "dropdown";
 @import "countLog";
@@ -19,9 +21,12 @@
   box-sizing: border-box;
 }
 html {
+  width: 100vw;
   background-color: #f4f4f5;
+  overflow-x: hidden;
 }
 body {
+  font-family: "Proxima Nova", sans-serif;
   position: relative;
 }
 a {
@@ -32,23 +37,9 @@ li {
   list-style-type: none;
 }
 
-// кнопки
-.button {
-  @include ProximaNovaBlod14White;
-
-  height: 30px;
-  padding: 0 12px;
-
-  background-color: #3498db;
-  border: none;
-
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 // container
 .container {
-  width: 1300px;
+  width: 1000px;
   margin: 0 auto;
 }
 
@@ -62,12 +53,4 @@ li {
   min-height: 100vh;
   height: auto;
   overflow: hidden;
-}
-
-.modalWindowLog {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  padding: 63px 47px;
 }

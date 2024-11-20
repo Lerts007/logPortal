@@ -1,7 +1,7 @@
 @import "color";
 @import "fonts";
 
-// ТАБЛИЦА ЛОГОВ
+// Иконки
 .icon-pin--disabled {
   display: none !important;
 }
@@ -14,13 +14,13 @@
   margin: 0;
 }
 
+// ТАБЛИЦА ЛОГОВ
 .log {
+  position: relative;
   box-sizing: content-box;
 
   margin-top: 15px;
   padding-right: 3px;
-
-  overflow-x: auto;
 
   //стилизая scrollbar
   &::-webkit-scrollbar {
@@ -46,6 +46,7 @@ table {
 }
 tbody {
   & tr {
+    position: relative;
     height: 36px;
   }
 }
@@ -102,27 +103,6 @@ th {
   border: none;
 }
 
-th,
-td {
-  height: 36px;
-  text-align: left;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-th {
-  padding: 0 6px;
-}
-td {
-  padding: 0 10px;
-  overflow: hidden;
-}
-.filterCell {
-  padding: 0;
-
-  display: flex;
-  align-items: center;
-}
-
 // Граница на всю длинну
 .log td:nth-child(2),
 .log th:nth-child(2) {
@@ -144,6 +124,29 @@ td {
 // включаю overflow чтобы граница не выходила запределы
 .log tr:last-child td:nth-child(2) {
   overflow: hidden;
+}
+
+th,
+td {
+  height: 36px;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+th {
+  padding: 0 6px;
+}
+td {
+  @include ProximaNovaRegular14Primary;
+
+  padding: 0 10px;
+  overflow: hidden;
+}
+.filterCell {
+  padding: 0;
+
+  display: flex;
+  align-items: center;
 }
 
 .status {
@@ -184,22 +187,22 @@ td {
 .lineTable__date {
   @include ProximaNovaRegular14Neutral;
 }
-.role {
-  padding: 3px 16.5px;
+.badge {
+  padding: 2px 16.5px;
 }
-.role__agent,
-.role__client {
+.badge__agent,
+.badge__client {
   @include Roles;
   padding: 6px 12px;
   text-align: center;
 
   border-radius: 8px;
 }
-.role__agent {
+.badge__agent {
   color: $agent-text;
   background-color: $agent-back;
 }
-.role__client {
+.badge__client {
   color: $client-text;
   background-color: $client-back;
 }

@@ -33,10 +33,10 @@
 }
 
 .log {
+  position: relative;
   box-sizing: content-box;
   margin-top: 15px;
   padding-right: 3px;
-  overflow-x: auto;
 }
 .log::-webkit-scrollbar {
   height: 4px;
@@ -60,6 +60,7 @@ table {
 }
 
 tbody tr {
+  position: relative;
   height: 36px;
 }
 
@@ -106,29 +107,6 @@ th .headerCell {
   border: none;
 }
 
-th,
-td {
-  height: 36px;
-  text-align: left;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-th {
-  padding: 0 6px;
-}
-
-td {
-  padding: 0 10px;
-  overflow: hidden;
-}
-
-.filterCell {
-  padding: 0;
-  display: flex;
-  align-items: center;
-}
-
 .log td:nth-child(2),
 .log th:nth-child(2) {
   position: relative;
@@ -148,6 +126,33 @@ td {
 
 .log tr:last-child td:nth-child(2) {
   overflow: hidden;
+}
+
+th,
+td {
+  height: 36px;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+th {
+  padding: 0 6px;
+}
+
+td {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #293553;
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+.filterCell {
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 .status {
@@ -196,12 +201,12 @@ td {
   color: rgba(61, 61, 75, 0.6);
 }
 
-.role {
-  padding: 3px 16.5px;
+.badge {
+  padding: 2px 16.5px;
 }
 
-.role__agent,
-.role__client {
+.badge__agent,
+.badge__client {
   font-family: "Proxima Nova", sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -210,12 +215,12 @@ td {
   border-radius: 8px;
 }
 
-.role__agent {
+.badge__agent {
   color: #7e78f8;
   background-color: #ecebfe;
 }
 
-.role__client {
+.badge__client {
   color: #0f90e9;
   background-color: #e2f4ff;
 }

@@ -1,3 +1,6 @@
+@import "color";
+@import "fonts";
+
 // admin page
 .userTable {
   box-sizing: content-box;
@@ -27,8 +30,6 @@
 .admin {
   padding: 35px 17px;
   &__h4 {
-    @include ProximaNovaBlod20Primary;
-
     margin-bottom: 25px;
   }
 }
@@ -99,4 +100,14 @@
 }
 .button__delete {
   background-color: $status-error !important;
+
+  transition: background-color 0.3s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: #850a08 !important;
+
+      transition: background-color 0.3s ease;
+    }
+  }
 }

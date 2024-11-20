@@ -1,0 +1,116 @@
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/ProximaNova-Regular.eot");
+  src: url("../fonts/ProximaNova-Regular.woff2") format("woff2"), url("../fonts/ProximaNova-Regular.woff") format("woff"), url("../fonts/ProximaNova-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/ProximaNova-Semibold.eot");
+  src: url("../fonts/ProximaNova-Semibold.woff2") format("woff2"), url("../fonts/ProximaNova-Semibold.woff") format("woff"), url("../fonts/ProximaNova-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/ProximaNova-Bold.eot");
+  src: url("../fonts/ProximaNova-Bold.woff2") format("woff2"), url("../fonts/ProximaNova-Bold.woff") format("woff"), url("../fonts/ProximaNova-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+.userTable {
+  box-sizing: content-box;
+  margin-top: 15px;
+  padding-right: 3px;
+  overflow-x: auto;
+}
+.userTable::-webkit-scrollbar {
+  height: 4px;
+}
+.userTable::-webkit-scrollbar-track {
+  background-color: rgba(41, 53, 83, 0.3);
+  border-radius: 2px;
+}
+.userTable::-webkit-scrollbar-thumb {
+  background-color: #293553;
+  border-radius: 2px;
+}
+.userTable::-webkit-scrollbar-thumb:hover {
+  background-color: #0f90e9;
+}
+
+.admin {
+  padding: 35px 17px;
+}
+.admin__h4 {
+  margin-bottom: 25px;
+}
+
+.adminSettings {
+  display: flex;
+  justify-content: space-between;
+}
+.adminSettings .block {
+  display: flex;
+  gap: 30px;
+}
+.adminSettings__search {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.adminSettings__search p {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #293553;
+}
+.adminSettings__search__input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: relative;
+  min-width: 200px;
+  height: 30px;
+  padding: 8px 9px;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid rgba(41, 53, 83, 0.25);
+  overflow: hidden;
+}
+.adminSettings__search__input:focus {
+  outline: none;
+}
+.adminSettings__search__input::-moz-placeholder {
+  color: rgba(41, 53, 83, 0.25);
+  opacity: 1;
+}
+.adminSettings__search__input::placeholder {
+  color: rgba(41, 53, 83, 0.25);
+}
+
+.userTable {
+  width: 100%;
+}
+
+.userTable__domain__info {
+  max-width: 695px;
+  overflow: hidden;
+}
+
+.button__search {
+  display: flex;
+  align-items: center;
+}
+
+.button__delete {
+  background-color: #f21411 !important;
+  transition: background-color 0.3s ease;
+}
+@media (hover: hover) {
+  .button__delete:hover {
+    background-color: #850a08 !important;
+    transition: background-color 0.3s ease;
+  }
+}/*# sourceMappingURL=adminTable.css.map */

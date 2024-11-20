@@ -1,0 +1,22 @@
+// кнопки
+.button {
+  @include ProximaNovaBlod14White;
+
+  height: 30px;
+  padding: 0 12px;
+
+  background-color: $accent; /* Основной цвет */
+  border: none;
+
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: #0d7dc9;
+
+      transition: background-color 0.3s ease;
+    }
+  }
+}

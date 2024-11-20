@@ -60,6 +60,33 @@ header {
   color: #fff;
 }
 
+h4 {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #293553;
+}
+
+.button {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+  height: 30px;
+  padding: 0 12px;
+  background-color: #0f90e9; /* Основной цвет */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+@media (hover: hover) {
+  .button:hover {
+    background-color: #0d7dc9;
+    transition: background-color 0.3s ease;
+  }
+}
+
 .log-info {
   display: flex;
   gap: 22px;
@@ -353,10 +380,10 @@ header {
 }
 
 .log {
+  position: relative;
   box-sizing: content-box;
   margin-top: 15px;
   padding-right: 3px;
-  overflow-x: auto;
 }
 .log::-webkit-scrollbar {
   height: 4px;
@@ -380,6 +407,7 @@ table {
 }
 
 tbody tr {
+  position: relative;
   height: 36px;
 }
 
@@ -426,29 +454,6 @@ th .headerCell {
   border: none;
 }
 
-th,
-td {
-  height: 36px;
-  text-align: left;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-th {
-  padding: 0 6px;
-}
-
-td {
-  padding: 0 10px;
-  overflow: hidden;
-}
-
-.filterCell {
-  padding: 0;
-  display: flex;
-  align-items: center;
-}
-
 .log td:nth-child(2),
 .log th:nth-child(2) {
   position: relative;
@@ -468,6 +473,33 @@ td {
 
 .log tr:last-child td:nth-child(2) {
   overflow: hidden;
+}
+
+th,
+td {
+  height: 36px;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+th {
+  padding: 0 6px;
+}
+
+td {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #293553;
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+.filterCell {
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 .status {
@@ -516,12 +548,12 @@ td {
   color: rgba(61, 61, 75, 0.6);
 }
 
-.role {
-  padding: 3px 16.5px;
+.badge {
+  padding: 2px 16.5px;
 }
 
-.role__agent,
-.role__client {
+.badge__agent,
+.badge__client {
   font-family: "Proxima Nova", sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -530,12 +562,12 @@ td {
   border-radius: 8px;
 }
 
-.role__agent {
+.badge__agent {
   color: #7e78f8;
   background-color: #ecebfe;
 }
 
-.role__client {
+.badge__client {
   color: #0f90e9;
   background-color: #e2f4ff;
 }
@@ -909,6 +941,27 @@ td {
   cursor: pointer;
 }
 
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/ProximaNova-Regular.eot");
+  src: url("../fonts/ProximaNova-Regular.woff2") format("woff2"), url("../fonts/ProximaNova-Regular.woff") format("woff"), url("../fonts/ProximaNova-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/ProximaNova-Semibold.eot");
+  src: url("../fonts/ProximaNova-Semibold.woff2") format("woff2"), url("../fonts/ProximaNova-Semibold.woff") format("woff"), url("../fonts/ProximaNova-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/ProximaNova-Bold.eot");
+  src: url("../fonts/ProximaNova-Bold.woff2") format("woff2"), url("../fonts/ProximaNova-Bold.woff") format("woff"), url("../fonts/ProximaNova-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
 .userTable {
   box-sizing: content-box;
   margin-top: 15px;
@@ -934,10 +987,6 @@ td {
   padding: 35px 17px;
 }
 .admin__h4 {
-  font-family: "Proxima Nova", sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  color: #293553;
   margin-bottom: 25px;
 }
 
@@ -1000,6 +1049,13 @@ td {
 
 .button__delete {
   background-color: #f21411 !important;
+  transition: background-color 0.3s ease;
+}
+@media (hover: hover) {
+  .button__delete:hover {
+    background-color: #850a08 !important;
+    transition: background-color 0.3s ease;
+  }
 }
 
 .pagination {
@@ -1062,10 +1118,6 @@ td {
   flex-direction: column;
 }
 .addUser h4 {
-  font-family: "Proxima Nova", sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  color: #293553;
   margin-bottom: 30px;
 }
 
@@ -1164,10 +1216,13 @@ td {
 }
 
 html {
+  width: 100vw;
   background-color: #f4f4f5;
+  overflow-x: hidden;
 }
 
 body {
+  font-family: "Proxima Nova", sans-serif;
   position: relative;
 }
 
@@ -1180,21 +1235,8 @@ li {
   list-style-type: none;
 }
 
-.button {
-  font-family: "Proxima Nova", sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  color: #fff;
-  height: 30px;
-  padding: 0 12px;
-  background-color: #3498db;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 .container {
-  width: 1300px;
+  width: 1000px;
   margin: 0 auto;
 }
 
@@ -1207,11 +1249,4 @@ li {
   min-height: 100vh;
   height: auto;
   overflow: hidden;
-}
-
-.modalWindowLog {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 63px 47px;
 }/*# sourceMappingURL=styles.css.map */
