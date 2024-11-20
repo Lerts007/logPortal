@@ -966,7 +966,6 @@ td {
   box-sizing: content-box;
   margin-top: 15px;
   padding-right: 3px;
-  overflow-x: auto;
 }
 .userTable::-webkit-scrollbar {
   height: 4px;
@@ -1236,7 +1235,7 @@ li {
 }
 
 .container {
-  width: 1000px;
+  width: 1300px;
   margin: 0 auto;
 }
 
