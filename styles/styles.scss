@@ -2,7 +2,6 @@
 @import "fonts";
 @import "global";
 @import "header";
-@import "modalWindowSearch";
 
 // ui
 @import "ui/title";
@@ -15,6 +14,7 @@
 @import "table/tabelLog";
 @import "table/tableUser";
 @import "table/modalWindowLog";
+@import "table/modalWindowSearch";
 
 //dropdown
 @import "dropdown/dropdown";
