@@ -1,62 +1,62 @@
 // dropdown
-document.querySelector(".dropdown__button").addEventListener("click", function () {
-  document.querySelector(".dropdown").classList.toggle("open");
+document.querySelector(".chart__button").addEventListener("click", function () {
+  document.querySelector(".chart").classList.toggle("dropdown--open");
 });
 
-document.querySelectorAll(".dropdown__content a").forEach(function (item) {
+document.querySelectorAll(".chart__content a").forEach(function (item) {
   item.addEventListener("click", function (event) {
     const selectedText = item.textContent;
-    document.querySelector(".dropdown__button-ttile").innerHTML = `${selectedText}`;
-    document.querySelector(".dropdown").classList.remove("open");
+    document.querySelector(".chart__button-ttile").innerHTML = `${selectedText}`;
+    document.querySelector(".chart").classList.remove("dropdown--open");
   });
 });
 
 document.addEventListener("click", function (event) {
-  const dropdown = document.querySelector(".dropdown");
+  const dropdown = document.querySelector(".chart");
 
   if (!dropdown.contains(event.target)) {
-    dropdown.classList.remove("open");
+    dropdown.classList.remove("dropdown--open");
   }
 });
 
-// для filter-type
-document.querySelector(".filter-type__button").addEventListener("click", function () {
-  document.querySelector(".filter-type").classList.toggle("open");
+// для filterType
+document.querySelector(".filterType__button").addEventListener("click", function () {
+  document.querySelector(".filterType").classList.toggle("dropdown--open");
 });
 
-document.querySelectorAll(".filter-type__content a").forEach(function (item) {
+document.querySelectorAll(".filterType__content a").forEach(function (item) {
   item.addEventListener("click", function (event) {
     const selectedText = item.textContent;
-    document.querySelector(".filter-type__select").innerHTML = `${selectedText}`;
-    document.querySelector(".filter-type").classList.remove("open");
+    document.querySelector(".filterType__select").innerHTML = `${selectedText}`;
+    document.querySelector(".filterType").classList.remove("dropdown--open");
   });
 });
 
 document.addEventListener("click", function (event) {
-  const dropdown = document.querySelector(".filter-type");
+  const dropdown = document.querySelector(".filterType");
 
   if (!dropdown.contains(event.target)) {
-    dropdown.classList.remove("open");
+    dropdown.classList.remove("dropdown--open");
   }
 });
 
 // для countLogo
-document.querySelector(".countLog-dropdown__button").addEventListener("click", function () {
-  document.querySelector(".countLog-dropdown").classList.toggle("open");
+document.querySelector(".countLog__button").addEventListener("click", function () {
+  document.querySelector(".countLog").classList.toggle("dropdown--open");
 });
 
-document.querySelectorAll(".countLog-dropdown__content a").forEach(function (item) {
+document.querySelectorAll(".countLog__content a").forEach(function (item) {
   item.addEventListener("click", function (event) {
     const selectedText = item.textContent;
-    document.querySelector(".countLog-dropdown__title").innerHTML = `${selectedText}`;
-    document.querySelector(".countLog-dropdown").classList.remove("open");
+    document.querySelector(".countLog__button-title").innerHTML = `${selectedText}`;
+    document.querySelector(".countLog").classList.remove("dropdown--open");
   });
 });
 
 document.addEventListener("click", function (event) {
-  const dropdown = document.querySelector(".countLog-dropdown");
+  const dropdown = document.querySelector(".countLog");
 
   if (!dropdown.contains(event.target)) {
-    dropdown.classList.remove("open");
+    dropdown.classList.remove("dropdown--open");
   }
 });

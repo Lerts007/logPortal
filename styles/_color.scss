@@ -1,28 +1,50 @@
-$main: #293553;
-$main30: rgba(41, 53, 83, 0.3);
-$secondaryBlueberry: #dfe4f2;
-$button: #3498db;
-$neutral: rgb(41, 53, 83, 0.25);
-$neutral60: rgb(61, 61, 75, 0.6);
-$focus: #dfeffa;
-$accent: #0f90e9;
+$primary: rgb(41, 53, 83);
+$primary-opacity-30: rgba(41, 53, 83, 0.3);
 
-//статус ошибок
-$warning: #fff1dc;
-$status-warning: #ffad0e;
-$error: #ffe6e6;
-$status-error: #f21411;
-$text-error: #b70c0a;
+$secondary: rgb(223, 228, 242);
+$white: rgb(255, 255, 255);
 
-//Клиенты
+$border-light: rgba(41, 53, 83, 0.25);
+$border-medium: rgb(139, 139, 147);
+
+$disabled: rgba(61, 61, 75, 0.6);
+
+$activ-primary: rgb(15, 144, 233);
+
+$dropdown-hover: rgb(223, 239, 250);
+
+// Кнопки
+$button-primary: rgb(52, 152, 219);
+$button-hover: rgb(33, 114, 194);
+$button-activ: rgb(29, 96, 163);
+
+$button-secondary-primary: rgb(41, 53, 83);
+$button-secondary-hover: rgb(26, 35, 57);
+$button-secondary-activ: rgb(41, 53, 83);
+
+$button-danger-primary: rgb(242, 20, 17);
+$button-danger-hover: rgb(183, 12, 10);
+$button-danger-activ: rgb(142, 15, 13);
+
+$button-close: rgb(49, 49, 49);
+
+// Статус-Warning
+$warning-primary: rgb(255, 173, 14);
+$warning-secondary: rgb(247, 136, 32);
+$warning-background: rgb(255, 241, 220);
+
+// Статус-Error
+$danger-primary: rgb(242, 20, 17);
+$danger-secondary: rgb(183, 12, 10);
+$danger-background: rgb(255, 230, 230);
+$danger-activ: rgb(142, 15, 13);
+
+// Роли, Badge
 $agent-text: #7e78f8;
-$agent-back: #ecebfe;
-$client-text: #0f90e9;
-$client-back: #e2f4ff;
+$agent-background: rgb(236, 235, 254);
+$client-text: rgb(15, 144, 233);
+$client-background: rgb(226, 244, 255);
 
-$border-table: rgba(0, 0, 0, 0.2);
-$accent-table: #dedee4;
-
-$checkbox: #8b8b93;
-
-$borderFooterBtn: #c9ccd4;
+// Таблица
+$table-border: rgba(0, 0, 0, 0.2);
+$table-accent: rgb(222, 222, 228);

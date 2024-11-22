@@ -1,56 +1,36 @@
 @import "color";
 @import "fonts";
+@import "global";
 @import "header";
-@import "h4";
-@import "button";
-@import "log-info";
-@import "dropdown";
-@import "countLog";
-@import "settingsTable";
-@import "tabelLog";
 @import "modalWindowSearch";
-@import "modalWindowLog";
-@import "footer";
-@import "adminTable";
-@import "pagination";
-@import "addUser";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html {
-  width: 100vw;
-  background-color: #f4f4f5;
-  overflow-x: hidden;
-}
-body {
-  font-family: "Proxima Nova", sans-serif;
-  position: relative;
-}
-a {
-  text-decoration: none;
-  color: #fff;
-}
-li {
-  list-style-type: none;
-}
+// ui
+@import "ui/title";
+@import "ui/button";
+@import "ui/inputPlaceholder";
+@import "ui/scrollbarStyling";
 
-// container
-.container {
-  width: 1300px;
-  margin: 0 auto;
-}
+//table
+@import "table/table.scss";
+@import "table/tabelLog";
+@import "table/tableUser";
+@import "table/modalWindowLog";
 
-// MAIN
-.container-main {
-  padding: 13px 17px;
-}
+//dropdown
+@import "dropdown/dropdown";
+@import "dropdown/dropdownFilterType";
+@import "dropdown/dropdownChart";
+@import "dropdown/dropdownCountLog";
 
-.noScroll {
-  width: 100vw;
-  min-height: 100vh;
-  height: auto;
-  overflow: hidden;
-}
+//page/index
+@import "page/index/countLog";
+@import "page/index/downloadAddUser";
+@import "page/index/log-info";
+@import "page/index/settingsTable";
+
+//page/admin
+@import "page/admin/adminPage";
+@import "page/admin/pagination";
+
+//page/addUser
+@import "page/addUser/addUser";

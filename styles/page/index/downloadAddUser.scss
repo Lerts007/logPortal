@@ -1,0 +1,19 @@
+// FOOTER
+.download-addUser {
+  width: 100%;
+  display: flex;
+
+  margin: 15px 0;
+  &__button {
+    width: 618px;
+
+    margin: 0 auto;
+    padding: 4.5px;
+
+    border: 1px solid $border-light;
+    border-radius: 4px;
+
+    background-color: #fff;
+    cursor: pointer;
+  }
+}

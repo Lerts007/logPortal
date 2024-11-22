@@ -3,37 +3,50 @@ document.addEventListener("DOMContentLoaded", () => {
   const content = document.querySelector(".log__table");
   const modalWindowSearch = document.querySelectorAll(".modalWindowSearch");
 
-  container.addEventListener("wheel", (event) => {
-    let isInsideModal = false;
+  let scrollPosition = 0;
 
-    modalWindowSearch.forEach((modal) => {
-      if (modal.contains(event.target)) {
-        isInsideModal = true;
+  container.addEventListener(
+    "wheel",
+    (event) => {
+      scrollPosition = window.pageYOffset;
+
+      document.body.style.cssText = `
+        overflow: hidden;
+        position: fixed;
+        top: -${scrollPosition}px;
+        width: 100vw;
+      `;
+
+      const isInsideModal = Array.from(modalWindowSearch).some((modal) =>
+        modal.contains(event.target)
+      );
+
+      if (!isInsideModal) {
+        event.preventDefault();
+
+        const currentMarginLeft = parseFloat(window.getComputedStyle(content).marginLeft, 10);
+
+        let rectContainer = container.getBoundingClientRect();
+        let rectContent = content.getBoundingClientRect();
+
+        let newMarginLeft = currentMarginLeft + parseInt(event.deltaY, 10);
+
+        if (currentMarginLeft + parseInt(event.deltaY, 10) >= 0) {
+          content.style.marginLeft = `0px`;
+        } else if (rectContent.right + parseInt(event.deltaY, 10) < rectContainer.right) {
+          newMarginLeft = rectContainer.right - rectContent.right + currentMarginLeft;
+
+          content.style.marginLeft = `${newMarginLeft}px`;
+        } else {
+          content.style.marginLeft = `${newMarginLeft}px`;
+        }
       }
-    });
 
-    if (!isInsideModal) {
-      // Получаем текущую позицию marginLeft
-      const currentMarginLeft = parseInt(window.getComputedStyle(content).marginLeft, 10);
-
-      let rectContainer = container.getBoundingClientRect();
-      let rectContent = content.getBoundingClientRect();
-
-      let newMarginLeft = currentMarginLeft + parseInt(event.deltaY, 10);
-
-      if (currentMarginLeft + parseInt(event.deltaY, 10) >= 0) {
-        content.style.marginLeft = `0px`;
-        console.log("asd");
-      }
-      //
-      else if (rectContent.right + parseInt(event.deltaY, 10) < rectContainer.right) {
-        newMarginLeft = rectContainer.right - rectContent.right + currentMarginLeft;
-        content.style.marginLeft = `${newMarginLeft}px`;
-      }
-      //
-      else {
-        content.style.marginLeft = `${newMarginLeft}px`;
-      }
-    }
-  });
+      requestAnimationFrame(() => {
+        document.body.style.cssText = "";
+        window.scrollTo(0, scrollPosition);
+      });
+    },
+    { passive: false }
+  );
 });

@@ -1,6 +1,6 @@
 // HEADER
 header {
-  background-color: $main;
+  background-color: $primary;
 }
 
 .container-header {
@@ -16,10 +16,10 @@ header {
   & li {
     cursor: pointer;
     & a {
-      @include ProximaNovaBlod14White;
+      @include fonts(700, 14px, $white);
+
       background: none;
       border: none;
-      color: white;
     }
   }
 }
@@ -29,6 +29,6 @@ header {
   align-items: center;
   gap: 30px;
   & p {
-    @include ProximaNovaBlod14White;
+    @include fonts(700, 14px, $white);
   }
 }

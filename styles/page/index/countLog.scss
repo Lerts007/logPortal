@@ -6,7 +6,7 @@
   align-items: center;
   gap: 17px;
   & p {
-    @include ProximaNovaBlod14Primary;
+    @include fonts(700);
   }
 }
 .countLog-dropdown {
@@ -22,7 +22,7 @@
   }
   &__title,
   &__content a {
-    @include ProximaNovaRegular14Primary;
+    @include fonts();
   }
   &__content a {
     padding: 5px;

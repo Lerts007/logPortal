@@ -6,5 +6,9 @@ function selectRole(index) {
 
   buttons[index].classList.add("addUser__button--active");
 
-  slider.style.left = `${index * 50}%`;
+  if (index) {
+    slider.style.left = `calc(${index * 50}% + 2px)`;
+  } else {
+    slider.style.left = `2px`;
+  }
 }

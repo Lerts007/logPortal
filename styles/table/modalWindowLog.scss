@@ -2,6 +2,7 @@
 .modalWindowLog--disabled {
   display: none;
 }
+
 .modalWindowLog {
   position: absolute;
   top: 0;
@@ -30,7 +31,7 @@
 
     border: none;
     border-radius: 12px;
-    background-color: #313131;
+    background-color: $button-close;
 
     cursor: pointer;
   }
@@ -50,20 +51,16 @@
     flex-direction: column;
     gap: 20px;
 
-    background-color: $main;
+    background-color: $primary;
 
     .sectionStatus {
       display: flex;
       flex-direction: column;
       gap: 8px;
       &__date {
-        @include ProximaNovaRegular14;
-
         color: rgba(255, 255, 255, 0.4);
       }
       &__status {
-        @include ProximaNovaRegular14;
-
         width: 96px;
 
         padding: 1.5px 33px;
@@ -72,25 +69,21 @@
         color: #fff;
         line-height: 17px;
         text-align: center;
-        &--activ {
-          background-color: $accent;
-        }
+        background-color: $activ-primary;
         &--warning {
-          background-color: $status-warning;
+          background-color: $warning-primary;
         }
         &--error {
-          background-color: $status-error;
+          background-color: $danger-primary;
         }
       }
-      &__log {
-        @include ProximaNovaRegular14;
-
-        color: #fff;
-        h4 {
-          @include ProximaNovaBlod14White;
+      &-details {
+        @include fonts(400, 14px, $white);
+        &__log-id {
+          @include fonts(700, $color: $white);
         }
-        span {
-          color: $accent;
+        &__log-time {
+          color: $activ-primary;
         }
       }
     }
@@ -99,14 +92,12 @@
       flex-direction: column;
       gap: 11px;
 
-      h4 {
-        @include ProximaNovaBlod12White;
+      h6 {
+        color: $white;
         margin-bottom: 1px;
       }
       p {
-        @include ProximaNovaRegular14;
-
-        color: $accent;
+        color: $activ-primary;
         text-decoration: underline;
       }
       &__site div {
@@ -143,22 +134,6 @@
 
     overflow-y: auto;
 
-    //стилизая scrollbar
-    &::-webkit-scrollbar {
-      width: 4px;
-    }
-    &::-webkit-scrollbar-track {
-      background-color: $main30;
-      border-radius: 2px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: $main;
-      border-radius: 2px;
-    }
-    &::-webkit-scrollbar-thumb:hover {
-      background-color: $accent;
-    }
-
     .sectionMessage {
       display: flex;
       flex-direction: column;
@@ -166,24 +141,18 @@
       &__answer {
         display: flex;
         gap: 12px;
-        &__date {
-          @include ProximaNovaRegular14Neutral;
+        &-date {
+          color: $disabled;
         }
-        &__message {
-          @include ProximaNovaRegular14Primary;
-
-          max-width: 490px;
-
+        &-message {
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
           span {
-            @include ProximaNovaBlod14Primary;
+            @include fonts(700);
           }
         }
-        &__xml {
-          @include ProximaNovaRegular14Primary;
-
+        &-xml {
           font-family: monospace;
           white-space: pre-wrap;
           overflow-x: auto;
@@ -198,20 +167,24 @@
       gap: 12px;
 
       border-radius: 4px;
-      &--error {
-        background-color: $error;
-      }
       &__message {
-        @include ProximaNovaRegular14Primary;
-
-        max-width: 490px;
-
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
         span {
-          @include ProximaNovaBlod14Primary;
-          color: $text-error;
+          @include fonts(700);
+        }
+      }
+      &--error {
+        background-color: $danger-background;
+        & span {
+          color: $danger-secondary;
+        }
+      }
+      &--warning {
+        background-color: $warning-background;
+        & span {
+          color: $warning-secondary;
         }
       }
     }

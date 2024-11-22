@@ -27,7 +27,7 @@
   margin-bottom: 20px;
 
   & label {
-    @include ProximaNovaBlod14Primary;
+    @include fonts(700);
   }
   & input {
     appearance: none;
@@ -37,33 +37,12 @@
     padding: 9px 10px;
 
     flex: 1;
-    background: #fff;
+    background: $white;
     border-radius: 4px;
-    border: 1px solid $neutral;
+    border: 1px solid $border-light;
     overflow: hidden;
     &:focus {
       outline: none;
-    }
-
-    &::-webkit-input-placeholder {
-      color: $neutral;
-    }
-    &:-moz-placeholder {
-      color: $neutral;
-      opacity: 1;
-    }
-    &::-moz-placeholder {
-      color: $neutral;
-      opacity: 1;
-    }
-    &:-ms-input-placeholder {
-      color: $neutral;
-    }
-    &::-ms-input-placeholder {
-      color: $neutral;
-    }
-    &::placeholder {
-      color: $neutral;
     }
   }
 }
@@ -73,11 +52,13 @@
 
   width: 186px;
 
+  padding: 1px;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: $white;
+  border: 1px solid $border-light;
   border-radius: 5px;
 }
 
@@ -90,7 +71,7 @@
   border: none;
   background: none;
 
-  color: #3498db;
+  color: $button-primary;
   font-size: 14px;
   font-weight: bold;
 
@@ -105,14 +86,14 @@
 .slider {
   position: absolute;
   z-index: 1;
-  top: 0;
-  left: 0;
+  top: 2px;
+  left: 2px;
 
-  width: 50%;
-  height: 100%;
+  width: calc(50% - 2px);
+  height: 24px;
 
   border-radius: 4px;
-  background-color: #3498db;
+  background-color: $button-primary;
 
   transition: left 0.5s ease;
 }

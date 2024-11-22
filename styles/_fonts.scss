@@ -28,68 +28,9 @@
   font-weight: 700;
   font-style: normal;
 }
-@mixin ProximaNovaBlod20Primary {
-  font-family: "Proxima Nova", sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  color: $main;
-}
-@mixin ProximaNovaBlod16Primary {
-  font-family: "Proxima Nova", sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  color: $main;
-}
-@mixin ProximaNovaBlod14White {
-  font-family: "Proxima Nova", sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  color: #fff;
-}
-@mixin ProximaNovaBlod14Primary {
-  font-family: "Proxima Nova", sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  color: $main;
-}
-@mixin ProximaNovaBlod12White {
-  font-family: "Proxima Nova", sans-serif;
-  font-weight: 700;
-  font-size: 12px;
-  color: #fff;
-}
 
-@mixin ProximaNovaRegular12Neutral {
-  font-family: "Proxima Nova", sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  color: $neutral60;
-}
-@mixin ProximaNovaRegular14Neutral {
-  font-family: "Proxima Nova", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  color: $neutral60;
-}
-@mixin ProximaNovaRegular14Primary {
-  font-family: "Proxima Nova", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  color: $main;
-}
-@mixin ProximaNovaRegular14 {
-  font-family: "Proxima Nova", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-}
-@mixin Roles {
-  font-family: "Proxima Nova", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-}
-@mixin TableCell {
-  font-family: "Proxima Nova", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  color: $main;
+@mixin fonts($weight: 400, $size: 14px, $color: $primary) {
+  font-weight: $weight;
+  font-size: $size;
+  color: $color;
 }

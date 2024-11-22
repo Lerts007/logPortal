@@ -1,0 +1,120 @@
+// ТАБЛИЦА ЛОГОВ
+.log {
+  position: relative;
+  box-sizing: content-box;
+
+  margin-top: 15px;
+  padding-right: 3px;
+}
+
+.log tbody {
+  & tr {
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: $table-accent;
+      }
+    }
+  }
+}
+
+.log th:nth-child(1),
+.log th:nth-child(2) {
+  border: none;
+}
+
+// Граница на всю длинну
+.log td:nth-child(2),
+.log th:nth-child(2) {
+  position: relative;
+  overflow: visible;
+}
+
+.log td:nth-child(2)::after,
+.log th:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: -6px;
+  width: 1px;
+  background-color: $table-border;
+}
+
+// включаю overflow чтобы граница не выходила запределы
+.log tr:last-child td:nth-child(2) {
+  overflow: hidden;
+}
+
+.filterCell {
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 11px;
+
+  padding: 0;
+  & svg {
+    transform: rotate(-90deg);
+  }
+}
+
+.lineTable--warning {
+  background-color: $warning-background;
+}
+.lineTable--error {
+  background-color: $danger-background;
+}
+.status__activ,
+.status__warning,
+.status__error {
+  width: 6px;
+  height: 36px;
+  border-radius: 3px;
+}
+.status__activ {
+  background-color: $activ-primary;
+}
+.status__warning {
+  background-color: $warning-primary;
+}
+.status__error {
+  background-color: $danger-primary;
+}
+
+.lineTable__date {
+  @include fonts(400, 14px, $disabled);
+}
+.badge {
+  padding: 2px 16.5px;
+}
+.badge__agent,
+.badge__client {
+  @include fonts(400, 16px);
+  padding: 6px 12px;
+  text-align: center;
+
+  border-radius: 8px;
+}
+.badge__agent {
+  color: $agent-text;
+  background-color: $agent-background;
+}
+.badge__client {
+  color: $client-text;
+  background-color: $client-background;
+}
+
+.lineTable__message {
+  max-width: 193px;
+}
+.lineTable__email {
+  max-width: 167px;
+}

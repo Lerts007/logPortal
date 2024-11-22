@@ -1,0 +1,22 @@
+.inputPlaceholder {
+  &::-webkit-input-placeholder {
+    color: $border-light;
+  }
+  &:-moz-placeholder {
+    color: $border-light;
+    opacity: 1;
+  }
+  &::-moz-placeholder {
+    color: $border-light;
+    opacity: 1;
+  }
+  &:-ms-input-placeholder {
+    color: $border-light;
+  }
+  &::-ms-input-placeholder {
+    color: $border-light;
+  }
+  &::placeholder {
+    color: $border-light;
+  }
+}

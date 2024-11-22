@@ -14,7 +14,7 @@
     cursor: pointer;
     @media (hover: hover) {
       &:hover svg path {
-        fill: $accent;
+        fill: $activ-primary;
       }
     }
   }
@@ -24,10 +24,10 @@
 
     @media (hover: hover) {
       &:hover {
-        color: $accent;
+        color: $activ-primary;
 
         & svg path {
-          fill: $accent;
+          fill: $activ-primary;
         }
       }
     }
@@ -43,7 +43,7 @@
     align-items: center;
     gap: 4px;
 
-    background-color: #fff;
+    background-color: $white;
     border-radius: 17px;
 
     & span {
@@ -51,7 +51,7 @@
     }
   }
   li {
-    @include ProximaNovaBlod16Primary;
+    @include fonts(700, 16px);
   }
 
   &__ellipsis {

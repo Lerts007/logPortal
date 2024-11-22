@@ -1,0 +1,125 @@
+// кнопки
+.button {
+  font-family: "Proxima Nova", sans-serif;
+  @include fonts(700, 14px, $white);
+
+  position: relative;
+
+  height: 30px;
+  padding: 0 12px;
+
+  background-color: $button-primary;
+  border: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  & a {
+    @include fonts(700, 14px, $white);
+  }
+  @media (hover: hover) {
+    &:hover {
+      background-color: $button-hover;
+    }
+  }
+  &.button-click--primary {
+    animation: gradient--primary 200ms ease;
+    background: $button-secondary-activ;
+    color: $white;
+    box-shadow: none;
+  }
+  &.button-click--danger {
+    animation: gradient--danger 200ms ease;
+    background: $button-danger-activ;
+    color: $white;
+    box-shadow: none;
+  }
+}
+@keyframes gradient--primary {
+  0% {
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 125, 125, 0) 0%,
+      $button-hover 0%,
+      $button-hover 100%
+    );
+  }
+  25% {
+    background: radial-gradient(
+      circle at center,
+      $button-secondary-activ 24%,
+      $button-hover 25%,
+      $button-hover 100%
+    );
+  }
+  50% {
+    background: radial-gradient(
+      circle at center,
+      $button-secondary-activ 49%,
+      $button-hover 50%,
+      $button-hover 100%
+    );
+  }
+  75% {
+    background: radial-gradient(
+      circle at center,
+      $button-secondary-activ 74%,
+      $button-hover 75%,
+      $button-hover 100%
+    );
+  }
+  100% {
+    color: $white;
+    background: radial-gradient(
+      circle at center,
+      $button-secondary-activ 99%,
+      $button-hover 100%,
+      $button-hover 100%
+    );
+  }
+}
+
+@keyframes gradient--danger {
+  0% {
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 125, 125, 0) 0%,
+      $button-danger-hover 0%,
+      $button-danger-hover 100%
+    );
+  }
+  25% {
+    background: radial-gradient(
+      circle at center,
+      $button-danger-activ 24%,
+      $button-danger-hover 25%,
+      $button-danger-hover 100%
+    );
+  }
+  50% {
+    background: radial-gradient(
+      circle at center,
+      $button-danger-activ 49%,
+      $button-danger-hover 50%,
+      $button-danger-hover 100%
+    );
+  }
+  75% {
+    background: radial-gradient(
+      circle at center,
+      $button-danger-activ 74%,
+      $button-danger-hover 75%,
+      $button-danger-hover 100%
+    );
+  }
+  100% {
+    color: $white;
+    background: radial-gradient(
+      circle at center,
+      $button-danger-activ 99%,
+      $button-danger-hover 100%,
+      $button-danger-hover 100%
+    );
+  }
+}

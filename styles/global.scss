@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  width: 100vw;
+  background-color: #f4f4f5;
+  overflow-x: hidden;
+}
+body {
+  position: relative;
+
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: $primary;
+}
+a {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: $primary;
+
+  text-decoration: none;
+}
+li {
+  font-family: "Proxima Nova", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: $primary;
+
+  list-style-type: none;
+}
+
+// container
+.container {
+  width: 1300px;
+  margin: 0 auto;
+}
+
+// MAIN
+.container-main {
+  padding: 13px 17px;
+}
+
+.noScroll {
+  width: 100vw;
+  height: 100vw;
+  overflow: hidden;
+}

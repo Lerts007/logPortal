@@ -33,7 +33,7 @@
             <div class="adminSettings__search">
               <p>Поиск:</p>
               <input
-                class="adminSettings__search__input"
+                class="adminSettings__search-input inputPlaceholder"
                 type="text"
                 placeholder="Поиск по всей таблице"
               />
@@ -56,9 +56,9 @@
             </div>
             <div class="countLog">
               <p>Показывать</p>
-              <div class="countLog-dropdown">
-                <button class="countLog-dropdown__button">
-                  <span class="countLog-dropdown__title">10 000</span>
+              <div class="dropdown countLog">
+                <button class="dropdown__button countLog__button">
+                  <span class="dropdown__button-ttile countLog__button-title">10 000</span>
                   <span class="icon-arrow">
                     <!-- иконка стрелки -->
                     <svg
@@ -75,7 +75,7 @@
                     </svg>
                   </span>
                 </button>
-                <div class="countLog-dropdown__content">
+                <div class="dropdown__content countLog__content">
                   <a href="#">10 000</a>
                   <a href="#">20 000</a>
                   <a href="#">30 000</a>
@@ -85,7 +85,7 @@
             </div>
           </div>
         </div>
-        <div class="userTable">
+        <div class="userTable scrollbarStyling">
           <table>
             <thead>
               <tr>
@@ -352,24 +352,26 @@
         </div>
       </div>
     </main>
+    <script src="./js/buttonClick.js"></script>
+
     <script>
-      document.querySelector(".countLog-dropdown__button").addEventListener("click", function () {
-        document.querySelector(".countLog-dropdown").classList.toggle("open");
+      document.querySelector(".countLog__button").addEventListener("click", function () {
+        document.querySelector(".countLog").classList.toggle("dropdown--open");
       });
 
-      document.querySelectorAll(".countLog-dropdown__content a").forEach(function (item) {
+      document.querySelectorAll(".countLog__content a").forEach(function (item) {
         item.addEventListener("click", function (event) {
           const selectedText = item.textContent;
-          document.querySelector(".countLog-dropdown__title").innerHTML = `${selectedText}`;
-          document.querySelector(".countLog-dropdown").classList.remove("open");
+          document.querySelector(".countLog__button-title").innerHTML = `${selectedText}`;
+          document.querySelector(".countLog").classList.remove("dropdown--open");
         });
       });
 
       document.addEventListener("click", function (event) {
-        const dropdown = document.querySelector(".countLog-dropdown");
+        const dropdown = document.querySelector(".countLog");
 
         if (!dropdown.contains(event.target)) {
-          dropdown.classList.remove("open");
+          dropdown.classList.remove("dropdown--open");
         }
       });
     </script>
