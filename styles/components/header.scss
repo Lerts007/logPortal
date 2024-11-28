@@ -1,0 +1,31 @@
+// HEADER
+.header {
+  background-color: $secondary;
+
+  &__container {
+    padding: 10px 17px;
+
+    display: flex;
+    justify-content: space-between;
+  }
+  &__links {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  &__item {
+    @include fonts(700, 14px, $white);
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+  }
+  &__user-info {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+}

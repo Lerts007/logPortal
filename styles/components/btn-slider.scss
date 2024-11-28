@@ -1,0 +1,50 @@
+.btn-slider {
+  position: relative;
+
+  width: 186px;
+
+  padding: 1px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background-color: $white;
+  border: 1px solid $gray-medium;
+  border-radius: 5px;
+
+  &__btn {
+    position: relative;
+    z-index: 2;
+
+    padding: 5px 0;
+
+    border: none;
+    background: none;
+
+    color: $primary;
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &--active {
+      color: #fff;
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    z-index: 1;
+    top: 2px;
+    left: 2px;
+
+    width: calc(50% - 2px);
+    height: 25px;
+
+    border-radius: 4px;
+    background-color: $primary;
+
+    transition: left 0.5s ease;
+  }
+}

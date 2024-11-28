@@ -1,43 +1,24 @@
-$primary: rgb(41, 53, 83);
-$primary-opacity-30: rgba(41, 53, 83, 0.3);
+$primary: rgb(52, 152, 219);
+$primary-hover: rgb(33, 114, 194);
+$primary-activ: rgb(29, 96, 163);
 
-$secondary: rgb(223, 228, 242);
-$white: rgb(255, 255, 255);
-
-$border-light: rgba(41, 53, 83, 0.25);
-$border-medium: rgb(139, 139, 147);
-
+$active: rgb(15, 144, 233);
 $disabled: rgba(61, 61, 75, 0.6);
 
-$activ-primary: rgb(15, 144, 233);
+$secondary: rgb(41, 53, 83);
+$secondary-hover: rgb(26, 35, 57);
+$secondary-activ: rgb(41, 53, 83);
+$secondary-opacity-30: rgba(41, 53, 83, 0.3);
 
-$dropdown-hover: rgb(223, 239, 250);
-
-// Кнопки
-$button-primary: rgb(52, 152, 219);
-$button-hover: rgb(33, 114, 194);
-$button-activ: rgb(29, 96, 163);
-
-$button-secondary-primary: rgb(41, 53, 83);
-$button-secondary-hover: rgb(26, 35, 57);
-$button-secondary-activ: rgb(41, 53, 83);
-
-$button-danger-primary: rgb(242, 20, 17);
-$button-danger-hover: rgb(183, 12, 10);
-$button-danger-activ: rgb(142, 15, 13);
-
-$button-close: rgb(49, 49, 49);
-
-// Статус-Warning
-$warning-primary: rgb(255, 173, 14);
-$warning-secondary: rgb(247, 136, 32);
-$warning-background: rgb(255, 241, 220);
-
-// Статус-Error
-$danger-primary: rgb(242, 20, 17);
-$danger-secondary: rgb(183, 12, 10);
-$danger-background: rgb(255, 230, 230);
+$danger: rgb(242, 20, 17);
+$danger-hover: rgb(183, 12, 10);
 $danger-activ: rgb(142, 15, 13);
+$danger-background: rgb(255, 230, 230);
+
+$warning: rgb(255, 173, 14);
+$warning-hover: rgb(247, 136, 32);
+$warning-activ: rgb(247, 153, 66);
+$warning-background: rgb(255, 241, 220);
 
 // Роли, Badge
 $agent-text: #7e78f8;
@@ -45,6 +26,15 @@ $agent-background: rgb(236, 235, 254);
 $client-text: rgb(15, 144, 233);
 $client-background: rgb(226, 244, 255);
 
-// Таблица
-$table-border: rgba(0, 0, 0, 0.2);
-$table-accent: rgb(222, 222, 228);
+// прочее
+
+$white: rgb(255, 255, 255);
+$blueberry: rgb(223, 228, 242);
+$blue-light: rgb(223, 239, 250);
+$brown-dark: rgb(49, 49, 49);
+
+$gray-light: rgba(0, 0, 0, 0.2);
+$gray-medium: rgba(41, 53, 83, 0.25);
+$gray-dark: rgb(139, 139, 147);
+
+$gray: rgb(222, 222, 228);

@@ -7,58 +7,56 @@
     <title>Document</title>
   </head>
   <body>
-    <header>
-      <div class="container container-header">
-        <nav class="navbar">
-          <ul class="navbar__links">
-            <li><a href="./index.html">Журнал событий</a></li>
-            <li><a href="./admin.html">Администрирование</a></li>
-          </ul>
-        </nav>
-        <div class="user-info">
-          <p>support@corteos.travel</p>
-          <button class="logout-button button">Выйти</button>
+    <header class="header">
+      <div class="container header__container">
+        <div class="header__links">
+          <a class="header__item" href="./index.html">Журнал событий</a>
+          <a class="header__item" href="./admin.html">Администрирование</a>
+        </div>
+        <div class="header__user-info">
+          <p class="header__item">support@corteos.travel</p>
+          <button class="header__btn-logout button button--primary">Выйти</button>
         </div>
       </div>
     </header>
     <main>
-      <div class="container addUser">
-        <div class="form-container">
-          <h4>Создание пользователя</h4>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input class="inputPlaceholder" type="text" id="email" placeholder="example@mail.ru" />
+      <div class="container add-user">
+        <div class="add-user__container">
+          <h4 class="add-user__title">Создание пользователя</h4>
+          <div class="add-user__group">
+            <label class="add-user__label" for="email">Email</label>
+            <input class="add-user__input" type="text" id="email" placeholder="example@mail.ru" />
           </div>
-          <div class="form-group">
-            <label for="password">Пароль</label>
+          <div class="add-user__group">
+            <label class="add-user__label" for="password">Пароль</label>
             <input
-              class="inputPlaceholder"
+              class="add-user__input"
               type="password"
               id="password"
               placeholder="Придумайте пароль"
             />
           </div>
-          <div class="form-group">
-            <label>Роль админа</label>
-            <div class="admin-role">
-              <button class="addUser__button addUser__button--active" onclick="selectRole(0)">
+          <div class="add-user__group">
+            <label class="add-user__label">Роль админа</label>
+            <div class="add-user__slider btn-slider">
+              <button class="btn-slider__btn btn-slider__btn--active" onclick="selectRole(0)">
                 Да
               </button>
-              <button class="addUser__button" onclick="selectRole(1)">Нет</button>
-              <div class="slider"></div>
+              <button class="btn-slider__btn" onclick="selectRole(1)">Нет</button>
+              <div class="btn-slider__slider"></div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="domain">Домены</label>
-            <input class="inputPlaceholder" type="text" id="domain" placeholder="corteos.ru" />
+          <div class="add-user__group">
+            <label class="add-user__label" for="domain">Домены</label>
+            <input class="add-user__input" type="text" id="domain" placeholder="corteos.ru" />
           </div>
-          <div class="form-container__button">
-            <button class="button">Сохранить</button>
+          <div class="add-user__container-btn">
+            <button class="button add-user__btn">Сохранить</button>
           </div>
         </div>
       </div>
     </main>
-    <script src="./js/addUSer.js"></script>
-    <script src="./js/buttonClick.js"></script>
+    <script src="./js/add-user.js"></script>
+    <script src="./js/button-click.js"></script>
   </body>
 </html>

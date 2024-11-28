@@ -1,7 +1,6 @@
 @import "color";
 @import "fonts";
 @import "global";
-@import "header";
 
 // ui
 @import "ui/title";
@@ -9,28 +8,22 @@
 @import "ui/inputPlaceholder";
 @import "ui/scrollbarStyling";
 
-//table
-@import "table/table.scss";
-@import "table/tabelLog";
-@import "table/tableUser";
-@import "table/modalWindowLog";
-@import "table/modalWindowSearch";
+// components
+@import "components/header";
+@import "components/dropdown";
+@import "components/pagination";
+@import "components/btn-slider";
+@import "components/download-add-user";
+@import "components/count-log";
+@import "components/datetime";
+@import "components/badge";
+@import "components/table.scss";
+@import "components/search-filter";
+@import "components/alert";
+@import "components/log-message";
+@import "components/modalWindowLog";
 
-//dropdown
-@import "dropdown/dropdown";
-@import "dropdown/dropdownFilterType";
-@import "dropdown/dropdownChart";
-@import "dropdown/dropdownCountLog";
-
-//page/index
-@import "page/index/countLog";
-@import "page/index/downloadAddUser";
-@import "page/index/log-info";
-@import "page/index/settingsTable";
-
-//page/admin
-@import "page/admin/adminPage";
-@import "page/admin/pagination";
-
-//page/addUser
-@import "page/addUser/addUser";
+// page
+@import "page/addUser";
+@import "page/event-log";
+@import "page/adminPage";

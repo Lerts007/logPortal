@@ -1,17 +1,17 @@
-.scrollbarStyling {
-  //стилизая scrollbar
+//стилизая scrollbar
+%scrollbarStyling {
   &::-webkit-scrollbar {
     width: 4px;
   }
   &::-webkit-scrollbar-track {
-    background-color: $primary-opacity-30;
+    background-color: $secondary-opacity-30;
     border-radius: 2px;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: $primary;
+    background-color: $secondary;
     border-radius: 2px;
   }
   &::-webkit-scrollbar-thumb:hover {
-    background-color: $activ-primary;
+    background-color: $active;
   }
 }

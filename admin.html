@@ -8,36 +8,34 @@
     <title>Document</title>
   </head>
   <body>
-    <header>
-      <div class="container container-header">
-        <nav class="navbar">
-          <ul class="navbar__links">
-            <li><a href="./index.html">Журнал событий</a></li>
-            <li><a href="./admin.html">Администрирование</a></li>
-          </ul>
-        </nav>
-        <div class="user-info">
-          <p>support@corteos.travel</p>
-          <button class="logout-button button">Выйти</button>
+    <header class="header">
+      <div class="container header__container">
+        <div class="header__links">
+          <a class="header__item" href="./index.html">Журнал событий</a>
+          <a class="header__item" href="./admin.html">Администрирование</a>
+        </div>
+        <div class="header__user-info">
+          <p class="header__item">support@corteos.travel</p>
+          <button class="header__btn-logout button button--primary">Выйти</button>
         </div>
       </div>
     </header>
     <main>
-      <div class="admin container">
-        <h4 class="admin__h4">Администрирование</h4>
-        <div class="adminSettings">
-          <button class="button button__addUser">
+      <div class="container admin">
+        <h4 class="admin__title">Администрирование</h4>
+        <div class="admin-table-settings">
+          <button class="button button--primary admin-table-settings__addUser">
             <a href="./addUser.html">Добавить пользователя</a>
           </button>
-          <div class="block">
-            <div class="adminSettings__search">
+          <div class="admin-table-settings__r-side">
+            <div class="admin-table-settings__search">
               <p>Поиск:</p>
               <input
-                class="adminSettings__search-input inputPlaceholder"
+                class="admin-table-settings__search-input"
                 type="text"
                 placeholder="Поиск по всей таблице"
               />
-              <button class="button button__search">
+              <button class="button button--primary admin-table-settings__search-btn">
                 <svg
                   width="18"
                   height="18"
@@ -54,13 +52,15 @@
                 </svg>
               </button>
             </div>
-            <div class="countLog">
-              <p>Показывать</p>
-              <div class="dropdown countLog">
-                <button class="dropdown__button countLog__button">
-                  <span class="dropdown__button-ttile countLog__button-title">10 000</span>
-                  <span class="icon-arrow">
-                    <!-- иконка стрелки -->
+            <div class="count-log">
+              <p class="count-log__title">Показывать</p>
+              <div class="dropdown">
+                <button class="dropdown__toggle dropdown__toggle--count-log">
+                  <span class="dropdown__toggle-title dropdown__toggle-title--count-log"
+                    >10 000</span
+                  >
+                  <!-- иконка стрелки -->
+                  <span class="dropdown__icon-arrow">
                     <svg
                       width="10"
                       height="6"
@@ -75,25 +75,25 @@
                     </svg>
                   </span>
                 </button>
-                <div class="dropdown__content countLog__content">
-                  <a href="#">10 000</a>
-                  <a href="#">20 000</a>
-                  <a href="#">30 000</a>
-                  <a href="#">40 000</a>
+                <div class="dropdown__menu">
+                  <a class="dropdown__item dropdown__item--count-log" href="#">10 000</a>
+                  <a class="dropdown__item dropdown__item--count-log" href="#">20 000</a>
+                  <a class="dropdown__item dropdown__item--count-log" href="#">30 000</a>
+                  <a class="dropdown__item dropdown__item--count-log" href="#">40 000</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="userTable scrollbarStyling">
-          <table>
-            <thead>
+        <div class="userTable">
+          <table class="table table--user">
+            <thead class="table__columns">
               <tr>
-                <th class="userTable__email">
-                  <div class="headerCell">
+                <th class="table__column table__column--user-email">
+                  <div class="table__column-cell">
                     Почта
                     <!-- иконка стрелки -->
-                    <span class="icon-arrow">
+                    <span class="table__icon-arrow">
                       <svg
                         width="10"
                         height="6"
@@ -109,11 +109,11 @@
                     </span>
                   </div>
                 </th>
-                <th class="userTable__role">
-                  <div class="headerCell">
+                <th class="table__column table__column--user-role">
+                  <div class="table__column-cell">
                     Роль
                     <!-- иконка стрелки -->
-                    <span class="icon-arrow">
+                    <span class="table__icon-arrow">
                       <svg
                         width="10"
                         height="6"
@@ -129,11 +129,11 @@
                     </span>
                   </div>
                 </th>
-                <th class="userTable__domain">
-                  <div class="headerCell">
+                <th class="table__column table__column--domain">
+                  <div class="table__column-cell">
                     Домены
                     <!-- иконка стрелки -->
-                    <span class="icon-arrow">
+                    <span class="table__icon-arrow">
                       <svg
                         width="10"
                         height="6"
@@ -149,11 +149,11 @@
                     </span>
                   </div>
                 </th>
-                <th class="userTable__action">
-                  <div class="headerCell">
+                <th class="table__column table__column--action">
+                  <div class="table__column-cell">
                     Действия
                     <!-- иконка стрелки -->
-                    <span class="icon-arrow">
+                    <span class="table__icon-arrow">
                       <svg
                         width="10"
                         height="6"
@@ -171,127 +171,70 @@
                 </th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>admin@aeroglobus.ru</td>
-                <td>Пользователь</td>
-                <td class="userTable__domain__info">
+            <tbody class="table__lines">
+              <tr class="table__line">
+                <td class="table__line-cell">admin@aeroglobus.ru</td>
+                <td class="table__line-cell">Пользователь</td>
+                <td class="table__line-cell table__line-cell--domain-info">
                   corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
                 </td>
-                <td>
-                  <button class="button button__edit">Редактировать</button>
-                  <button class="button button__delete">Удалить</button>
+                <td class="table__line-cell">
+                  <button class="button button--primary table__btn-edit">Редактировать</button>
+                  <button class="button button--danger table__btn-delete">Удалить</button>
                 </td>
               </tr>
               <tr>
-                <td>admin@aeroglobus.ru</td>
-                <td>Пользователь</td>
-                <td class="userTable__domain__info">
+                <td class="table__line-cell">admin@aeroglobus.ru</td>
+                <td class="table__line-cell">Пользователь</td>
+                <td class="table__line-cell table__line-cell--domain-info">
                   corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
                 </td>
-                <td>
-                  <button class="button button__edit">Редактировать</button>
-                  <button class="button button__delete">Удалить</button>
+                <td class="table__line-cell">
+                  <button class="button button--primary table__btn-edit">Редактировать</button>
+                  <button class="button button--danger table__btn-delete">Удалить</button>
                 </td>
               </tr>
               <tr>
-                <td>admin@aeroglobus.ru</td>
-                <td>Пользователь</td>
-                <td class="userTable__domain__info">
+                <td class="table__line-cell">admin@aeroglobus.ru</td>
+                <td class="table__line-cell">Пользователь</td>
+                <td class="table__line-cell table__line-cell--domain-info">
                   corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
                 </td>
-                <td>
-                  <button class="button button__edit">Редактировать</button>
-                  <button class="button button__delete">Удалить</button>
+                <td class="table__line-cell">
+                  <button class="button button--primary table__btn-edit">Редактировать</button>
+                  <button class="button button--danger table__btn-delete">Удалить</button>
                 </td>
               </tr>
               <tr>
-                <td>admin@aeroglobus.ru</td>
-                <td>Пользователь</td>
-                <td class="userTable__domain__info">
+                <td class="table__line-cell">admin@aeroglobus.ru</td>
+                <td class="table__line-cell">Пользователь</td>
+                <td class="table__line-cell table__line-cell--domain-info">
                   corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
                 </td>
-                <td>
-                  <button class="button button__edit">Редактировать</button>
-                  <button class="button button__delete">Удалить</button>
+                <td class="table__line-cell">
+                  <button class="button button--primary table__btn-edit">Редактировать</button>
+                  <button class="button button--danger table__btn-delete">Удалить</button>
                 </td>
               </tr>
               <tr>
-                <td>admin@aeroglobus.ru</td>
-                <td>Пользователь</td>
-                <td class="userTable__domain__info">
+                <td class="table__line-cell">admin@aeroglobus.ru</td>
+                <td class="table__line-cell">Пользователь</td>
+                <td class="table__line-cell table__line-cell--domain-info">
                   corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru,
                   corteos-test.aeroglobus.ru,corteos.aeroglobus.ru, komandirovka.aeroglobus.ru,
                   corteos-test.aeroglobus.ru, corteos-test.aeroglobus.ru,
                 </td>
-                <td>
-                  <button class="button button__edit">Редактировать</button>
-                  <button class="button button__delete">Удалить</button>
-                </td>
-              </tr>
-              <tr>
-                <td>admin@aeroglobus.ru</td>
-                <td>Пользователь</td>
-                <td class="userTable__domain__info">
-                  corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
-                </td>
-                <td>
-                  <button class="button button__edit">Редактировать</button>
-                  <button class="button button__delete">Удалить</button>
-                </td>
-              </tr>
-              <tr>
-                <td>admin@aeroglobus.ru</td>
-                <td>Пользователь</td>
-                <td class="userTable__domain__info">
-                  corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
-                </td>
-                <td>
-                  <button class="button button__edit">Редактировать</button>
-                  <button class="button button__delete">Удалить</button>
-                </td>
-              </tr>
-              <tr>
-                <td>admin@aeroglobus.ru</td>
-                <td>Пользователь</td>
-                <td class="userTable__domain__info">
-                  corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
-                </td>
-                <td>
-                  <button class="button button__edit">Редактировать</button>
-                  <button class="button button__delete">Удалить</button>
-                </td>
-              </tr>
-              <tr>
-                <td>admin@aeroglobus.ru</td>
-                <td>Пользователь</td>
-                <td class="userTable__domain__info">
-                  corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
-                </td>
-                <td>
-                  <button class="button button__edit">Редактировать</button>
-                  <button class="button button__delete">Удалить</button>
-                </td>
-              </tr>
-              <tr>
-                <td>admin@aeroglobus.ru</td>
-                <td>Пользователь</td>
-                <td class="userTable__domain__info">
-                  corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru,
-                  corteos-test.aeroglobus.ru,corteos.aeroglobus.ru, komandirovka.aeroglobus.ru,
-                  corteos-test.aeroglobus.ru, corteos-test.aeroglobus.ru,
-                </td>
-                <td>
-                  <button class="button button__edit">Редактировать</button>
-                  <button class="button button__delete">Удалить</button>
+                <td class="table__line-cell">
+                  <button class="button button--primary table__btn-edit">Редактировать</button>
+                  <button class="button button--danger table__btn-delete">Удалить</button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="pagination">
-          <ul class="page">
-            <li class="page__back page__icon">
+          <ul class="pagination__list">
+            <li class="pagination__back pagination__icon-arrow">
               <svg
                 width="6"
                 height="10"
@@ -305,13 +248,17 @@
                 />
               </svg>
             </li>
-            <li class="page__item">1</li>
-            <li class="page__ellipsis">...</li>
-            <li class="page__item">21</li>
-            <li class="page__item">22</li>
-            <li class="page__item">23</li>
-            <li class="page__item page__item--activ">
-              <span class="page__icon--activ">
+            <li class="pagination__item">1</li>
+            <li class="pagination__ellipsis">...</li>
+            <li class="pagination__item">21</li>
+            <li class="pagination__item">22</li>
+            <li class="pagination__item">23</li>
+            <li class="pagination__item pagination__item--activ">
+              <div class="pagination__search pagination__search--disabled">
+                <input class="pagination__input" type="text" placeholder="Введите номер страницы" />
+                <div class="pagination__block"></div>
+              </div>
+              <span class="pagination__icon pagination__icon-serach pagination__icon-serach--activ">
                 <svg
                   width="18"
                   height="18"
@@ -329,12 +276,12 @@
               </span>
               24
             </li>
-            <li class="page__item">25</li>
-            <li class="page__item">26</li>
-            <li class="page__item">27</li>
-            <li class="page__ellipsis">...</li>
-            <li class="page__item">133</li>
-            <li class="page__next page__icon">
+            <li class="pagination__item">25</li>
+            <li class="pagination__item">26</li>
+            <li class="pagination__item">27</li>
+            <li class="pagination__ellipsis">...</li>
+            <li class="pagination__item">133</li>
+            <li class="pagination__next pagination__icon-arrow">
               <svg
                 width="6"
                 height="10"
@@ -352,7 +299,8 @@
         </div>
       </div>
     </main>
-    <script src="./js/buttonClick.js"></script>
+    <script src="./js/button-click.js"></script>
+    <script src="./js/pagination.js"></script>
 
     <script>
       document.querySelector(".countLog__button").addEventListener("click", function () {

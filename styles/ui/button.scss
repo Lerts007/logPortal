@@ -8,7 +8,6 @@
   height: 30px;
   padding: 0 12px;
 
-  background-color: $button-primary;
   border: none;
   border-radius: 5px;
 
@@ -18,20 +17,70 @@
   & a {
     @include fonts(700, 14px, $white);
   }
-  @media (hover: hover) {
-    &:hover {
-      background-color: $button-hover;
+
+  &--primary {
+    background-color: $primary;
+
+    transition: background-color 0.3s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: $primary-hover;
+      }
     }
   }
-  &.button-click--primary {
+  &--secondary {
+    background-color: $secondary;
+    transition: background-color 0.3s ease;
+    @media (hover: hover) {
+      &:hover {
+        background-color: $secondary-hover;
+      }
+    }
+  }
+  &--danger {
+    background-color: $danger;
+    transition: background-color 0.3s ease;
+    @media (hover: hover) {
+      &:hover {
+        background-color: $danger-hover;
+      }
+    }
+  }
+  &--warning {
+    background-color: $warning;
+    transition: background-color 0.3s ease;
+    @media (hover: hover) {
+      &:hover {
+        background-color: $warning-hover;
+      }
+    }
+  }
+
+  &__click--primary {
     animation: gradient--primary 200ms ease;
-    background: $button-secondary-activ;
+    background: $primary-activ;
     color: $white;
     box-shadow: none;
   }
-  &.button-click--danger {
+
+  &__click--secondary {
+    animation: gradient--secondary 200ms ease;
+    background: $secondary-activ;
+    color: $white;
+    box-shadow: none;
+  }
+
+  &__click--danger {
     animation: gradient--danger 200ms ease;
-    background: $button-danger-activ;
+    background: $danger-activ;
+    color: $white;
+    box-shadow: none;
+  }
+
+  &__click--warning {
+    animation: gradient--warning 200ms ease;
+    background: $warning-activ;
     color: $white;
     box-shadow: none;
   }
@@ -41,41 +90,85 @@
     background: radial-gradient(
       circle at center,
       rgba(255, 125, 125, 0) 0%,
-      $button-hover 0%,
-      $button-hover 100%
+      $primary-hover 0%,
+      $primary-hover 100%
     );
   }
   25% {
     background: radial-gradient(
       circle at center,
-      $button-secondary-activ 24%,
-      $button-hover 25%,
-      $button-hover 100%
+      $primary-activ 24%,
+      $primary-hover 25%,
+      $primary-hover 100%
     );
   }
   50% {
     background: radial-gradient(
       circle at center,
-      $button-secondary-activ 49%,
-      $button-hover 50%,
-      $button-hover 100%
+      $primary-activ 49%,
+      $primary-hover 50%,
+      $primary-hover 100%
     );
   }
   75% {
     background: radial-gradient(
       circle at center,
-      $button-secondary-activ 74%,
-      $button-hover 75%,
-      $button-hover 100%
+      $primary-activ 74%,
+      $primary-hover 75%,
+      $primary-hover 100%
     );
   }
   100% {
     color: $white;
     background: radial-gradient(
       circle at center,
-      $button-secondary-activ 99%,
-      $button-hover 100%,
-      $button-hover 100%
+      $primary-activ 99%,
+      $primary-hover 100%,
+      $primary-hover 100%
+    );
+  }
+}
+
+@keyframes gradient--secondary {
+  0% {
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 125, 125, 0) 0%,
+      $secondary-hover 0%,
+      $secondary-hover 100%
+    );
+  }
+  25% {
+    background: radial-gradient(
+      circle at center,
+      $secondary-activ 24%,
+      $secondary-hover 25%,
+      $secondary-hover 100%
+    );
+  }
+  50% {
+    background: radial-gradient(
+      circle at center,
+      $secondary-activ 49%,
+      $secondary-hover 50%,
+      $secondary-hover 100%
+    );
+  }
+  75% {
+    background: radial-gradient(
+      circle at center,
+      $secondary-activ 74%,
+      $secondary-hover 75%,
+      $secondary-hover 100%
+    );
+  }
+  100% {
+    color: $white;
+    background: radial-gradient(
+      circle at center,
+      $secondary-activ 99%,
+      $secondary-hover 100%,
+      $secondary-hover 100%
     );
   }
 }
@@ -85,41 +178,85 @@
     background: radial-gradient(
       circle at center,
       rgba(255, 125, 125, 0) 0%,
-      $button-danger-hover 0%,
-      $button-danger-hover 100%
+      $danger-hover 0%,
+      $danger-hover 100%
     );
   }
   25% {
     background: radial-gradient(
       circle at center,
-      $button-danger-activ 24%,
-      $button-danger-hover 25%,
-      $button-danger-hover 100%
+      $danger-activ 24%,
+      $danger-hover 25%,
+      $danger-hover 100%
     );
   }
   50% {
     background: radial-gradient(
       circle at center,
-      $button-danger-activ 49%,
-      $button-danger-hover 50%,
-      $button-danger-hover 100%
+      $danger-activ 49%,
+      $danger-hover 50%,
+      $danger-hover 100%
     );
   }
   75% {
     background: radial-gradient(
       circle at center,
-      $button-danger-activ 74%,
-      $button-danger-hover 75%,
-      $button-danger-hover 100%
+      $danger-activ 74%,
+      $danger-hover 75%,
+      $danger-hover 100%
     );
   }
   100% {
     color: $white;
     background: radial-gradient(
       circle at center,
-      $button-danger-activ 99%,
-      $button-danger-hover 100%,
-      $button-danger-hover 100%
+      $danger-activ 99%,
+      $danger-hover 100%,
+      $danger-hover 100%
+    );
+  }
+}
+
+@keyframes gradient--warning {
+  0% {
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 125, 125, 0) 0%,
+      $warning-hover 0%,
+      $warning-hover 100%
+    );
+  }
+  25% {
+    background: radial-gradient(
+      circle at center,
+      $warning-activ 24%,
+      $warning-hover 25%,
+      $warning-hover 100%
+    );
+  }
+  50% {
+    background: radial-gradient(
+      circle at center,
+      $warning-activ 49%,
+      $warning-hover 50%,
+      $warning-hover 100%
+    );
+  }
+  75% {
+    background: radial-gradient(
+      circle at center,
+      $warning-activ 74%,
+      $warning-hover 75%,
+      $warning-hover 100%
+    );
+  }
+  100% {
+    color: $white;
+    background: radial-gradient(
+      circle at center,
+      $warning-activ 99%,
+      $warning-hover 100%,
+      $warning-hover 100%
     );
   }
 }

@@ -1,0 +1,15 @@
+.badge {
+  @include fonts(400, 16px);
+  padding: 6px 12px;
+  text-align: center;
+
+  border-radius: 8px;
+}
+.badge--agent {
+  color: $agent-text;
+  background-color: $agent-background;
+}
+.badge--client {
+  color: $client-text;
+  background-color: $client-background;
+}

@@ -7,17 +7,15 @@
     <title>Document</title>
   </head>
   <body>
-    <header>
-      <div class="container container-header">
-        <nav class="navbar">
-          <ul class="navbar__links">
-            <li><a href="./index.html">Журнал событий</a></li>
-            <li><a href="./admin.html">Администрирование</a></li>
-          </ul>
-        </nav>
-        <div class="user-info">
-          <p>support@corteos.travel</p>
-          <button class="logout-button button">Выйти</button>
+    <header class="header">
+      <div class="container header__container">
+        <div class="header__links">
+          <a class="header__item" href="./index.html">Журнал событий</a>
+          <a class="header__item" href="./admin.html">Администрирование</a>
+        </div>
+        <div class="header__user-info">
+          <p class="header__item">support@corteos.travel</p>
+          <button class="header__btn-logout button button--primary">Выйти</button>
         </div>
       </div>
     </header>
@@ -25,17 +23,21 @@
       <div class="container container-main">
         <!-- инфо о логах -->
         <div class="log-info">
-          <p class="log-info__queueLength">Длина очередей<span> — 2 лога</span></p>
-          <p class="log-info__savingSpeed">Скорость сохранений<span> — 1337,5465 лога/сек</span></p>
-          <p class="log-info__error">Ошибок<span> — 19</span></p>
+          <p class="log-info__name log-info__name--queueLength">
+            Длина очередей<span> — 2 лога</span>
+          </p>
+          <p class="log-info__name log-info__name--savingSpeed">
+            Скорость сохранений<span> — 1337,5465 лога/сек</span>
+          </p>
+          <p class="log-info__name log-info__name--error">Ошибок<span> — 19</span></p>
         </div>
 
         <!-- график  -->
-        <div class="dropdown chart">
-          <button class="dropdown__button chart__button">
-            <span class="dropdown__button-ttile chart__button-ttile">
+        <div class="dropdown dropdown--chart">
+          <button class="dropdown__toggle">
+            <span class="dropdown__toggle-title">
               <!-- иконка фильтр -->
-              <span class="icon">
+              <span class="dropdown__icon">
                 <svg
                   width="14"
                   height="12"
@@ -60,7 +62,7 @@
               График
             </span>
             <!-- иконка стрелки -->
-            <span class="icon-arrow">
+            <span class="dropdown__icon-arrow">
               <svg
                 width="10"
                 height="6"
@@ -75,22 +77,22 @@
               </svg>
             </span>
           </button>
-          <div class="dropdown__content chart__content">
-            <a href="#">График 1</a>
-            <a href="#">График 2</a>
-            <a href="#">График 3</a>
+          <div class="dropdown__menu dropdown__menu--chart">
+            <a class="dropdown__item" href="#">График 1</a>
+            <a class="dropdown__item" href="#">График 2</a>
+            <a class="dropdown__item" href="#">График 3</a>
           </div>
         </div>
 
         <!-- блок для настроек таблицы -->
-        <div class="settingsTable">
-          <div class="filter">
-            <div class="dropdown filterType">
-              <button class="dropdown__button filterType__button">
-                <span class="dropdown__button-ttile filterType__button-title">Тип</span>
-                <span class="filterType__button-select">Все</span>
+        <div class="log-table-settings">
+          <div class="log-table-settings__l-side">
+            <div class="dropdown">
+              <button class="dropdown__toggle dropdown__toggle--filte-type">
+                <span class="dropdown__toggle-title">Тип</span>
+                <span class="dropdown__toggle-select">Все</span>
                 <!-- иконка стрелки -->
-                <span class="icon-arrow">
+                <span class="dropdown__icon-arrow">
                   <svg
                     width="10"
                     height="6"
@@ -105,15 +107,15 @@
                   </svg>
                 </span>
               </button>
-              <div class="dropdown__content filterType__content">
-                <a href="#">Все</a>
-                <a href="#">Тип 1</a>
-                <a href="#">Тип 2</a>
-                <a href="#">Тип 3</a>
+              <div class="dropdown__menu">
+                <a class="dropdown__item" href="#">Все</a>
+                <a class="dropdown__item" href="#">Тип 1</a>
+                <a class="dropdown__item" href="#">Тип 2</a>
+                <a class="dropdown__item" href="#">Тип 3</a>
               </div>
             </div>
 
-            <div class="filter-datetime">
+            <div class="datetime">
               <!-- Иконка календаря -->
               <svg
                 width="14"
@@ -138,7 +140,7 @@
               </svg>
 
               <input
-                class="filter-datetime__input"
+                class="datetime__input"
                 id="party"
                 type="datetime-local"
                 name="partydate"
@@ -148,7 +150,7 @@
                 value="2000-01-01T00:00:00"
               />
             </div>
-            <div class="filter-datetime">
+            <div class="datetime">
               <!-- иконка календарь -->
               <svg
                 width="14"
@@ -173,7 +175,7 @@
               </svg>
 
               <input
-                class="filter-datetime__input"
+                class="datetime__input"
                 id="party"
                 type="datetime-local"
                 name="partydate"
@@ -183,8 +185,8 @@
                 value="2000-01-01T00:00:00"
               />
             </div>
-            <button class="button filter__find">Найти</button>
-            <button class="filter__reset">
+            <button class="button button--primary log-table-settings__btn">Найти</button>
+            <button class="log-table-settings__reset">
               <!-- иконка reset -->
               <svg
                 width="16"
@@ -205,13 +207,12 @@
               Сбросить
             </button>
           </div>
-
-          <div class="countLog">
-            <p>Показывать</p>
-            <div class="dropdown countLog">
-              <button class="dropdown__button countLog__button">
-                <span class="dropdown__button-ttile countLog__button-title">10 000</span>
-                <span class="icon-arrow">
+          <div class="log-table-settings__r-side count-log">
+            <p class="count-log__title">Показывать</p>
+            <div class="dropdown">
+              <button class="dropdown__toggle dropdown__toggle--count-log">
+                <span class="dropdown__toggle-title dropdown__toggle-title--count-log">10 000</span>
+                <span class="dropdown__icon-arrow">
                   <!-- иконка стрелки -->
                   <svg
                     width="10"
@@ -227,21 +228,21 @@
                   </svg>
                 </span>
               </button>
-              <div class="dropdown__content countLog__content">
-                <a href="#">10 000</a>
-                <a href="#">20 000</a>
-                <a href="#">30 000</a>
-                <a href="#">40 000</a>
+              <div class="dropdown__menu">
+                <a class="dropdown__item dropdown__item--count-log" href="#">10 000</a>
+                <a class="dropdown__item dropdown__item--count-log" href="#">20 000</a>
+                <a class="dropdown__item dropdown__item--count-log" href="#">30 000</a>
+                <a class="dropdown__item dropdown__item--count-log" href="#">40 000</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="log scrollbarStyling">
-          <table class="log__table">
-            <thead>
+        <div class="log">
+          <table class="table table--log">
+            <thead class="table__columns">
               <tr>
-                <th class="filterCell">
+                <th class="table__column table__column--no-border table__column--filterCell">
                   <!-- иконка фильтр -->
                   <svg
                     width="14"
@@ -264,11 +265,11 @@
                     />
                   </svg>
                 </th>
-                <th class="date">
-                  <div class="headerCell">
+                <th class="table__column table__column--date">
+                  <div class="table__column-cell">
                     Дата
                     <!-- иконка стрелки -->
-                    <span class="icon-arrow">
+                    <span class="table__icon-arrow">
                       <svg
                         width="10"
                         height="6"
@@ -283,7 +284,7 @@
                       </svg>
                     </span>
                     <!-- иконка закрепления столбца -->
-                    <span class="icon-pin">
+                    <span class="table__icon-pin">
                       <svg
                         width="9"
                         height="12"
@@ -301,11 +302,11 @@
                     </span>
                   </div>
                 </th>
-                <th class="message">
-                  <div class="headerCell">
+                <th class="table__column table__column--message">
+                  <div class="table__column-cell">
                     Сообщение
                     <!-- иконка поиска -->
-                    <span class="icon-search">
+                    <span class="table__icon-search">
                       <svg
                         width="12"
                         height="12"
@@ -322,7 +323,7 @@
                       </svg>
                     </span>
                     <!-- иконка закрепления столбца -->
-                    <span class="icon-pin icon-pin--disabled">
+                    <span class="table__icon-pin table__icon-pin--disabled">
                       <svg
                         width="9"
                         height="12"
@@ -339,17 +340,15 @@
                       </svg>
                     </span>
                   </div>
-                  <div
-                    class="modalWindowSearch modalWindowSearch-message modalWindowSearch--disabled"
-                  >
-                    <div class="input-wrapper">
+                  <div class="search-filter search-filter--disabled">
+                    <div class="search-filter__input-wrapper">
                       <input
-                        class="modalWindowSearch__input inputPlaceholder"
+                        class="search-filter__input inputPlaceholder"
                         type="text"
                         placeholder="Текст"
                       />
                       <!-- иконка поиска -->
-                      <span class="icon-search">
+                      <span class="search-filter__icon-search">
                         <svg
                           width="12"
                           height="12"
@@ -366,35 +365,47 @@
                         </svg>
                       </span>
                     </div>
-                    <div class="modalWindowSearch__list scrollbarStyling">
-                      <label for="1">
-                        <input type="checkbox" name="" id="1" />
+                    <div class="search-filter__menu">
+                      <label class="search-filter__item" for="1">
+                        <input class="search-filter__item-check" type="checkbox" name="" id="1" />
                         Текст 1
                       </label>
-                      <label for="2">
-                        <input type="checkbox" name="" id="2" />
+                      <label class="search-filter__item" for="2">
+                        <input class="search-filter__item-check" type="checkbox" name="" id="2" />
                         Текст 2
                       </label>
-                      <label for="3">
-                        <input type="checkbox" name="" id="3" disabled />
+                      <label class="search-filter__item" for="3">
+                        <input
+                          class="search-filter__item-check"
+                          type="checkbox"
+                          name=""
+                          id="3"
+                          disabled
+                        />
                         Текст 3
                       </label>
-                      <label for="4">
-                        <input type="checkbox" name="" id="4" />
+                      <label class="search-filter__item" for="4">
+                        <input class="search-filter__item-check" type="checkbox" name="" id="4" />
                         Текст 4
                       </label>
-                      <label for="5">
-                        <input type="checkbox" name="" id="5" disabled />
+                      <label class="search-filter__item" for="5">
+                        <input
+                          class="search-filter__item-check"
+                          type="checkbox"
+                          name=""
+                          id="5"
+                          disabled
+                        />
                         Текст 5
                       </label>
                     </div>
                   </div>
                 </th>
-                <th class="user">
-                  <div class="headerCell">
+                <th class="table__column table__column--user">
+                  <div class="table__column-cell">
                     Пользователь
                     <!-- иконка поиска -->
-                    <span class="icon-search">
+                    <span class="table__icon-search">
                       <svg
                         width="12"
                         height="12"
@@ -411,7 +422,7 @@
                       </svg>
                     </span>
                     <!-- иконка закрепления столбца -->
-                    <span class="icon-pin icon-pin--disabled">
+                    <span class="table__icon-pin table__icon-pin--disabled">
                       <svg
                         width="9"
                         height="12"
@@ -428,15 +439,15 @@
                       </svg>
                     </span>
                   </div>
-                  <div class="modalWindowSearch modalWindowSearch-user modalWindowSearch--disabled">
-                    <div class="input-wrapper">
+                  <div class="search-filter search-filter--disabled">
+                    <div class="search-filter__input-wrapper">
                       <input
-                        class="modalWindowSearch__input inputPlaceholder"
+                        class="search-filter__input inputPlaceholder"
                         type="text"
                         placeholder="Текст"
                       />
                       <!-- иконка поиска -->
-                      <span class="icon-search">
+                      <span class="search-filter__icon-search">
                         <svg
                           width="12"
                           height="12"
@@ -453,35 +464,47 @@
                         </svg>
                       </span>
                     </div>
-                    <div class="modalWindowSearch__list scrollbarStyling">
-                      <label for="1">
-                        <input type="checkbox" name="" id="1" />
+                    <div class="search-filter__menu">
+                      <label class="search-filter__item" for="1">
+                        <input class="search-filter__item-check" type="checkbox" name="" id="1" />
                         Текст 1
                       </label>
-                      <label for="2">
-                        <input type="checkbox" name="" id="2" />
+                      <label class="search-filter__item" for="2">
+                        <input class="search-filter__item-check" type="checkbox" name="" id="2" />
                         Текст 2
                       </label>
-                      <label for="3">
-                        <input type="checkbox" name="" id="3" disabled />
+                      <label class="search-filter__item" for="3">
+                        <input
+                          class="search-filter__item-check"
+                          type="checkbox"
+                          name=""
+                          id="3"
+                          disabled
+                        />
                         Текст 3
                       </label>
-                      <label for="4">
-                        <input type="checkbox" name="" id="4" />
+                      <label class="search-filter__item" for="4">
+                        <input class="search-filter__item-check" type="checkbox" name="" id="4" />
                         Текст 4
                       </label>
-                      <label for="5">
-                        <input type="checkbox" name="" id="5" disabled />
+                      <label class="search-filter__item" for="5">
+                        <input
+                          class="search-filter__item-check"
+                          type="checkbox"
+                          name=""
+                          id="5"
+                          disabled
+                        />
                         Текст 5
                       </label>
                     </div>
                   </div>
                 </th>
-                <th class="badges">
-                  <div class="headerCell">
+                <th class="table__column table__column--badges">
+                  <div class="table__column-cell">
                     Роль
                     <!-- иконка стрелки -->
-                    <span class="icon-arrow">
+                    <span class="table__icon-arrow">
                       <svg
                         width="10"
                         height="6"
@@ -496,7 +519,7 @@
                       </svg>
                     </span>
                     <!-- иконка закрепления столбца -->
-                    <span class="icon-pin icon-pin--disabled">
+                    <span class="table__icon-pin table__icon-pin--disabled">
                       <svg
                         width="9"
                         height="12"
@@ -514,11 +537,11 @@
                     </span>
                   </div>
                 </th>
-                <th class="site">
-                  <div class="headerCell">
+                <th class="table__column table__column--site">
+                  <div class="table__column-cell">
                     Сайт
                     <!-- иконка стрелки -->
-                    <span class="icon-arrow">
+                    <span class="table__icon-arrow">
                       <svg
                         width="10"
                         height="6"
@@ -533,7 +556,7 @@
                       </svg>
                     </span>
                     <!-- иконка закрепления столбца -->
-                    <span class="icon-pin icon-pin--disabled">
+                    <span class="table__icon-pin table__icon-pin--disabled">
                       <svg
                         width="9"
                         height="12"
@@ -551,11 +574,11 @@
                     </span>
                   </div>
                 </th>
-                <th class="session">
-                  <div class="headerCell">
+                <th class="table__column table__column--session">
+                  <div class="table__column-cell">
                     Сессия
                     <!-- иконка поиска -->
-                    <span class="icon-search">
+                    <span class="table__icon-search">
                       <svg
                         width="12"
                         height="12"
@@ -572,7 +595,7 @@
                       </svg>
                     </span>
                     <!-- иконка закрепления столбца -->
-                    <span class="icon-pin icon-pin--disabled">
+                    <span class="table__icon-pin table__icon-pin--disabled">
                       <svg
                         width="9"
                         height="12"
@@ -589,13 +612,15 @@
                       </svg>
                     </span>
                   </div>
-                  <div
-                    class="modalWindowSearch modalWindowSearch-session modalWindowSearch--disabled"
-                  >
-                    <div class="input-wrapper">
-                      <input class="modalWindowSearch__input" type="text" placeholder="Текст" />
+                  <div class="search-filter search-filter--disabled">
+                    <div class="search-filter__input-wrapper">
+                      <input
+                        class="search-filter__input inputPlaceholder"
+                        type="text"
+                        placeholder="Текст"
+                      />
                       <!-- иконка поиска -->
-                      <span class="icon-search">
+                      <span class="search-filter__icon-search">
                         <svg
                           width="12"
                           height="12"
@@ -612,35 +637,47 @@
                         </svg>
                       </span>
                     </div>
-                    <div class="modalWindowSearch__list scrollbarStyling">
-                      <label for="1">
-                        <input type="checkbox" name="" id="1" />
+                    <div class="search-filter__menu">
+                      <label class="search-filter__item" for="1">
+                        <input class="search-filter__item-check" type="checkbox" name="" id="1" />
                         Текст 1
                       </label>
-                      <label for="2">
-                        <input type="checkbox" name="" id="2" />
+                      <label class="search-filter__item" for="2">
+                        <input class="search-filter__item-check" type="checkbox" name="" id="2" />
                         Текст 2
                       </label>
-                      <label for="3">
-                        <input type="checkbox" name="" id="3" disabled />
+                      <label class="search-filter__item" for="3">
+                        <input
+                          class="search-filter__item-check"
+                          type="checkbox"
+                          name=""
+                          id="3"
+                          disabled
+                        />
                         Текст 3
                       </label>
-                      <label for="4">
-                        <input type="checkbox" name="" id="4" />
+                      <label class="search-filter__item" for="4">
+                        <input class="search-filter__item-check" type="checkbox" name="" id="4" />
                         Текст 4
                       </label>
-                      <label for="5">
-                        <input type="checkbox" name="" id="5" disabled />
+                      <label class="search-filter__item" for="5">
+                        <input
+                          class="search-filter__item-check"
+                          type="checkbox"
+                          name=""
+                          id="5"
+                          disabled
+                        />
                         Текст 5
                       </label>
                     </div>
                   </div>
                 </th>
-                <th class="id">
-                  <div class="headerCell">
+                <th class="table__column table__column--id">
+                  <div class="table__column-cell">
                     ID
                     <!-- иконка поиска -->
-                    <span class="icon-search">
+                    <span class="table__icon-search">
                       <svg
                         width="12"
                         height="12"
@@ -657,7 +694,7 @@
                       </svg>
                     </span>
                     <!-- иконка закрепления столбца -->
-                    <span class="icon-pin icon-pin--disabled">
+                    <span class="table__icon-pin table__icon-pin--disabled">
                       <svg
                         width="9"
                         height="12"
@@ -674,15 +711,15 @@
                       </svg>
                     </span>
                   </div>
-                  <div class="modalWindowSearch modalWindowSearch-id modalWindowSearch--disabled">
-                    <div class="input-wrapper">
+                  <div class="search-filter search-filter--disabled">
+                    <div class="search-filter__input-wrapper">
                       <input
-                        class="modalWindowSearch__input inputPlaceholder"
+                        class="search-filter__input inputPlaceholder"
                         type="text"
                         placeholder="Текст"
                       />
                       <!-- иконка поиска -->
-                      <span class="icon-search">
+                      <span class="search-filter__icon-search">
                         <svg
                           width="12"
                           height="12"
@@ -699,35 +736,47 @@
                         </svg>
                       </span>
                     </div>
-                    <div class="modalWindowSearch__list scrollbarStyling">
-                      <label for="1">
-                        <input type="checkbox" name="" id="1" />
+                    <div class="search-filter__menu">
+                      <label class="search-filter__item" for="1">
+                        <input class="search-filter__item-check" type="checkbox" name="" id="1" />
                         Текст 1
                       </label>
-                      <label for="2">
-                        <input type="checkbox" name="" id="2" />
+                      <label class="search-filter__item" for="2">
+                        <input class="search-filter__item-check" type="checkbox" name="" id="2" />
                         Текст 2
                       </label>
-                      <label for="3">
-                        <input type="checkbox" name="" id="3" disabled />
+                      <label class="search-filter__item" for="3">
+                        <input
+                          class="search-filter__item-check"
+                          type="checkbox"
+                          name=""
+                          id="3"
+                          disabled
+                        />
                         Текст 3
                       </label>
-                      <label for="4">
-                        <input type="checkbox" name="" id="4" />
+                      <label class="search-filter__item" for="4">
+                        <input class="search-filter__item-check" type="checkbox" name="" id="4" />
                         Текст 4
                       </label>
-                      <label for="5">
-                        <input type="checkbox" name="" id="5" disabled />
+                      <label class="search-filter__item" for="5">
+                        <input
+                          class="search-filter__item-check"
+                          type="checkbox"
+                          name=""
+                          id="5"
+                          disabled
+                        />
                         Текст 5
                       </label>
                     </div>
                   </div>
                 </th>
-                <th class="class">
-                  <div class="headerCell">
+                <th class="table__column table__column--class">
+                  <div class="table__column-cell">
                     Класс
                     <!-- иконка стрелки -->
-                    <span class="icon-arrow">
+                    <span class="table__icon-arrow">
                       <svg
                         width="10"
                         height="6"
@@ -742,7 +791,7 @@
                       </svg>
                     </span>
                     <!-- иконка закрепления столбца -->
-                    <span class="icon-pin icon-pin--disabled">
+                    <span class="table__icon-pin table__icon-pin--disabled">
                       <svg
                         width="9"
                         height="12"
@@ -760,11 +809,11 @@
                     </span>
                   </div>
                 </th>
-                <th class="source">
-                  <div class="headerCell">
+                <th class="table__column table__column--source">
+                  <div class="table__column-cell">
                     Источник
                     <!-- иконка стрелки -->
-                    <span class="icon-arrow">
+                    <span class="table__icon-arrow">
                       <svg
                         width="10"
                         height="6"
@@ -779,7 +828,7 @@
                       </svg>
                     </span>
                     <!-- иконка закрепления столбца -->
-                    <span class="icon-pin icon-pin--disabled">
+                    <span class="table__icon-pin table__icon-pin--disabled">
                       <svg
                         width="9"
                         height="12"
@@ -797,11 +846,11 @@
                     </span>
                   </div>
                 </th>
-                <th class="ip-client">
-                  <div class="headerCell">
+                <th class="table__column table__column--ip-client">
+                  <div class="table__column-cell">
                     IP клиента
                     <!-- иконка поиска -->
-                    <span class="icon-search">
+                    <span class="table__icon-search">
                       <svg
                         width="12"
                         height="12"
@@ -818,7 +867,7 @@
                       </svg>
                     </span>
                     <!-- иконка закрепления столбца -->
-                    <span class="icon-pin icon-pin--disabled">
+                    <span class="table__icon-pin table__icon-pin--disabled">
                       <svg
                         width="9"
                         height="12"
@@ -835,17 +884,15 @@
                       </svg>
                     </span>
                   </div>
-                  <div
-                    class="modalWindowSearch modalWindowSearch-ipClient modalWindowSearch--disabled"
-                  >
-                    <div class="input-wrapper">
+                  <div class="search-filter search-filter--last search-filter--disabled">
+                    <div class="search-filter__input-wrapper">
                       <input
-                        class="modalWindowSearch__input inputPlaceholder"
+                        class="search-filter__input inputPlaceholder"
                         type="text"
                         placeholder="Текст"
                       />
                       <!-- иконка поиска -->
-                      <span class="icon-search">
+                      <span class="search-filter__icon-search">
                         <svg
                           width="12"
                           height="12"
@@ -862,25 +909,37 @@
                         </svg>
                       </span>
                     </div>
-                    <div class="modalWindowSearch__list scrollbarStyling">
-                      <label for="1">
-                        <input type="checkbox" name="" id="1" />
+                    <div class="search-filter__menu">
+                      <label class="search-filter__item" for="1">
+                        <input class="search-filter__item-check" type="checkbox" name="" id="1" />
                         Текст 1
                       </label>
-                      <label for="2">
-                        <input type="checkbox" name="" id="2" />
+                      <label class="search-filter__item" for="2">
+                        <input class="search-filter__item-check" type="checkbox" name="" id="2" />
                         Текст 2
                       </label>
-                      <label for="3">
-                        <input type="checkbox" name="" id="3" disabled />
+                      <label class="search-filter__item" for="3">
+                        <input
+                          class="search-filter__item-check"
+                          type="checkbox"
+                          name=""
+                          id="3"
+                          disabled
+                        />
                         Текст 3
                       </label>
-                      <label for="4">
-                        <input type="checkbox" name="" id="4" />
+                      <label class="search-filter__item" for="4">
+                        <input class="search-filter__item-check" type="checkbox" name="" id="4" />
                         Текст 4
                       </label>
-                      <label for="5">
-                        <input type="checkbox" name="" id="5" disabled />
+                      <label class="search-filter__item" for="5">
+                        <input
+                          class="search-filter__item-check"
+                          type="checkbox"
+                          name=""
+                          id="5"
+                          disabled
+                        />
                         Текст 5
                       </label>
                     </div>
@@ -888,11 +947,11 @@
                 </th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="table__lines">
               <!--  -->
-              <tr class="lineTable">
-                <td class="status">
-                  <div class="status__activ"></div>
+              <tr class="table__line table__line--log">
+                <td class="table__line-cell table__line-cell--status">
+                  <div class="table__status table__line-cell--activ"></div>
                   <svg
                     width="10"
                     height="6"
@@ -906,210 +965,27 @@
                     />
                   </svg>
                 </td>
-                <td class="lineTable__date">14 ноя, 12:30:56</td>
-                <td class="lineTable__message">ТАЙМЕР CallbackTimerAction</td>
-                <td class="lineTable__email">v.chepurnoy@skylane.com</td>
-                <td class="badge"><div class="badge__agent">Агент</div></td>
-                <td class="lineTable__site">https://prd.sso.corteos.ru</td>
-                <td class="lineTable__session">ENFG2ODHWLBW</td>
-                <td class="lineTable__id">3117465</td>
-                <td class="lineTable__class">ImapIdleHelper.cs</td>
-                <td class="lineTable__source">imap-monitor</td>
-                <td class="lineTable__ipClient">212.233.132.22</td>
-              </tr>
-              <tr class="lineTable">
-                <td class="status">
-                  <div class="status__activ"></div>
-                  <svg
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                      fill="#293553"
-                    />
-                  </svg>
+                <td class="table__line-cell table__line-cell--border table__line-cell--date">
+                  14 ноя, 12:30:56
                 </td>
-                <td class="lineTable__date">14 ноя, 12:30:56</td>
-                <td class="lineTable__message">ТАЙМЕР CallbackTimerAction</td>
-                <td class="lineTable__email">v.chepurnoy@skylane.com</td>
-                <td class="badge"><div class="badge__agent">Агент</div></td>
-                <td class="lineTable__site">https://prd.sso.corteos.ru</td>
-                <td class="lineTable__session">ENFG2ODHWLBW</td>
-                <td class="lineTable__id">3117465</td>
-                <td class="lineTable__class">ImapIdleHelper.cs</td>
-                <td class="lineTable__source">imap-monitor</td>
-                <td class="lineTable__ipClient">212.233.132.22</td>
-              </tr>
-              <tr class="lineTable">
-                <td class="status">
-                  <div class="status__activ"></div>
-                  <svg
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                      fill="#293553"
-                    />
-                  </svg>
+                <td class="table__line-cell table__line-cell--message">
+                  ТАЙМЕР CallbackTimerAction
                 </td>
-                <td class="lineTable__date">14 ноя, 12:30:56</td>
-                <td class="lineTable__message">ТАЙМЕР CallbackTimerAction</td>
-                <td class="lineTable__email">v.chepurnoy@skylane.com</td>
-                <td class="badge"><div class="badge__agent">Агент</div></td>
-                <td class="lineTable__site">https://prd.sso.corteos.ru</td>
-                <td class="lineTable__session">ENFG2ODHWLBW</td>
-                <td class="lineTable__id">3117465</td>
-                <td class="lineTable__class">ImapIdleHelper.cs</td>
-                <td class="lineTable__source">imap-monitor</td>
-                <td class="lineTable__ipClient">212.233.132.22</td>
-              </tr>
-              <tr class="lineTable">
-                <td class="status">
-                  <div class="status__activ"></div>
-                  <svg
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                      fill="#293553"
-                    />
-                  </svg>
+                <td class="table__line-cell table__line-cell--email">v.chepurnoy@skylane.com</td>
+                <td class="table__line-cell table__line-cell--badge">
+                  <div class="badge badge--agent">Агент</div>
                 </td>
-                <td class="lineTable__date">14 ноя, 12:30:56</td>
-                <td class="lineTable__message">ТАЙМЕР CallbackTimerAction</td>
-                <td class="lineTable__email">v.chepurnoy@skylane.com</td>
-                <td class="badge"><div class="badge__agent">Агент</div></td>
-                <td class="lineTable__site">https://prd.sso.corteos.ru</td>
-                <td class="lineTable__session">ENFG2ODHWLBW</td>
-                <td class="lineTable__id">3117465</td>
-                <td class="lineTable__class">ImapIdleHelper.cs</td>
-                <td class="lineTable__source">imap-monitor</td>
-                <td class="lineTable__ipClient">212.233.132.22</td>
-              </tr>
-              <tr class="lineTable">
-                <td class="status">
-                  <div class="status__activ"></div>
-                  <svg
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                      fill="#293553"
-                    />
-                  </svg>
-                </td>
-                <td class="lineTable__date">14 ноя, 12:30:56</td>
-                <td class="lineTable__message">ТАЙМЕР CallbackTimerAction</td>
-                <td class="lineTable__email">v.chepurnoy@skylane.com</td>
-                <td class="badge"><div class="badge__agent">Агент</div></td>
-                <td class="lineTable__site">https://prd.sso.corteos.ru</td>
-                <td class="lineTable__session">ENFG2ODHWLBW</td>
-                <td class="lineTable__id">3117465</td>
-                <td class="lineTable__class">ImapIdleHelper.cs</td>
-                <td class="lineTable__source">imap-monitor</td>
-                <td class="lineTable__ipClient">212.233.132.22</td>
-              </tr>
-              <tr class="lineTable">
-                <td class="status">
-                  <div class="status__activ"></div>
-                  <svg
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                      fill="#293553"
-                    />
-                  </svg>
-                </td>
-                <td class="lineTable__date">14 ноя, 12:30:56</td>
-                <td class="lineTable__message">ТАЙМЕР CallbackTimerAction</td>
-                <td class="lineTable__email">v.chepurnoy@skylane.com</td>
-                <td class="badge"><div class="badge__agent">Агент</div></td>
-                <td class="lineTable__site">https://prd.sso.corteos.ru</td>
-                <td class="lineTable__session">ENFG2ODHWLBW</td>
-                <td class="lineTable__id">3117465</td>
-                <td class="lineTable__class">ImapIdleHelper.cs</td>
-                <td class="lineTable__source">imap-monitor</td>
-                <td class="lineTable__ipClient">212.233.132.22</td>
-              </tr>
-              <tr class="lineTable">
-                <td class="status">
-                  <div class="status__activ"></div>
-                  <svg
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                      fill="#293553"
-                    />
-                  </svg>
-                </td>
-                <td class="lineTable__date">14 ноя, 12:30:56</td>
-                <td class="lineTable__message">ТАЙМЕР CallbackTimerAction</td>
-                <td class="lineTable__email">v.chepurnoy@skylane.com</td>
-                <td class="badge"><div class="badge__agent">Агент</div></td>
-                <td class="lineTable__site">https://prd.sso.corteos.ru</td>
-                <td class="lineTable__session">ENFG2ODHWLBW</td>
-                <td class="lineTable__id">3117465</td>
-                <td class="lineTable__class">ImapIdleHelper.cs</td>
-                <td class="lineTable__source">imap-monitor</td>
-                <td class="lineTable__ipClient">212.233.132.22</td>
-              </tr>
-              <tr class="lineTable">
-                <td class="status">
-                  <div class="status__activ"></div>
-                  <svg
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                      fill="#293553"
-                    />
-                  </svg>
-                </td>
-                <td class="lineTable__date">14 ноя, 12:30:56</td>
-                <td class="lineTable__message">ТАЙМЕР CallbackTimerAction</td>
-                <td class="lineTable__email">v.chepurnoy@skylane.com</td>
-                <td class="badge"><div class="badge__agent">Агент</div></td>
-                <td class="lineTable__site">https://prd.sso.corteos.ru</td>
-                <td class="lineTable__session">ENFG2ODHWLBW</td>
-                <td class="lineTable__id">3117465</td>
-                <td class="lineTable__class">ImapIdleHelper.cs</td>
-                <td class="lineTable__source">imap-monitor</td>
-                <td class="lineTable__ipClient">212.233.132.22</td>
+                <td class="table__line-cell table__line-cell--site">https://prd.sso.corteos.ru</td>
+                <td class="table__line-cell table__line-cell--session">ENFG2ODHWLBW</td>
+                <td class="table__line-cell table__line-cell--id">3117465</td>
+                <td class="table__line-cell table__line-cell--class">ImapIdleHelper.cs</td>
+                <td class="table__line-cell table__line-cell--source">imap-monitor</td>
+                <td class="table__line-cell table__line-cell--ipClient">212.233.132.22</td>
               </tr>
               <!--  -->
-              <tr class="lineTable">
-                <td class="status">
-                  <div class="status__activ"></div>
+              <tr class="table__line table__line--log table__line--warning">
+                <td class="table__line-cell table__line-cell--status">
+                  <div class="table__status table__line-cell--warning"></div>
                   <svg
                     width="10"
                     height="6"
@@ -1123,20 +999,26 @@
                     />
                   </svg>
                 </td>
-                <td class="lineTable__date">14 ноя, 12:30:56</td>
-                <td class="lineTable__message">ТАЙМЕР CallbackTimerAction</td>
-                <td class="lineTable__email">v.chepurnoy@skylane.com</td>
-                <td class="badge"><div class="badge__agent">Агент</div></td>
-                <td class="lineTable__site">https://prd.sso.corteos.ru</td>
-                <td class="lineTable__session">ENFG2ODHWLBW</td>
-                <td class="lineTable__id">3117465</td>
-                <td class="lineTable__class">ImapIdleHelper.cs</td>
-                <td class="lineTable__source">imap-monitor</td>
-                <td class="lineTable__ipClient">212.233.132.22</td>
+                <td class="table__line-cell table__line-cell--border table__line-cell--date">
+                  14 ноя, 12:30:56
+                </td>
+                <td class="table__line-cell table__line-cell--message">
+                  ТАЙМЕР CallbackTimerAction
+                </td>
+                <td class="table__line-cell table__line-cell--email">v.chepurnoy@skylane.com</td>
+                <td class="table__line-cell table__line-cell--badge">
+                  <div class="badge badge--client">Клиент</div>
+                </td>
+                <td class="table__line-cell table__line-cell--site">https://prd.sso.corteos.ru</td>
+                <td class="table__line-cell table__line-cell--session">ENFG2ODHWLBW</td>
+                <td class="table__line-cell table__line-cell--id">3117465</td>
+                <td class="table__line-cell table__line-cell--class">ImapIdleHelper.cs</td>
+                <td class="table__line-cell table__line-cell--source">imap-monitor</td>
+                <td class="table__line-cell table__line-cell--ipClient">212.233.132.22</td>
               </tr>
-              <tr class="lineTable lineTable--warning">
-                <td class="status">
-                  <div class="status__warning"></div>
+              <tr class="table__line table__line--log table__line--error">
+                <td class="table__line-cell table__line-cell--status">
+                  <div class="table__status table__line-cell--error"></div>
                   <svg
                     width="10"
                     height="6"
@@ -1150,146 +1032,34 @@
                     />
                   </svg>
                 </td>
-                <td class="lineTable__date">14 ноя, 12:30:56</td>
-                <td class="lineTable__message">ТАЙМЕР CallbackTimerAction</td>
-                <td class="lineTable__email">v.chepurnoy@skylane.com</td>
-                <td class="badge">
-                  <div class="badge__client">Клиент</div>
+                <td class="table__line-cell table__line-cell--border table__line-cell--date">
+                  14 ноя, 12:30:56
                 </td>
-                <td class="lineTable__site">https://prd.sso.corteos.ru</td>
-                <td class="lineTable__session">ENFG2ODHWLBW</td>
-                <td class="lineTable__id">3117465</td>
-                <td class="lineTable__class">ImapIdleHelper.cs</td>
-                <td class="lineTable__source">imap-monitor</td>
-                <td class="lineTable__ipClient">212.233.132.22</td>
-              </tr>
-              <tr class="lineTable lineTable--error">
-                <td class="status">
-                  <div class="status__error"></div>
-                  <svg
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                      fill="#293553"
-                    />
-                  </svg>
+                <td class="table__line-cell table__line-cell--message">
+                  ТАЙМЕР CallbackTimerAction
                 </td>
-                <td class="lineTable__date">14 ноя, 12:30:56</td>
-                <td class="lineTable__message">ТАЙМЕР CallbackTimerAction</td>
-                <td class="lineTable__email">v.chepurnoy@skylane.com</td>
-                <td class="badge">
-                  <div class="badge__client">Клиент</div>
+                <td class="table__line-cell table__line-cell--email">v.chepurnoy@skylane.com</td>
+                <td class="table__line-cell table__line-cell--badge">
+                  <div class="badge badge--client">Клиент</div>
                 </td>
-                <td class="lineTable__site">https://prd.sso.corteos.ru</td>
-                <td class="lineTable__session">ENFG2ODHWLBW</td>
-                <td class="lineTable__id">3117465</td>
-                <td class="lineTable__class">ImapIdleHelper.cs</td>
-                <td class="lineTable__source">imap-monitor</td>
-                <td class="lineTable__ipClient">212.233.132.22</td>
-              </tr>
-              <tr class="lineTable">
-                <td class="status">
-                  <div class="status__activ"></div>
-                  <svg
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                      fill="#293553"
-                    />
-                  </svg>
-                </td>
-                <td class="lineTable__date">14 ноя, 12:30:56</td>
-                <td class="lineTable__message">ТАЙМЕР CallbackTimerAction</td>
-                <td class="lineTable__email">v.chepurnoy@skylane.com</td>
-                <td class="badge">
-                  <div class="badge__client">Клиент</div>
-                </td>
-                <td class="lineTable__site">https://prd.sso.corteos.ru</td>
-                <td class="lineTable__session">ENFG2ODHWLBW</td>
-                <td class="lineTable__id">3117465</td>
-                <td class="lineTable__class">ImapIdleHelper.cs</td>
-                <td class="lineTable__source">imap-monitor</td>
-                <td class="lineTable__ipClient">212.233.132.22</td>
-              </tr>
-              <tr class="lineTable">
-                <td class="status">
-                  <div class="status__activ"></div>
-                  <svg
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                      fill="#293553"
-                    />
-                  </svg>
-                </td>
-                <td class="lineTable__date">14 ноя, 12:30:56</td>
-                <td class="lineTable__message">ТАЙМЕР CallbackTimerAction</td>
-                <td class="lineTable__email">v.chepurnoy@skylane.com</td>
-                <td class="badge">
-                  <div class="badge__client">Клиент</div>
-                </td>
-                <td class="lineTable__site">https://prd.sso.corteos.ru</td>
-                <td class="lineTable__session">ENFG2ODHWLBW</td>
-                <td class="lineTable__id">3117465</td>
-                <td class="lineTable__class">ImapIdleHelper.cs</td>
-                <td class="lineTable__source">imap-monitor</td>
-                <td class="lineTable__ipClient">212.233.132.22</td>
-              </tr>
-              <tr class="lineTable">
-                <td class="status">
-                  <div class="status__activ"></div>
-                  <svg
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                      fill="#293553"
-                    />
-                  </svg>
-                </td>
-                <td class="lineTable__date">14 ноя, 12:30:56</td>
-                <td class="lineTable__message">ТАЙМЕР CallbackTimerAction</td>
-                <td class="lineTable__email">v.chepurnoy@skylane.com</td>
-                <td class="badge">
-                  <div class="badge__client">Клиент</div>
-                </td>
-                <td class="lineTable__site">https://prd.sso.corteos.ru</td>
-                <td class="lineTable__session">ENFG2ODHWLBW</td>
-                <td class="lineTable__id">3117465</td>
-                <td class="lineTable__class">ImapIdleHelper.cs</td>
-                <td class="lineTable__source">imap-monitor</td>
-                <td class="lineTable__ipClient">212.233.132.22</td>
+                <td class="table__line-cell table__line-cell--site">https://prd.sso.corteos.ru</td>
+                <td class="table__line-cell table__line-cell--session">ENFG2ODHWLBW</td>
+                <td class="table__line-cell table__line-cell--id">3117465</td>
+                <td class="table__line-cell table__line-cell--class">ImapIdleHelper.cs</td>
+                <td class="table__line-cell table__line-cell--source">imap-monitor</td>
+                <td class="table__line-cell table__line-cell--ipClient">212.233.132.22</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class="download-addUser">
-          <button class="download-addUser__button">Загрузить еще 100 записей</button>
+        <div class="download-add-user">
+          <button class="download-add-user__button">Загрузить еще 100 записей</button>
         </div>
       </div>
     </main>
-    <div class="modalWindowLog modalWindowLog--disabled">
-      <div class="modalWindowLog__main">
-        <button class="closeModalWindow">
+    <div class="modal-window-log modal-window-log--disabled">
+      <div class="modal-window-log__container">
+        <button class="modal-window-log__close">
           <svg
             width="10"
             height="10"
@@ -1303,30 +1073,30 @@
             />
           </svg>
         </button>
-        <div class="modalWindowLog__left">
-          <div class="sectionStatus">
-            <p class="sectionStatus__date">14 ноя, 12:30:56</p>
-            <div class="sectionStatus__status sectionStatus__status--error">
-              <p class="sectionStatus__status-text">Error</p>
+        <div class="modal-window-log__l-side">
+          <div class="log-status">
+            <p class="log-status__date">14 ноя, 12:30:56</p>
+            <div class="log-status__badge log-status__badge--error">
+              <p class="log-status__badge-text">Error</p>
             </div>
-            <div class="sectionStatus-details">
-              <p class="sectionStatus-details__log-id"># 6d4dd62b-ff0c-42a7-b071-b9960b56ae46</p>
-              <p class="sectionStatus-details__log-message">
+            <div class="log-status__details">
+              <p class="log-status__id"># 6d4dd62b-ff0c-42a7-b071-b9960b56ae46</p>
+              <p class="log-status__message">
                 ModPasswordSecurity - Запуск таймера проверки срока действия паролей <br />
-                <span class="sectionStatus-details__log-time">373 ms</span>
+                <span class="log-status__time">373 ms</span>
               </p>
             </div>
           </div>
-          <div class="sectionData">
-            <div class="sectionData__email">
-              <h6>Email</h6>
-              <p>v.chepurnoy@skyland.travel</p>
+          <div class="info-user">
+            <div class="info-user--email">
+              <h6 class="info-user__title">Email</h6>
+              <p class="info-user__text">v.chepurnoy@skyland.travel</p>
             </div>
-            <div class="sectionData__site">
-              <h6>Сайт</h6>
-              <div>
-                <p>https://prd.sso.corteos.ru</p>
-                <button class="button sectionData__page">
+            <div class="info-user__site">
+              <h6 class="info-user__title">Сайт</h6>
+              <div class="info-user__block">
+                <p class="info-user__text">https://prd.sso.corteos.ru</p>
+                <button class="button info-user__btn-page">
                   <svg
                     width="8"
                     height="8"
@@ -1342,351 +1112,85 @@
                 </button>
               </div>
             </div>
-            <div class="sectionData__class">
-              <h6>Класс</h6>
-              <p>ImapIdleHelper.cs</p>
+            <div class="info-user--class">
+              <h6 class="info-user__title">Класс</h6>
+              <p class="info-user__text">ImapIdleHelper.cs</p>
             </div>
-            <div class="sectionData__user">
-              <h6>Пользователь</h6>
-              <p>Клиент</p>
+            <div class="info-user--user">
+              <h6 class="info-user__title">Пользователь</h6>
+              <p class="info-user__text--no-active">Клиент</p>
             </div>
-            <div class="sectionData__session">
-              <h6>Сессия</h6>
-              <p>1O44AS4KU64H8</p>
+            <div class="info-user--session">
+              <h6 class="info-user__title">Сессия</h6>
+              <p class="info-user__text">1O44AS4KU64H8</p>
             </div>
-            <div class="sectionData__typeObject">
-              <h6>Тип объекта</h6>
-              <p>SiteSettingsDalObject</p>
+            <div class="info-user--typeObject">
+              <h6 class="info-user__title">Тип объекта</h6>
+              <p class="info-user__text--no-active">SiteSettingsDalObject</p>
             </div>
-            <div class="sectionData__idObject">
-              <h6>ID объекта</h6>
-              <p>6688756</p>
+            <div class="info-user--idObject">
+              <h6 class="info-user__title">ID объекта</h6>
+              <p class="info-user__text">6688756</p>
             </div>
-            <div class="sectionData__ip">
-              <h6>IP</h6>
-              <p>212.233.125.182</p>
+            <div class="info-user--ip">
+              <h6 class="info-user__title">IP</h6>
+              <p class="info-user__text">212.233.125.182</p>
             </div>
-            <div class="sectionData__source">
-              <h6>Источник</h6>
-              <p>api</p>
+            <div class="info-user--source">
+              <h6 class="info-user__title">Источник</h6>
+              <p class="info-user__text--no-active">api</p>
             </div>
-            <button class="button sectionData__donwnload">Скачать</button>
+            <button class="button info-user__donwnload">Скачать</button>
           </div>
         </div>
-        <div class="modalWindowLog__right scrollbarStyling">
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
+        <div class="modal-window-log__r-side">
+          <div class="log-message">
+            <div class="log-message__block">
+              <p class="log-message__date">14 ноя, 12:30:56</p>
+              <p class="log-message__text">
                 <span>Загрузка поискового запроса:</span>
                 bbc66164-75a3-4f2a-94a2-e31955e8ed28
               </p>
             </div>
-            <div class="sectionMessage">
-              <div class="sectionMessage__answer answer1">
-                <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-                <p class="sectionMessage__answer-message">
-                  <span>Загрузка поискового запроса:</span>
-                  bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                </p>
-              </div>
-              <div class="sectionMessage__answer answer2">
-                <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-                <p class="sectionMessage__answer-message">
-                  <span>Загрузка поискового запроса завершена</span>
-                </p>
-              </div>
-            </div>
-            <div class="sectionMessage">
-              <div class="sectionMessage__answer answer1">
-                <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-                <p class="sectionMessage__answer-message">
-                  <span>Загрузка поискового запроса:</span>
-                  bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                </p>
-              </div>
-              <div class="sectionMessage__answer answer2">
-                <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-                <p class="sectionMessage__answer-message">
-                  <span>Загрузка поискового запроса завершена</span>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
+            <div class="log-message__block">
+              <p class="log-message__date">14 ноя, 12:30:56</p>
+              <p class="log-message__text">
                 <span>Загрузка поискового запроса завершена</span>
               </p>
             </div>
           </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
+          <div class="log-message">
+            <div class="log-message__block">
+              <p class="log-message__date">14 ноя, 12:30:56</p>
+              <p class="log-message__text">
                 <span>Загрузка поискового запроса:</span>
                 bbc66164-75a3-4f2a-94a2-e31955e8ed28
               </p>
             </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
+            <div class="log-message__block">
+              <p class="log-message__date">14 ноя, 12:30:56</p>
+              <p class="log-message__text">
                 <span>Загрузка поискового запроса завершена</span>
               </p>
             </div>
           </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса завершена</span>
-              </p>
-            </div>
-          </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса завершена</span>
-              </p>
-            </div>
-          </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса завершена</span>
-              </p>
-            </div>
-          </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса завершена</span>
-              </p>
-            </div>
-          </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса завершена</span>
-              </p>
-            </div>
-          </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса завершена</span>
-              </p>
-            </div>
-          </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса завершена</span>
-              </p>
-            </div>
-          </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса завершена</span>
-              </p>
-            </div>
-          </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса завершена</span>
-              </p>
-            </div>
-          </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса завершена</span>
-              </p>
-            </div>
-          </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса завершена</span>
-              </p>
-            </div>
-          </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса завершена</span>
-              </p>
-            </div>
-          </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса завершена</span>
-              </p>
-            </div>
-          </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса завершена</span>
-              </p>
-            </div>
-          </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer1">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса:</span>
-                bbc66164-75a3-4f2a-94a2-e31955e8ed28
-              </p>
-            </div>
-            <div class="sectionMessage__answer answer2">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
-                <span>Загрузка поискового запроса завершена</span>
-              </p>
-            </div>
-          </div>
-
-          <div class="sectionMessageStatus sectionMessageStatus--error">
-            <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-            <p class="sectionMessageStatus__message">
+          <div class="alert alert--error">
+            <p class="alert__date">14 ноя, 12:30:56</p>
+            <p class="alert__message">
               <span>ОШИБКА: EndCustomerAPI:</span>
               Командировка #3340230 не найдена и еще что-то
             </p>
           </div>
-          <div class="sectionMessage">
-            <div class="sectionMessage__answer answer3">
-              <p class="sectionMessage__answer-date">14 ноя, 12:30:56</p>
-              <p class="sectionMessage__answer-message">
+          <div class="log-message">
+            <div class="log-message__block">
+              <p class="log-message__date">14 ноя, 12:30:56</p>
+              <p class="log-message__text">
                 <span>ПРЕДЫДУЩЕЕ</span>
                 состояние объекта
               </p>
             </div>
-            <div class="sectionMessage__answer answer4">
-              <p class="sectionMessage__answer-xml">
+            <div class="log-message__block">
+              <p class="log-message__xml">
                 &lt;Contact DateChanged="31.10.2024 23:45:11" DateCreate="27.09.2023 18:57:29"
                 deleted="false"&gt; &lt;id_Contact&gt;3117465&lt;/id_Contact&gt;
                 &lt;id_Person&gt;2647942&lt;/id_Person&gt;
@@ -1702,8 +1206,8 @@
     <script src="./js/dropdown.js"></script>
     <script src="./js/pin.js"></script>
     <script src="./js/scrollbarTable.js"></script>
-    <script src="./js/modalWindowSearch.js"></script>
+    <script src="./js/search-filter.js"></script>
     <script src="./js/modalWindowLog.js"></script>
-    <script src="./js/buttonClick.js"></script>
+    <script src="./js/button-click.js"></script>
   </body>
 </html>

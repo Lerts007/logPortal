@@ -1,0 +1,44 @@
+// CALENDAR
+.datetime {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  height: 30px;
+
+  border: 1px solid $gray-medium;
+  border-radius: 4px;
+  padding: 4px 8px;
+  background-color: #ffffff;
+
+  & svg {
+    margin-right: 10px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    right: 69px;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 60%;
+    background-color: $gray-medium;
+    pointer-events: none;
+  }
+
+  &__input {
+    @include fonts();
+    -webkit-appearance: none;
+    -moz-appearance: nones;
+    appearance: none;
+    border: none;
+    outline: none;
+  }
+
+  // удаление иконки календаря
+  &__input::-webkit-inner-spin-button,
+  &__input::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+  }
+}

@@ -1,0 +1,11 @@
+// COUNT LOGO
+.count-log {
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  &__title {
+    @include fonts(700);
+  }
+}

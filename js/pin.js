@@ -1,5 +1,5 @@
-document.querySelectorAll(".icon-pin").forEach(function (item) {
+document.querySelectorAll(".table__icon-pin").forEach(function (item) {
   item.addEventListener("click", function (event) {
-    item.classList.toggle("icon-pin--disabled");
+    item.classList.toggle("table__icon-pin--disabled");
   });
 });

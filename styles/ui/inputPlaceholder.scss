@@ -1,22 +1,22 @@
-.inputPlaceholder {
+%inputPlaceholder {
   &::-webkit-input-placeholder {
-    color: $border-light;
+    color: $gray-medium;
   }
   &:-moz-placeholder {
-    color: $border-light;
+    color: $gray-medium;
     opacity: 1;
   }
   &::-moz-placeholder {
-    color: $border-light;
+    color: $gray-medium;
     opacity: 1;
   }
   &:-ms-input-placeholder {
-    color: $border-light;
+    color: $gray-medium;
   }
   &::-ms-input-placeholder {
-    color: $border-light;
+    color: $gray-medium;
   }
   &::placeholder {
-    color: $border-light;
+    color: $gray-medium;
   }
 }

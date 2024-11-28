@@ -1,0 +1,28 @@
+// admin page
+.admin {
+  padding: 35px 17px;
+  &__title {
+    margin-bottom: 25px;
+  }
+}
+
+// SETTINGS TABLE
+.admin-table-settings {
+  display: flex;
+  justify-content: space-between;
+  &__r-side {
+    display: flex;
+    gap: 30px;
+  }
+  &__search {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  &__search-input {
+    min-width: 200px;
+    height: 30px;
+
+    padding: 8px 9px;
+  }
+}

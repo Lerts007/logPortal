@@ -1,0 +1,188 @@
+.table {
+  position: relative;
+
+  min-width: 100%;
+
+  margin-top: 15px;
+  padding-right: 3px;
+
+  box-sizing: content-box;
+
+  border-collapse: separate;
+  border-spacing: 0 6px;
+
+  &--user {
+    width: 100%;
+  }
+
+  &__column {
+    @include fonts(700);
+
+    position: relative;
+
+    height: 36px;
+
+    padding: 0 6px;
+
+    text-align: left;
+    white-space: nowrap;
+
+    border-right: 1px solid $gray-light;
+
+    overflow: visible;
+
+    &--no-border {
+      border: none;
+    }
+
+    &--filterCell {
+      padding: 0;
+
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__column-cell {
+    min-width: 59px;
+
+    padding: 4px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: $gray;
+
+        & .table__icon-pin {
+          display: flex;
+        }
+      }
+
+      & svg:hover {
+        & path {
+          fill: $active;
+        }
+      }
+    }
+  }
+
+  &__line {
+    position: relative;
+    height: 36px;
+
+    &--log {
+      cursor: pointer;
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: $gray;
+        }
+      }
+    }
+
+    &--date {
+      @include fonts(400, 14px, $disabled);
+    }
+    &--badge {
+      padding: 2px 16.5px;
+    }
+
+    &--message {
+      max-width: 193px;
+    }
+    &--email {
+      max-width: 167px;
+    }
+
+    &--warning {
+      background-color: $warning-background;
+    }
+
+    &--error {
+      background-color: $danger-background;
+    }
+  }
+
+  &__line-cell {
+    padding: 0 10px;
+
+    height: 36px;
+    text-align: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    overflow: hidden;
+
+    &--border {
+      position: relative;
+      overflow: visible;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 1px;
+        height: 42px;
+        background-color: $gray-light;
+      }
+    }
+
+    &--status {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 11px;
+
+      padding: 0;
+      & svg {
+        transform: rotate(-90deg);
+      }
+    }
+
+    &--activ {
+      background-color: $active;
+    }
+    &--warning {
+      background-color: $warning;
+    }
+    &--error {
+      background-color: $danger;
+    }
+
+    &--domain-info {
+      max-width: 695px;
+      overflow: hidden;
+    }
+  }
+  &__status {
+    width: 6px;
+    height: 36px;
+    border-radius: 3px;
+  }
+
+  // Иконки
+  &__icon-pin,
+  &__icon-search {
+    display: flex;
+  }
+  &__icon-pin--disabled {
+    display: none;
+  }
+
+  &__icon-arrow {
+    margin: 0;
+  }
+
+  &__line {
+    position: relative;
+    height: 36px;
+  }
+}

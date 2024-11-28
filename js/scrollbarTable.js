@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".log");
-  const content = document.querySelector(".log__table");
-  const modalWindowSearch = document.querySelectorAll(".modalWindowSearch");
+  const content = document.querySelector(".table");
+  const searchFilter = document.querySelectorAll(".search-filter");
 
   let scrollPosition = 0;
 
@@ -17,9 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         width: 100vw;
       `;
 
-      const isInsideModal = Array.from(modalWindowSearch).some((modal) =>
-        modal.contains(event.target)
-      );
+      const isInsideModal = Array.from(searchFilter).some((modal) => modal.contains(event.target));
 
       if (!isInsideModal) {
         event.preventDefault();

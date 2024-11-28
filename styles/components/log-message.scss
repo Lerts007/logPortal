@@ -1,0 +1,29 @@
+.log-message {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__date {
+    color: $disabled;
+  }
+
+  &__block {
+    display: flex;
+    gap: 12px;
+  }
+
+  &__text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    span {
+      @include fonts(700);
+    }
+  }
+
+  &__xml {
+    font-family: monospace;
+    white-space: pre-wrap;
+    overflow-x: auto;
+  }
+}
