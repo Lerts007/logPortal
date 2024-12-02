@@ -908,7 +908,7 @@ h6 {
   color: rgb(41, 53, 83);
 }
 .alert--error {
-  background-color: rgb(183, 12, 10);
+  background-color: rgb(255, 230, 230);
 }
 .alert--error span {
   color: rgb(183, 12, 10);
