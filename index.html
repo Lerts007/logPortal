@@ -18,6 +18,14 @@
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
 
+    <!-- Prism Editor -->
+    <script src="https://unpkg.com/vue-prism-editor"></script>
+    <link rel="stylesheet" href="https://unpkg.com/vue-prism-editor/dist/prismeditor.min.css" />
+
+    <!-- custom highlighter: -->
+    <script src="https://unpkg.com/prismjs/prism.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/prismjs/themes/prism-tomorrow.css" />
+
     <link rel="stylesheet" href="styles/styles.css" />
     <title>Document</title>
   </head>
@@ -32,7 +40,7 @@
           <div class="header__user-info">
             <p class="header__item">support@corteos.travel</p>
             <button class="header__btn-logout button button--primary">Выйти</button>
-            <b-button class="header__btn-logout button button--primary">Кнопка</b-button>
+            <!-- <b-button class="header__btn-logout button button--primary">Кнопка</b-button> -->
           </div>
         </div>
       </header>
@@ -1340,13 +1348,12 @@
               <div class="log-message__block">
                 <p class="log-message__date"></p>
                 <p class="log-message__xml">
-                  &lt;Contact DateChanged="31.10.2024 23:45:11" DateCreate="27.09.2023 18:57:29"
-                  deleted="false"&gt;<br />
-                  &lt;id_Contact&gt;3117465&lt;/id_Contact&gt;<br />
-                  &lt;id_Person&gt;2647942&lt;/id_Person&gt;<br />
-                  &lt;id_ContactType&gt;3&lt;/id_ContactType&gt;<br />
-                  &lt;Content&gt;SV.TIKHONOV@SEVERSTAL.COM&lt;/Content&gt;<br />
-                  &lt;ContactTypeName&gt;Email&lt;/ContactTypeName&gt; &lt;/Contact&gt;<br />
+                  <prism-editor
+                    class="my-editor height-200"
+                    v-model="code"
+                    :highlight="highlighter"
+                    line-numbers
+                  ></prism-editor>
                 </p>
               </div>
             </div>
@@ -1360,6 +1367,19 @@
 
       new Vue({
         el: "#app",
+        data: () => ({
+          code: `<Contact DateChanged="31.10.2024 23:45:11" DateCreate="27.09.2023 18:57:29" deleted="false">      
+          <id_Contact>3117465</id_Contact>      
+          <id_Person>2647942</id_Person>      
+          <id_ContactType>3</id_ContactType>      
+          <Content>SV.TIKHONOV@SEVERSTAL.COM</Content>      
+          <ContactTypeName>Email</ContactTypeName> </Contact>`,
+        }),
+        methods: {
+          highlighter(code) {
+            return Prism.highlight(code, Prism.languages.html, "html");
+          },
+        },
       });
     </script>
     <script src="./js/dropdown.js"></script>

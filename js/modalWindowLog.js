@@ -1,6 +1,6 @@
 let scroll = 0;
 
-document.querySelectorAll(".tableС__line").forEach((item) => {
+document.querySelectorAll(".tableC__line").forEach((item) => {
   item.addEventListener("click", () => {
     console.log("as");
 
@@ -36,4 +36,4 @@ function close() {
   window.scrollTo(0, scroll);
 }
 
-console.log(document.querySelectorAll(".tableС__line"));
+console.log(document.querySelectorAll(".tableC__line"));
