@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".log");
-  const content = document.querySelector(".tableС");
+  const content = document.querySelector(".tableC");
   const searchFilter = document.querySelectorAll(".search-filter");
 
   let scrollPosition = 0;
