@@ -1,3 +1,16 @@
+.btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.show > .btn-secondary.dropdown-toggle {
+  background-color: $primary;
+  border: none;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-secondary.dropdown-toggle:focus {
+  box-shadow: none;
+}
+
 // кнопки
 .button {
   font-family: "Proxima Nova", sans-serif;
@@ -23,6 +36,11 @@
 
     transition: background-color 0.3s ease;
 
+    &:focus {
+      background-color: $primary;
+      box-shadow: none;
+    }
+
     @media (hover: hover) {
       &:hover {
         background-color: $primary-hover;
@@ -32,6 +50,12 @@
   &--secondary {
     background-color: $secondary;
     transition: background-color 0.3s ease;
+
+    &:focus {
+      background-color: $secondary;
+      box-shadow: none;
+    }
+
     @media (hover: hover) {
       &:hover {
         background-color: $secondary-hover;
@@ -41,6 +65,12 @@
   &--danger {
     background-color: $danger;
     transition: background-color 0.3s ease;
+
+    &:focus {
+      background-color: $danger;
+      box-shadow: none;
+    }
+
     @media (hover: hover) {
       &:hover {
         background-color: $danger-hover;

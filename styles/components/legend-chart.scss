@@ -1,0 +1,26 @@
+.legend-chart {
+  display: flex;
+  gap: 24px;
+
+  &__block {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__color {
+    width: 16px;
+    height: 16px;
+
+    border-radius: 8px;
+
+    &--danger {
+      background-color: $red;
+    }
+    &--normal {
+      background-color: $blue;
+    }
+    &--warning {
+      background-color: $orange;
+    }
+  }
+}

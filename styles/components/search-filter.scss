@@ -24,6 +24,11 @@
     left: unset;
   }
 
+  &--chart {
+    min-width: 156px;
+    height: 168px;
+  }
+
   &__input-wrapper {
     position: relative;
 

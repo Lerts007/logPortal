@@ -3,59 +3,84 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"
+    />
+    <script src="https://unpkg.com/vue@2.6.12/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+
     <link rel="stylesheet" href="styles/styles.css" />
     <title>Document</title>
   </head>
   <body>
-    <header class="header">
-      <div class="container header__container">
-        <div class="header__links">
-          <a class="header__item" href="./index.html">Журнал событий</a>
-          <a class="header__item" href="./admin.html">Администрирование</a>
-        </div>
-        <div class="header__user-info">
-          <p class="header__item">support@corteos.travel</p>
-          <button class="header__btn-logout button button--primary">Выйти</button>
-        </div>
-      </div>
-    </header>
-    <main>
-      <div class="container add-user">
-        <div class="add-user__container">
-          <h4 class="add-user__title">Создание пользователя</h4>
-          <div class="add-user__group">
-            <label class="add-user__label" for="email">Email</label>
-            <input class="add-user__input" type="text" id="email" placeholder="example@mail.ru" />
+    <div id="app">
+      <header class="header">
+        <div class="container header__container">
+          <div class="header__links">
+            <a class="header__item" href="./index.html">Журнал событий</a>
+            <a class="header__item" href="./admin.html">Администрирование</a>
           </div>
-          <div class="add-user__group">
-            <label class="add-user__label" for="password">Пароль</label>
-            <input
-              class="add-user__input"
-              type="password"
-              id="password"
-              placeholder="Придумайте пароль"
-            />
+          <div class="header__user-info">
+            <p class="header__item">support@corteos.travel</p>
+            <button class="header__btn-logout button button--primary">Выйти</button>
           </div>
-          <div class="add-user__group">
-            <label class="add-user__label">Роль админа</label>
-            <div class="add-user__slider btn-slider">
-              <button class="btn-slider__btn btn-slider__btn--active" onclick="selectRole(0)">
-                Да
-              </button>
-              <button class="btn-slider__btn" onclick="selectRole(1)">Нет</button>
-              <div class="btn-slider__slider"></div>
+        </div>
+      </header>
+      <main>
+        <div class="container add-user">
+          <div class="add-user__container">
+            <h4 class="add-user__title">Создание пользователя</h4>
+            <div class="add-user__group">
+              <label class="add-user__label" for="email">Email</label>
+              <input class="add-user__input" type="text" id="email" placeholder="example@mail.ru" />
+            </div>
+            <div class="add-user__group">
+              <label class="add-user__label" for="password">Пароль</label>
+              <input
+                class="add-user__input"
+                type="password"
+                id="password"
+                placeholder="Придумайте пароль"
+              />
+            </div>
+            <div class="add-user__group">
+              <label class="add-user__label">Роль админа</label>
+              <div class="add-user__slider btn-slider">
+                <button class="btn-slider__btn btn-slider__btn--active" onclick="selectRole(0)">
+                  Да
+                </button>
+                <button class="btn-slider__btn" onclick="selectRole(1)">Нет</button>
+                <div class="btn-slider__slider"></div>
+              </div>
+            </div>
+            <div class="add-user__group">
+              <label class="add-user__label" for="domain">Домены</label>
+              <input class="add-user__input" type="text" id="domain" placeholder="corteos.ru" />
+            </div>
+            <div class="add-user__container-btn">
+              <button class="button button--primary add-user__btn">Сохранить</button>
             </div>
           </div>
-          <div class="add-user__group">
-            <label class="add-user__label" for="domain">Домены</label>
-            <input class="add-user__input" type="text" id="domain" placeholder="corteos.ru" />
-          </div>
-          <div class="add-user__container-btn">
-            <button class="button button--primary add-user__btn">Сохранить</button>
-          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
+    <script>
+      Vue.use(BootstrapVue);
+      Vue.use(BootstrapVueIcons);
+
+      new Vue({
+        el: "#app",
+      });
+    </script>
     <script src="./js/add-user.js"></script>
     <script src="./js/button-click.js"></script>
   </body>

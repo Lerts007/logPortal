@@ -1,4 +1,6 @@
-* {
+*,
+::after,
+::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,6 +12,8 @@ html {
 }
 body {
   position: relative;
+  background-color: #f4f4f5;
+  line-height: inherit;
 }
 body,
 a,
@@ -22,6 +26,12 @@ input {
 }
 a {
   text-decoration: none;
+
+  &:hover {
+    color: $white;
+
+    text-decoration: none;
+  }
 }
 li {
   list-style-type: none;
@@ -53,4 +63,10 @@ input {
   width: 100vw;
   height: 100vw;
   overflow: hidden;
+}
+
+// переопределение стилей bootstrap
+p {
+  margin-top: 0;
+  margin-bottom: 0;
 }

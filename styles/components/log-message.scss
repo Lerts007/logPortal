@@ -8,7 +8,8 @@
   }
 
   &__block {
-    display: flex;
+    display: grid;
+    grid-template-columns: 120px 1fr;
     gap: 12px;
   }
 
@@ -19,11 +20,5 @@
     span {
       @include fonts(700);
     }
-  }
-
-  &__xml {
-    font-family: monospace;
-    white-space: pre-wrap;
-    overflow-x: auto;
   }
 }

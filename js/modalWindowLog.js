@@ -1,7 +1,9 @@
 let scroll = 0;
 
-document.querySelectorAll(".table__line").forEach((item) => {
+document.querySelectorAll(".tableС__line").forEach((item) => {
   item.addEventListener("click", () => {
+    console.log("as");
+
     document.querySelector(".modal-window-log").classList.toggle("modal-window-log--disabled");
     document.querySelector("body").classList.toggle("noScroll");
 
@@ -33,3 +35,5 @@ function close() {
   document.body.style.top = `0px`;
   window.scrollTo(0, scroll);
 }
+
+console.log(document.querySelectorAll(".tableС__line"));

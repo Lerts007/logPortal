@@ -32,3 +32,11 @@ document.querySelectorAll(".dropdown__toggle").forEach((el) => {
     }
   });
 });
+
+document.querySelector(".dropdown__icon-filter").addEventListener("click", function (event) {
+  event.stopPropagation();
+});
+
+document.querySelector(".dropdown--time-chart").addEventListener("click", function (event) {
+  event.stopPropagation();
+});

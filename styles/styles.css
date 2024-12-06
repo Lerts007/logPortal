@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Proxima Nova";
   src: url("../fonts/ProximaNova-Regular.eot");
@@ -19,7 +20,9 @@
   font-weight: 700;
   font-style: normal;
 }
-* {
+*,
+::after,
+::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -33,6 +36,8 @@ html {
 
 body {
   position: relative;
+  background-color: #f4f4f5;
+  line-height: inherit;
 }
 
 body,
@@ -46,6 +51,10 @@ input {
 }
 
 a {
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
@@ -75,6 +84,11 @@ input:focus {
   width: 100vw;
   height: 100vw;
   overflow: hidden;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 h1 {
@@ -113,6 +127,19 @@ h6 {
   color: rgb(41, 53, 83);
 }
 
+.btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.show > .btn-secondary.dropdown-toggle {
+  background-color: rgb(52, 152, 219);
+  border: none;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
+.show > .btn-secondary.dropdown-toggle:focus {
+  box-shadow: none;
+}
+
 .button {
   font-family: "Proxima Nova", sans-serif;
   font-weight: 700;
@@ -135,6 +162,10 @@ h6 {
   background-color: rgb(52, 152, 219);
   transition: background-color 0.3s ease;
 }
+.button--primary:focus {
+  background-color: rgb(52, 152, 219);
+  box-shadow: none;
+}
 @media (hover: hover) {
   .button--primary:hover {
     background-color: rgb(33, 114, 194);
@@ -144,6 +175,10 @@ h6 {
   background-color: rgb(41, 53, 83);
   transition: background-color 0.3s ease;
 }
+.button--secondary:focus {
+  background-color: rgb(41, 53, 83);
+  box-shadow: none;
+}
 @media (hover: hover) {
   .button--secondary:hover {
     background-color: rgb(26, 35, 57);
@@ -152,6 +187,10 @@ h6 {
 .button--danger {
   background-color: rgb(242, 20, 17);
   transition: background-color 0.3s ease;
+}
+.button--danger:focus {
+  background-color: rgb(242, 20, 17);
+  box-shadow: none;
 }
 @media (hover: hover) {
   .button--danger:hover {
@@ -322,6 +361,11 @@ h6 {
 }
 .dropdown--chart {
   margin-top: 8px;
+  border: 1px solid rgba(41, 53, 83, 0.25);
+  border-radius: 4px;
+}
+.dropdown--time-chart {
+  margin-left: 10px;
 }
 .dropdown__toggle {
   position: relative;
@@ -335,6 +379,14 @@ h6 {
   border: 1px solid rgba(41, 53, 83, 0.25);
   border-radius: 4px;
   cursor: pointer;
+}
+.dropdown__toggle--chart {
+  border: none;
+}
+.dropdown__toggle--time-chart {
+  padding: 0;
+  border: none;
+  gap: 8px;
 }
 .dropdown__toggle--filte-type {
   padding: 5px 12px;
@@ -353,6 +405,11 @@ h6 {
   gap: 10px;
 }
 .dropdown__toggle-title--count-log {
+  font-weight: 400;
+  font-size: 14px;
+  color: rgb(41, 53, 83);
+}
+.dropdown__toggle-title--time-chart {
   font-weight: 400;
   font-size: 14px;
   color: rgb(41, 53, 83);
@@ -380,6 +437,14 @@ h6 {
 }
 .dropdown__menu--chart {
   position: relative;
+  box-shadow: none;
+  border-radius: 0 0 4px 4px;
+}
+.dropdown__menu-block {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
 }
 .dropdown__item {
   font-weight: 700;
@@ -387,6 +452,11 @@ h6 {
   color: rgb(41, 53, 83);
   display: block;
   padding: 10px 15px;
+}
+.dropdown__item--time-chart {
+  font-weight: 400;
+  font-size: 14px;
+  color: rgb(41, 53, 83);
 }
 @media (hover: hover) {
   .dropdown__item:hover {
@@ -404,7 +474,6 @@ h6 {
   justify-content: center;
 }
 .dropdown__icon-arrow {
-  margin-left: auto;
   transition: transform 0.3s;
 }
 .dropdown--open .dropdown__menu {
@@ -611,7 +680,7 @@ h6 {
   -webkit-appearance: none;
 }
 
-.badge {
+.badgeС {
   font-weight: 400;
   font-size: 16px;
   color: rgb(41, 53, 83);
@@ -619,18 +688,16 @@ h6 {
   text-align: center;
   border-radius: 8px;
 }
-
-.badge--agent {
+.badgeС--agent {
   color: #7e78f8;
   background-color: rgb(236, 235, 254);
 }
-
-.badge--client {
+.badgeС--client {
   color: rgb(15, 144, 233);
   background-color: rgb(226, 244, 255);
 }
 
-.table {
+.tableC {
   position: relative;
   min-width: 100%;
   margin-top: 15px;
@@ -639,10 +706,10 @@ h6 {
   border-collapse: separate;
   border-spacing: 0 6px;
 }
-.table--user {
+.tableC--user {
   width: 100%;
 }
-.table__column {
+.tableC__column {
   font-weight: 700;
   font-size: 14px;
   color: rgb(41, 53, 83);
@@ -654,15 +721,15 @@ h6 {
   border-right: 1px solid rgba(0, 0, 0, 0.2);
   overflow: visible;
 }
-.table__column--no-border {
+.tableC__column--no-border {
   border: none;
 }
-.table__column--filterCell {
+.tableC__column--filterCell {
   padding: 0;
   display: flex;
   align-items: center;
 }
-.table__column-cell {
+.tableC__column-cell {
   min-width: 59px;
   padding: 4px;
   display: inline-flex;
@@ -672,49 +739,49 @@ h6 {
   cursor: pointer;
 }
 @media (hover: hover) {
-  .table__column-cell:hover {
+  .tableC__column-cell:hover {
     background-color: rgb(222, 222, 228);
   }
-  .table__column-cell:hover .table__icon-pin {
+  .tableC__column-cell:hover .table__icon-pin {
     display: flex;
   }
-  .table__column-cell svg:hover path {
+  .tableC__column-cell svg:hover path {
     fill: rgb(15, 144, 233);
   }
 }
-.table__line {
+.tableC__line {
   position: relative;
   height: 36px;
 }
-.table__line--log {
+.tableC__line--log {
   cursor: pointer;
 }
 @media (hover: hover) {
-  .table__line--log:hover {
+  .tableC__line--log:hover {
     background-color: rgb(222, 222, 228);
   }
 }
-.table__line--date {
+.tableC__line--date {
   font-weight: 400;
   font-size: 14px;
   color: rgba(61, 61, 75, 0.6);
 }
-.table__line--badge {
+.tableC__line--badge {
   padding: 2px 16.5px;
 }
-.table__line--message {
+.tableC__line--message {
   max-width: 193px;
 }
-.table__line--email {
+.tableC__line--email {
   max-width: 167px;
 }
-.table__line--warning {
+.tableC__line--warning {
   background-color: rgb(255, 241, 220);
 }
-.table__line--error {
+.tableC__line--error {
   background-color: rgb(255, 230, 230);
 }
-.table__line-cell {
+.tableC__line-cell {
   padding: 0 10px;
   height: 36px;
   text-align: left;
@@ -722,11 +789,11 @@ h6 {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.table__line-cell--border {
+.tableC__line-cell--border {
   position: relative;
   overflow: visible;
 }
-.table__line-cell--border::after {
+.tableC__line-cell--border::after {
   content: "";
   position: absolute;
   right: 0;
@@ -735,44 +802,44 @@ h6 {
   height: 42px;
   background-color: rgba(0, 0, 0, 0.2);
 }
-.table__line-cell--status {
+.tableC__line-cell--status {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 11px;
   padding: 0;
 }
-.table__line-cell--status svg {
+.tableC__line-cell--status svg {
   transform: rotate(-90deg);
 }
-.table__line-cell--activ {
+.tableC__line-cell--activ {
   background-color: rgb(15, 144, 233);
 }
-.table__line-cell--warning {
+.tableC__line-cell--warning {
   background-color: rgb(255, 173, 14);
 }
-.table__line-cell--error {
+.tableC__line-cell--error {
   background-color: rgb(242, 20, 17);
 }
-.table__line-cell--domain-info {
+.tableC__line-cell--domain-info {
   max-width: 695px;
   overflow: hidden;
 }
-.table__status {
+.tableC__status {
   width: 6px;
   height: 36px;
   border-radius: 3px;
 }
-.table__icon-pin, .table__icon-search {
+.tableC__icon-pin, .tableC__icon-search {
   display: flex;
 }
-.table__icon-pin--disabled {
+.tableC__icon-pin--disabled {
   display: none;
 }
-.table__icon-arrow {
+.tableC__icon-arrow {
   margin: 0;
 }
-.table__line {
+.tableC__line {
   position: relative;
   height: 36px;
 }
@@ -795,6 +862,10 @@ h6 {
 .search-filter--last {
   right: 12px;
   left: unset;
+}
+.search-filter--chart {
+  min-width: 156px;
+  height: 168px;
 }
 .search-filter__input-wrapper {
   position: relative;
@@ -890,7 +961,8 @@ h6 {
 .alert {
   margin-left: -12px;
   padding: 9.5px 12px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 120px 1fr;
   gap: 12px;
   border-radius: 4px;
 }
@@ -929,7 +1001,8 @@ h6 {
   color: rgba(61, 61, 75, 0.6);
 }
 .log-message__block {
-  display: flex;
+  display: grid;
+  grid-template-columns: 120px 1fr;
   gap: 12px;
 }
 .log-message__text {
@@ -941,11 +1014,6 @@ h6 {
   font-weight: 700;
   font-size: 14px;
   color: rgb(41, 53, 83);
-}
-.log-message__xml {
-  font-family: monospace;
-  white-space: pre-wrap;
-  overflow-x: auto;
 }
 
 .modal-window-log {
@@ -1066,6 +1134,29 @@ h6 {
   height: 16px;
   padding: 4px 10px;
   display: flex;
+}
+
+.legend-chart {
+  display: flex;
+  gap: 24px;
+}
+.legend-chart__block {
+  display: flex;
+  gap: 8px;
+}
+.legend-chart__color {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+}
+.legend-chart__color--danger {
+  background-color: rgb(255, 73, 88);
+}
+.legend-chart__color--normal {
+  background-color: rgb(15, 144, 233);
+}
+.legend-chart__color--warning {
+  background-color: rgb(255, 173, 14);
 }
 
 .add-user {

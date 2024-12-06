@@ -8,6 +8,12 @@
 
   &--chart {
     margin-top: 8px;
+    border: 1px solid $gray-medium;
+    border-radius: 4px;
+  }
+
+  &--time-chart {
+    margin-left: 10px;
   }
 
   &__toggle {
@@ -25,6 +31,18 @@
     border: 1px solid $gray-medium;
     border-radius: 4px;
     cursor: pointer;
+
+    &--chart {
+      border: none;
+    }
+
+    &--time-chart {
+      padding: 0;
+
+      border: none;
+
+      gap: 8px;
+    }
 
     &--filte-type {
       padding: 5px 12px;
@@ -46,6 +64,10 @@
     gap: 10px;
 
     &--count-log {
+      @include fonts(400, 14px);
+    }
+
+    &--time-chart {
       @include fonts(400, 14px);
     }
   }
@@ -76,7 +98,18 @@
 
     &--chart {
       position: relative;
+
+      box-shadow: none;
+      border-radius: 0 0 4px 4px;
     }
+  }
+
+  &__menu-block {
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
   }
 
   &__item {
@@ -84,6 +117,10 @@
 
     display: block;
     padding: 10px 15px;
+
+    &--time-chart {
+      @include fonts();
+    }
 
     @media (hover: hover) {
       &:hover {
@@ -103,7 +140,6 @@
   }
 
   &__icon-arrow {
-    margin-left: auto;
     transition: transform 0.3s;
   }
 
