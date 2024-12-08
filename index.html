@@ -32,7 +32,7 @@
   <body>
     <div id="app">
       <header class="header">
-        <div class="container header__container">
+        <div class="containerС header__container">
           <div class="header__links">
             <a class="header__item" href="./index.html">Журнал событий</a>
             <a class="header__item" href="./admin.html">Администрирование</a>
@@ -45,7 +45,7 @@
         </div>
       </header>
       <main>
-        <div class="container container-main">
+        <div class="containerС container-main">
           <!-- инфо о логах -->
           <div class="log-info">
             <p class="log-info__name log-info__name--queueLength">
@@ -58,10 +58,17 @@
           </div>
 
           <!-- график  -->
-          <div class="dropdown dropdown--chart">
-            <div class="dropdown__toggle dropdown__toggle--chart">
+          <b-dropdown
+            id="dropdown-1"
+            class="dropdown dropdown--chart"
+            variant="outline-secondary"
+            ref="dropdown1"
+            toggle-class="dropdown__toggle dropdown__toggle--chart"
+            menu-class="dropdown__menu dropdown__menu--chart"
+          >
+            <!-- Настраиваем контент кнопки -->
+            <template #button-content>
               <span class="dropdown__toggle-title">
-                <!-- иконка фильтр -->
                 <span class="dropdown__icon-filter">
                   <svg
                     width="14"
@@ -85,12 +92,20 @@
                   </svg>
                 </span>
                 График
-                <div class="dropdown dropdown--time-chart">
-                  <div class="dropdown__toggle dropdown__toggle--time-chart">
-                    <span class="dropdown__toggle-title dropdown__toggle-title--time-chart"
-                      >За последние сутки</span
-                    >
-                    <!-- иконка стрелки -->
+                <b-dropdown
+                  id="dropdown-2"
+                  class="dropdown dropdown--chart-time"
+                  variant="outline-secondary"
+                  ref="dropdown2"
+                  toggle-class="dropdown__toggle dropdown__toggle--chart-time"
+                  menu-class="dropdown__menu dropdown__menu--chart-time"
+                  @click.stop="handleClick(el)"
+                >
+                  <!-- Настраиваем контент кнопки -->
+                  <template #button-content>
+                    <span class="dropdown__toggle-title dropdown__toggle-title--chart-time">
+                      {{ selectedItemChratTime }}
+                    </span>
                     <span class="dropdown__icon-arrow">
                       <svg
                         width="10"
@@ -105,18 +120,20 @@
                         />
                       </svg>
                     </span>
-                  </div>
-                  <div class="dropdown__menu">
-                    <a class="dropdown__item dropdown__item--time-chart" href="#"
-                      >За последний час</a
-                    >
-                    <a class="dropdown__item dropdown__item--time-chart" href="#"
-                      >За последние сутки</a
-                    >
-                  </div>
-                </div>
+                  </template>
+
+                  <b-dropdown-item
+                    v-for="(item, index) in dropdownItemsCartTime"
+                    :key="index"
+                    href="#"
+                    class="dropdown__item dropdown__item--chart-time"
+                    @click.prevent="selectItemChartTime(item)"
+                  >
+                    {{ item }}
+                  </b-dropdown-item>
+                </b-dropdown>
               </span>
-              <!-- иконка стрелки -->
+
               <span class="dropdown__icon-arrow">
                 <svg
                   width="10"
@@ -131,44 +148,13 @@
                   />
                 </svg>
               </span>
-              <div class="search-filter search-filter--chart search-filter--disabled">
-                <div class="search-filter__menu">
-                  <label class="search-filter__item" for="1">
-                    <input class="search-filter__item-check" type="checkbox" name="" id="1" />
-                    Текст 1
-                  </label>
-                  <label class="search-filter__item" for="2">
-                    <input class="search-filter__item-check" type="checkbox" name="" id="2" />
-                    Текст 2
-                  </label>
-                  <label class="search-filter__item" for="3">
-                    <input
-                      class="search-filter__item-check"
-                      type="checkbox"
-                      name=""
-                      id="3"
-                      disabled
-                    />
-                    Текст 3
-                  </label>
-                  <label class="search-filter__item" for="4">
-                    <input class="search-filter__item-check" type="checkbox" name="" id="4" />
-                    Текст 4
-                  </label>
-                  <label class="search-filter__item" for="5">
-                    <input
-                      class="search-filter__item-check"
-                      type="checkbox"
-                      name=""
-                      id="5"
-                      disabled
-                    />
-                    Текст 5
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div class="dropdown__menu dropdown__menu--chart">
+            </template>
+
+            <b-dropdown-item
+              href="#"
+              class="dropdown__item dropdown__item--chart"
+              @click.native.capture.stop
+            >
               <div class="dropdown__menu-block">
                 <img src="./img/Chart.png" alt="" srcset="" />
                 <div class="legend-chart">
@@ -186,54 +172,55 @@
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div class="search-filter search-filter--disabled">
-              <div class="search-filter__menu">
-                <label class="search-filter__item" for="1">
-                  <input class="search-filter__item-check" type="checkbox" name="" id="1" />
-                  Текст 1
-                </label>
-                <label class="search-filter__item" for="2">
-                  <input class="search-filter__item-check" type="checkbox" name="" id="2" />
-                  Текст 2
-                </label>
-                <label class="search-filter__item" for="3">
-                  <input
-                    class="search-filter__item-check"
-                    type="checkbox"
-                    name=""
-                    id="3"
-                    disabled
-                  />
-                  Текст 3
-                </label>
-                <label class="search-filter__item" for="4">
-                  <input class="search-filter__item-check" type="checkbox" name="" id="4" />
-                  Текст 4
-                </label>
-                <label class="search-filter__item" for="5">
-                  <input
-                    class="search-filter__item-check"
-                    type="checkbox"
-                    name=""
-                    id="5"
-                    disabled
-                  />
-                  Текст 5
-                </label>
-              </div>
-            </div>
-          </div>
+            </b-dropdown-item>
+          </b-dropdown>
 
           <!-- блок для настроек таблицы -->
           <div class="log-table-settings">
             <div class="log-table-settings__l-side">
-              <div class="dropdown">
+              <b-dropdown
+                id="dropdown-filte-type"
+                class="dropdown"
+                variant="outline-secondary"
+                toggle-class="dropdown__toggle dropdown__toggle--filte-type"
+                menu-class="dropdown__menu"
+              >
+                <!-- Настраиваем контент кнопки -->
+                <template #button-content>
+                  <span class="dropdown__toggle-title"> Тип </span>
+                  <span class="dropdown__toggle-select">{{ selectedItem__filteType }}</span>
+
+                  <span class="dropdown__icon-arrow">
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                        fill="#293553"
+                      />
+                    </svg>
+                  </span>
+                </template>
+
+                <b-dropdown-item
+                  v-for="(item, index) in dropdownItems__filteType"
+                  :key="index"
+                  href="#"
+                  class="dropdown__item dropdown__item--filte-type"
+                  @click.prevent="selectItem__filteType(item)"
+                >
+                  {{ item }}
+                </b-dropdown-item>
+              </b-dropdown>
+              <!-- <div class="dropdown">
                 <button class="dropdown__toggle dropdown__toggle--filte-type">
                   <span class="dropdown__toggle-title">Тип</span>
                   <span class="dropdown__toggle-select">Все</span>
-                  <!-- иконка стрелки -->
+                  
                   <span class="dropdown__icon-arrow">
                     <svg
                       width="10"
@@ -255,7 +242,7 @@
                   <a class="dropdown__item" href="#">Тип 2</a>
                   <a class="dropdown__item" href="#">Тип 3</a>
                 </div>
-              </div>
+              </div> -->
 
               <div class="datetime">
                 <!-- Иконка календаря -->
@@ -351,13 +338,19 @@
             </div>
             <div class="log-table-settings__r-side count-log">
               <p class="count-log__title">Показывать</p>
-              <div class="dropdown">
-                <button class="dropdown__toggle dropdown__toggle--count-log">
-                  <span class="dropdown__toggle-title dropdown__toggle-title--count-log"
-                    >10 000</span
-                  >
+              <b-dropdown
+                id="dropdown-count-log"
+                class="dropdown"
+                variant="outline-secondary"
+                toggle-class="dropdown__toggle dropdown__toggle--count-log"
+                menu-class="dropdown__menu"
+              >
+                <!-- Настраиваем контент кнопки -->
+                <template #button-content>
+                  <span class="dropdown__toggle-title dropdown__toggle-title--count-log">
+                    {{ selectedItem }}
+                  </span>
                   <span class="dropdown__icon-arrow">
-                    <!-- иконка стрелки -->
                     <svg
                       width="10"
                       height="6"
@@ -371,14 +364,18 @@
                       />
                     </svg>
                   </span>
-                </button>
-                <div class="dropdown__menu">
-                  <a class="dropdown__item dropdown__item--count-log" href="#">10 000</a>
-                  <a class="dropdown__item dropdown__item--count-log" href="#">20 000</a>
-                  <a class="dropdown__item dropdown__item--count-log" href="#">30 000</a>
-                  <a class="dropdown__item dropdown__item--count-log" href="#">40 000</a>
-                </div>
-              </div>
+                </template>
+
+                <b-dropdown-item
+                  v-for="(item, index) in dropdownItems"
+                  :key="index"
+                  href="#"
+                  class="dropdown__item dropdown__item--count-log"
+                  @click.prevent="selectItem(item)"
+                >
+                  {{ item }}
+                </b-dropdown-item>
+              </b-dropdown>
             </div>
           </div>
 
@@ -1368,6 +1365,14 @@
       new Vue({
         el: "#app",
         data: () => ({
+          dropdownItems: ["10 000", "20 000", "30 000", "40 000", "99 999"], // Опции countLog
+          dropdownItems__filteType: ["Все", "Normal", "Error", "Warning"], // Опции type
+          dropdownItemsCartTime: ["За последние сутки", "За последние час"], // Опции время графика
+
+          selectedItem: "10 000", // Начальное значение countLog
+          selectedItem__filteType: "Все", // Начальное значение type
+          selectedItemChratTime: "За последние сутки",
+
           code: `<Contact DateChanged="31.10.2024 23:45:11" DateCreate="27.09.2023 18:57:29" deleted="false">      
           <id_Contact>3117465</id_Contact>      
           <id_Person>2647942</id_Person>      
@@ -1376,13 +1381,48 @@
           <ContactTypeName>Email</ContactTypeName> </Contact>`,
         }),
         methods: {
+          selectItem(item) {
+            this.selectedItem = item; // Устанавливаем выбранный элемент в countLog
+          },
+          selectItem__filteType(item) {
+            this.selectedItem__filteType = item; // Устанавливаем выбранный элемент в type
+          },
+          selectItemChartTime(item) {
+            this.selectedItemChratTime = item; // Устанавливаем выбранный элемент
+          },
           highlighter(code) {
             return Prism.highlight(code, Prism.languages.html, "html");
           },
         },
+        mounted: function () {
+          document.addEventListener("click", (event) => {
+            this.$refs.dropdown1.hide();
+            this.$refs.dropdown2.hide();
+          });
+          this.$root.$on("bv::dropdown::show", (bvEvent) => {
+            if (bvEvent.componentId === "dropdown-1") {
+              this.isDropdown1Visible = true;
+            }
+            if (bvEvent.componentId === "dropdown-2") {
+              if (!this.isDropdown1Visible) {
+                this.$refs.dropdown2.hide();
+                this.isDropdown2Visible = false;
+              }
+              this.isDropdown2Visible = true;
+            }
+          });
+          this.$root.$on("bv::dropdown::hide", (bvEvent) => {
+            if (bvEvent.componentId === "dropdown-2") {
+              this.isDropdown2Visible = false;
+            }
+            if (this.isDropdown2Visible) {
+              bvEvent.preventDefault();
+            }
+          });
+        },
       });
     </script>
-    <script src="./js/dropdown.js"></script>
+    <!-- <script src="./js/dropdown.js"></script> -->
     <script src="./js/pin.js"></script>
     <script src="./js/scrollbarTable.js"></script>
     <script src="./js/search-filter.js"></script>

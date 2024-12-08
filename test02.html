@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"
+    />
+    <script src="https://unpkg.com/vue@2.6.12/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <b-dropdown id="dropdown-1" ref="dropdown1" text="Dropdown Button 1" class="m-md-2">
+        <template #button-content>
+          <span>
+            Dropdown 1
+            <b-dropdown
+              id="dropdown-2"
+              ref="dropdown2"
+              text="Dropdown Button 2"
+              class="m-md-2"
+              @click.stop
+            >
+              <b-dropdown-item>First Action 2</b-dropdown-item>
+              <b-dropdown-item>Second Action 2</b-dropdown-item>
+            </b-dropdown>
+          </span>
+        </template>
+        <b-dropdown-item>First Action 1</b-dropdown-item>
+        <b-dropdown-item>Second Action 1</b-dropdown-item>
+      </b-dropdown>
+    </div>
+
+    <script>
+      Vue.use(BootstrapVue);
+      Vue.use(BootstrapVueIcons);
+
+      new Vue({
+        el: "#app",
+        methods: {
+          hide2() {
+            document.addEventListener("click", function (event) {
+              console.log("asdsad");
+              console.log(this);
+
+              // this.$refs.dropdown1.hide();
+              // this.$refs.dropdown2.hide();
+            });
+          },
+        },
+
+        mounted: function () {
+          document.addEventListener("click", (event) => {
+            this.$refs.dropdown1.hide();
+            this.$refs.dropdown2.hide();
+          });
+          this.$root.$on("bv::dropdown::show", (bvEvent) => {
+            if (bvEvent.componentId === "dropdown-1") {
+              this.isDropdown1Visible = true;
+            }
+            if (bvEvent.componentId === "dropdown-2") {
+              if (!this.isDropdown1Visible) {
+                this.$refs.dropdown2.hide();
+                this.isDropdown2Visible = false;
+              }
+              this.isDropdown2Visible = true;
+            }
+          });
+          this.$root.$on("bv::dropdown::hide", (bvEvent) => {
+            if (bvEvent.componentId === "dropdown-2") {
+              this.isDropdown2Visible = false;
+            }
+            if (this.isDropdown2Visible) {
+              bvEvent.preventDefault();
+            }
+          });
+        },
+      });
+    </script>
+  </body>
+</html>

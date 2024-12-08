@@ -4,324 +4,353 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"
+    />
+    <script src="https://unpkg.com/vue@2.6.12/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+
     <link rel="stylesheet" href="styles/styles.css" />
     <title>Document</title>
   </head>
   <body>
-    <header class="header">
-      <div class="container header__container">
-        <div class="header__links">
-          <a class="header__item" href="./index.html">Журнал событий</a>
-          <a class="header__item" href="./admin.html">Администрирование</a>
+    <div id="app">
+      <header class="header">
+        <div class="containerС header__container">
+          <div class="header__links">
+            <a class="header__item" href="./index.html">Журнал событий</a>
+            <a class="header__item" href="./admin.html">Администрирование</a>
+          </div>
+          <div class="header__user-info">
+            <p class="header__item">support@corteos.travel</p>
+            <button class="header__btn-logout button button--primary">Выйти</button>
+          </div>
         </div>
-        <div class="header__user-info">
-          <p class="header__item">support@corteos.travel</p>
-          <button class="header__btn-logout button button--primary">Выйти</button>
-        </div>
-      </div>
-    </header>
-    <main>
-      <div class="container admin">
-        <h4 class="admin__title">Администрирование</h4>
-        <div class="admin-table-settings">
-          <button class="button button--primary admin-table-settings__addUser">
-            <a href="./addUser.html">Добавить пользователя</a>
-          </button>
-          <div class="admin-table-settings__r-side">
-            <div class="admin-table-settings__search">
-              <p>Поиск:</p>
-              <input
-                class="admin-table-settings__search-input"
-                type="text"
-                placeholder="Поиск по всей таблице"
-              />
-              <button class="button button--primary admin-table-settings__search-btn">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M13.4502 8.10486C13.4502 5.13491 11.0425 2.72729 8.0726 2.72729C5.10265 2.72729 2.69503 5.13491 2.69503 8.10486C2.69503 11.0748 5.10265 13.4824 8.0726 13.4824C11.0425 13.4824 13.4502 11.0748 13.4502 8.10486ZM8.0726 0.727295C12.1471 0.727295 15.4502 4.03034 15.4502 8.10486C15.4502 9.7815 14.8909 11.3275 13.9487 12.5665L16.9796 15.5974C17.3701 15.9879 17.3701 16.6211 16.9796 17.0116C16.589 17.4021 15.9559 17.4021 15.5654 17.0116L12.5345 13.9807C11.2955 14.9231 9.74935 15.4824 8.0726 15.4824C3.99808 15.4824 0.695032 12.1794 0.695032 8.10486C0.695032 4.03034 3.99808 0.727295 8.0726 0.727295Z"
-                    fill="white"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div class="count-log">
-              <p class="count-log__title">Показывать</p>
-              <div class="dropdown">
-                <button class="dropdown__toggle dropdown__toggle--count-log">
-                  <span class="dropdown__toggle-title dropdown__toggle-title--count-log"
-                    >10 000</span
+      </header>
+      <main>
+        <div class="containerС admin">
+          <h4 class="admin__title">Администрирование</h4>
+          <div class="admin-table-settings">
+            <button class="button button--primary admin-table-settings__addUser">
+              <a href="./addUser.html">Добавить пользователя</a>
+            </button>
+            <div class="admin-table-settings__r-side">
+              <div class="admin-table-settings__search">
+                <p>Поиск:</p>
+                <input
+                  class="admin-table-settings__search-input"
+                  type="text"
+                  placeholder="Поиск по всей таблице"
+                />
+                <button class="button button--primary admin-table-settings__search-btn">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                  <!-- иконка стрелки -->
-                  <span class="dropdown__icon-arrow">
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M13.4502 8.10486C13.4502 5.13491 11.0425 2.72729 8.0726 2.72729C5.10265 2.72729 2.69503 5.13491 2.69503 8.10486C2.69503 11.0748 5.10265 13.4824 8.0726 13.4824C11.0425 13.4824 13.4502 11.0748 13.4502 8.10486ZM8.0726 0.727295C12.1471 0.727295 15.4502 4.03034 15.4502 8.10486C15.4502 9.7815 14.8909 11.3275 13.9487 12.5665L16.9796 15.5974C17.3701 15.9879 17.3701 16.6211 16.9796 17.0116C16.589 17.4021 15.9559 17.4021 15.5654 17.0116L12.5345 13.9807C11.2955 14.9231 9.74935 15.4824 8.0726 15.4824C3.99808 15.4824 0.695032 12.1794 0.695032 8.10486C0.695032 4.03034 3.99808 0.727295 8.0726 0.727295Z"
+                      fill="white"
+                    />
+                  </svg>
                 </button>
-                <div class="dropdown__menu">
-                  <a class="dropdown__item dropdown__item--count-log" href="#">10 000</a>
-                  <a class="dropdown__item dropdown__item--count-log" href="#">20 000</a>
-                  <a class="dropdown__item dropdown__item--count-log" href="#">30 000</a>
-                  <a class="dropdown__item dropdown__item--count-log" href="#">40 000</a>
-                </div>
+              </div>
+              <div class="count-log">
+                <p class="count-log__title">Показывать</p>
+                <b-dropdown
+                  id="dropdown-count-log"
+                  class="dropdown"
+                  variant="outline-secondary"
+                  toggle-class="dropdown__toggle dropdown__toggle--count-log"
+                  menu-class="dropdown__menu"
+                >
+                  <!-- Настраиваем контент кнопки -->
+                  <template #button-content>
+                    <span class="dropdown__toggle-title dropdown__toggle-title--count-log">
+                      {{ selectedItem }}
+                    </span>
+                    <span class="dropdown__icon-arrow">
+                      <svg
+                        width="10"
+                        height="6"
+                        viewBox="0 0 10 6"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                          fill="#293553"
+                        />
+                      </svg>
+                    </span>
+                  </template>
+
+                  <b-dropdown-item
+                    v-for="(item, index) in dropdownItems"
+                    :key="index"
+                    href="#"
+                    class="dropdown__item dropdown__item--count-log"
+                    @click.prevent="selectItem(item)"
+                  >
+                    {{ item }}
+                  </b-dropdown-item>
+                </b-dropdown>
               </div>
             </div>
           </div>
-        </div>
-        <div class="userTable">
-          <table class="tableC table--user">
-            <thead class="tableC__columns">
-              <tr>
-                <th class="tableC__column tableC__column--user-email">
-                  <div class="tableC__column-cell">
-                    Почта
-                    <!-- иконка стрелки -->
-                    <span class="tableC__icon-arrow">
-                      <svg
-                        width="10"
-                        height="6"
-                        viewBox="0 0 10 6"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                          fill="#293553"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                </th>
-                <th class="tableC__column tableC__column--user-role">
-                  <div class="tableC__column-cell">
-                    Роль
-                    <!-- иконка стрелки -->
-                    <span class="tableC__icon-arrow">
-                      <svg
-                        width="10"
-                        height="6"
-                        viewBox="0 0 10 6"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                          fill="#293553"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                </th>
-                <th class="tableC__column tableC__column--domain">
-                  <div class="tableC__column-cell">
-                    Домены
-                    <!-- иконка стрелки -->
-                    <span class="tableC__icon-arrow">
-                      <svg
-                        width="10"
-                        height="6"
-                        viewBox="0 0 10 6"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                          fill="#293553"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                </th>
-                <th class="tableC__column tableC__column--action">
-                  <div class="tableC__column-cell">
-                    Действия
-                    <!-- иконка стрелки -->
-                    <span class="tableC__icon-arrow">
-                      <svg
-                        width="10"
-                        height="6"
-                        viewBox="0 0 10 6"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                          fill="#293553"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                </th>
-              </tr>
-            </thead>
-            <tbody class="tableC__lines">
-              <tr class="tableC__line">
-                <td class="tableC__line-cell">admin@aeroglobus.ru</td>
-                <td class="tableC__line-cell">Пользователь</td>
-                <td class="tableC__line-cell tableC__line-cell--domain-info">
-                  corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
-                </td>
-                <td class="tableC__line-cell">
-                  <button class="button button--primary tableC__btn-edit">Редактировать</button>
-                  <button class="button button--danger tableC__btn-delete">Удалить</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="tableC__line-cell">admin@aeroglobus.ru</td>
-                <td class="tableC__line-cell">Пользователь</td>
-                <td class="tableC__line-cell tableC__line-cell--domain-info">
-                  corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
-                </td>
-                <td class="tableC__line-cell">
-                  <button class="button button--primary tableC__btn-edit">Редактировать</button>
-                  <button class="button button--danger tableC__btn-delete">Удалить</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="tableC__line-cell">admin@aeroglobus.ru</td>
-                <td class="tableC__line-cell">Пользователь</td>
-                <td class="tableC__line-cell tableC__line-cell--domain-info">
-                  corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
-                </td>
-                <td class="tableC__line-cell">
-                  <button class="button button--primary tableC__btn-edit">Редактировать</button>
-                  <button class="button button--danger tableC__btn-delete">Удалить</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="tableC__line-cell">admin@aeroglobus.ru</td>
-                <td class="tableC__line-cell">Пользователь</td>
-                <td class="tableC__line-cell tableC__line-cell--domain-info">
-                  corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
-                </td>
-                <td class="tableC__line-cell">
-                  <button class="button button--primary tableC__btn-edit">Редактировать</button>
-                  <button class="button button--danger tableC__btn-delete">Удалить</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="tableC__line-cell">admin@aeroglobus.ru</td>
-                <td class="tableC__line-cell">Пользователь</td>
-                <td class="tableC__line-cell tableC__line-cell--domain-info">
-                  corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru,
-                  corteos-test.aeroglobus.ru,corteos.aeroglobus.ru, komandirovka.aeroglobus.ru,
-                  corteos-test.aeroglobus.ru, corteos-test.aeroglobus.ru,
-                </td>
-                <td class="tableC__line-cell">
-                  <button class="button button--primary tableC__btn-edit">Редактировать</button>
-                  <button class="button button--danger tableC__btn-delete">Удалить</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="pagination">
-          <ul class="pagination__list">
-            <li class="pagination__back pagination__icon-arrow">
-              <svg
-                width="6"
-                height="10"
-                viewBox="0 0 6 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5.85355 0.396447C6.04882 0.591709 6.04882 0.908291 5.85355 1.10355L1.95743 4.99968L5.85355 8.89581C6.04882 9.09107 6.04882 9.40765 5.85355 9.60291C5.65829 9.79817 5.34171 9.79817 5.14645 9.60291L1.25032 5.70679C0.859795 5.31626 0.859796 4.6831 1.25032 4.29257L5.14645 0.396447C5.34171 0.201184 5.65829 0.201184 5.85355 0.396447Z"
-                  fill="#101828"
-                />
-              </svg>
-            </li>
-            <li class="pagination__item">1</li>
-            <li class="pagination__ellipsis">...</li>
-            <li class="pagination__item">21</li>
-            <li class="pagination__item">22</li>
-            <li class="pagination__item">23</li>
-            <li class="pagination__item pagination__item--activ">
-              <div class="pagination__search pagination__search--disabled">
-                <input class="pagination__input" type="text" placeholder="Введите номер страницы" />
-                <div class="pagination__block"></div>
-              </div>
-              <span class="pagination__icon pagination__icon-serach pagination__icon-serach--activ">
+          <div class="userTable">
+            <table class="tableC table--user">
+              <thead class="tableC__columns">
+                <tr>
+                  <th class="tableC__column tableC__column--user-email">
+                    <div class="tableC__column-cell">
+                      Почта
+                      <!-- иконка стрелки -->
+                      <span class="tableC__icon-arrow">
+                        <svg
+                          width="10"
+                          height="6"
+                          viewBox="0 0 10 6"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                            fill="#293553"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </th>
+                  <th class="tableC__column tableC__column--user-role">
+                    <div class="tableC__column-cell">
+                      Роль
+                      <!-- иконка стрелки -->
+                      <span class="tableC__icon-arrow">
+                        <svg
+                          width="10"
+                          height="6"
+                          viewBox="0 0 10 6"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                            fill="#293553"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </th>
+                  <th class="tableC__column tableC__column--domain">
+                    <div class="tableC__column-cell">
+                      Домены
+                      <!-- иконка стрелки -->
+                      <span class="tableC__icon-arrow">
+                        <svg
+                          width="10"
+                          height="6"
+                          viewBox="0 0 10 6"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                            fill="#293553"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </th>
+                  <th class="tableC__column tableC__column--action">
+                    <div class="tableC__column-cell">
+                      Действия
+                      <!-- иконка стрелки -->
+                      <span class="tableC__icon-arrow">
+                        <svg
+                          width="10"
+                          height="6"
+                          viewBox="0 0 10 6"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                            fill="#293553"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="tableC__lines">
+                <tr class="tableC__line">
+                  <td class="tableC__line-cell">admin@aeroglobus.ru</td>
+                  <td class="tableC__line-cell">Пользователь</td>
+                  <td class="tableC__line-cell tableC__line-cell--domain-info">
+                    corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
+                  </td>
+                  <td class="tableC__line-cell">
+                    <button class="button button--primary tableC__btn-edit">Редактировать</button>
+                    <button class="button button--danger tableC__btn-delete">Удалить</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="tableC__line-cell">admin@aeroglobus.ru</td>
+                  <td class="tableC__line-cell">Пользователь</td>
+                  <td class="tableC__line-cell tableC__line-cell--domain-info">
+                    corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
+                  </td>
+                  <td class="tableC__line-cell">
+                    <button class="button button--primary tableC__btn-edit">Редактировать</button>
+                    <button class="button button--danger tableC__btn-delete">Удалить</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="tableC__line-cell">admin@aeroglobus.ru</td>
+                  <td class="tableC__line-cell">Пользователь</td>
+                  <td class="tableC__line-cell tableC__line-cell--domain-info">
+                    corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
+                  </td>
+                  <td class="tableC__line-cell">
+                    <button class="button button--primary tableC__btn-edit">Редактировать</button>
+                    <button class="button button--danger tableC__btn-delete">Удалить</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="tableC__line-cell">admin@aeroglobus.ru</td>
+                  <td class="tableC__line-cell">Пользователь</td>
+                  <td class="tableC__line-cell tableC__line-cell--domain-info">
+                    corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru
+                  </td>
+                  <td class="tableC__line-cell">
+                    <button class="button button--primary tableC__btn-edit">Редактировать</button>
+                    <button class="button button--danger tableC__btn-delete">Удалить</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="tableC__line-cell">admin@aeroglobus.ru</td>
+                  <td class="tableC__line-cell">Пользователь</td>
+                  <td class="tableC__line-cell tableC__line-cell--domain-info">
+                    corteos.aeroglobus.ru, komandirovka.aeroglobus.ru, corteos-test.aeroglobus.ru,
+                    corteos-test.aeroglobus.ru,corteos.aeroglobus.ru, komandirovka.aeroglobus.ru,
+                    corteos-test.aeroglobus.ru, corteos-test.aeroglobus.ru,
+                  </td>
+                  <td class="tableC__line-cell">
+                    <button class="button button--primary tableC__btn-edit">Редактировать</button>
+                    <button class="button button--danger tableC__btn-delete">Удалить</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pagination">
+            <ul class="pagination__list">
+              <li class="pagination__back pagination__icon-arrow">
                 <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
+                  width="6"
+                  height="10"
+                  viewBox="0 0 6 10"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M13.4502 8.10486C13.4502 5.13491 11.0425 2.72729 8.0726 2.72729C5.10265 2.72729 2.69503 5.13491 2.69503 8.10486C2.69503 11.0748 5.10265 13.4824 8.0726 13.4824C11.0425 13.4824 13.4502 11.0748 13.4502 8.10486ZM8.0726 0.727295C12.1471 0.727295 15.4502 4.03034 15.4502 8.10486C15.4502 9.7815 14.8909 11.3275 13.9487 12.5665L16.9796 15.5974C17.3701 15.9879 17.3701 16.6211 16.9796 17.0116C16.589 17.4021 15.9559 17.4021 15.5654 17.0116L12.5345 13.9807C11.2955 14.9231 9.74935 15.4824 8.0726 15.4824C3.99808 15.4824 0.695032 12.1794 0.695032 8.10486C0.695032 4.03034 3.99808 0.727295 8.0726 0.727295Z"
-                    fill="#797E8B"
+                    d="M5.85355 0.396447C6.04882 0.591709 6.04882 0.908291 5.85355 1.10355L1.95743 4.99968L5.85355 8.89581C6.04882 9.09107 6.04882 9.40765 5.85355 9.60291C5.65829 9.79817 5.34171 9.79817 5.14645 9.60291L1.25032 5.70679C0.859795 5.31626 0.859796 4.6831 1.25032 4.29257L5.14645 0.396447C5.34171 0.201184 5.65829 0.201184 5.85355 0.396447Z"
+                    fill="#101828"
                   />
                 </svg>
-              </span>
-              24
-            </li>
-            <li class="pagination__item">25</li>
-            <li class="pagination__item">26</li>
-            <li class="pagination__item">27</li>
-            <li class="pagination__ellipsis">...</li>
-            <li class="pagination__item">133</li>
-            <li class="pagination__next pagination__icon-arrow">
-              <svg
-                width="6"
-                height="10"
-                viewBox="0 0 6 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5.85355 0.396447C6.04882 0.591709 6.04882 0.908291 5.85355 1.10355L1.95743 4.99968L5.85355 8.89581C6.04882 9.09107 6.04882 9.40765 5.85355 9.60291C5.65829 9.79817 5.34171 9.79817 5.14645 9.60291L1.25032 5.70679C0.859795 5.31626 0.859796 4.6831 1.25032 4.29257L5.14645 0.396447C5.34171 0.201184 5.65829 0.201184 5.85355 0.396447Z"
-                  fill="#101828"
-                />
-              </svg>
-            </li>
-          </ul>
+              </li>
+              <li class="pagination__item">1</li>
+              <li class="pagination__ellipsis">...</li>
+              <li class="pagination__item">21</li>
+              <li class="pagination__item">22</li>
+              <li class="pagination__item">23</li>
+              <li class="pagination__item pagination__item--activ">
+                <div class="pagination__search pagination__search--disabled">
+                  <input
+                    class="pagination__input"
+                    type="text"
+                    placeholder="Введите номер страницы"
+                  />
+                  <div class="pagination__block"></div>
+                </div>
+                <span
+                  class="pagination__icon pagination__icon-serach pagination__icon-serach--activ"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M13.4502 8.10486C13.4502 5.13491 11.0425 2.72729 8.0726 2.72729C5.10265 2.72729 2.69503 5.13491 2.69503 8.10486C2.69503 11.0748 5.10265 13.4824 8.0726 13.4824C11.0425 13.4824 13.4502 11.0748 13.4502 8.10486ZM8.0726 0.727295C12.1471 0.727295 15.4502 4.03034 15.4502 8.10486C15.4502 9.7815 14.8909 11.3275 13.9487 12.5665L16.9796 15.5974C17.3701 15.9879 17.3701 16.6211 16.9796 17.0116C16.589 17.4021 15.9559 17.4021 15.5654 17.0116L12.5345 13.9807C11.2955 14.9231 9.74935 15.4824 8.0726 15.4824C3.99808 15.4824 0.695032 12.1794 0.695032 8.10486C0.695032 4.03034 3.99808 0.727295 8.0726 0.727295Z"
+                      fill="#797E8B"
+                    />
+                  </svg>
+                </span>
+                24
+              </li>
+              <li class="pagination__item">25</li>
+              <li class="pagination__item">26</li>
+              <li class="pagination__item">27</li>
+              <li class="pagination__ellipsis">...</li>
+              <li class="pagination__item">133</li>
+              <li class="pagination__next pagination__icon-arrow">
+                <svg
+                  width="6"
+                  height="10"
+                  viewBox="0 0 6 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.85355 0.396447C6.04882 0.591709 6.04882 0.908291 5.85355 1.10355L1.95743 4.99968L5.85355 8.89581C6.04882 9.09107 6.04882 9.40765 5.85355 9.60291C5.65829 9.79817 5.34171 9.79817 5.14645 9.60291L1.25032 5.70679C0.859795 5.31626 0.859796 4.6831 1.25032 4.29257L5.14645 0.396447C5.34171 0.201184 5.65829 0.201184 5.85355 0.396447Z"
+                    fill="#101828"
+                  />
+                </svg>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </main>
-    <script src="./js/button-click.js"></script>
-    <script src="./js/pagination.js"></script>
+      </main>
+    </div>
 
     <script>
-      document.querySelector(".countLog__button").addEventListener("click", function () {
-        document.querySelector(".countLog").classList.toggle("dropdown--open");
-      });
+      Vue.use(BootstrapVue);
+      Vue.use(BootstrapVueIcons);
 
-      document.querySelectorAll(".countLog__content a").forEach(function (item) {
-        item.addEventListener("click", function (event) {
-          const selectedText = item.textContent;
-          document.querySelector(".countLog__button-title").innerHTML = `${selectedText}`;
-          document.querySelector(".countLog").classList.remove("dropdown--open");
-        });
-      });
-
-      document.addEventListener("click", function (event) {
-        const dropdown = document.querySelector(".countLog");
-
-        if (!dropdown.contains(event.target)) {
-          dropdown.classList.remove("dropdown--open");
-        }
+      new Vue({
+        el: "#app",
+        data: () => ({
+          dropdownItems: ["10 000", "20 000", "30 000", "40 000", "99 999"], // Опции countLog
+          selectedItem: "10 000", // Начальное значение countLog
+        }),
+        methods: {
+          selectItem(item) {
+            this.selectedItem = item; // Устанавливаем выбранный элемент в countLog
+          },
+        },
       });
     </script>
+    <script src="./js/button-click.js"></script>
+    <script src="./js/pagination.js"></script>
   </body>
 </html>

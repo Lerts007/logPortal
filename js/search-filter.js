@@ -1,4 +1,4 @@
-document.querySelectorAll(".table__icon-search").forEach(function (item) {
+document.querySelectorAll(".tableC__icon-search").forEach(function (item) {
   item.addEventListener("click", function () {
     const thElement = item.closest("th");
 
@@ -23,7 +23,7 @@ document.querySelectorAll(".dropdown__icon-filter").forEach(function (item) {
 
 document.addEventListener("click", function (event) {
   document.querySelectorAll(".search-filter").forEach(function (modal) {
-    if (!modal.contains(event.target) && !event.target.closest(".table__icon-search")) {
+    if (!modal.contains(event.target) && !event.target.closest(".tableC__icon-search")) {
       modal.classList.add("search-filter--disabled");
     }
   });
