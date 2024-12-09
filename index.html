@@ -60,36 +60,69 @@
           <!-- график  -->
           <b-dropdown
             id="dropdown-1"
+            ref="dropdown1"
             class="dropdown dropdown--chart"
             variant="outline-secondary"
-            ref="dropdown1"
             toggle-class="dropdown__toggle dropdown__toggle--chart"
             menu-class="dropdown__menu dropdown__menu--chart"
+            lazy
           >
             <!-- Настраиваем контент кнопки -->
             <template #button-content>
               <span class="dropdown__toggle-title">
                 <span class="dropdown__icon-filter">
-                  <svg
-                    width="14"
-                    height="12"
-                    viewBox="0 0 14 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <b-dropdown
+                    id="dropdown-3"
+                    ref="dropdown3"
+                    class="dropdown dropdown--icon"
+                    size="lg"
+                    variant="link"
+                    lazy
+                    toggle-class="text-decoration-none dropdown__toggle dropdown__toggle--icon"
+                    menu-class="dropdown__menu dropdown__menu--chart-filter dropdown__menu--icon"
+                    no-caret
                   >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M5.00004 0.666672C6.2426 0.666672 7.28667 1.51652 7.5827 2.66667L13 2.66667C13.3682 2.66667 13.6667 2.96515 13.6667 3.33334C13.6667 3.70153 13.3682 4.00001 13 4.00001L7.5827 4.00001C7.28667 5.15016 6.2426 6 5.00004 6C3.75565 6 2.71034 5.14765 2.41608 3.99493C2.38898 3.99828 2.36138 4.00001 2.33337 4.00001L1.00004 4C0.63185 4 0.333374 3.70153 0.333374 3.33334C0.333374 2.96515 0.631851 2.66667 1.00004 2.66667L2.33337 2.66667C2.36138 2.66667 2.38898 2.6684 2.41608 2.67175C2.71034 1.51902 3.75565 0.666672 5.00004 0.666672ZM6.33337 3.33334C6.33337 4.06972 5.73642 4.66667 5.00004 4.66667C4.26366 4.66667 3.66671 4.06972 3.66671 3.33334C3.66671 2.59696 4.26366 2.00001 5.00004 2.00001C5.73642 2.00001 6.33337 2.59696 6.33337 3.33334Z"
-                      fill="#293553"
-                    />
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M11.584 9.32826C11.2897 10.481 10.2444 11.3333 9.00004 11.3333C7.75748 11.3333 6.71341 10.4835 6.41739 9.33334H1.00004C0.631851 9.33334 0.333374 9.03486 0.333374 8.66667C0.333374 8.29848 0.631851 8 1.00004 8H6.41739C6.71341 6.84985 7.75748 6 9.00004 6C10.2444 6 11.2897 6.85236 11.584 8.00509C11.6111 8.00173 11.6387 8 11.6667 8H13C13.3682 8 13.6667 8.29848 13.6667 8.66667C13.6667 9.03486 13.3682 9.33334 13 9.33334H11.6667C11.6387 9.33334 11.6111 9.33161 11.584 9.32826ZM10.3334 8.66667C10.3334 9.40305 9.73642 10 9.00004 10C8.26366 10 7.66671 9.40305 7.66671 8.66667C7.66671 7.93029 8.26366 7.33334 9.00004 7.33334C9.73642 7.33334 10.3334 7.93029 10.3334 8.66667Z"
-                      fill="#293553"
-                    />
-                  </svg>
+                    <template #button-content>
+                      <svg
+                        width="14"
+                        height="12"
+                        viewBox="0 0 14 12"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M5.00004 0.666672C6.2426 0.666672 7.28667 1.51652 7.5827 2.66667L13 2.66667C13.3682 2.66667 13.6667 2.96515 13.6667 3.33334C13.6667 3.70153 13.3682 4.00001 13 4.00001L7.5827 4.00001C7.28667 5.15016 6.2426 6 5.00004 6C3.75565 6 2.71034 5.14765 2.41608 3.99493C2.38898 3.99828 2.36138 4.00001 2.33337 4.00001L1.00004 4C0.63185 4 0.333374 3.70153 0.333374 3.33334C0.333374 2.96515 0.631851 2.66667 1.00004 2.66667L2.33337 2.66667C2.36138 2.66667 2.38898 2.6684 2.41608 2.67175C2.71034 1.51902 3.75565 0.666672 5.00004 0.666672ZM6.33337 3.33334C6.33337 4.06972 5.73642 4.66667 5.00004 4.66667C4.26366 4.66667 3.66671 4.06972 3.66671 3.33334C3.66671 2.59696 4.26366 2.00001 5.00004 2.00001C5.73642 2.00001 6.33337 2.59696 6.33337 3.33334Z"
+                          fill="#293553"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M11.584 9.32826C11.2897 10.481 10.2444 11.3333 9.00004 11.3333C7.75748 11.3333 6.71341 10.4835 6.41739 9.33334H1.00004C0.631851 9.33334 0.333374 9.03486 0.333374 8.66667C0.333374 8.29848 0.631851 8 1.00004 8H6.41739C6.71341 6.84985 7.75748 6 9.00004 6C10.2444 6 11.2897 6.85236 11.584 8.00509C11.6111 8.00173 11.6387 8 11.6667 8H13C13.3682 8 13.6667 8.29848 13.6667 8.66667C13.6667 9.03486 13.3682 9.33334 13 9.33334H11.6667C11.6387 9.33334 11.6111 9.33161 11.584 9.32826ZM10.3334 8.66667C10.3334 9.40305 9.73642 10 9.00004 10C8.26366 10 7.66671 9.40305 7.66671 8.66667C7.66671 7.93029 8.26366 7.33334 9.00004 7.33334C9.73642 7.33334 10.3334 7.93029 10.3334 8.66667Z"
+                          fill="#293553"
+                        />
+                      </svg>
+                    </template>
+                    <b-dropdown-item
+                      v-for="(item, index) in dropdownItemsCountLog"
+                      :key="index"
+                      href="#"
+                      class="dropdown__item dropdown__item--chart-filter"
+                      boundary="viewport"
+                      @click.native.capture.stop
+                    >
+                      <label :for="'chart-filter'+index" class="dropdown__item-label">
+                        <input
+                          class="dropdown__item-check"
+                          type="checkbox"
+                          name=""
+                          :id="'chart-filter'+index"
+                        />
+                        Текст 1
+                      </label>
+                    </b-dropdown-item>
+                  </b-dropdown>
                 </span>
                 График
                 <b-dropdown
@@ -99,7 +132,7 @@
                   ref="dropdown2"
                   toggle-class="dropdown__toggle dropdown__toggle--chart-time"
                   menu-class="dropdown__menu dropdown__menu--chart-time"
-                  @click.stop="handleClick(el)"
+                  lazy
                 >
                   <!-- Настраиваем контент кнопки -->
                   <template #button-content>
@@ -184,11 +217,12 @@
                 variant="outline-secondary"
                 toggle-class="dropdown__toggle dropdown__toggle--filte-type"
                 menu-class="dropdown__menu"
+                lazy
               >
                 <!-- Настраиваем контент кнопки -->
                 <template #button-content>
                   <span class="dropdown__toggle-title"> Тип </span>
-                  <span class="dropdown__toggle-select">{{ selectedItem__filteType }}</span>
+                  <span class="dropdown__toggle-select">{{ selectedItemFilteType }}</span>
 
                   <span class="dropdown__icon-arrow">
                     <svg
@@ -207,7 +241,7 @@
                 </template>
 
                 <b-dropdown-item
-                  v-for="(item, index) in dropdownItems__filteType"
+                  v-for="(item, index) in dropdownItemsFilteType"
                   :key="index"
                   href="#"
                   class="dropdown__item dropdown__item--filte-type"
@@ -216,33 +250,6 @@
                   {{ item }}
                 </b-dropdown-item>
               </b-dropdown>
-              <!-- <div class="dropdown">
-                <button class="dropdown__toggle dropdown__toggle--filte-type">
-                  <span class="dropdown__toggle-title">Тип</span>
-                  <span class="dropdown__toggle-select">Все</span>
-                  
-                  <span class="dropdown__icon-arrow">
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </span>
-                </button>
-                <div class="dropdown__menu">
-                  <a class="dropdown__item" href="#">Все</a>
-                  <a class="dropdown__item" href="#">Тип 1</a>
-                  <a class="dropdown__item" href="#">Тип 2</a>
-                  <a class="dropdown__item" href="#">Тип 3</a>
-                </div>
-              </div> -->
 
               <div class="datetime">
                 <!-- Иконка календаря -->
@@ -344,6 +351,7 @@
                 variant="outline-secondary"
                 toggle-class="dropdown__toggle dropdown__toggle--count-log"
                 menu-class="dropdown__menu"
+                lazy
               >
                 <!-- Настраиваем контент кнопки -->
                 <template #button-content>
@@ -367,7 +375,7 @@
                 </template>
 
                 <b-dropdown-item
-                  v-for="(item, index) in dropdownItems"
+                  v-for="(item, index) in dropdownItemsCountLog"
                   :key="index"
                   href="#"
                   class="dropdown__item dropdown__item--count-log"
@@ -448,20 +456,114 @@
                       Сообщение
                       <!-- иконка поиска -->
                       <span class="tableC__icon-search">
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <b-dropdown
+                          class="dropdown dropdown--icon"
+                          variant="outline-secondary"
+                          toggle-class="dropdown__toggle dropdown__toggle--icon"
+                          menu-class="dropdown__menu dropdown__menu--icon"
+                          offset="-90"
+                          no-flip
                         >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                            fill="#293553"
-                          />
-                        </svg>
+                          <!-- Настраиваем контент кнопки -->
+                          <template #button-content>
+                            <svg
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                fill="#293553"
+                              />
+                            </svg>
+                          </template>
+
+                          <b-dropdown-item
+                            href="#"
+                            class="dropdown__item dropdown__item--chart"
+                            @click.native.capture.stop
+                          >
+                            <div class="search-filter">
+                              <div class="search-filter__input-wrapper">
+                                <input
+                                  class="search-filter__input inputPlaceholder"
+                                  type="text"
+                                  placeholder="Текст"
+                                />
+                                <!-- иконка поиска -->
+                                <span class="search-filter__icon-search">
+                                  <svg
+                                    width="12"
+                                    height="12"
+                                    viewBox="0 0 12 12"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      fill-rule="evenodd"
+                                      clip-rule="evenodd"
+                                      d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                      fill="#293553"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                              <div class="search-filter__menu">
+                                <label class="search-filter__item" for="1">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="1"
+                                  />
+                                  Текст 1
+                                </label>
+                                <label class="search-filter__item" for="2">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="2"
+                                  />
+                                  Текст 2
+                                </label>
+                                <label class="search-filter__item" for="3">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="3"
+                                    disabled
+                                  />
+                                  Текст 3
+                                </label>
+                                <label class="search-filter__item" for="4">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="4"
+                                  />
+                                  Текст 4
+                                </label>
+                                <label class="search-filter__item" for="5">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="5"
+                                    disabled
+                                  />
+                                  Текст 5
+                                </label>
+                              </div>
+                            </div>
+                          </b-dropdown-item>
+                        </b-dropdown>
                       </span>
                       <!-- иконка закрепления столбца -->
                       <span class="tableC__icon-pin tableC__icon-pin--disabled">
@@ -480,66 +582,6 @@
                           />
                         </svg>
                       </span>
-                    </div>
-                    <div class="search-filter search-filter--disabled">
-                      <div class="search-filter__input-wrapper">
-                        <input
-                          class="search-filter__input inputPlaceholder"
-                          type="text"
-                          placeholder="Текст"
-                        />
-                        <!-- иконка поиска -->
-                        <span class="search-filter__icon-search">
-                          <svg
-                            width="12"
-                            height="12"
-                            viewBox="0 0 12 12"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                              fill="#293553"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                      <div class="search-filter__menu">
-                        <label class="search-filter__item" for="1">
-                          <input class="search-filter__item-check" type="checkbox" name="" id="1" />
-                          Текст 1
-                        </label>
-                        <label class="search-filter__item" for="2">
-                          <input class="search-filter__item-check" type="checkbox" name="" id="2" />
-                          Текст 2
-                        </label>
-                        <label class="search-filter__item" for="3">
-                          <input
-                            class="search-filter__item-check"
-                            type="checkbox"
-                            name=""
-                            id="3"
-                            disabled
-                          />
-                          Текст 3
-                        </label>
-                        <label class="search-filter__item" for="4">
-                          <input class="search-filter__item-check" type="checkbox" name="" id="4" />
-                          Текст 4
-                        </label>
-                        <label class="search-filter__item" for="5">
-                          <input
-                            class="search-filter__item-check"
-                            type="checkbox"
-                            name=""
-                            id="5"
-                            disabled
-                          />
-                          Текст 5
-                        </label>
-                      </div>
                     </div>
                   </th>
                   <th class="tableC__column tableC__column--user">
@@ -547,20 +589,114 @@
                       Пользователь
                       <!-- иконка поиска -->
                       <span class="tableC__icon-search">
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <b-dropdown
+                          class="dropdown dropdown--icon"
+                          variant="outline-secondary"
+                          toggle-class="dropdown__toggle dropdown__toggle--icon"
+                          menu-class="dropdown__menu dropdown__menu--icon"
+                          offset="-110"
+                          no-flip
                         >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                            fill="#293553"
-                          />
-                        </svg>
+                          <!-- Настраиваем контент кнопки -->
+                          <template #button-content>
+                            <svg
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                fill="#293553"
+                              />
+                            </svg>
+                          </template>
+
+                          <b-dropdown-item
+                            href="#"
+                            class="dropdown__item dropdown__item--chart"
+                            @click.native.capture.stop
+                          >
+                            <div class="search-filter">
+                              <div class="search-filter__input-wrapper">
+                                <input
+                                  class="search-filter__input inputPlaceholder"
+                                  type="text"
+                                  placeholder="Текст"
+                                />
+                                <!-- иконка поиска -->
+                                <span class="search-filter__icon-search">
+                                  <svg
+                                    width="12"
+                                    height="12"
+                                    viewBox="0 0 12 12"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      fill-rule="evenodd"
+                                      clip-rule="evenodd"
+                                      d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                      fill="#293553"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                              <div class="search-filter__menu">
+                                <label class="search-filter__item" for="1">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="1"
+                                  />
+                                  Текст 1
+                                </label>
+                                <label class="search-filter__item" for="2">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="2"
+                                  />
+                                  Текст 2
+                                </label>
+                                <label class="search-filter__item" for="3">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="3"
+                                    disabled
+                                  />
+                                  Текст 3
+                                </label>
+                                <label class="search-filter__item" for="4">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="4"
+                                  />
+                                  Текст 4
+                                </label>
+                                <label class="search-filter__item" for="5">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="5"
+                                    disabled
+                                  />
+                                  Текст 5
+                                </label>
+                              </div>
+                            </div>
+                          </b-dropdown-item>
+                        </b-dropdown>
                       </span>
                       <!-- иконка закрепления столбца -->
                       <span class="tableC__icon-pin tableC__icon-pin--disabled">
@@ -579,66 +715,6 @@
                           />
                         </svg>
                       </span>
-                    </div>
-                    <div class="search-filter search-filter--disabled">
-                      <div class="search-filter__input-wrapper">
-                        <input
-                          class="search-filter__input inputPlaceholder"
-                          type="text"
-                          placeholder="Текст"
-                        />
-                        <!-- иконка поиска -->
-                        <span class="search-filter__icon-search">
-                          <svg
-                            width="12"
-                            height="12"
-                            viewBox="0 0 12 12"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                              fill="#293553"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                      <div class="search-filter__menu">
-                        <label class="search-filter__item" for="1">
-                          <input class="search-filter__item-check" type="checkbox" name="" id="1" />
-                          Текст 1
-                        </label>
-                        <label class="search-filter__item" for="2">
-                          <input class="search-filter__item-check" type="checkbox" name="" id="2" />
-                          Текст 2
-                        </label>
-                        <label class="search-filter__item" for="3">
-                          <input
-                            class="search-filter__item-check"
-                            type="checkbox"
-                            name=""
-                            id="3"
-                            disabled
-                          />
-                          Текст 3
-                        </label>
-                        <label class="search-filter__item" for="4">
-                          <input class="search-filter__item-check" type="checkbox" name="" id="4" />
-                          Текст 4
-                        </label>
-                        <label class="search-filter__item" for="5">
-                          <input
-                            class="search-filter__item-check"
-                            type="checkbox"
-                            name=""
-                            id="5"
-                            disabled
-                          />
-                          Текст 5
-                        </label>
-                      </div>
                     </div>
                   </th>
                   <th class="tableC__column tableC__column--badges">
@@ -720,20 +796,114 @@
                       Сессия
                       <!-- иконка поиска -->
                       <span class="tableC__icon-search">
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <b-dropdown
+                          class="dropdown dropdown--icon"
+                          variant="outline-secondary"
+                          toggle-class="dropdown__toggle dropdown__toggle--icon"
+                          menu-class="dropdown__menu dropdown__menu--icon"
+                          offset="-60"
+                          no-flip
                         >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                            fill="#293553"
-                          />
-                        </svg>
+                          <!-- Настраиваем контент кнопки -->
+                          <template #button-content>
+                            <svg
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                fill="#293553"
+                              />
+                            </svg>
+                          </template>
+
+                          <b-dropdown-item
+                            href="#"
+                            class="dropdown__item dropdown__item--chart"
+                            @click.native.capture.stop
+                          >
+                            <div class="search-filter">
+                              <div class="search-filter__input-wrapper">
+                                <input
+                                  class="search-filter__input inputPlaceholder"
+                                  type="text"
+                                  placeholder="Текст"
+                                />
+                                <!-- иконка поиска -->
+                                <span class="search-filter__icon-search">
+                                  <svg
+                                    width="12"
+                                    height="12"
+                                    viewBox="0 0 12 12"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      fill-rule="evenodd"
+                                      clip-rule="evenodd"
+                                      d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                      fill="#293553"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                              <div class="search-filter__menu">
+                                <label class="search-filter__item" for="1">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="1"
+                                  />
+                                  Текст 1
+                                </label>
+                                <label class="search-filter__item" for="2">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="2"
+                                  />
+                                  Текст 2
+                                </label>
+                                <label class="search-filter__item" for="3">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="3"
+                                    disabled
+                                  />
+                                  Текст 3
+                                </label>
+                                <label class="search-filter__item" for="4">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="4"
+                                  />
+                                  Текст 4
+                                </label>
+                                <label class="search-filter__item" for="5">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="5"
+                                    disabled
+                                  />
+                                  Текст 5
+                                </label>
+                              </div>
+                            </div>
+                          </b-dropdown-item>
+                        </b-dropdown>
                       </span>
                       <!-- иконка закрепления столбца -->
                       <span class="tableC__icon-pin tableC__icon-pin--disabled">
@@ -752,66 +922,6 @@
                           />
                         </svg>
                       </span>
-                    </div>
-                    <div class="search-filter search-filter--disabled">
-                      <div class="search-filter__input-wrapper">
-                        <input
-                          class="search-filter__input inputPlaceholder"
-                          type="text"
-                          placeholder="Текст"
-                        />
-                        <!-- иконка поиска -->
-                        <span class="search-filter__icon-search">
-                          <svg
-                            width="12"
-                            height="12"
-                            viewBox="0 0 12 12"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                              fill="#293553"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                      <div class="search-filter__menu">
-                        <label class="search-filter__item" for="1">
-                          <input class="search-filter__item-check" type="checkbox" name="" id="1" />
-                          Текст 1
-                        </label>
-                        <label class="search-filter__item" for="2">
-                          <input class="search-filter__item-check" type="checkbox" name="" id="2" />
-                          Текст 2
-                        </label>
-                        <label class="search-filter__item" for="3">
-                          <input
-                            class="search-filter__item-check"
-                            type="checkbox"
-                            name=""
-                            id="3"
-                            disabled
-                          />
-                          Текст 3
-                        </label>
-                        <label class="search-filter__item" for="4">
-                          <input class="search-filter__item-check" type="checkbox" name="" id="4" />
-                          Текст 4
-                        </label>
-                        <label class="search-filter__item" for="5">
-                          <input
-                            class="search-filter__item-check"
-                            type="checkbox"
-                            name=""
-                            id="5"
-                            disabled
-                          />
-                          Текст 5
-                        </label>
-                      </div>
                     </div>
                   </th>
                   <th class="tableC__column tableC__column--id">
@@ -819,20 +929,114 @@
                       ID
                       <!-- иконка поиска -->
                       <span class="tableC__icon-search">
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <b-dropdown
+                          class="dropdown dropdown--icon"
+                          variant="outline-secondary"
+                          toggle-class="dropdown__toggle dropdown__toggle--icon"
+                          menu-class="dropdown__menu dropdown__menu--icon"
+                          offset="-30"
+                          no-flip
                         >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                            fill="#293553"
-                          />
-                        </svg>
+                          <!-- Настраиваем контент кнопки -->
+                          <template #button-content>
+                            <svg
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                fill="#293553"
+                              />
+                            </svg>
+                          </template>
+
+                          <b-dropdown-item
+                            href="#"
+                            class="dropdown__item dropdown__item--chart"
+                            @click.native.capture.stop
+                          >
+                            <div class="search-filter">
+                              <div class="search-filter__input-wrapper">
+                                <input
+                                  class="search-filter__input inputPlaceholder"
+                                  type="text"
+                                  placeholder="Текст"
+                                />
+                                <!-- иконка поиска -->
+                                <span class="search-filter__icon-search">
+                                  <svg
+                                    width="12"
+                                    height="12"
+                                    viewBox="0 0 12 12"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      fill-rule="evenodd"
+                                      clip-rule="evenodd"
+                                      d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                      fill="#293553"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                              <div class="search-filter__menu">
+                                <label class="search-filter__item" for="1">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="1"
+                                  />
+                                  Текст 1
+                                </label>
+                                <label class="search-filter__item" for="2">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="2"
+                                  />
+                                  Текст 2
+                                </label>
+                                <label class="search-filter__item" for="3">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="3"
+                                    disabled
+                                  />
+                                  Текст 3
+                                </label>
+                                <label class="search-filter__item" for="4">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="4"
+                                  />
+                                  Текст 4
+                                </label>
+                                <label class="search-filter__item" for="5">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="5"
+                                    disabled
+                                  />
+                                  Текст 5
+                                </label>
+                              </div>
+                            </div>
+                          </b-dropdown-item>
+                        </b-dropdown>
                       </span>
                       <!-- иконка закрепления столбца -->
                       <span class="tableC__icon-pin tableC__icon-pin--disabled">
@@ -851,66 +1055,6 @@
                           />
                         </svg>
                       </span>
-                    </div>
-                    <div class="search-filter search-filter--disabled">
-                      <div class="search-filter__input-wrapper">
-                        <input
-                          class="search-filter__input inputPlaceholder"
-                          type="text"
-                          placeholder="Текст"
-                        />
-                        <!-- иконка поиска -->
-                        <span class="search-filter__icon-search">
-                          <svg
-                            width="12"
-                            height="12"
-                            viewBox="0 0 12 12"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                              fill="#293553"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                      <div class="search-filter__menu">
-                        <label class="search-filter__item" for="1">
-                          <input class="search-filter__item-check" type="checkbox" name="" id="1" />
-                          Текст 1
-                        </label>
-                        <label class="search-filter__item" for="2">
-                          <input class="search-filter__item-check" type="checkbox" name="" id="2" />
-                          Текст 2
-                        </label>
-                        <label class="search-filter__item" for="3">
-                          <input
-                            class="search-filter__item-check"
-                            type="checkbox"
-                            name=""
-                            id="3"
-                            disabled
-                          />
-                          Текст 3
-                        </label>
-                        <label class="search-filter__item" for="4">
-                          <input class="search-filter__item-check" type="checkbox" name="" id="4" />
-                          Текст 4
-                        </label>
-                        <label class="search-filter__item" for="5">
-                          <input
-                            class="search-filter__item-check"
-                            type="checkbox"
-                            name=""
-                            id="5"
-                            disabled
-                          />
-                          Текст 5
-                        </label>
-                      </div>
                     </div>
                   </th>
                   <th class="tableC__column tableC__column--class">
@@ -992,20 +1136,114 @@
                       IP клиента
                       <!-- иконка поиска -->
                       <span class="tableC__icon-search">
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <b-dropdown
+                          class="dropdown dropdown--icon"
+                          variant="outline-secondary"
+                          toggle-class="dropdown__toggle dropdown__toggle--icon"
+                          menu-class="dropdown__menu dropdown__menu--icon"
+                          no-flip
+                          right
                         >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                            fill="#293553"
-                          />
-                        </svg>
+                          <!-- Настраиваем контент кнопки -->
+                          <template #button-content>
+                            <svg
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                fill="#293553"
+                              />
+                            </svg>
+                          </template>
+
+                          <b-dropdown-item
+                            href="#"
+                            class="dropdown__item dropdown__item--chart"
+                            @click.native.capture.stop
+                          >
+                            <div class="search-filter">
+                              <div class="search-filter__input-wrapper">
+                                <input
+                                  class="search-filter__input inputPlaceholder"
+                                  type="text"
+                                  placeholder="Текст"
+                                />
+                                <!-- иконка поиска -->
+                                <span class="search-filter__icon-search">
+                                  <svg
+                                    width="12"
+                                    height="12"
+                                    viewBox="0 0 12 12"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      fill-rule="evenodd"
+                                      clip-rule="evenodd"
+                                      d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                      fill="#293553"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                              <div class="search-filter__menu">
+                                <label class="search-filter__item" for="1">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="1"
+                                  />
+                                  Текст 1
+                                </label>
+                                <label class="search-filter__item" for="2">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="2"
+                                  />
+                                  Текст 2
+                                </label>
+                                <label class="search-filter__item" for="3">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="3"
+                                    disabled
+                                  />
+                                  Текст 3
+                                </label>
+                                <label class="search-filter__item" for="4">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="4"
+                                  />
+                                  Текст 4
+                                </label>
+                                <label class="search-filter__item" for="5">
+                                  <input
+                                    class="search-filter__item-check"
+                                    type="checkbox"
+                                    name=""
+                                    id="5"
+                                    disabled
+                                  />
+                                  Текст 5
+                                </label>
+                              </div>
+                            </div>
+                          </b-dropdown-item>
+                        </b-dropdown>
                       </span>
                       <!-- иконка закрепления столбца -->
                       <span class="tableC__icon-pin tableC__icon-pin--disabled">
@@ -1025,71 +1263,10 @@
                         </svg>
                       </span>
                     </div>
-                    <div class="search-filter search-filter--last search-filter--disabled">
-                      <div class="search-filter__input-wrapper">
-                        <input
-                          class="search-filter__input inputPlaceholder"
-                          type="text"
-                          placeholder="Текст"
-                        />
-                        <!-- иконка поиска -->
-                        <span class="search-filter__icon-search">
-                          <svg
-                            width="12"
-                            height="12"
-                            viewBox="0 0 12 12"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              clip-rule="evenodd"
-                              d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                              fill="#293553"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                      <div class="search-filter__menu">
-                        <label class="search-filter__item" for="1">
-                          <input class="search-filter__item-check" type="checkbox" name="" id="1" />
-                          Текст 1
-                        </label>
-                        <label class="search-filter__item" for="2">
-                          <input class="search-filter__item-check" type="checkbox" name="" id="2" />
-                          Текст 2
-                        </label>
-                        <label class="search-filter__item" for="3">
-                          <input
-                            class="search-filter__item-check"
-                            type="checkbox"
-                            name=""
-                            id="3"
-                            disabled
-                          />
-                          Текст 3
-                        </label>
-                        <label class="search-filter__item" for="4">
-                          <input class="search-filter__item-check" type="checkbox" name="" id="4" />
-                          Текст 4
-                        </label>
-                        <label class="search-filter__item" for="5">
-                          <input
-                            class="search-filter__item-check"
-                            type="checkbox"
-                            name=""
-                            id="5"
-                            disabled
-                          />
-                          Текст 5
-                        </label>
-                      </div>
-                    </div>
                   </th>
                 </tr>
               </thead>
               <tbody class="tableC__lines">
-                <!--  -->
                 <tr class="tableC__line tableC__line--log">
                   <td class="tableC__line-cell tableC__line-cell--status">
                     <div class="tableC__status tableC__line-cell--activ"></div>
@@ -1365,12 +1542,12 @@
       new Vue({
         el: "#app",
         data: () => ({
-          dropdownItems: ["10 000", "20 000", "30 000", "40 000", "99 999"], // Опции countLog
-          dropdownItems__filteType: ["Все", "Normal", "Error", "Warning"], // Опции type
+          dropdownItemsCountLog: ["10 000", "20 000", "30 000", "40 000", "99 999"], // Опции countLog
+          dropdownItemsFilteType: ["Все", "Normal", "Error", "Warning"], // Опции type
           dropdownItemsCartTime: ["За последние сутки", "За последние час"], // Опции время графика
 
           selectedItem: "10 000", // Начальное значение countLog
-          selectedItem__filteType: "Все", // Начальное значение type
+          selectedItemFilteType: "Все", // Начальное значение type
           selectedItemChratTime: "За последние сутки",
 
           code: `<Contact DateChanged="31.10.2024 23:45:11" DateCreate="27.09.2023 18:57:29" deleted="false">      
@@ -1385,7 +1562,7 @@
             this.selectedItem = item; // Устанавливаем выбранный элемент в countLog
           },
           selectItem__filteType(item) {
-            this.selectedItem__filteType = item; // Устанавливаем выбранный элемент в type
+            this.selectedItemFilteType = item; // Устанавливаем выбранный элемент в type
           },
           selectItemChartTime(item) {
             this.selectedItemChratTime = item; // Устанавливаем выбранный элемент
@@ -1398,6 +1575,11 @@
           document.addEventListener("click", (event) => {
             this.$refs.dropdown1.hide();
             this.$refs.dropdown2.hide();
+            this.$refs.dropdown3.hide();
+
+            this.isDropdown1Visible = false;
+            this.isDropdown2Visible = false;
+            this.isDropdown3Visible = false;
           });
           this.$root.$on("bv::dropdown::show", (bvEvent) => {
             if (bvEvent.componentId === "dropdown-1") {
@@ -1410,12 +1592,28 @@
               }
               this.isDropdown2Visible = true;
             }
+            if (bvEvent.componentId === "dropdown-3") {
+              if (!this.isDropdown1Visible) {
+                console.log("asd");
+
+                this.$refs.dropdown3.hide();
+                this.isDropdown3Visible = false;
+              } else {
+                this.isDropdown3Visible = true;
+              }
+            }
           });
           this.$root.$on("bv::dropdown::hide", (bvEvent) => {
             if (bvEvent.componentId === "dropdown-2") {
               this.isDropdown2Visible = false;
             }
+            if (bvEvent.componentId === "dropdown-3") {
+              this.isDropdown3Visible = false;
+            }
             if (this.isDropdown2Visible) {
+              bvEvent.preventDefault();
+            }
+            if (this.isDropdown3Visible) {
               bvEvent.preventDefault();
             }
           });
@@ -1425,7 +1623,7 @@
     <!-- <script src="./js/dropdown.js"></script> -->
     <script src="./js/pin.js"></script>
     <script src="./js/scrollbarTable.js"></script>
-    <script src="./js/search-filter.js"></script>
+    <!-- <script src="./js/search-filter.js"></script> -->
     <script src="./js/modalWindowLog.js"></script>
     <script src="./js/button-click.js"></script>
   </body>
