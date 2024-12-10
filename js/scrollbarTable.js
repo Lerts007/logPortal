@@ -3,48 +3,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const content = document.querySelector(".tableC");
   const searchFilter = document.querySelectorAll(".search-filter");
 
-  let scrollPosition = 0;
+  container.addEventListener("wheel", (event) => {
+    const isInsideModal = Array.from(searchFilter).some((modal) => modal.contains(event.target));
 
-  container.addEventListener(
-    "wheel",
-    (event) => {
-      scrollPosition = window.pageYOffset;
+    if (!isInsideModal) {
+      event.preventDefault();
 
-      document.body.style.cssText = `
-        overflow: hidden;
-        position: fixed;
-        top: -${scrollPosition}px;
-        width: 100vw;
-      `;
+      const currentMarginLeft = parseFloat(window.getComputedStyle(content).marginLeft, 10);
 
-      const isInsideModal = Array.from(searchFilter).some((modal) => modal.contains(event.target));
+      let rectContainer = container.getBoundingClientRect();
+      let rectContent = content.getBoundingClientRect();
 
-      if (!isInsideModal) {
-        event.preventDefault();
+      let newMarginLeft = currentMarginLeft + parseInt(event.deltaY, 10);
 
-        const currentMarginLeft = parseFloat(window.getComputedStyle(content).marginLeft, 10);
+      if (currentMarginLeft + parseInt(event.deltaY, 10) >= 0) {
+        console.log("я в if");
 
-        let rectContainer = container.getBoundingClientRect();
-        let rectContent = content.getBoundingClientRect();
+        content.style.marginLeft = `0px`;
 
-        let newMarginLeft = currentMarginLeft + parseInt(event.deltaY, 10);
+        window.scrollBy(0, event.deltaY);
+      } else if (rectContent.right + parseInt(event.deltaY, 10) < rectContainer.right) {
+        console.log("я в else if");
 
-        if (currentMarginLeft + parseInt(event.deltaY, 10) >= 0) {
-          content.style.marginLeft = `0px`;
-        } else if (rectContent.right + parseInt(event.deltaY, 10) < rectContainer.right) {
-          newMarginLeft = rectContainer.right - rectContent.right + currentMarginLeft;
+        newMarginLeft = rectContainer.right - rectContent.right + currentMarginLeft;
+        content.style.marginLeft = `${newMarginLeft}px`;
 
-          content.style.marginLeft = `${newMarginLeft}px`;
-        } else {
-          content.style.marginLeft = `${newMarginLeft}px`;
-        }
+        window.scrollBy(0, event.deltaY);
+      } else {
+        console.log("я в else");
+
+        content.style.marginLeft = `${newMarginLeft}px`;
       }
-
-      requestAnimationFrame(() => {
-        document.body.style.cssText = "";
-        window.scrollTo(0, scrollPosition);
-      });
-    },
-    { passive: false }
-  );
+    }
+  });
 });

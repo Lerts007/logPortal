@@ -1,5 +1,21 @@
 // modalWindowLog
+.modal {
+  // @extend %scrollbarStyling;
 
+  padding: 63px 47px !important;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+.modal-dialog {
+  max-width: 100%;
+  margin: 0 !important;
+}
+
+.modal-body {
+  padding: 0;
+}
 .modal-window-log {
   position: absolute;
   top: 0;

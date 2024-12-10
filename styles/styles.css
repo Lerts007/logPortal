@@ -854,6 +854,7 @@ h6 {
   font-size: 14px;
   color: rgb(41, 53, 83);
   position: relative;
+  min-width: 120px;
   height: 36px;
   padding: 0 6px;
   text-align: left;
@@ -865,12 +866,12 @@ h6 {
   border: none;
 }
 .tableC__column--filterCell {
+  min-width: 0px;
   padding: 0;
   display: flex;
   align-items: center;
 }
 .tableC__column-cell {
-  min-width: 59px;
   padding: 4px;
   display: inline-flex;
   align-items: center;
@@ -1150,6 +1151,22 @@ h6 {
   font-weight: 700;
   font-size: 14px;
   color: rgb(41, 53, 83);
+}
+
+.modal {
+  padding: 63px 47px !important;
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+
+.modal-dialog {
+  max-width: 100%;
+  margin: 0 !important;
+}
+
+.modal-body {
+  padding: 0;
 }
 
 .modal-window-log {

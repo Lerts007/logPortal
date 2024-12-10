@@ -20,6 +20,7 @@
 
     position: relative;
 
+    min-width: 120px;
     height: 36px;
 
     padding: 0 6px;
@@ -36,6 +37,8 @@
     }
 
     &--filterCell {
+      min-width: 0px;
+
       padding: 0;
 
       display: flex;
@@ -44,7 +47,7 @@
   }
 
   &__column-cell {
-    min-width: 59px;
+    // min-width: 120px;
 
     padding: 4px;
 

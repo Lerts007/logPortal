@@ -1267,7 +1267,7 @@
                 </tr>
               </thead>
               <tbody class="tableC__lines">
-                <tr class="tableC__line tableC__line--log">
+                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
                   <td class="tableC__line-cell tableC__line-cell--status">
                     <div class="tableC__status tableC__line-cell--activ"></div>
                     <svg
@@ -1304,8 +1304,11 @@
                   <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
                   <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
                 </tr>
-                <!--  -->
-                <tr class="tableC__line tableC__line--log tableC__line--warning">
+
+                <tr
+                  class="tableC__line tableC__line--log tableC__line--warning"
+                  @click="modalShow = !modalShow"
+                >
                   <td class="tableC__line-cell tableC__line-cell--status">
                     <div class="tableC__status tableC__line-cell--warning"></div>
                     <svg
@@ -1342,7 +1345,10 @@
                   <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
                   <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
                 </tr>
-                <tr class="tableC__line tableC__line--log tableC__line--error">
+                <tr
+                  class="tableC__line tableC__line--log tableC__line--error"
+                  @click="modalShow = !modalShow"
+                >
                   <td class="tableC__line-cell tableC__line-cell--status">
                     <div class="tableC__status tableC__line-cell--error"></div>
                     <svg
@@ -1379,6 +1385,415 @@
                   <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
                   <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
                 </tr>
+                <!--sdassssssssssssssssssssssssssssssssssss  -->
+                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
+                  <td class="tableC__line-cell tableC__line-cell--status">
+                    <div class="tableC__status tableC__line-cell--activ"></div>
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                        fill="#293553"
+                      />
+                    </svg>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
+                    14 ноя, 12:30:56
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--message">
+                    ТАЙМЕР CallbackTimerAction
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--email">
+                    v.chepurnoy@skylane.com
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--badge">
+                    <div class="badgeС badgeС--agent">Агент</div>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--site">
+                    https://prd.sso.corteos.ru
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
+                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
+                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
+                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
+                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
+                </tr>
+                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
+                  <td class="tableC__line-cell tableC__line-cell--status">
+                    <div class="tableC__status tableC__line-cell--activ"></div>
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                        fill="#293553"
+                      />
+                    </svg>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
+                    14 ноя, 12:30:56
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--message">
+                    ТАЙМЕР CallbackTimerAction
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--email">
+                    v.chepurnoy@skylane.com
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--badge">
+                    <div class="badgeС badgeС--agent">Агент</div>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--site">
+                    https://prd.sso.corteos.ru
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
+                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
+                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
+                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
+                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
+                </tr>
+                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
+                  <td class="tableC__line-cell tableC__line-cell--status">
+                    <div class="tableC__status tableC__line-cell--activ"></div>
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                        fill="#293553"
+                      />
+                    </svg>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
+                    14 ноя, 12:30:56
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--message">
+                    ТАЙМЕР CallbackTimerAction
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--email">
+                    v.chepurnoy@skylane.com
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--badge">
+                    <div class="badgeС badgeС--agent">Агент</div>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--site">
+                    https://prd.sso.corteos.ru
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
+                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
+                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
+                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
+                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
+                </tr>
+                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
+                  <td class="tableC__line-cell tableC__line-cell--status">
+                    <div class="tableC__status tableC__line-cell--activ"></div>
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                        fill="#293553"
+                      />
+                    </svg>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
+                    14 ноя, 12:30:56
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--message">
+                    ТАЙМЕР CallbackTimerAction
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--email">
+                    v.chepurnoy@skylane.com
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--badge">
+                    <div class="badgeС badgeС--agent">Агент</div>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--site">
+                    https://prd.sso.corteos.ru
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
+                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
+                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
+                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
+                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
+                </tr>
+                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
+                  <td class="tableC__line-cell tableC__line-cell--status">
+                    <div class="tableC__status tableC__line-cell--activ"></div>
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                        fill="#293553"
+                      />
+                    </svg>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
+                    14 ноя, 12:30:56
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--message">
+                    ТАЙМЕР CallbackTimerAction
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--email">
+                    v.chepurnoy@skylane.com
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--badge">
+                    <div class="badgeС badgeС--agent">Агент</div>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--site">
+                    https://prd.sso.corteos.ru
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
+                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
+                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
+                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
+                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
+                </tr>
+                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
+                  <td class="tableC__line-cell tableC__line-cell--status">
+                    <div class="tableC__status tableC__line-cell--activ"></div>
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                        fill="#293553"
+                      />
+                    </svg>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
+                    14 ноя, 12:30:56
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--message">
+                    ТАЙМЕР CallbackTimerAction
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--email">
+                    v.chepurnoy@skylane.com
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--badge">
+                    <div class="badgeС badgeС--agent">Агент</div>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--site">
+                    https://prd.sso.corteos.ru
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
+                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
+                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
+                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
+                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
+                </tr>
+                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
+                  <td class="tableC__line-cell tableC__line-cell--status">
+                    <div class="tableC__status tableC__line-cell--activ"></div>
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                        fill="#293553"
+                      />
+                    </svg>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
+                    14 ноя, 12:30:56
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--message">
+                    ТАЙМЕР CallbackTimerAction
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--email">
+                    v.chepurnoy@skylane.com
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--badge">
+                    <div class="badgeС badgeС--agent">Агент</div>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--site">
+                    https://prd.sso.corteos.ru
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
+                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
+                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
+                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
+                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
+                </tr>
+                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
+                  <td class="tableC__line-cell tableC__line-cell--status">
+                    <div class="tableC__status tableC__line-cell--activ"></div>
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                        fill="#293553"
+                      />
+                    </svg>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
+                    14 ноя, 12:30:56
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--message">
+                    ТАЙМЕР CallbackTimerAction
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--email">
+                    v.chepurnoy@skylane.com
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--badge">
+                    <div class="badgeС badgeС--agent">Агент</div>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--site">
+                    https://prd.sso.corteos.ru
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
+                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
+                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
+                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
+                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
+                </tr>
+                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
+                  <td class="tableC__line-cell tableC__line-cell--status">
+                    <div class="tableC__status tableC__line-cell--activ"></div>
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                        fill="#293553"
+                      />
+                    </svg>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
+                    14 ноя, 12:30:56
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--message">
+                    ТАЙМЕР CallbackTimerAction
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--email">
+                    v.chepurnoy@skylane.com
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--badge">
+                    <div class="badgeС badgeС--agent">Агент</div>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--site">
+                    https://prd.sso.corteos.ru
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
+                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
+                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
+                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
+                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
+                </tr>
+                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
+                  <td class="tableC__line-cell tableC__line-cell--status">
+                    <div class="tableC__status tableC__line-cell--activ"></div>
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                        fill="#293553"
+                      />
+                    </svg>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
+                    14 ноя, 12:30:56
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--message">
+                    ТАЙМЕР CallbackTimerAction
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--email">
+                    v.chepurnoy@skylane.com
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--badge">
+                    <div class="badgeС badgeС--agent">Агент</div>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--site">
+                    https://prd.sso.corteos.ru
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
+                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
+                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
+                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
+                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
+                </tr>
+                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
+                  <td class="tableC__line-cell tableC__line-cell--status">
+                    <div class="tableC__status tableC__line-cell--activ"></div>
+                    <svg
+                      width="10"
+                      height="6"
+                      viewBox="0 0 10 6"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                        fill="#293553"
+                      />
+                    </svg>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
+                    14 ноя, 12:30:56
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--message">
+                    ТАЙМЕР CallbackTimerAction
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--email">
+                    v.chepurnoy@skylane.com
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--badge">
+                    <div class="badgeС badgeС--agent">Агент</div>
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--site">
+                    https://prd.sso.corteos.ru
+                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
+                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
+                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
+                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
+                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
+                </tr>
+                <!--sdassssssssssssssssssssssssssssssssssss  -->
               </tbody>
             </table>
           </div>
@@ -1387,153 +1802,163 @@
           </div>
         </div>
       </main>
-      <div class="modal-window-log modal-window-log--disabled">
-        <div class="modal-window-log__container">
-          <button class="modal-window-log__close">
-            <svg
-              width="10"
-              height="10"
-              viewBox="0 0 10 10"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8.81085 1.73746C9.00611 1.5422 9.00611 1.22562 8.81085 1.03036C8.61559 0.835096 8.29901 0.835096 8.10375 1.03036L5.0004 4.1337L1.89709 1.03038C1.70183 0.835119 1.38524 0.835119 1.18998 1.03038C0.994718 1.22564 0.994719 1.54223 1.18998 1.73749L4.2933 4.8408L1.03268 8.10142C0.837415 8.29669 0.837415 8.61327 1.03268 8.80853C1.22794 9.00379 1.54452 9.00379 1.73978 8.80853L5.0004 5.54791L8.26105 8.80856C8.45631 9.00382 8.77289 9.00382 8.96815 8.80856C9.16342 8.61329 9.16342 8.29671 8.96815 8.10145L5.70751 4.8408L8.81085 1.73746Z"
-                fill="white"
-              />
-            </svg>
-          </button>
-          <div class="modal-window-log__l-side">
-            <div class="log-status">
-              <p class="log-status__date">14 ноя, 12:30:56</p>
-              <div class="log-status__badge log-status__badge--error">
-                <p class="log-status__badge-text">Error</p>
-              </div>
-              <div class="log-status__details">
-                <p class="log-status__id"># 6d4dd62b-ff0c-42a7-b071-b9960b56ae46</p>
-                <p class="log-status__message">
-                  ModPasswordSecurity - Запуск таймера проверки срока действия паролей <br />
-                  <span class="log-status__time">373 ms</span>
-                </p>
-              </div>
-            </div>
-            <div class="info-user">
-              <div class="info-user--email">
-                <h6 class="info-user__title">Email</h6>
-                <p class="info-user__text">v.chepurnoy@skyland.travel</p>
-              </div>
-              <div class="info-user__site">
-                <h6 class="info-user__title">Сайт</h6>
-                <div class="info-user__block">
-                  <p class="info-user__text">https://prd.sso.corteos.ru</p>
-                  <button class="button button--primary info-user__btn-page">
-                    <svg
-                      width="8"
-                      height="8"
-                      viewBox="0 0 9 9"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.961155 8.5C0.71671 8.5 0.507451 8.41296 0.333377 8.23889C0.159303 8.06482 0.0722656 7.85556 0.0722656 7.61111V1.38889C0.0722656 1.14444 0.159303 0.935185 0.333377 0.761111C0.507451 0.587037 0.71671 0.5 0.961155 0.5h6.07227V1.38889H0.961155V7.61111H7.18338V4.5H8.07227V7.61111C8.07227 7.85556 7.98523 8.06482 7.81115 8.23889C7.63708 8.41296 7.42782 8.5 7.18338 8.5H0.961155ZM3.05004 6.14444L2.42782 5.52222L6.56115 1.38889h6.96115V0.5H8.07227V3.61111H7.18338V2.01111L3.05004 6.14444Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </button>
+      <b-modal
+        v-model="modalShow"
+        hide-footer
+        hide-header
+        @show="disableScroll()"
+        @hide="enableScroll()"
+      >
+        <template #default>
+          <!-- <div class="modal-window-log" centered cancel-disabled ok-disabled aria-label> -->
+          <div class="modal-window-log__container">
+            <button class="modal-window-log__close" @click="modalShow = false">
+              <svg
+                width="10"
+                height="10"
+                viewBox="0 0 10 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.81085 1.73746C9.00611 1.5422 9.00611 1.22562 8.81085 1.03036C8.61559 0.835096 8.29901 0.835096 8.10375 1.03036L5.0004 4.1337L1.89709 1.03038C1.70183 0.835119 1.38524 0.835119 1.18998 1.03038C0.994718 1.22564 0.994719 1.54223 1.18998 1.73749L4.2933 4.8408L1.03268 8.10142C0.837415 8.29669 0.837415 8.61327 1.03268 8.80853C1.22794 9.00379 1.54452 9.00379 1.73978 8.80853L5.0004 5.54791L8.26105 8.80856C8.45631 9.00382 8.77289 9.00382 8.96815 8.80856C9.16342 8.61329 9.16342 8.29671 8.96815 8.10145L5.70751 4.8408L8.81085 1.73746Z"
+                  fill="white"
+                />
+              </svg>
+            </button>
+            <div class="modal-window-log__l-side">
+              <div class="log-status">
+                <p class="log-status__date">14 ноя, 12:30:56</p>
+                <div class="log-status__badge log-status__badge--error">
+                  <p class="log-status__badge-text">Error</p>
+                </div>
+                <div class="log-status__details">
+                  <p class="log-status__id"># 6d4dd62b-ff0c-42a7-b071-b9960b56ae46</p>
+                  <p class="log-status__message">
+                    ModPasswordSecurity - Запуск таймера проверки срока действия паролей <br />
+                    <span class="log-status__time">373 ms</span>
+                  </p>
                 </div>
               </div>
-              <div class="info-user--class">
-                <h6 class="info-user__title">Класс</h6>
-                <p class="info-user__text">ImapIdleHelper.cs</p>
+              <div class="info-user">
+                <div class="info-user--email">
+                  <h6 class="info-user__title">Email</h6>
+                  <p class="info-user__text">v.chepurnoy@skyland.travel</p>
+                </div>
+                <div class="info-user__site">
+                  <h6 class="info-user__title">Сайт</h6>
+                  <div class="info-user__block">
+                    <p class="info-user__text">https://prd.sso.corteos.ru</p>
+                    <button class="button button--primary info-user__btn-page">
+                      <svg
+                        width="8"
+                        height="8"
+                        viewBox="0 0 9 9"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0.961155 8.5C0.71671 8.5 0.507451 8.41296 0.333377 8.23889C0.159303 8.06482 0.0722656 7.85556 0.0722656 7.61111V1.38889C0.0722656 1.14444 0.159303 0.935185 0.333377 0.761111C0.507451 0.587037 0.71671 0.5 0.961155 0.5h6.07227V1.38889H0.961155V7.61111H7.18338V4.5H8.07227V7.61111C8.07227 7.85556 7.98523 8.06482 7.81115 8.23889C7.63708 8.41296 7.42782 8.5 7.18338 8.5H0.961155ZM3.05004 6.14444L2.42782 5.52222L6.56115 1.38889h6.96115V0.5H8.07227V3.61111H7.18338V2.01111L3.05004 6.14444Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="info-user--class">
+                  <h6 class="info-user__title">Класс</h6>
+                  <p class="info-user__text">ImapIdleHelper.cs</p>
+                </div>
+                <div class="info-user--user">
+                  <h6 class="info-user__title">Пользователь</h6>
+                  <p class="info-user__text--no-active">Клиент</p>
+                </div>
+                <div class="info-user--session">
+                  <h6 class="info-user__title">Сессия</h6>
+                  <p class="info-user__text">1O44AS4KU64H8</p>
+                </div>
+                <div class="info-user--typeObject">
+                  <h6 class="info-user__title">Тип объекта</h6>
+                  <p class="info-user__text--no-active">SiteSettingsDalObject</p>
+                </div>
+                <div class="info-user--idObject">
+                  <h6 class="info-user__title">ID объекта</h6>
+                  <p class="info-user__text">6688756</p>
+                </div>
+                <div class="info-user--ip">
+                  <h6 class="info-user__title">IP</h6>
+                  <p class="info-user__text">212.233.125.182</p>
+                </div>
+                <div class="info-user--source">
+                  <h6 class="info-user__title">Источник</h6>
+                  <p class="info-user__text--no-active">api</p>
+                </div>
+                <button class="button button--primary info-user__donwnload">Скачать</button>
               </div>
-              <div class="info-user--user">
-                <h6 class="info-user__title">Пользователь</h6>
-                <p class="info-user__text--no-active">Клиент</p>
+            </div>
+            <div class="modal-window-log__r-side">
+              <div class="log-message">
+                <div class="log-message__block">
+                  <p class="log-message__date">14 ноя, 12:30:56</p>
+                  <p class="log-message__text">
+                    <span>Загрузка поискового запроса:</span>
+                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                  </p>
+                </div>
+                <div class="log-message__block">
+                  <p class="log-message__date">14 ноя, 12:30:56</p>
+                  <p class="log-message__text">
+                    <span>Загрузка поискового запроса завершена</span>
+                  </p>
+                </div>
               </div>
-              <div class="info-user--session">
-                <h6 class="info-user__title">Сессия</h6>
-                <p class="info-user__text">1O44AS4KU64H8</p>
+              <div class="log-message">
+                <div class="log-message__block">
+                  <p class="log-message__date">14 ноя, 12:30:56</p>
+                  <p class="log-message__text">
+                    <span>Загрузка поискового запроса:</span>
+                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                  </p>
+                </div>
+                <div class="log-message__block">
+                  <p class="log-message__date">14 ноя, 12:30:56</p>
+                  <p class="log-message__text">
+                    <span>Загрузка поискового запроса завершена</span>
+                  </p>
+                </div>
               </div>
-              <div class="info-user--typeObject">
-                <h6 class="info-user__title">Тип объекта</h6>
-                <p class="info-user__text--no-active">SiteSettingsDalObject</p>
+              <div class="alert alert--error">
+                <p class="alert__date">14 ноя, 12:30:56</p>
+                <p class="alert__message">
+                  <span>ОШИБКА: EndCustomerAPI:</span>
+                  Командировка #3340230 не найдена и еще что-то
+                </p>
               </div>
-              <div class="info-user--idObject">
-                <h6 class="info-user__title">ID объекта</h6>
-                <p class="info-user__text">6688756</p>
+              <div class="log-message">
+                <div class="log-message__block">
+                  <p class="log-message__date">14 ноя, 12:30:56</p>
+                  <p class="log-message__text">
+                    <span>ПРЕДЫДУЩЕЕ</span>
+                    состояние объекта
+                  </p>
+                </div>
+                <div class="log-message__block">
+                  <p class="log-message__date"></p>
+                  <p class="log-message__xml">
+                    <prism-editor
+                      class="my-editor height-200"
+                      v-model="code"
+                      :highlight="highlighter"
+                      line-numbers
+                    ></prism-editor>
+                  </p>
+                </div>
               </div>
-              <div class="info-user--ip">
-                <h6 class="info-user__title">IP</h6>
-                <p class="info-user__text">212.233.125.182</p>
-              </div>
-              <div class="info-user--source">
-                <h6 class="info-user__title">Источник</h6>
-                <p class="info-user__text--no-active">api</p>
-              </div>
-              <button class="button button--primary info-user__donwnload">Скачать</button>
             </div>
           </div>
-          <div class="modal-window-log__r-side">
-            <div class="log-message">
-              <div class="log-message__block">
-                <p class="log-message__date">14 ноя, 12:30:56</p>
-                <p class="log-message__text">
-                  <span>Загрузка поискового запроса:</span>
-                  bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                </p>
-              </div>
-              <div class="log-message__block">
-                <p class="log-message__date">14 ноя, 12:30:56</p>
-                <p class="log-message__text">
-                  <span>Загрузка поискового запроса завершена</span>
-                </p>
-              </div>
-            </div>
-            <div class="log-message">
-              <div class="log-message__block">
-                <p class="log-message__date">14 ноя, 12:30:56</p>
-                <p class="log-message__text">
-                  <span>Загрузка поискового запроса:</span>
-                  bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                </p>
-              </div>
-              <div class="log-message__block">
-                <p class="log-message__date">14 ноя, 12:30:56</p>
-                <p class="log-message__text">
-                  <span>Загрузка поискового запроса завершена</span>
-                </p>
-              </div>
-            </div>
-            <div class="alert alert--error">
-              <p class="alert__date">14 ноя, 12:30:56</p>
-              <p class="alert__message">
-                <span>ОШИБКА: EndCustomerAPI:</span>
-                Командировка #3340230 не найдена и еще что-то
-              </p>
-            </div>
-            <div class="log-message">
-              <div class="log-message__block">
-                <p class="log-message__date">14 ноя, 12:30:56</p>
-                <p class="log-message__text">
-                  <span>ПРЕДЫДУЩЕЕ</span>
-                  состояние объекта
-                </p>
-              </div>
-              <div class="log-message__block">
-                <p class="log-message__date"></p>
-                <p class="log-message__xml">
-                  <prism-editor
-                    class="my-editor height-200"
-                    v-model="code"
-                    :highlight="highlighter"
-                    line-numbers
-                  ></prism-editor>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          <!-- </div> -->
+        </template>
+      </b-modal>
     </div>
     <script>
       Vue.use(BootstrapVue);
@@ -1549,6 +1974,8 @@
           selectedItem: "10 000", // Начальное значение countLog
           selectedItemFilteType: "Все", // Начальное значение type
           selectedItemChratTime: "За последние сутки",
+
+          modalShow: false,
 
           code: `<Contact DateChanged="31.10.2024 23:45:11" DateCreate="27.09.2023 18:57:29" deleted="false">      
           <id_Contact>3117465</id_Contact>      
@@ -1569,6 +1996,16 @@
           },
           highlighter(code) {
             return Prism.highlight(code, Prism.languages.html, "html");
+          },
+
+          disableScroll() {
+            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+            document.documentElement.style.overflow = "hidden";
+            document.documentElement.style.paddingRight = `${scrollBarWidth}px`; // Добавляем отступ
+          },
+          enableScroll() {
+            document.documentElement.style.overflow = "";
+            document.documentElement.style.paddingRight = ""; // Убираем отступ
           },
         },
         mounted: function () {
@@ -1624,7 +2061,7 @@
     <script src="./js/pin.js"></script>
     <script src="./js/scrollbarTable.js"></script>
     <!-- <script src="./js/search-filter.js"></script> -->
-    <script src="./js/modalWindowLog.js"></script>
+    <!-- <script src="./js/modalWindowLog.js"></script> -->
     <script src="./js/button-click.js"></script>
   </body>
 </html>
