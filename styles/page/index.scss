@@ -1,3 +1,19 @@
+.log {
+  @extend %scrollbarStyling-X;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100vw;
+
+  padding: 0 10px;
+
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
 // LOG-INFO
 .log-info {
   display: flex;
@@ -9,9 +25,10 @@
   border-radius: 4px;
   &__name {
     @include fonts(700);
-    & span {
-      margin-left: 7px;
-    }
+  }
+  &__space {
+    margin-left: 7px;
+    margin-right: 7px;
   }
 }
 

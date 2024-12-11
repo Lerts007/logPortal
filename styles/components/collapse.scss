@@ -1,0 +1,70 @@
+.collapse {
+  border: 1px solid $gray-medium;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  overflow: hidden;
+}
+
+.collapseC {
+  &__toggle {
+    @include fonts(400);
+
+    width: 100%;
+    min-height: 40px;
+
+    margin-top: 10px;
+    padding: 9.5px 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    background-color: $white;
+    border: 1px solid $gray-medium;
+    border-radius: 4px;
+    box-shadow: inherit;
+
+    color: $secondary;
+
+    cursor: pointer;
+  }
+  &__toggle-title {
+    @include fonts(700);
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__icon-filter {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon-arrow {
+    transition: transform 0.3s;
+  }
+
+  &__menu {
+    padding: 20px;
+
+    background-color: $white;
+
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+}
+
+.not-collapsed.collapseC__toggle {
+  border-bottom: none !important;
+  border-radius: 4px 4px 0 0;
+}
+.not-collapsed .collapseC__icon-arrow {
+  transform: rotate(180deg);
+}
+
+.not-collapsed .dropdown--chart-time {
+  display: flex;
+}

@@ -30,11 +30,6 @@
   display: flex;
   flex-direction: column;
 
-  &--chart {
-    min-height: 40px;
-
-    margin-top: 10px;
-  }
   &--icon {
     min-height: 5px;
   }
@@ -77,9 +72,6 @@
       font-weight: 400;
     }
 
-    &--chart {
-      padding: 9.5px 8px;
-    }
     &--icon {
       width: auto;
 
@@ -130,16 +122,8 @@
 
     overflow: hidden;
 
-    &--chart {
-      position: relative !important;
-
-      transform: translate3d(0px, 0px, 0px) !important;
-      border-top: none;
-      border-radius: 0 0 4px 4px;
-    }
-
     &--chart-filter {
-      @extend %scrollbarStyling;
+      @extend %scrollbarStyling-Y;
 
       width: 130px;
       height: 126px;
@@ -165,7 +149,7 @@
     }
 
     &--search-filter {
-      @extend %scrollbarStyling;
+      @extend %scrollbarStyling-Y;
       z-index: 1001;
 
       width: 275px;
@@ -180,10 +164,6 @@
     @include fonts(400, 14px, $secondary);
 
     padding: 8px 12px;
-
-    &--chart {
-      padding: 0;
-    }
 
     &--chart-filter {
       @include fonts(400);
@@ -209,12 +189,6 @@
         color: $secondary;
 
         background-color: $blue-light;
-      }
-
-      &--chart:hover {
-        background-color: inherit;
-
-        cursor: default;
       }
     }
   }
@@ -282,14 +256,6 @@
     }
   }
 
-  &__menu-block {
-    padding: 20px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-  }
-
   &__icon-arrow {
     transition: transform 0.3s;
   }
@@ -302,15 +268,6 @@
 .dropdown__item--chart .dropdown-item:hover {
   background-color: inherit;
   cursor: default;
-}
-
-.dropdown.show .dropdown__toggle--chart {
-  border-bottom: none !important;
-  border-radius: 4px 4px 0 0;
-}
-
-.dropdown--chart.show .dropdown--chart-time {
-  display: flex;
 }
 
 .show .dropdown__icon-arrow {
