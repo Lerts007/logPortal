@@ -1,3 +1,17 @@
+.tableC__column .dragging {
+  opacity: 0.5;
+}
+
+.tableC__column .resize-handle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  cursor: ew-resize;
+  z-index: 1;
+}
+
 .tableC {
   position: relative;
 
@@ -9,24 +23,18 @@
   border-collapse: separate;
   border-spacing: 0 6px;
 
-  &--user {
-    width: 100%;
-  }
-
   &__column {
     @include fonts(700);
 
     position: relative;
 
-    min-width: 140px;
     height: 36px;
 
     padding: 0 6px;
 
     text-align: left;
     white-space: nowrap;
-
-    // border-right: 1px solid $gray-light;
+    text-overflow: ellipsis;
 
     overflow: visible;
 
@@ -44,7 +52,9 @@
     }
 
     &--no-border {
-      border: none;
+      &::after {
+        width: 0px;
+      }
     }
 
     &--filterCell {
@@ -55,17 +65,9 @@
       display: flex;
       align-items: center;
     }
-
-    &--date {
-      &::after {
-        height: 36px;
-      }
-    }
   }
 
   &__column-cell {
-    // min-width: 120px;
-
     padding: 4px;
 
     display: inline-flex;
@@ -114,13 +116,6 @@
       padding: 2px 16.5px;
     }
 
-    &--message {
-      max-width: 193px;
-    }
-    &--email {
-      max-width: 167px;
-    }
-
     &--warning {
       background-color: $warning-background;
     }
@@ -133,29 +128,19 @@
   &__line-cell {
     padding: 0 10px;
 
+    min-width: 130px;
+    max-width: 140px;
     height: 36px;
+
     text-align: left;
     white-space: nowrap;
     text-overflow: ellipsis;
 
     overflow: hidden;
 
-    &--border {
-      position: relative;
-      overflow: visible;
-
-      &::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: 1px;
-        height: 42px;
-        background-color: $gray-light;
-      }
-    }
-
     &--status {
+      min-width: 5px;
+
       display: flex;
       align-items: center;
       justify-content: flex-start;
@@ -179,13 +164,27 @@
 
     &--domain-info {
       max-width: 695px;
-      overflow: hidden;
     }
   }
   &__status {
     width: 6px;
     height: 36px;
     border-radius: 3px;
+  }
+
+  &__border {
+    position: relative;
+    overflow: visible;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 1px;
+      height: 42px;
+      background-color: $gray-light;
+    }
   }
 
   // Иконки

@@ -392,7 +392,7 @@
                     </svg>
                   </th>
                   <th
-                    class="tableC__column tableC__column--date tableC__column--no-border"
+                    class="tableC__column tableC__column--no-border tableC__column--date"
                     draggable="false"
                     @dragstart="drag"
                     @dragover="allowDrop"
@@ -2427,6 +2427,138 @@
         },
       });
     </script>
+    <!-- <script>
+      let draggedColumn = null;
+      let draggedColumnIndex = null;
+      let resizeHandleMouse = false;
+
+      // Список классов, для которых перетаскивание запрещено
+      const noDragClasses = ["tableC__column--filterCell", "tableC__column--date"];
+
+      function drag(event) {
+        const column = event.target.closest("th"); // Находим <th>, если это возможно
+
+        console.log(!resizeHandleMouse);
+
+        if (
+          column &&
+          !noDragClasses.some((cls) => column.classList.contains(cls)) &&
+          !resizeHandleMouse
+        ) {
+          draggedColumn = column;
+          draggedColumnIndex = Array.from(column.parentNode.children).indexOf(column);
+          column.classList.add("dragging");
+        } else {
+          event.preventDefault(); // Запрещаем перетаскивание
+        }
+      }
+
+      function allowDrop(event) {
+        event.preventDefault();
+      }
+
+      function drop(event) {
+        event.preventDefault();
+
+        const target = event.target.closest("th"); // Находим ближайший <th>
+        if (
+          draggedColumn &&
+          target &&
+          target !== draggedColumn &&
+          !noDragClasses.some((cls) => target.classList.contains(cls))
+        ) {
+          const table = document.getElementById("tableC");
+          const headerRow = table.querySelector("thead tr");
+
+          // Перемещаем заголовок в новой позиции
+          const targetIndex = Array.from(headerRow.children).indexOf(target);
+          const draggedIndex = Array.from(headerRow.children).indexOf(draggedColumn);
+
+          if (targetIndex < draggedIndex) {
+            headerRow.insertBefore(draggedColumn, target);
+          } else {
+            headerRow.insertBefore(draggedColumn, target.nextSibling);
+          }
+
+          // Обновляем строки таблицы
+          const rows = table.querySelectorAll("tbody tr");
+
+          rows.forEach((row) => {
+            const cells = Array.from(row.children);
+            const draggedCell = cells[draggedIndex];
+            const targetCell = cells[targetIndex];
+
+            if (draggedCell) {
+              if (targetIndex < draggedIndex) {
+                row.insertBefore(draggedCell, targetCell);
+              } else {
+                row.insertBefore(draggedCell, targetCell.nextSibling);
+              }
+            }
+          });
+
+          // Убираем класс и сбрасываем переменные
+          draggedColumn.classList.remove("dragging");
+          draggedColumn = null;
+          draggedColumnIndex = null;
+        }
+      }
+
+      // Привязываем события dragstart, dragover и drop
+      document.querySelectorAll("th").forEach((th) => {
+        th.setAttribute("draggable", "true");
+        th.addEventListener("dragstart", drag);
+        th.addEventListener("dragover", allowDrop);
+        th.addEventListener("drop", drop);
+      });
+
+      document.querySelectorAll(".tableC__column").forEach((th) => {
+        let startX, startWidth;
+
+        // Получаем все элементы "ручек изменения размера"
+        const resizeHandles = th.querySelectorAll(".resize-handle");
+
+        const mouseMove = (e) => {
+          console.log("мов");
+
+          const newWidth = startWidth + (e.pageX - startX);
+
+          // Ограничение минимальной ширины столбца
+          const minWidth = 50; // Минимальная ширина столбца
+
+          console.log(newWidth > minWidth);
+          console.log("новое значение ширины" + newWidth);
+          console.log("минимальное значение ширины" + minWidth);
+
+          if (newWidth > minWidth) {
+            th.style.width = `${newWidth}px`;
+          }
+        };
+
+        const mouseUp = () => {
+          document.removeEventListener("mousemove", mouseMove);
+          document.removeEventListener("mouseup", mouseUp);
+          resizeHandleMouse = false;
+        };
+
+        resizeHandles.forEach((el) => {
+          el.addEventListener("mousedown", (e) => {
+            resizeHandleMouse = true;
+
+            startX = e.pageX;
+            startWidth = th.offsetWidth;
+
+            document.addEventListener("mousemove", mouseMove);
+            document.addEventListener("mouseup", mouseUp);
+
+            // Останавливаем всплытие событий, чтобы не было конфликтов с другими обработчиками
+            e.stopPropagation();
+          });
+        });
+      });
+    </script> -->
+    <!-- <script src="./js/pin.js"></script> -->
     <script src="./js/button-click.js"></script>
+    <!-- <script src="./js/drag-and-drop.js"></script> -->
   </body>
 </html>
