@@ -365,7 +365,7 @@
           </div>
 
           <div class="log">
-            <table id="tableC" class="tableC tableС--log">
+            <table id="tableC" class="tableC tableC__fixed tableС--log">
               <thead class="tableC__columns">
                 <tr>
                   <th class="tableC__column tableC__column--filterCell">
@@ -436,928 +436,22 @@
                     <div class="resize-handle"></div>
                   </th>
                   <th class="tableC__border"></th>
-                  <th
-                    class="tableC__column tableC__column--message"
-                    draggable="true"
-                    @dragstart="drag"
-                    @dragover="allowDrop"
-                    @drop="drop"
-                  >
-                    <div class="tableC__column-cell">
-                      Сообщение
-                      <!-- иконка поиска -->
-                      <span class="tableC__icon-search">
-                        <b-dropdown
-                          class="dropdown dropdown--icon"
-                          variant="outline-secondary"
-                          toggle-class="dropdown__toggle dropdown__toggle--icon"
-                          menu-class="dropdown__menu dropdown__menu--icon"
-                          offset="-90"
-                          no-flip
-                        >
-                          <!-- Настраиваем контент кнопки -->
-                          <template #button-content>
-                            <svg
-                              width="12"
-                              height="12"
-                              viewBox="0 0 12 12"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                                fill="#293553"
-                              />
-                            </svg>
-                          </template>
-
-                          <b-dropdown-item
-                            href="#"
-                            class="dropdown__item dropdown__item--search-filter"
-                            @click.native.capture.stop
-                          >
-                            <div class="search-filter">
-                              <div class="search-filter__input-wrapper">
-                                <input
-                                  class="search-filter__input inputPlaceholder"
-                                  type="text"
-                                  placeholder="Текст"
-                                />
-                                <!-- иконка поиска -->
-                                <span class="search-filter__icon-search">
-                                  <svg
-                                    width="12"
-                                    height="12"
-                                    viewBox="0 0 12 12"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fill-rule="evenodd"
-                                      clip-rule="evenodd"
-                                      d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                                      fill="#293553"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                              <div class="search-filter__menu">
-                                <label class="search-filter__item" for="1">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="1"
-                                  />
-                                  Текст 1
-                                </label>
-                                <label class="search-filter__item" for="2">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="2"
-                                  />
-                                  Текст 2
-                                </label>
-                                <label class="search-filter__item" for="3">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="3"
-                                    disabled
-                                  />
-                                  Текст 3
-                                </label>
-                                <label class="search-filter__item" for="4">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="4"
-                                  />
-                                  Текст 4
-                                </label>
-                                <label class="search-filter__item" for="5">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="5"
-                                    disabled
-                                  />
-                                  Текст 5
-                                </label>
-                              </div>
-                            </div>
-                          </b-dropdown-item>
-                        </b-dropdown>
-                      </span>
-                      <!-- иконка закрепления столбца -->
-                      <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
-                        <svg
-                          width="9"
-                          height="12"
-                          viewBox="0 0 9 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
-                            fill="#293553"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <div class="resize-handle"></div>
-                  </th>
-                  <th
-                    class="tableC__column tableC__column--user"
-                    draggable="true"
-                    @dragstart="drag"
-                    @dragover="allowDrop"
-                    @drop="drop"
-                  >
-                    <div class="tableC__column-cell">
-                      Пользователь
-                      <!-- иконка поиска -->
-                      <span class="tableC__icon-search">
-                        <b-dropdown
-                          class="dropdown dropdown--icon"
-                          variant="outline-secondary"
-                          toggle-class="dropdown__toggle dropdown__toggle--icon"
-                          menu-class="dropdown__menu dropdown__menu--icon"
-                          offset="-110"
-                          no-flip
-                        >
-                          <!-- Настраиваем контент кнопки -->
-                          <template #button-content>
-                            <svg
-                              width="12"
-                              height="12"
-                              viewBox="0 0 12 12"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                                fill="#293553"
-                              />
-                            </svg>
-                          </template>
-
-                          <b-dropdown-item
-                            href="#"
-                            class="dropdown__item dropdown__item--search-filter"
-                            @click.native.capture.stop
-                          >
-                            <div class="search-filter">
-                              <div class="search-filter__input-wrapper">
-                                <input
-                                  class="search-filter__input inputPlaceholder"
-                                  type="text"
-                                  placeholder="Текст"
-                                />
-                                <!-- иконка поиска -->
-                                <span class="search-filter__icon-search">
-                                  <svg
-                                    width="12"
-                                    height="12"
-                                    viewBox="0 0 12 12"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fill-rule="evenodd"
-                                      clip-rule="evenodd"
-                                      d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                                      fill="#293553"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                              <div class="search-filter__menu">
-                                <label class="search-filter__item" for="1">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="1"
-                                  />
-                                  Текст 1
-                                </label>
-                                <label class="search-filter__item" for="2">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="2"
-                                  />
-                                  Текст 2
-                                </label>
-                                <label class="search-filter__item" for="3">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="3"
-                                    disabled
-                                  />
-                                  Текст 3
-                                </label>
-                                <label class="search-filter__item" for="4">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="4"
-                                  />
-                                  Текст 4
-                                </label>
-                                <label class="search-filter__item" for="5">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="5"
-                                    disabled
-                                  />
-                                  Текст 5
-                                </label>
-                              </div>
-                            </div>
-                          </b-dropdown-item>
-                        </b-dropdown>
-                      </span>
-                      <!-- иконка закрепления столбца -->
-                      <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
-                        <svg
-                          width="9"
-                          height="12"
-                          viewBox="0 0 9 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
-                            fill="#293553"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <div class="resize-handle"></div>
-                  </th>
-                  <th
-                    class="tableC__column tableC__column--badges"
-                    draggable="true"
-                    @dragstart="drag"
-                    @dragover="allowDrop"
-                    @drop="drop"
-                  >
-                    <div class="tableC__column-cell">
-                      Роль
-                      <!-- иконка стрелки -->
-                      <span class="tableC__icon-arrow">
-                        <svg
-                          width="10"
-                          height="6"
-                          viewBox="0 0 10 6"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                            fill="#293553"
-                          />
-                        </svg>
-                      </span>
-                      <!-- иконка закрепления столбца -->
-                      <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
-                        <svg
-                          width="9"
-                          height="12"
-                          viewBox="0 0 9 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
-                            fill="#293553"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <div class="resize-handle"></div>
-                  </th>
-                  <th
-                    class="tableC__column tableC__column--site"
-                    draggable="true"
-                    @dragstart="drag"
-                    @dragover="allowDrop"
-                    @drop="drop"
-                  >
-                    <div class="tableC__column-cell">
-                      Сайт
-                      <!-- иконка стрелки -->
-                      <span class="tableC__icon-arrow">
-                        <svg
-                          width="10"
-                          height="6"
-                          viewBox="0 0 10 6"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                            fill="#293553"
-                          />
-                        </svg>
-                      </span>
-                      <!-- иконка закрепления столбца -->
-                      <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
-                        <svg
-                          width="9"
-                          height="12"
-                          viewBox="0 0 9 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
-                            fill="#293553"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <div class="resize-handle"></div>
-                  </th>
-                  <th
-                    class="tableC__column tableC__column--session"
-                    draggable="true"
-                    @dragstart="drag"
-                    @dragover="allowDrop"
-                    @drop="drop"
-                  >
-                    <div class="tableC__column-cell">
-                      Сессия
-                      <!-- иконка поиска -->
-                      <span class="tableC__icon-search">
-                        <b-dropdown
-                          class="dropdown dropdown--icon"
-                          variant="outline-secondary"
-                          toggle-class="dropdown__toggle dropdown__toggle--icon"
-                          menu-class="dropdown__menu dropdown__menu--icon"
-                          offset="-60"
-                          no-flip
-                        >
-                          <!-- Настраиваем контент кнопки -->
-                          <template #button-content>
-                            <svg
-                              width="12"
-                              height="12"
-                              viewBox="0 0 12 12"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                                fill="#293553"
-                              />
-                            </svg>
-                          </template>
-
-                          <b-dropdown-item
-                            href="#"
-                            class="dropdown__item dropdown__item--search-filter"
-                            @click.native.capture.stop
-                          >
-                            <div class="search-filter">
-                              <div class="search-filter__input-wrapper">
-                                <input
-                                  class="search-filter__input inputPlaceholder"
-                                  type="text"
-                                  placeholder="Текст"
-                                />
-                                <!-- иконка поиска -->
-                                <span class="search-filter__icon-search">
-                                  <svg
-                                    width="12"
-                                    height="12"
-                                    viewBox="0 0 12 12"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fill-rule="evenodd"
-                                      clip-rule="evenodd"
-                                      d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                                      fill="#293553"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                              <div class="search-filter__menu">
-                                <label class="search-filter__item" for="1">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="1"
-                                  />
-                                  Текст 1
-                                </label>
-                                <label class="search-filter__item" for="2">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="2"
-                                  />
-                                  Текст 2
-                                </label>
-                                <label class="search-filter__item" for="3">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="3"
-                                    disabled
-                                  />
-                                  Текст 3
-                                </label>
-                                <label class="search-filter__item" for="4">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="4"
-                                  />
-                                  Текст 4
-                                </label>
-                                <label class="search-filter__item" for="5">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="5"
-                                    disabled
-                                  />
-                                  Текст 5
-                                </label>
-                              </div>
-                            </div>
-                          </b-dropdown-item>
-                        </b-dropdown>
-                      </span>
-                      <!-- иконка закрепления столбца -->
-                      <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
-                        <svg
-                          width="9"
-                          height="12"
-                          viewBox="0 0 9 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
-                            fill="#293553"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <div class="resize-handle"></div>
-                  </th>
-                  <th
-                    class="tableC__column tableC__column--id"
-                    draggable="true"
-                    @dragstart="drag"
-                    @dragover="allowDrop"
-                    @drop="drop"
-                  >
-                    <div class="tableC__column-cell">
-                      ID
-                      <!-- иконка поиска -->
-                      <span class="tableC__icon-search">
-                        <b-dropdown
-                          class="dropdown dropdown--icon"
-                          variant="outline-secondary"
-                          toggle-class="dropdown__toggle dropdown__toggle--icon"
-                          menu-class="dropdown__menu dropdown__menu--icon"
-                          offset="-30"
-                          no-flip
-                        >
-                          <!-- Настраиваем контент кнопки -->
-                          <template #button-content>
-                            <svg
-                              width="12"
-                              height="12"
-                              viewBox="0 0 12 12"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                                fill="#293553"
-                              />
-                            </svg>
-                          </template>
-
-                          <b-dropdown-item
-                            href="#"
-                            class="dropdown__item dropdown__item--search-filter"
-                            @click.native.capture.stop
-                          >
-                            <div class="search-filter">
-                              <div class="search-filter__input-wrapper">
-                                <input
-                                  class="search-filter__input inputPlaceholder"
-                                  type="text"
-                                  placeholder="Текст"
-                                />
-                                <!-- иконка поиска -->
-                                <span class="search-filter__icon-search">
-                                  <svg
-                                    width="12"
-                                    height="12"
-                                    viewBox="0 0 12 12"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fill-rule="evenodd"
-                                      clip-rule="evenodd"
-                                      d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                                      fill="#293553"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                              <div class="search-filter__menu">
-                                <label class="search-filter__item" for="1">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="1"
-                                  />
-                                  Текст 1
-                                </label>
-                                <label class="search-filter__item" for="2">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="2"
-                                  />
-                                  Текст 2
-                                </label>
-                                <label class="search-filter__item" for="3">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="3"
-                                    disabled
-                                  />
-                                  Текст 3
-                                </label>
-                                <label class="search-filter__item" for="4">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="4"
-                                  />
-                                  Текст 4
-                                </label>
-                                <label class="search-filter__item" for="5">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="5"
-                                    disabled
-                                  />
-                                  Текст 5
-                                </label>
-                              </div>
-                            </div>
-                          </b-dropdown-item>
-                        </b-dropdown>
-                      </span>
-                      <!-- иконка закрепления столбца -->
-                      <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
-                        <svg
-                          width="9"
-                          height="12"
-                          viewBox="0 0 9 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
-                            fill="#293553"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <div class="resize-handle"></div>
-                  </th>
-                  <th
-                    class="tableC__column tableC__column--class"
-                    draggable="true"
-                    @dragstart="drag"
-                    @dragover="allowDrop"
-                    @drop="drop"
-                  >
-                    <div class="tableC__column-cell">
-                      Класс
-                      <!-- иконка стрелки -->
-                      <span class="tableC__icon-arrow">
-                        <svg
-                          width="10"
-                          height="6"
-                          viewBox="0 0 10 6"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                            fill="#293553"
-                          />
-                        </svg>
-                      </span>
-                      <!-- иконка закрепления столбца -->
-                      <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
-                        <svg
-                          width="9"
-                          height="12"
-                          viewBox="0 0 9 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
-                            fill="#293553"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <div class="resize-handle"></div>
-                  </th>
-                  <th
-                    class="tableC__column tableC__column--source"
-                    draggable="true"
-                    @dragstart="drag"
-                    @dragover="allowDrop"
-                    @drop="drop"
-                  >
-                    <div class="tableC__column-cell">
-                      Источник
-                      <!-- иконка стрелки -->
-                      <span class="tableC__icon-arrow">
-                        <svg
-                          width="10"
-                          height="6"
-                          viewBox="0 0 10 6"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                            fill="#293553"
-                          />
-                        </svg>
-                      </span>
-                      <!-- иконка закрепления столбца -->
-                      <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
-                        <svg
-                          width="9"
-                          height="12"
-                          viewBox="0 0 9 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
-                            fill="#293553"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <div class="resize-handle"></div>
-                  </th>
-                  <th
-                    class="tableC__column tableC__column--ip-client"
-                    draggable="true"
-                    @dragstart="drag"
-                    @dragover="allowDrop"
-                    @drop="drop"
-                  >
-                    <div class="tableC__column-cell">
-                      IP клиента
-                      <!-- иконка поиска -->
-                      <span class="tableC__icon-search">
-                        <b-dropdown
-                          class="dropdown dropdown--icon"
-                          variant="outline-secondary"
-                          toggle-class="dropdown__toggle dropdown__toggle--icon"
-                          menu-class="dropdown__menu dropdown__menu--icon"
-                          no-flip
-                          right
-                        >
-                          <!-- Настраиваем контент кнопки -->
-                          <template #button-content>
-                            <svg
-                              width="12"
-                              height="12"
-                              viewBox="0 0 12 12"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                                fill="#293553"
-                              />
-                            </svg>
-                          </template>
-
-                          <b-dropdown-item
-                            href="#"
-                            class="dropdown__item dropdown__item--search-filter"
-                            @click.native.capture.stop
-                          >
-                            <div class="search-filter">
-                              <div class="search-filter__input-wrapper">
-                                <input
-                                  class="search-filter__input inputPlaceholder"
-                                  type="text"
-                                  placeholder="Текст"
-                                />
-                                <!-- иконка поиска -->
-                                <span class="search-filter__icon-search">
-                                  <svg
-                                    width="12"
-                                    height="12"
-                                    viewBox="0 0 12 12"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                  >
-                                    <path
-                                      fill-rule="evenodd"
-                                      clip-rule="evenodd"
-                                      d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
-                                      fill="#293553"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                              <div class="search-filter__menu">
-                                <label class="search-filter__item" for="1">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="1"
-                                  />
-                                  Текст 1
-                                </label>
-                                <label class="search-filter__item" for="2">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="2"
-                                  />
-                                  Текст 2
-                                </label>
-                                <label class="search-filter__item" for="3">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="3"
-                                    disabled
-                                  />
-                                  Текст 3
-                                </label>
-                                <label class="search-filter__item" for="4">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="4"
-                                  />
-                                  Текст 4
-                                </label>
-                                <label class="search-filter__item" for="5">
-                                  <input
-                                    class="search-filter__item-check"
-                                    type="checkbox"
-                                    name=""
-                                    id="5"
-                                    disabled
-                                  />
-                                  Текст 5
-                                </label>
-                              </div>
-                            </div>
-                          </b-dropdown-item>
-                        </b-dropdown>
-                      </span>
-                      <!-- иконка закрепления столбца -->
-                      <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
-                        <svg
-                          width="9"
-                          height="12"
-                          viewBox="0 0 9 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
-                            fill="#293553"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                    <div class="resize-handle"></div>
-                  </th>
                 </tr>
               </thead>
               <tbody class="tableC__lines">
-                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
+                <tr
+                  v-for="log, index in eventLog"
+                  :key="index"
+                  class="tableC__line tableC__line--log"
+                  :class="log.status === 'activ' ? 'tableC__line--activ' : log.status === 'warning' ? 'tableC__line--warning' : 'tableC__line--error'"
+                  @click="modalShow = !modalShow"
+                >
                   <td class="tableC__line-cell tableC__line-cell--status">
-                    <div class="tableC__status tableC__line-cell--activ"></div>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--date">14 ноя, 12:30:56</td>
-                  <td class="tableC__border"></td>
-                  <td class="tableC__line-cell tableC__line-cell--message">
-                    ТАЙМЕР CallbackTimerAction
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--email">
-                    v.chepurnoy@skylane.com
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--badge">
-                    <div class="badgeС badgeС--agent">Агент</div>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--site">
-                    https://prd.sso.corteos.ru
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
-                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
-                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
-                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
-                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
-                </tr>
+                    <div
+                      class="tableC__status"
+                      :class="log.status === 'activ' ? 'tableC__line-cell--activ' : log.status === 'warning' ? 'tableC__line-cell--warning' : 'tableC__line-cell--error'"
+                    ></div>
 
-                <tr
-                  class="tableC__line tableC__line--log tableC__line--warning"
-                  @click="modalShow = !modalShow"
-                >
-                  <td class="tableC__line-cell tableC__line-cell--status">
-                    <div class="tableC__status tableC__line-cell--warning"></div>
                     <svg
                       width="10"
                       height="6"
@@ -1371,476 +465,921 @@
                       />
                     </svg>
                   </td>
-                  <td class="tableC__line-cell tableC__line-cell--date">14 ноя, 12:30:56</td>
+                  <td class="tableC__line-cell tableC__line-cell--date">{{ log.date }}</td>
                   <td class="tableC__border"></td>
-                  <td class="tableC__line-cell tableC__line-cell--message">
-                    ТАЙМЕР CallbackTimerAction
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--email">
-                    v.chepurnoy@skylane.com
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--badge">
-                    <div class="badgeС badgeС--client">Клиент</div>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--site">
-                    https://prd.sso.corteos.ru
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
-                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
-                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
-                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
-                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
                 </tr>
-                <tr
-                  class="tableC__line tableC__line--log tableC__line--error"
-                  @click="modalShow = !modalShow"
-                >
-                  <td class="tableC__line-cell tableC__line-cell--status">
-                    <div class="tableC__status tableC__line-cell--error"></div>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--date">14 ноя, 12:30:56</td>
-                  <td class="tableC__border"></td>
-                  <td class="tableC__line-cell tableC__line-cell--message">
-                    ТАЙМЕР CallbackTimerAction
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--email">
-                    v.chepurnoy@skylane.com
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--badge">
-                    <div class="badgeС badgeС--client">Клиент</div>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--site">
-                    https://prd.sso.corteos.ru
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
-                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
-                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
-                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
-                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
-                </tr>
-                <!--sdassssssssssssssssssssssssssssssssssss  
-                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
-                  <td class="tableC__line-cell tableC__line-cell--status">
-                    <div class="tableC__status tableC__line-cell--activ"></div>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
-                    14 ноя, 12:30:56
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--message">
-                    ТАЙМЕР CallbackTimerAction
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--email">
-                    v.chepurnoy@skylane.com
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--badge">
-                    <div class="badgeС badgeС--agent">Агент</div>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--site">
-                    https://prd.sso.corteos.ru
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
-                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
-                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
-                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
-                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
-                </tr>
-                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
-                  <td class="tableC__line-cell tableC__line-cell--status">
-                    <div class="tableC__status tableC__line-cell--activ"></div>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
-                    14 ноя, 12:30:56
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--message">
-                    ТАЙМЕР CallbackTimerAction
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--email">
-                    v.chepurnoy@skylane.com
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--badge">
-                    <div class="badgeС badgeС--agent">Агент</div>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--site">
-                    https://prd.sso.corteos.ru
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
-                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
-                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
-                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
-                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
-                </tr>
-                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
-                  <td class="tableC__line-cell tableC__line-cell--status">
-                    <div class="tableC__status tableC__line-cell--activ"></div>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
-                    14 ноя, 12:30:56
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--message">
-                    ТАЙМЕР CallbackTimerAction
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--email">
-                    v.chepurnoy@skylane.com
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--badge">
-                    <div class="badgeС badgeС--agent">Агент</div>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--site">
-                    https://prd.sso.corteos.ru
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
-                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
-                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
-                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
-                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
-                </tr>
-                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
-                  <td class="tableC__line-cell tableC__line-cell--status">
-                    <div class="tableC__status tableC__line-cell--activ"></div>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
-                    14 ноя, 12:30:56
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--message">
-                    ТАЙМЕР CallbackTimerAction
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--email">
-                    v.chepurnoy@skylane.com
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--badge">
-                    <div class="badgeС badgeС--agent">Агент</div>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--site">
-                    https://prd.sso.corteos.ru
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
-                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
-                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
-                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
-                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
-                </tr>
-                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
-                  <td class="tableC__line-cell tableC__line-cell--status">
-                    <div class="tableC__status tableC__line-cell--activ"></div>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
-                    14 ноя, 12:30:56
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--message">
-                    ТАЙМЕР CallbackTimerAction
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--email">
-                    v.chepurnoy@skylane.com
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--badge">
-                    <div class="badgeС badgeС--agent">Агент</div>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--site">
-                    https://prd.sso.corteos.ru
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
-                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
-                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
-                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
-                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
-                </tr>
-                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
-                  <td class="tableC__line-cell tableC__line-cell--status">
-                    <div class="tableC__status tableC__line-cell--activ"></div>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
-                    14 ноя, 12:30:56
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--message">
-                    ТАЙМЕР CallbackTimerAction
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--email">
-                    v.chepurnoy@skylane.com
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--badge">
-                    <div class="badgeС badgeС--agent">Агент</div>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--site">
-                    https://prd.sso.corteos.ru
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
-                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
-                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
-                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
-                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
-                </tr>
-                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
-                  <td class="tableC__line-cell tableC__line-cell--status">
-                    <div class="tableC__status tableC__line-cell--activ"></div>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
-                    14 ноя, 12:30:56
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--message">
-                    ТАЙМЕР CallbackTimerAction
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--email">
-                    v.chepurnoy@skylane.com
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--badge">
-                    <div class="badgeС badgeС--agent">Агент</div>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--site">
-                    https://prd.sso.corteos.ru
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
-                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
-                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
-                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
-                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
-                </tr>
-                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
-                  <td class="tableC__line-cell tableC__line-cell--status">
-                    <div class="tableC__status tableC__line-cell--activ"></div>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
-                    14 ноя, 12:30:56
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--message">
-                    ТАЙМЕР CallbackTimerAction
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--email">
-                    v.chepurnoy@skylane.com
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--badge">
-                    <div class="badgeС badgeС--agent">Агент</div>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--site">
-                    https://prd.sso.corteos.ru
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
-                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
-                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
-                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
-                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
-                </tr>
-                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
-                  <td class="tableC__line-cell tableC__line-cell--status">
-                    <div class="tableC__status tableC__line-cell--activ"></div>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
-                    14 ноя, 12:30:56
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--message">
-                    ТАЙМЕР CallbackTimerAction
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--email">
-                    v.chepurnoy@skylane.com
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--badge">
-                    <div class="badgeС badgeС--agent">Агент</div>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--site">
-                    https://prd.sso.corteos.ru
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
-                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
-                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
-                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
-                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
-                </tr>
-                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
-                  <td class="tableC__line-cell tableC__line-cell--status">
-                    <div class="tableC__status tableC__line-cell--activ"></div>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
-                    14 ноя, 12:30:56
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--message">
-                    ТАЙМЕР CallbackTimerAction
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--email">
-                    v.chepurnoy@skylane.com
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--badge">
-                    <div class="badgeС badgeС--agent">Агент</div>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--site">
-                    https://prd.sso.corteos.ru
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
-                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
-                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
-                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
-                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
-                </tr>
-                <tr class="tableC__line tableC__line--log" @click="modalShow = !modalShow">
-                  <td class="tableC__line-cell tableC__line-cell--status">
-                    <div class="tableC__status tableC__line-cell--activ"></div>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--border tableC__line-cell--date">
-                    14 ноя, 12:30:56
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--message">
-                    ТАЙМЕР CallbackTimerAction
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--email">
-                    v.chepurnoy@skylane.com
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--badge">
-                    <div class="badgeС badgeС--agent">Агент</div>
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--site">
-                    https://prd.sso.corteos.ru
-                  </td>
-                  <td class="tableC__line-cell tableC__line-cell--session">ENFG2ODHWLBW</td>
-                  <td class="tableC__line-cell tableC__line-cell--id">3117465</td>
-                  <td class="tableC__line-cell tableC__line-cell--class">ImapIdleHelper.cs</td>
-                  <td class="tableC__line-cell tableC__line-cell--source">imap-monitor</td>
-                  <td class="tableC__line-cell tableC__line-cell--ipClient">212.233.132.22</td>
-                </tr>
-                sdassssssssssssssssssssssssssssssssssss  -->
               </tbody>
             </table>
+            <div class="block-scroll">
+              <table id="tableC" class="tableC tableC__scroll tableС--log">
+                <thead class="tableC__columns">
+                  <tr>
+                    <th
+                      class="tableC__column tableC__column--message"
+                      draggable="true"
+                      @dragstart="drag"
+                      @dragover="allowDrop"
+                      @drop="drop"
+                    >
+                      <div class="tableC__column-cell">
+                        Сообщение
+                        <!-- иконка поиска -->
+                        <span class="tableC__icon-search">
+                          <b-dropdown
+                            class="dropdown dropdown--icon"
+                            variant="outline-secondary"
+                            toggle-class="dropdown__toggle dropdown__toggle--icon"
+                            menu-class="dropdown__menu dropdown__menu--icon"
+                            offset="-90"
+                            no-flip
+                          >
+                            <!-- Настраиваем контент кнопки -->
+                            <template #button-content>
+                              <svg
+                                width="12"
+                                height="12"
+                                viewBox="0 0 12 12"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                  fill="#293553"
+                                />
+                              </svg>
+                            </template>
+
+                            <b-dropdown-item
+                              href="#"
+                              class="dropdown__item dropdown__item--search-filter"
+                              @click.native.capture.stop
+                            >
+                              <div class="search-filter">
+                                <div class="search-filter__input-wrapper">
+                                  <input
+                                    class="search-filter__input inputPlaceholder"
+                                    type="text"
+                                    placeholder="Текст"
+                                  />
+                                  <!-- иконка поиска -->
+                                  <span class="search-filter__icon-search">
+                                    <svg
+                                      width="12"
+                                      height="12"
+                                      viewBox="0 0 12 12"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                        fill="#293553"
+                                      />
+                                    </svg>
+                                  </span>
+                                </div>
+                                <div class="search-filter__menu">
+                                  <label class="search-filter__item" for="1">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="1"
+                                    />
+                                    Текст 1
+                                  </label>
+                                  <label class="search-filter__item" for="2">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="2"
+                                    />
+                                    Текст 2
+                                  </label>
+                                  <label class="search-filter__item" for="3">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="3"
+                                      disabled
+                                    />
+                                    Текст 3
+                                  </label>
+                                  <label class="search-filter__item" for="4">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="4"
+                                    />
+                                    Текст 4
+                                  </label>
+                                  <label class="search-filter__item" for="5">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="5"
+                                      disabled
+                                    />
+                                    Текст 5
+                                  </label>
+                                </div>
+                              </div>
+                            </b-dropdown-item>
+                          </b-dropdown>
+                        </span>
+                        <!-- иконка закрепления столбца -->
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                          <svg
+                            width="9"
+                            height="12"
+                            viewBox="0 0 9 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
+                              fill="#293553"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                      <div class="resize-handle"></div>
+                    </th>
+                    <th
+                      class="tableC__column tableC__column--user"
+                      draggable="true"
+                      @dragstart="drag"
+                      @dragover="allowDrop"
+                      @drop="drop"
+                    >
+                      <div class="tableC__column-cell">
+                        Пользователь
+                        <!-- иконка поиска -->
+                        <span class="tableC__icon-search">
+                          <b-dropdown
+                            class="dropdown dropdown--icon"
+                            variant="outline-secondary"
+                            toggle-class="dropdown__toggle dropdown__toggle--icon"
+                            menu-class="dropdown__menu dropdown__menu--icon"
+                            offset="-110"
+                            no-flip
+                          >
+                            <!-- Настраиваем контент кнопки -->
+                            <template #button-content>
+                              <svg
+                                width="12"
+                                height="12"
+                                viewBox="0 0 12 12"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                  fill="#293553"
+                                />
+                              </svg>
+                            </template>
+
+                            <b-dropdown-item
+                              href="#"
+                              class="dropdown__item dropdown__item--search-filter"
+                              @click.native.capture.stop
+                            >
+                              <div class="search-filter">
+                                <div class="search-filter__input-wrapper">
+                                  <input
+                                    class="search-filter__input inputPlaceholder"
+                                    type="text"
+                                    placeholder="Текст"
+                                  />
+                                  <!-- иконка поиска -->
+                                  <span class="search-filter__icon-search">
+                                    <svg
+                                      width="12"
+                                      height="12"
+                                      viewBox="0 0 12 12"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                        fill="#293553"
+                                      />
+                                    </svg>
+                                  </span>
+                                </div>
+                                <div class="search-filter__menu">
+                                  <label class="search-filter__item" for="1">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="1"
+                                    />
+                                    Текст 1
+                                  </label>
+                                  <label class="search-filter__item" for="2">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="2"
+                                    />
+                                    Текст 2
+                                  </label>
+                                  <label class="search-filter__item" for="3">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="3"
+                                      disabled
+                                    />
+                                    Текст 3
+                                  </label>
+                                  <label class="search-filter__item" for="4">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="4"
+                                    />
+                                    Текст 4
+                                  </label>
+                                  <label class="search-filter__item" for="5">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="5"
+                                      disabled
+                                    />
+                                    Текст 5
+                                  </label>
+                                </div>
+                              </div>
+                            </b-dropdown-item>
+                          </b-dropdown>
+                        </span>
+                        <!-- иконка закрепления столбца -->
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                          <svg
+                            width="9"
+                            height="12"
+                            viewBox="0 0 9 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
+                              fill="#293553"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                      <div class="resize-handle"></div>
+                    </th>
+                    <th
+                      class="tableC__column tableC__column--badges"
+                      draggable="true"
+                      @dragstart="drag"
+                      @dragover="allowDrop"
+                      @drop="drop"
+                    >
+                      <div class="tableC__column-cell">
+                        Роль
+                        <!-- иконка стрелки -->
+                        <span class="tableC__icon-arrow">
+                          <svg
+                            width="10"
+                            height="6"
+                            viewBox="0 0 10 6"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                              fill="#293553"
+                            />
+                          </svg>
+                        </span>
+                        <!-- иконка закрепления столбца -->
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                          <svg
+                            width="9"
+                            height="12"
+                            viewBox="0 0 9 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
+                              fill="#293553"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                      <div class="resize-handle"></div>
+                    </th>
+                    <th
+                      class="tableC__column tableC__column--site"
+                      draggable="true"
+                      @dragstart="drag"
+                      @dragover="allowDrop"
+                      @drop="drop"
+                    >
+                      <div class="tableC__column-cell">
+                        Сайт
+                        <!-- иконка стрелки -->
+                        <span class="tableC__icon-arrow">
+                          <svg
+                            width="10"
+                            height="6"
+                            viewBox="0 0 10 6"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                              fill="#293553"
+                            />
+                          </svg>
+                        </span>
+                        <!-- иконка закрепления столбца -->
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                          <svg
+                            width="9"
+                            height="12"
+                            viewBox="0 0 9 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
+                              fill="#293553"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                      <div class="resize-handle"></div>
+                    </th>
+                    <th
+                      class="tableC__column tableC__column--session"
+                      draggable="true"
+                      @dragstart="drag"
+                      @dragover="allowDrop"
+                      @drop="drop"
+                    >
+                      <div class="tableC__column-cell">
+                        Сессия
+                        <!-- иконка поиска -->
+                        <span class="tableC__icon-search">
+                          <b-dropdown
+                            class="dropdown dropdown--icon"
+                            variant="outline-secondary"
+                            toggle-class="dropdown__toggle dropdown__toggle--icon"
+                            menu-class="dropdown__menu dropdown__menu--icon"
+                            offset="-60"
+                            no-flip
+                          >
+                            <!-- Настраиваем контент кнопки -->
+                            <template #button-content>
+                              <svg
+                                width="12"
+                                height="12"
+                                viewBox="0 0 12 12"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                  fill="#293553"
+                                />
+                              </svg>
+                            </template>
+
+                            <b-dropdown-item
+                              href="#"
+                              class="dropdown__item dropdown__item--search-filter"
+                              @click.native.capture.stop
+                            >
+                              <div class="search-filter">
+                                <div class="search-filter__input-wrapper">
+                                  <input
+                                    class="search-filter__input inputPlaceholder"
+                                    type="text"
+                                    placeholder="Текст"
+                                  />
+                                  <!-- иконка поиска -->
+                                  <span class="search-filter__icon-search">
+                                    <svg
+                                      width="12"
+                                      height="12"
+                                      viewBox="0 0 12 12"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                        fill="#293553"
+                                      />
+                                    </svg>
+                                  </span>
+                                </div>
+                                <div class="search-filter__menu">
+                                  <label class="search-filter__item" for="1">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="1"
+                                    />
+                                    Текст 1
+                                  </label>
+                                  <label class="search-filter__item" for="2">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="2"
+                                    />
+                                    Текст 2
+                                  </label>
+                                  <label class="search-filter__item" for="3">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="3"
+                                      disabled
+                                    />
+                                    Текст 3
+                                  </label>
+                                  <label class="search-filter__item" for="4">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="4"
+                                    />
+                                    Текст 4
+                                  </label>
+                                  <label class="search-filter__item" for="5">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="5"
+                                      disabled
+                                    />
+                                    Текст 5
+                                  </label>
+                                </div>
+                              </div>
+                            </b-dropdown-item>
+                          </b-dropdown>
+                        </span>
+                        <!-- иконка закрепления столбца -->
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                          <svg
+                            width="9"
+                            height="12"
+                            viewBox="0 0 9 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
+                              fill="#293553"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                      <div class="resize-handle"></div>
+                    </th>
+                    <th
+                      class="tableC__column tableC__column--id"
+                      draggable="true"
+                      @dragstart="drag"
+                      @dragover="allowDrop"
+                      @drop="drop"
+                    >
+                      <div class="tableC__column-cell">
+                        ID
+                        <!-- иконка поиска -->
+                        <span class="tableC__icon-search">
+                          <b-dropdown
+                            class="dropdown dropdown--icon"
+                            variant="outline-secondary"
+                            toggle-class="dropdown__toggle dropdown__toggle--icon"
+                            menu-class="dropdown__menu dropdown__menu--icon"
+                            offset="-30"
+                            no-flip
+                          >
+                            <!-- Настраиваем контент кнопки -->
+                            <template #button-content>
+                              <svg
+                                width="12"
+                                height="12"
+                                viewBox="0 0 12 12"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                  fill="#293553"
+                                />
+                              </svg>
+                            </template>
+
+                            <b-dropdown-item
+                              href="#"
+                              class="dropdown__item dropdown__item--search-filter"
+                              @click.native.capture.stop
+                            >
+                              <div class="search-filter">
+                                <div class="search-filter__input-wrapper">
+                                  <input
+                                    class="search-filter__input inputPlaceholder"
+                                    type="text"
+                                    placeholder="Текст"
+                                  />
+                                  <!-- иконка поиска -->
+                                  <span class="search-filter__icon-search">
+                                    <svg
+                                      width="12"
+                                      height="12"
+                                      viewBox="0 0 12 12"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                        fill="#293553"
+                                      />
+                                    </svg>
+                                  </span>
+                                </div>
+                                <div class="search-filter__menu">
+                                  <label class="search-filter__item" for="1">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="1"
+                                    />
+                                    Текст 1
+                                  </label>
+                                  <label class="search-filter__item" for="2">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="2"
+                                    />
+                                    Текст 2
+                                  </label>
+                                  <label class="search-filter__item" for="3">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="3"
+                                      disabled
+                                    />
+                                    Текст 3
+                                  </label>
+                                  <label class="search-filter__item" for="4">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="4"
+                                    />
+                                    Текст 4
+                                  </label>
+                                  <label class="search-filter__item" for="5">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="5"
+                                      disabled
+                                    />
+                                    Текст 5
+                                  </label>
+                                </div>
+                              </div>
+                            </b-dropdown-item>
+                          </b-dropdown>
+                        </span>
+                        <!-- иконка закрепления столбца -->
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                          <svg
+                            width="9"
+                            height="12"
+                            viewBox="0 0 9 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
+                              fill="#293553"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                      <div class="resize-handle"></div>
+                    </th>
+                    <th
+                      class="tableC__column tableC__column--class"
+                      draggable="true"
+                      @dragstart="drag"
+                      @dragover="allowDrop"
+                      @drop="drop"
+                    >
+                      <div class="tableC__column-cell">
+                        Класс
+                        <!-- иконка стрелки -->
+                        <span class="tableC__icon-arrow">
+                          <svg
+                            width="10"
+                            height="6"
+                            viewBox="0 0 10 6"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                              fill="#293553"
+                            />
+                          </svg>
+                        </span>
+                        <!-- иконка закрепления столбца -->
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                          <svg
+                            width="9"
+                            height="12"
+                            viewBox="0 0 9 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
+                              fill="#293553"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                      <div class="resize-handle"></div>
+                    </th>
+                    <th
+                      class="tableC__column tableC__column--source"
+                      draggable="true"
+                      @dragstart="drag"
+                      @dragover="allowDrop"
+                      @drop="drop"
+                    >
+                      <div class="tableC__column-cell">
+                        Источник
+                        <!-- иконка стрелки -->
+                        <span class="tableC__icon-arrow">
+                          <svg
+                            width="10"
+                            height="6"
+                            viewBox="0 0 10 6"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
+                              fill="#293553"
+                            />
+                          </svg>
+                        </span>
+                        <!-- иконка закрепления столбца -->
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                          <svg
+                            width="9"
+                            height="12"
+                            viewBox="0 0 9 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
+                              fill="#293553"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                      <div class="resize-handle"></div>
+                    </th>
+                    <th
+                      class="tableC__column tableC__column--ip-client"
+                      draggable="true"
+                      @dragstart="drag"
+                      @dragover="allowDrop"
+                      @drop="drop"
+                    >
+                      <div class="tableC__column-cell">
+                        IP клиента
+                        <!-- иконка поиска -->
+                        <span class="tableC__icon-search">
+                          <b-dropdown
+                            class="dropdown dropdown--icon"
+                            variant="outline-secondary"
+                            toggle-class="dropdown__toggle dropdown__toggle--icon"
+                            menu-class="dropdown__menu dropdown__menu--icon"
+                            no-flip
+                            right
+                          >
+                            <!-- Настраиваем контент кнопки -->
+                            <template #button-content>
+                              <svg
+                                width="12"
+                                height="12"
+                                viewBox="0 0 12 12"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                  fill="#293553"
+                                />
+                              </svg>
+                            </template>
+
+                            <b-dropdown-item
+                              href="#"
+                              class="dropdown__item dropdown__item--search-filter"
+                              @click.native.capture.stop
+                            >
+                              <div class="search-filter">
+                                <div class="search-filter__input-wrapper">
+                                  <input
+                                    class="search-filter__input inputPlaceholder"
+                                    type="text"
+                                    placeholder="Текст"
+                                  />
+                                  <!-- иконка поиска -->
+                                  <span class="search-filter__icon-search">
+                                    <svg
+                                      width="12"
+                                      height="12"
+                                      viewBox="0 0 12 12"
+                                      fill="none"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M5.2981 0C8.22416 0 10.5962 2.37207 10.5962 5.29817C10.5962 6.62255 10.1103 7.83343 9.30701 8.76225L11.8872 11.3425C12.0376 11.4929 12.0376 11.7368 11.8872 11.8872C11.7368 12.0376 11.4929 12.0376 11.3425 11.8872L8.7623 9.30698C7.83347 10.1104 6.62254 10.5963 5.2981 10.5963C2.37204 10.5963 0 8.22428 0 5.29817C0 2.37207 2.37204 0 5.2981 0ZM9.82586 5.29817C9.82586 2.79753 7.79871 0.770356 5.2981 0.770356C2.79749 0.770356 0.770345 2.79753 0.770345 5.29817C0.770345 7.79882 2.79749 9.82599 5.2981 9.82599C7.79871 9.82599 9.82586 7.79882 9.82586 5.29817Z"
+                                        fill="#293553"
+                                      />
+                                    </svg>
+                                  </span>
+                                </div>
+                                <div class="search-filter__menu">
+                                  <label class="search-filter__item" for="1">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="1"
+                                    />
+                                    Текст 1
+                                  </label>
+                                  <label class="search-filter__item" for="2">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="2"
+                                    />
+                                    Текст 2
+                                  </label>
+                                  <label class="search-filter__item" for="3">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="3"
+                                      disabled
+                                    />
+                                    Текст 3
+                                  </label>
+                                  <label class="search-filter__item" for="4">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="4"
+                                    />
+                                    Текст 4
+                                  </label>
+                                  <label class="search-filter__item" for="5">
+                                    <input
+                                      class="search-filter__item-check"
+                                      type="checkbox"
+                                      name=""
+                                      id="5"
+                                      disabled
+                                    />
+                                    Текст 5
+                                  </label>
+                                </div>
+                              </div>
+                            </b-dropdown-item>
+                          </b-dropdown>
+                        </span>
+                        <!-- иконка закрепления столбца -->
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                          <svg
+                            width="9"
+                            height="12"
+                            viewBox="0 0 9 12"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              clip-rule="evenodd"
+                              d="M2.59337 0.502472C1.76494 0.502472 1.09337 1.17404 1.09337 2.00247V2.0276C1.09337 2.60721 1.42729 3.13495 1.95107 3.38313L1.97375 3.39388C2.14835 3.47661 2.25965 3.65252 2.25965 3.84572V5.76109L0.978435 6.97526C0.679527 7.25852 0.510223 7.65222 0.510223 8.06402V8.73924V9.23924H1.01022H4.00906V11.5019H5.00906V9.23924H8.00795H8.50795V8.73924V8.06402C8.50795 7.65222 8.33864 7.25852 8.03973 6.97526L6.75851 5.76109V3.84572C6.75851 3.65252 6.86982 3.47661 7.04442 3.39388L7.0671 3.38313C7.59088 3.13495 7.9248 2.60721 7.9248 2.0276V2.00247C7.9248 1.17404 7.25323 0.502472 6.4248 0.502472H2.59337ZM2.09337 2.00247C2.09337 1.72633 2.31722 1.50247 2.59337 1.50247H6.4248C6.70094 1.50247 6.9248 1.72633 6.9248 2.00247V2.0276C6.9248 2.22081 6.81349 2.39672 6.6389 2.47945L6.61622 2.49019C6.09244 2.73838 5.75851 3.26612 5.75851 3.84572V5.97611V6.19113L5.91459 6.33903L7.35187 7.7011C7.45151 7.79552 7.50795 7.92676 7.50795 8.06402V8.23924H1.51022V8.06402C1.51022 7.92675 1.56666 7.79552 1.66629 7.7011L3.10358 6.33903L3.25965 6.19113V5.97611V3.84572C3.25965 3.26612 2.92573 2.73838 2.40195 2.49019L2.37927 2.47945C2.20467 2.39672 2.09337 2.22081 2.09337 2.0276V2.00247Z"
+                              fill="#293553"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                      <div class="resize-handle"></div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="tableC__lines">
+                  <tr
+                    v-for="log, index in eventLog"
+                    :key="index"
+                    class="tableC__line tableC__line--log"
+                    :class="log.status === 'activ' ? 'tableC__line--activ' : log.status === 'warning' ? 'tableC__line--warning' : 'tableC__line--error'"
+                    @click="modalShow = !modalShow"
+                  >
+                    <td class="tableC__line-cell tableC__line-cell--message">{{log.message}}</td>
+                    <td class="tableC__line-cell tableC__line-cell--email">{{log.email}}</td>
+                    <td class="tableC__line-cell tableC__line-cell--badge">
+                      <div
+                        class="badgeС badgeС--agent"
+                        :class="log.badge === 'Агент' ? 'badgeС--agent' : 'badgeС--client' "
+                      >
+                        {{log.badge}}
+                      </div>
+                    </td>
+                    <td class="tableC__line-cell tableC__line-cell--site">{{log.site}}</td>
+                    <td class="tableC__line-cell tableC__line-cell--session">{{log.session}}</td>
+                    <td class="tableC__line-cell tableC__line-cell--id">{{log.id}}</td>
+                    <td class="tableC__line-cell tableC__line-cell--class">{{log.class}}</td>
+                    <td class="tableC__line-cell tableC__line-cell--source">{{log.source}}</td>
+                    <td class="tableC__line-cell tableC__line-cell--ipClient">{{log.ipClient}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
           <div class="download-add-user">
             <button class="download-add-user__button">Загрузить еще 100 записей</button>
@@ -2222,14 +1761,146 @@
           draggedColumn: null,
           draggedColumnIndex: null,
           resizeHandleMouse: false,
-          noDragClasses: ["tableC__column--filterCell", "tableC__column--date"],
+
+          eventLog: [
+            {
+              status: "activ",
+              date: "14 ноя, 12:30:56",
+              message: "ТАЙМЕР CallbackTimerAction",
+              email: "v.chepurnoy@skylane.com",
+              badge: "Агент",
+              site: "https://prd.sso.corteos.ru",
+              session: "ENFG2ODHWLBW",
+              id: "3117465",
+              class: "ImapIdleHelper.cs",
+              source: "imap-monitor",
+              ipClient: "212.233.132.22",
+            },
+            {
+              status: "warning",
+              date: "14 ноя, 12:30:56",
+              message: "ТАЙМЕР CallbackTimerAction",
+              email: "v.chepurnoy@skylane.com",
+              badge: "Клиент",
+              site: "https://prd.sso.corteos.ru",
+              session: "ENFG2ODHWLBW",
+              id: "3117465",
+              class: "ImapIdleHelper.cs",
+              source: "imap-monitor",
+              ipClient: "212.233.132.22",
+            },
+            {
+              status: "error",
+              date: "14 ноя, 12:30:56",
+              message: "ТАЙМЕР CallbackTimerAction",
+              email: "v.chepurnoy@skylane.com",
+              badge: "Агент",
+              site: "https://prd.sso.corteos.ru",
+              session: "ENFG2ODHWLBW",
+              id: "3117465",
+              class: "ImapIdleHelper.cs",
+              source: "imap-monitor",
+              ipClient: "212.233.132.22",
+            },
+            {
+              status: "activ",
+              date: "14 ноя, 12:30:56",
+              message: "ТАЙМЕР CallbackTimerAction",
+              email: "v.chepurnoy@skylane.com",
+              badge: "Агент",
+              site: "https://prd.sso.corteos.ru",
+              session: "ENFG2ODHWLBW",
+              id: "3117465",
+              class: "ImapIdleHelper.cs",
+              source: "imap-monitor",
+              ipClient: "212.233.132.22",
+            },
+            {
+              status: "activ",
+              date: "14 ноя, 12:30:56",
+              message: "ТАЙМЕР CallbackTimerAction",
+              email: "v.chepurnoy@skylane.com",
+              badge: "Агент",
+              site: "https://prd.sso.corteos.ru",
+              session: "ENFG2ODHWLBW",
+              id: "3117465",
+              class: "ImapIdleHelper.cs",
+              source: "imap-monitor",
+              ipClient: "212.233.132.22",
+            },
+            {
+              status: "activ",
+              date: "14 ноя, 12:30:56",
+              message: "ТАЙМЕР CallbackTimerAction",
+              email: "v.chepurnoy@skylane.com",
+              badge: "Агент",
+              site: "https://prd.sso.corteos.ru",
+              session: "ENFG2ODHWLBW",
+              id: "3117465",
+              class: "ImapIdleHelper.cs",
+              source: "imap-monitor",
+              ipClient: "212.233.132.22",
+            },
+            {
+              status: "activ",
+              date: "14 ноя, 12:30:56",
+              message: "ТАЙМЕР CallbackTimerAction",
+              email: "v.chepurnoy@skylane.com",
+              badge: "Агент",
+              site: "https://prd.sso.corteos.ru",
+              session: "ENFG2ODHWLBW",
+              id: "3117465",
+              class: "ImapIdleHelper.cs",
+              source: "imap-monitor",
+              ipClient: "212.233.132.22",
+            },
+            {
+              status: "activ",
+              date: "14 ноя, 12:30:56",
+              message: "ТАЙМЕР CallbackTimerAction",
+              email: "v.chepurnoy@skylane.com",
+              badge: "Агент",
+              site: "https://prd.sso.corteos.ru",
+              session: "ENFG2ODHWLBW",
+              id: "3117465",
+              class: "ImapIdleHelper.cs",
+              source: "imap-monitor",
+              ipClient: "212.233.132.22",
+            },
+            {
+              status: "activ",
+              date: "14 ноя, 12:30:56",
+              message: "ТАЙМЕР CallbackTimerAction",
+              email: "v.chepurnoy@skylane.com",
+              badge: "Агент",
+              site: "https://prd.sso.corteos.ru",
+              session: "ENFG2ODHWLBW",
+              id: "3117465",
+              class: "ImapIdleHelper.cs",
+              source: "imap-monitor",
+              ipClient: "212.233.132.22",
+            },
+            {
+              status: "activ",
+              date: "14 ноя, 12:30:56",
+              message: "ТАЙМЕР CallbackTimerAction",
+              email: "v.chepurnoy@skylane.com",
+              badge: "Агент",
+              site: "https://prd.sso.corteos.ru",
+              session: "ENFG2ODHWLBW",
+              id: "3117465",
+              class: "ImapIdleHelper.cs",
+              source: "imap-monitor",
+              ipClient: "212.233.132.22",
+            },
+          ],
 
           code: `<Contact DateChanged="31.10.2024 23:45:11" DateCreate="27.09.2023 18:57:29" deleted="false">
-                            <id_Contact>3117465</id_Contact>
-                            <id_Person>2647942</id_Person>
-                            <id_ContactType>3</id_ContactType>
-                            <Content>SV.TIKHONOV@SEVERSTAL.COM</Content>
-                            <ContactTypeName>Email</ContactTypeName> </Contact>`,
+                                        <id_Contact>3117465</id_Contact>
+                                        <id_Person>2647942</id_Person>
+                                        <id_ContactType>3</id_ContactType>
+                                        <Content>SV.TIKHONOV@SEVERSTAL.COM</Content>
+                                        <ContactTypeName>Email</ContactTypeName> </Contact>`,
         }),
         methods: {
           selectItem(item) {
@@ -2239,7 +1910,7 @@
             this.selectedItemFilteType = item; // Устанавливаем выбранный элемент в type
           },
           selectItemChartTime(item) {
-            this.selectedItemChratTime = item; // Устанавливаем выбранный элемент
+            this.selectedItemChratTime = item; // Устанавливаем выбранный элемент в chart time
           },
           highlighter(code) {
             return Prism.highlight(code, Prism.languages.html, "html");
@@ -2258,77 +1929,92 @@
           pin(item) {
             const th = item.target.closest("th");
             const span = item.target.closest("span");
-            const borderTh = document.querySelector("th.tableC__border");
-            const table = document.querySelector("#tableC");
+            const borderTh = document.querySelector(".tableC__fixed .tableC__border");
+            const tableFixed = document.querySelector(".tableC__fixed");
+            const tableScroll = document.querySelector(".tableC__scroll");
+
+            if (!tableFixed || !tableScroll) {
+              console.error("Таблицы не найдены. Проверьте классы.");
+              return;
+            }
 
             const parentRow = th.parentElement;
+            console.log(parentRow);
+
             const arrayParentRow = Array.from(parentRow.children);
 
-            // Индекс столбца
+            const arraytableFixed = Array.from(tableFixed.querySelectorAll("th"));
+
             const thIndex = arrayParentRow.indexOf(th);
-            const borderIndex = arrayParentRow.indexOf(borderTh);
+            const borderIndex = arraytableFixed.indexOf(borderTh);
+            console.log(arraytableFixed);
 
-            if (!th.draggable) {
-              this.noDragClasses.pop();
+            const currentTable = th.closest("table");
 
-              th.draggable = !th.draggable;
+            if (currentTable === tableScroll) {
+              const rowsScroll = tableScroll.querySelectorAll("tbody tr");
+              const rowsFixed = tableFixed.querySelectorAll("tbody tr");
+
+              const columnToMove = th;
+
+              columnToMove.draggable = false;
+
+              arraytableFixed[borderIndex - 1].classList.toggle("tableC__column--no-border");
+              columnToMove.classList.toggle("tableC__column--no-border");
+
+              tableFixed.querySelector("thead tr").insertBefore(columnToMove, borderTh);
+
+              rowsScroll.forEach((row, index) => {
+                const cells = Array.from(row.children);
+                const cellToMove = cells[thIndex];
+
+                if (cellToMove && rowsFixed[index]) {
+                  const borderCell = rowsFixed[index].children[borderIndex];
+
+                  console.log(borderCell);
+
+                  rowsFixed[index].insertBefore(cellToMove, borderCell);
+                }
+              });
 
               span.classList.toggle("tableC__icon-pin--disabled");
+            } else if (currentTable === tableFixed) {
+              const rowsFixed = tableFixed.querySelectorAll("tbody tr");
+              const rowsScroll = tableScroll.querySelectorAll("tbody tr");
 
-              arrayParentRow[borderIndex - 2].classList.toggle("tableC__column--no-border");
+              const columnToMove = th;
 
-              th.classList.toggle("tableC__column--no-border");
+              columnToMove.draggable = true;
 
-              parentRow.insertBefore(th, borderTh.nextSibling);
+              arraytableFixed[borderIndex - 2].classList.toggle("tableC__column--no-border");
+              columnToMove.classList.toggle("tableC__column--no-border");
 
-              const rows = table.querySelectorAll("tbody tr");
+              tableScroll
+                .querySelector("thead tr")
+                .insertBefore(columnToMove, tableScroll.querySelector("thead tr").firstChild);
 
-              this.lineWrapping(rows, thIndex, borderIndex, true);
-            } else {
-              this.noDragClasses.push(th.classList[1]);
+              rowsFixed.forEach((row, index) => {
+                const cells = Array.from(row.children);
+                const cellToMove = cells[thIndex];
 
-              th.draggable = !th.draggable;
+                if (cellToMove && rowsScroll[index]) {
+                  rowsScroll[index].insertBefore(cellToMove, rowsScroll[index].firstChild);
+                }
+              });
 
               span.classList.toggle("tableC__icon-pin--disabled");
-
-              arrayParentRow[borderIndex - 1].classList.toggle("tableC__column--no-border");
-
-              th.classList.toggle("tableC__column--no-border");
-
-              parentRow.insertBefore(th, borderTh);
-
-              const rows = table.querySelectorAll("tbody tr");
-
-              this.lineWrapping(rows, thIndex, borderIndex, false);
             }
           },
 
-          lineWrapping(rows, thIndex, borderIndex, next) {
-            rows.forEach((row) => {
-              const cells = Array.from(row.children);
-              const cellToMove = cells[thIndex];
-              const borderCell = cells[borderIndex];
-
-              if (cellToMove && borderCell) {
-                // Если next true, вставляем ячейку после borderCell, иначе до него
-                row.insertBefore(cellToMove, next ? borderCell.nextSibling : borderCell);
-              }
-            });
-          },
-
           drag(event) {
-            const column = event.target.closest("th"); // Находим <th>, если это возможно
+            const column = event.target.closest("th");
 
-            if (
-              column &&
-              !this.noDragClasses.some((cls) => column.classList.contains(cls)) &&
-              !this.resizeHandleMouse
-            ) {
+            if (column && !this.resizeHandleMouse) {
               this.draggedColumn = column;
               this.draggedColumnIndex = Array.from(column.parentNode.children).indexOf(column);
               column.classList.add("dragging");
             } else {
-              event.preventDefault(); // Запрещаем перетаскивание
+              event.preventDefault();
             }
           },
 
@@ -2339,17 +2025,17 @@
           drop(event) {
             event.preventDefault();
 
-            const target = event.target.closest("th"); // Находим ближайший <th>
+            const target = event.target.closest("th");
+
             if (
               this.draggedColumn &&
               target &&
               target !== this.draggedColumn &&
-              !this.noDragClasses.some((cls) => target.classList.contains(cls))
+              target.closest(".tableC").classList.contains("tableC__scroll")
             ) {
-              const table = document.getElementById("tableC");
+              const table = document.querySelector(".tableC__scroll");
               const headerRow = table.querySelector("thead tr");
 
-              // Перемещаем заголовок в новой позиции
               const targetIndex = Array.from(headerRow.children).indexOf(target);
               const draggedIndex = Array.from(headerRow.children).indexOf(this.draggedColumn);
 
@@ -2359,7 +2045,6 @@
                 headerRow.insertBefore(this.draggedColumn, target.nextSibling);
               }
 
-              // Обновляем строки таблицы
               const rows = table.querySelectorAll("tbody tr");
 
               rows.forEach((row) => {
@@ -2376,7 +2061,6 @@
                 }
               });
 
-              // Убираем класс и сбрасываем переменные
               this.draggedColumn.classList.remove("dragging");
               this.draggedColumn = null;
               this.draggedColumnIndex = null;
@@ -2384,15 +2068,25 @@
           },
 
           startResize(event, th) {
+            const tableScroll = document.querySelector(".tableC__scroll");
             this.resizeHandleMouse = true;
             let startX = event.pageX;
             let startWidth = th.offsetWidth;
+            let startWidthTable = tableScroll.offsetWidth;
+            let newTableWidth;
 
             const mouseMove = (e) => {
               const newWidth = startWidth + (e.pageX - startX);
-              const minWidth = 50;
+
+              if (th.closest(".tableC__scroll")) {
+                newTableWidth = startWidthTable + e.pageX - startX;
+              }
+              const minWidth = 130;
 
               if (newWidth > minWidth) {
+                if (th.closest(".tableC__scroll")) {
+                  tableScroll.style.width = `${newTableWidth}px`;
+                }
                 th.style.width = `${newWidth}px`;
               }
             };
@@ -2410,18 +2104,47 @@
           },
         },
         mounted() {
-          // Установка обработчиков событий для перетаскивания и изменения размеров
           this.$nextTick(() => {
             document.querySelectorAll("th").forEach((th) => {
-              // th.setAttribute("draggable", "true");
               th.addEventListener("dragstart", this.drag);
               th.addEventListener("dragover", this.allowDrop);
               th.addEventListener("drop", this.drop);
 
-              // Устанавливаем обработчик для изменения ширины столбцов
               th.querySelectorAll(".resize-handle").forEach((handle) => {
                 handle.addEventListener("mousedown", (e) => this.startResize(e, th));
               });
+            });
+          });
+
+          const tableCScrollLine = document.querySelectorAll(".tableC__scroll .tableC__line");
+
+          const tableCFixedLine = document.querySelectorAll(".tableC__fixed .tableC__line");
+
+          tableCScrollLine.forEach((item) => {
+            item.addEventListener("mouseenter", () => {
+              const index = Array.from(tableCScrollLine).indexOf(item);
+
+              tableCFixedLine[index].classList.add("tableC__line--hover");
+            });
+
+            item.addEventListener("mouseleave", () => {
+              const index = Array.from(tableCScrollLine).indexOf(item);
+
+              tableCFixedLine[index].classList.remove("tableC__line--hover");
+            });
+          });
+
+          tableCFixedLine.forEach((item) => {
+            item.addEventListener("mouseenter", () => {
+              const index = Array.from(tableCFixedLine).indexOf(item);
+
+              tableCScrollLine[index].classList.add("tableC__line--hover");
+            });
+
+            item.addEventListener("mouseleave", () => {
+              const index = Array.from(tableCFixedLine).indexOf(item);
+
+              tableCScrollLine[index].classList.remove("tableC__line--hover");
             });
           });
         },

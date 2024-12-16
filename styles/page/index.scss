@@ -1,12 +1,10 @@
 .log {
-  @extend %scrollbarStyling-X;
+  position: relative;
 
   width: max-content;
 
-  padding: 0 10px;
-
-  overflow-x: auto;
-  white-space: nowrap;
+  display: flex;
+  // overflow-x: auto;
 }
 
 // LOG-INFO

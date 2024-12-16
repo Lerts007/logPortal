@@ -11,17 +11,40 @@
   cursor: ew-resize;
   z-index: 1;
 }
+.block-scroll {
+  @extend %scrollbarStyling-X;
+
+  width: calc(((100vw - 1300px) / 2) + 1300px - 24px);
+  // width: 1000px;
+
+  padding-right: calc((100vw - 1300px + 17px) / 2);
+
+  display: block;
+  overflow-x: auto;
+}
 
 .tableC {
   position: relative;
 
   margin-top: 15px;
-  padding-right: 3px;
 
   box-sizing: content-box;
 
   border-collapse: separate;
   border-spacing: 0 6px;
+
+  &__fixed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+  }
+  &__scroll {
+  }
+
+  &--user {
+    width: 100%;
+  }
 
   &__column {
     @include fonts(700);
@@ -97,16 +120,21 @@
 
   &__line {
     position: relative;
+
     height: 36px;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: $gray;
+      }
+    }
+
+    &--hover {
+      background-color: $gray !important;
+    }
 
     &--log {
       cursor: pointer;
-
-      @media (hover: hover) {
-        &:hover {
-          background-color: $gray;
-        }
-      }
     }
 
     &--date {
@@ -129,7 +157,6 @@
     padding: 0 10px;
 
     min-width: 130px;
-    max-width: 140px;
     height: 36px;
 
     text-align: left;
