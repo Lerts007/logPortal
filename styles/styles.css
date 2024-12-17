@@ -468,7 +468,6 @@ h6 {
 
 .dropdown {
   position: relative;
-  width: 100%;
   min-height: 30px;
   display: flex;
   flex-direction: column;
@@ -842,37 +841,74 @@ h6 {
   display: flex;
   align-items: center;
   height: 30px;
-  border: 1px solid rgba(41, 53, 83, 0.25);
   border-radius: 4px;
-  padding: 4px 8px;
   background-color: #ffffff;
 }
-.datetime svg {
-  margin-right: 10px;
+.datetime__date {
+  min-width: 110px;
+  padding: 4px 8px !important;
+  gap: 10px;
+  border: 1px solid rgba(41, 53, 83, 0.25);
+  border-right: none;
+  border-radius: 4px 0 0 4px;
 }
-.datetime::before {
+.datetime__date:focus {
+  border-color: rgba(41, 53, 83, 0.25);
+  box-shadow: none !important;
+}
+.datetime__date > .btn:first-of-type {
+  height: 30px !important;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.datetime__date::before {
   content: "";
   position: absolute;
-  right: 69px;
+  right: 0;
   transform: translateX(-50%);
   width: 1px;
   height: 60%;
   background-color: rgba(41, 53, 83, 0.25);
   pointer-events: none;
 }
-.datetime__input {
-  font-weight: 400;
+.datetime__time {
+  min-width: 80px;
+  padding: 4px 8px !important;
+  border: 1px solid rgba(41, 53, 83, 0.25);
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+}
+.datetime__time > .btn:first-of-type {
+  height: 30px !important;
+  padding: 0;
+}
+.datetime .b-form-btn-label-control.form-control {
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.datetime .b-form-btn-label-control.form-control > .form-control {
+  min-height: 30px;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+.datetime .form-control {
+  width: auto;
+  line-height: inherit;
   font-size: 14px;
   color: rgb(41, 53, 83);
-  -webkit-appearance: none;
-  -moz-appearance: nones;
-  appearance: none;
-  border: none;
-  outline: none;
 }
-.datetime__input::-webkit-inner-spin-button, .datetime__input::-webkit-calendar-picker-indicator {
-  display: none;
-  -webkit-appearance: none;
+.datetime .form-control.focus {
+  border-color: rgba(41, 53, 83, 0.25);
+  box-shadow: none !important;
+}
+.datetime .form-control:focus {
+  border-color: rgba(41, 53, 83, 0.25);
+  box-shadow: none !important;
 }
 
 .badgeС {
@@ -1454,6 +1490,7 @@ h6 {
 .log-table-settings__l-side {
   display: flex;
   gap: 16px;
+  align-items: center;
 }
 .log-table-settings__btn {
   padding: 6.5px 35.5px !important;
@@ -1482,6 +1519,11 @@ h6 {
   .log-table-settings__reset:hover svg path {
     fill: rgb(15, 144, 233);
   }
+}
+.log-table-settings__dash {
+  width: 20px;
+  height: 1px;
+  background-color: rgb(41, 53, 83);
 }
 
 .admin {
