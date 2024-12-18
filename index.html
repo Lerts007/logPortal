@@ -53,11 +53,12 @@
 
           <!-- график  -->
           <div class="collapseC">
-            <div v-b-toggle.collapse class="collapseC__toggle">
+            <div v-b-toggle.collapse class="collapseC__toggle" @click="collapse = !collapse">
               <span class="collapseC__toggle-title">
                 <span class="collapseC__icon-filter">
                   <b-dropdown
                     class="dropdown dropdown--icon"
+                    ref="dropdownIcon"
                     size="lg"
                     variant="link"
                     lazy
@@ -229,95 +230,79 @@
               </b-dropdown>
 
               <div class="datetime">
-                <b-form-datepicker
-                  class="datetime__date"
-                  btn-class="datetime__btn"
-                  locale="ru"
-                  :date-format-options="{ year: 'numeric', month: 'numeric', day: 'numeric' }"
+                <span class="datetime_icon-calendar">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 0.5C4 0.223858 4.22386 0 4.5 0C4.77614 0 5 0.223858 5 0.5V4.5C5 4.77614 4.77614 5 4.5 5C4.22386 5 4 4.77614 4 4.5V0.5Z"
+                      fill="#293553"
+                    />
+                    <path d="M8 2H6V2.92311H8V2Z" fill="#293553" />
+                    <path
+                      d="M1.29289 3.19338C1.36902 3.1231 1.50496 3.0362 1.9387 2.98236C2.21873 2.94761 2.55931 2.93318 3 2.9272V2.00391C1.76022 2.02046 1.05733 2.10535 0.585786 2.54064C0 3.08138 0 3.9517 0 5.69233V10.3079C0 12.0485 0 12.9188 0.585786 13.4596C1.17157 14.0003 2.11438 14.0003 4 14.0003H10C11.8856 14.0003 12.8284 14.0003 13.4142 13.4596C14 12.9188 14 12.0485 14 10.3079V5.69233C14 3.9517 14 3.08138 13.4142 2.54064C12.9427 2.10535 12.2398 2.02046 11 2.00391V2.9272C11.4407 2.93318 11.7813 2.94761 12.0613 2.98236C12.495 3.0362 12.631 3.1231 12.7071 3.19338C12.7832 3.26365 12.8774 3.38914 12.9357 3.78953C12.9979 4.21647 13 4.79592 13 5.69233V10.3079C13 11.2043 12.9979 11.7837 12.9357 12.2107C12.8774 12.6111 12.7832 12.7365 12.7071 12.8068C12.631 12.8771 12.495 12.964 12.0613 13.0178C11.5988 13.0752 10.9711 13.0772 10 13.0772h6C3.02892 13.0772 2.40121 13.0752 1.9387 13.0178C1.50496 12.964 1.36902 12.8771 1.29289 12.8068C1.21677 12.7365 1.12262 12.6111 1.06431 12.2107C1.00212 11.7837 1 11.2043 1 10.3079V5.69233C1 4.79592 1.00212 4.21647 1.06431 3.78953C1.12262 3.38914 1.21677 3.26365 1.29289 3.19338Z"
+                      fill="#293553"
+                    />
+                    <path
+                      d="M9.5 0C9.22386 0 9 0.223858 9 0.5V4.5C9 4.77614 9.22386 5 9.5 5C9.77614 5 10 4.77614 10 4.5V0.5C10 0.223858 9.77614 0 9.5 0Z"
+                      fill="#293553"
+                    />
+                  </svg>
+                </span>
+                <input
+                  class="datetime__input datetime__date"
+                  type="date"
                   v-model="dateTime.first[0]"
-                  no-flip
-                >
-                  <template #button-content>
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 0.5C4 0.223858 4.22386 0 4.5 0C4.77614 0 5 0.223858 5 0.5V4.5C5 4.77614 4.77614 5 4.5 5C4.22386 5 4 4.77614 4 4.5V0.5Z"
-                        fill="#293553"
-                      />
-                      <path d="M8 2H6V2.92311H8V2Z" fill="#293553" />
-                      <path
-                        d="M1.29289 3.19338C1.36902 3.1231 1.50496 3.0362 1.9387 2.98236C2.21873 2.94761 2.55931 2.93318 3 2.9272V2.00391C1.76022 2.02046 1.05733 2.10535 0.585786 2.54064C0 3.08138 0 3.9517 0 5.69233V10.3079C0 12.0485 0 12.9188 0.585786 13.4596C1.17157 14.0003 2.11438 14.0003 4 14.0003H10C11.8856 14.0003 12.8284 14.0003 13.4142 13.4596C14 12.9188 14 12.0485 14 10.3079V5.69233C14 3.9517 14 3.08138 13.4142 2.54064C12.9427 2.10535 12.2398 2.02046 11 2.00391V2.9272C11.4407 2.93318 11.7813 2.94761 12.0613 2.98236C12.495 3.0362 12.631 3.1231 12.7071 3.19338C12.7832 3.26365 12.8774 3.38914 12.9357 3.78953C12.9979 4.21647 13 4.79592 13 5.69233V10.3079C13 11.2043 12.9979 11.7837 12.9357 12.2107C12.8774 12.6111 12.7832 12.7365 12.7071 12.8068C12.631 12.8771 12.495 12.964 12.0613 13.0178C11.5988 13.0752 10.9711 13.0772 10 13.0772h6C3.02892 13.0772 2.40121 13.0752 1.9387 13.0178C1.50496 12.964 1.36902 12.8771 1.29289 12.8068C1.21677 12.7365 1.12262 12.6111 1.06431 12.2107C1.00212 11.7837 1 11.2043 1 10.3079V5.69233C1 4.79592 1.00212 4.21647 1.06431 3.78953C1.12262 3.38914 1.21677 3.26365 1.29289 3.19338Z"
-                        fill="#293553"
-                      />
-                      <path
-                        d="M9.5 0C9.22386 0 9 0.223858 9 0.5V4.5C9 4.77614 9.22386 5 9.5 5C9.77614 5 10 4.77614 10 4.5V0.5C10 0.223858 9.77614 0 9.5 0Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </template>
-                </b-form-datepicker>
-                <b-form-timepicker
-                  class="datetime__time"
-                  show-seconds
-                  locale="ru"
-                  aria-controls="example-input"
+                />
+                <div class="datetime__border"></div>
+                <input
+                  class="datetime__input datetime__time"
+                  type="time"
                   v-model="dateTime.first[1]"
-                  no-flip
-                >
-                  <template #button-content></template>
-                </b-form-timepicker>
+                />
               </div>
 
               <div class="log-table-settings__dash"></div>
 
               <div class="datetime">
-                <b-form-datepicker
-                  class="datetime__date"
-                  btn-class="datetime__btn"
-                  locale="ru"
-                  :date-format-options="{ year: 'numeric', month: 'numeric', day: 'numeric' }"
+                <span class="datetime_icon-calendar">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 0.5C4 0.223858 4.22386 0 4.5 0C4.77614 0 5 0.223858 5 0.5V4.5C5 4.77614 4.77614 5 4.5 5C4.22386 5 4 4.77614 4 4.5V0.5Z"
+                      fill="#293553"
+                    />
+                    <path d="M8 2H6V2.92311H8V2Z" fill="#293553" />
+                    <path
+                      d="M1.29289 3.19338C1.36902 3.1231 1.50496 3.0362 1.9387 2.98236C2.21873 2.94761 2.55931 2.93318 3 2.9272V2.00391C1.76022 2.02046 1.05733 2.10535 0.585786 2.54064C0 3.08138 0 3.9517 0 5.69233V10.3079C0 12.0485 0 12.9188 0.585786 13.4596C1.17157 14.0003 2.11438 14.0003 4 14.0003H10C11.8856 14.0003 12.8284 14.0003 13.4142 13.4596C14 12.9188 14 12.0485 14 10.3079V5.69233C14 3.9517 14 3.08138 13.4142 2.54064C12.9427 2.10535 12.2398 2.02046 11 2.00391V2.9272C11.4407 2.93318 11.7813 2.94761 12.0613 2.98236C12.495 3.0362 12.631 3.1231 12.7071 3.19338C12.7832 3.26365 12.8774 3.38914 12.9357 3.78953C12.9979 4.21647 13 4.79592 13 5.69233V10.3079C13 11.2043 12.9979 11.7837 12.9357 12.2107C12.8774 12.6111 12.7832 12.7365 12.7071 12.8068C12.631 12.8771 12.495 12.964 12.0613 13.0178C11.5988 13.0752 10.9711 13.0772 10 13.0772h6C3.02892 13.0772 2.40121 13.0752 1.9387 13.0178C1.50496 12.964 1.36902 12.8771 1.29289 12.8068C1.21677 12.7365 1.12262 12.6111 1.06431 12.2107C1.00212 11.7837 1 11.2043 1 10.3079V5.69233C1 4.79592 1.00212 4.21647 1.06431 3.78953C1.12262 3.38914 1.21677 3.26365 1.29289 3.19338Z"
+                      fill="#293553"
+                    />
+                    <path
+                      d="M9.5 0C9.22386 0 9 0.223858 9 0.5V4.5C9 4.77614 9.22386 5 9.5 5C9.77614 5 10 4.77614 10 4.5V0.5C10 0.223858 9.77614 0 9.5 0Z"
+                      fill="#293553"
+                    />
+                  </svg>
+                </span>
+                <input
+                  class="datetime__input datetime__date"
+                  type="date"
                   v-model="dateTime.second[0]"
-                  no-flip
-                >
-                  <template #button-content>
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 0.5C4 0.223858 4.22386 0 4.5 0C4.77614 0 5 0.223858 5 0.5V4.5C5 4.77614 4.77614 5 4.5 5C4.22386 5 4 4.77614 4 4.5V0.5Z"
-                        fill="#293553"
-                      />
-                      <path d="M8 2H6V2.92311H8V2Z" fill="#293553" />
-                      <path
-                        d="M1.29289 3.19338C1.36902 3.1231 1.50496 3.0362 1.9387 2.98236C2.21873 2.94761 2.55931 2.93318 3 2.9272V2.00391C1.76022 2.02046 1.05733 2.10535 0.585786 2.54064C0 3.08138 0 3.9517 0 5.69233V10.3079C0 12.0485 0 12.9188 0.585786 13.4596C1.17157 14.0003 2.11438 14.0003 4 14.0003H10C11.8856 14.0003 12.8284 14.0003 13.4142 13.4596C14 12.9188 14 12.0485 14 10.3079V5.69233C14 3.9517 14 3.08138 13.4142 2.54064C12.9427 2.10535 12.2398 2.02046 11 2.00391V2.9272C11.4407 2.93318 11.7813 2.94761 12.0613 2.98236C12.495 3.0362 12.631 3.1231 12.7071 3.19338C12.7832 3.26365 12.8774 3.38914 12.9357 3.78953C12.9979 4.21647 13 4.79592 13 5.69233V10.3079C13 11.2043 12.9979 11.7837 12.9357 12.2107C12.8774 12.6111 12.7832 12.7365 12.7071 12.8068C12.631 12.8771 12.495 12.964 12.0613 13.0178C11.5988 13.0752 10.9711 13.0772 10 13.0772h6C3.02892 13.0772 2.40121 13.0752 1.9387 13.0178C1.50496 12.964 1.36902 12.8771 1.29289 12.8068C1.21677 12.7365 1.12262 12.6111 1.06431 12.2107C1.00212 11.7837 1 11.2043 1 10.3079V5.69233C1 4.79592 1.00212 4.21647 1.06431 3.78953C1.12262 3.38914 1.21677 3.26365 1.29289 3.19338Z"
-                        fill="#293553"
-                      />
-                      <path
-                        d="M9.5 0C9.22386 0 9 0.223858 9 0.5V4.5C9 4.77614 9.22386 5 9.5 5C9.77614 5 10 4.77614 10 4.5V0.5C10 0.223858 9.77614 0 9.5 0Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </template>
-                </b-form-datepicker>
-                <b-form-timepicker
-                  class="datetime__time"
-                  show-seconds
-                  locale="ru"
-                  aria-controls="example-input"
+                />
+                <div class="datetime__border"></div>
+                <input
+                  class="datetime__input datetime__time"
+                  type="time"
                   v-model="dateTime.second[1]"
-                  no-flip
-                >
-                  <template #button-content></template>
-                </b-form-timepicker>
+                />
               </div>
               <button class="button button--primary log-table-settings__btn">Найти</button>
               <button class="log-table-settings__reset">
@@ -465,9 +450,8 @@
                   :key="index"
                   class="tableC__line tableC__line--log"
                   :class="log.status === 'activ' ? 'tableC__line--activ' : log.status === 'warning' ? 'tableC__line--warning' : 'tableC__line--error'"
-                  @click="modalShow = !modalShow"
                 >
-                  <td class="tableC__line-cell tableC__line-cell--status">
+                  <td class="tableC__line-cell tableC__line-cell--status" @click="openModal(log)">
                     <div
                       class="tableC__status"
                       :class="log.status === 'activ' ? 'tableC__line-cell--activ' : log.status === 'warning' ? 'tableC__line-cell--warning' : 'tableC__line-cell--error'"
@@ -1379,7 +1363,6 @@
                     :key="index"
                     class="tableC__line tableC__line--log"
                     :class="log.status === 'activ' ? 'tableC__line--activ' : log.status === 'warning' ? 'tableC__line--warning' : 'tableC__line--error'"
-                    @click="modalShow = !modalShow"
                   >
                     <td class="tableC__line-cell tableC__line-cell--message">{{log.message}}</td>
                     <td class="tableC__line-cell tableC__line-cell--email">{{log.email}}</td>
@@ -1776,6 +1759,7 @@
           selectedItemChratTime: "За последние сутки",
 
           modalShow: false,
+          itemModal: undefined,
 
           collapse: true,
 
@@ -1942,6 +1926,11 @@
             return Prism.highlight(code, Prism.languages.html, "html");
           },
 
+          openModal(item) {
+            this.modalShow = true;
+            this.itemModal = item;
+          },
+
           disableScroll() {
             const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
             document.documentElement.style.overflow = "hidden";
@@ -1952,6 +1941,8 @@
             document.documentElement.style.paddingRight = ""; // Убираем отступ
           },
 
+          // ТАБЛИЦА
+          // закрепление
           pin(item) {
             const th = item.target.closest("th");
             const span = item.target.closest("span");
@@ -2032,6 +2023,7 @@
             }
           },
 
+          // darg and drop
           drag(event) {
             const column = event.target.closest("th");
 
@@ -2130,6 +2122,14 @@
           },
         },
         mounted() {
+          this.$root.$on("bv::dropdown::show", (bvEvent) => {
+            if (this.collapse) {
+              console.log(bvEvent);
+
+              this.$refs.dropdownIcon.hide();
+            }
+          });
+
           this.$nextTick(() => {
             document.querySelectorAll("th").forEach((th) => {
               th.addEventListener("dragstart", this.drag);
@@ -2146,6 +2146,7 @@
 
           const tableCFixedLine = document.querySelectorAll(".tableC__fixed .tableC__line");
 
+          // выделение строк таблицы
           tableCScrollLine.forEach((item) => {
             item.addEventListener("mouseenter", () => {
               const index = Array.from(tableCScrollLine).indexOf(item);
@@ -2160,6 +2161,7 @@
             });
           });
 
+          // выделение строк таблицы
           tableCFixedLine.forEach((item) => {
             item.addEventListener("mouseenter", () => {
               const index = Array.from(tableCFixedLine).indexOf(item);
@@ -2174,13 +2176,14 @@
             });
           });
 
+          // установка значений для блока datetime
           const today = new Date();
           today.setDate(today.getDate() - 1);
-          this.dateTime.first[0] = today.toISOString().substr(0, 10);
-          this.dateTime.second[0] = new Date().toISOString().substr(0, 10);
 
-          this.dateTime.first[1] = new Date().toTimeString().substr(0, 8);
-          this.dateTime.second[1] = new Date().toTimeString().substr(0, 8);
+          this.$set(this.dateTime.first, 0, today.toISOString().substr(0, 10));
+          this.$set(this.dateTime.second, 0, new Date().toISOString().substr(0, 10));
+          this.$set(this.dateTime.first, 1, new Date().toTimeString().substr(0, 8));
+          this.$set(this.dateTime.second, 1, new Date().toTimeString().substr(0, 8));
 
           console.log(this.dateTime);
         },

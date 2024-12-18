@@ -68,3 +68,11 @@
 .not-collapsed .dropdown--chart-time {
   display: flex;
 }
+
+.not-collapsed .dropdown--icon {
+  @media (hover: hover) {
+    &:hover path {
+      fill: $active;
+    }
+  }
+}

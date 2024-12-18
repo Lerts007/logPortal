@@ -6,94 +6,51 @@
 
   height: 30px;
 
+  padding: 4px 8px;
+
   border-radius: 4px;
-  // padding: 4px 8px;
+  border: 1px solid $gray-medium;
+
   background-color: #ffffff;
 
-  &__date {
-    min-width: 110px;
-
-    padding: 4px 8px !important;
-
-    gap: 10px;
-
-    border: 1px solid $gray-medium;
-    border-right: none;
-    border-radius: 4px 0 0 4px;
-
-    &:focus {
-      border-color: $gray-medium;
-      box-shadow: none !important;
-    }
-
-    & > .btn:first-of-type {
-      height: 30px !important;
-      padding: 0;
-
-      display: flex;
-      align-items: center;
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      right: 0;
-      transform: translateX(-50%);
-      width: 1px;
-      height: 60%;
-      background-color: $gray-medium;
-      pointer-events: none;
-    }
-  }
-
-  &__time {
-    min-width: 80px;
-
-    padding: 4px 8px !important;
-
-    border: 1px solid $gray-medium;
-    border-left: none;
-    border-radius: 0 4px 4px 0;
-
-    & > .btn:first-of-type {
-      height: 30px !important;
-
-      padding: 0;
-    }
-  }
-
-  & .b-form-btn-label-control.form-control {
-    height: 100%;
-
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-  }
-  & .b-form-btn-label-control.form-control > .form-control {
-    min-height: 30px;
-    height: 100%;
-
-    padding: 0;
+  &_icon-calendar {
+    margin-right: 10px;
 
     display: flex;
-    align-items: center;
   }
 
-  & .form-control {
-    width: auto;
-    line-height: inherit;
+  &__input {
+    @include fonts();
+    -webkit-appearance: none;
+    -moz-appearance: nones;
+    appearance: none;
 
-    font-size: 14px;
-    color: $secondary;
+    border: none;
+    border-radius: 0;
+    outline: none;
 
-    &.focus {
-      border-color: $gray-medium;
-      box-shadow: none !important;
+    &::-webkit-inner-spin-button,
+    &::-webkit-calendar-picker-indicator {
+      display: none;
+      opacity: 0;
+      -webkit-appearance: none;
     }
+  }
 
-    &:focus {
-      border-color: $gray-medium;
-      box-shadow: none !important;
-    }
+  &__date {
+    width: 75px;
+  }
+  &__time {
+    width: 60px;
+  }
+
+  &__border {
+    width: 1px;
+    height: 22px;
+
+    margin-left: 8px;
+    margin-right: 8px;
+
+    background-color: $gray-medium;
   }
 }

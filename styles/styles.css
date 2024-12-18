@@ -444,6 +444,12 @@ h6 {
   display: flex;
 }
 
+@media (hover: hover) {
+  .not-collapsed .dropdown--icon:hover path {
+    fill: rgb(15, 144, 233);
+  }
+}
+
 .dropdown-toggle::after {
   display: none;
 }
@@ -841,74 +847,43 @@ h6 {
   display: flex;
   align-items: center;
   height: 30px;
+  padding: 4px 8px;
   border-radius: 4px;
+  border: 1px solid rgba(41, 53, 83, 0.25);
   background-color: #ffffff;
 }
-.datetime__date {
-  min-width: 110px;
-  padding: 4px 8px !important;
-  gap: 10px;
-  border: 1px solid rgba(41, 53, 83, 0.25);
-  border-right: none;
-  border-radius: 4px 0 0 4px;
-}
-.datetime__date:focus {
-  border-color: rgba(41, 53, 83, 0.25);
-  box-shadow: none !important;
-}
-.datetime__date > .btn:first-of-type {
-  height: 30px !important;
-  padding: 0;
+.datetime_icon-calendar {
+  margin-right: 10px;
   display: flex;
-  align-items: center;
 }
-.datetime__date::before {
-  content: "";
-  position: absolute;
-  right: 0;
-  transform: translateX(-50%);
-  width: 1px;
-  height: 60%;
-  background-color: rgba(41, 53, 83, 0.25);
-  pointer-events: none;
-}
-.datetime__time {
-  min-width: 80px;
-  padding: 4px 8px !important;
-  border: 1px solid rgba(41, 53, 83, 0.25);
-  border-left: none;
-  border-radius: 0 4px 4px 0;
-}
-.datetime__time > .btn:first-of-type {
-  height: 30px !important;
-  padding: 0;
-}
-.datetime .b-form-btn-label-control.form-control {
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-}
-.datetime .b-form-btn-label-control.form-control > .form-control {
-  min-height: 30px;
-  height: 100%;
-  padding: 0;
-  display: flex;
-  align-items: center;
-}
-.datetime .form-control {
-  width: auto;
-  line-height: inherit;
+.datetime__input {
+  font-weight: 400;
   font-size: 14px;
   color: rgb(41, 53, 83);
+  -webkit-appearance: none;
+  -moz-appearance: nones;
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
 }
-.datetime .form-control.focus {
-  border-color: rgba(41, 53, 83, 0.25);
-  box-shadow: none !important;
+.datetime__input::-webkit-inner-spin-button, .datetime__input::-webkit-calendar-picker-indicator {
+  display: none;
+  opacity: 0;
+  -webkit-appearance: none;
 }
-.datetime .form-control:focus {
-  border-color: rgba(41, 53, 83, 0.25);
-  box-shadow: none !important;
+.datetime__date {
+  width: 75px;
+}
+.datetime__time {
+  width: 60px;
+}
+.datetime__border {
+  width: 1px;
+  height: 22px;
+  margin-left: 8px;
+  margin-right: 8px;
+  background-color: rgba(41, 53, 83, 0.25);
 }
 
 .badgeС {
@@ -1523,6 +1498,8 @@ h6 {
 .log-table-settings__dash {
   width: 20px;
   height: 1px;
+  margin-left: 8px;
+  margin-right: 8px;
   background-color: rgb(41, 53, 83);
 }
 
