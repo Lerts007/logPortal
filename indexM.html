@@ -19,388 +19,122 @@
     <link rel="stylesheet" href="framework/prism-tomorrow.css" />
 
     <!-- Chart.js -->
-    <script src="framework/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/stylesM.css" />
     <title>Document</title>
   </head>
   <body>
     <div id="app">
       <header class="header">
         <div class="containerС header__container">
-          <div class="header__links">
-            <a class="header__item" href="./index.html">Журнал событий</a>
-            <a class="header__item" href="./admin.html">Администрирование</a>
+          <div class="header__icon header__icon-filter" @click="modalFilter = !modalFilter">
+            <svg
+              width="20"
+              height="16"
+              viewBox="0 0 20 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M7 0C8.86384 0 10.4299 1.27477 10.874 3L19 3C19.5523 3 20 3.44772 20 4C20 4.55229 19.5523 5 19 5L10.874 5C10.4299 6.72523 8.86384 8 7 8C5.13342 8 3.56545 6.72147 3.12406 4.99238C3.08342 4.99741 3.04201 5 3 5L1 5C0.447714 5 0 4.55228 0 4C0 3.44771 0.447716 3 1 3L3 3C3.04201 3 3.08342 3.00259 3.12406 3.00762C3.56545 1.27853 5.13342 0 7 0ZM9 4C9 5.10457 8.10457 6 7 6C5.89543 6 5 5.10457 5 4C5 2.89543 5.89543 2 7 2C8.10457 2 9 2.89543 9 4Z"
+                fill="white"
+              />
+
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M16.8759 12.9924C16.4345 14.7215 14.8666 16 13 16C11.1362 16 9.57006 14.7252 9.12602 13H1C0.447715 13 0 12.5523 0 12C0 11.4477 0.447715 11 1 11H9.12602C9.57006 9.27477 11.1362 8 13 8C14.8666 8 16.4345 9.27853 16.8759 11.0076C16.9166 11.0026 16.958 11 17 11H19C19.5523 11 20 11.4477 20 12C20 12.5523 19.5523 13 19 13H17C16.958 13 16.9166 12.9974 16.8759 12.9924ZM15 12C15 13.1046 14.1046 14 13 14C11.8954 14 11 13.1046 11 12C11 10.8954 11.8954 10 13 10C14.1046 10 15 10.8954 15 12Z"
+                fill="white"
+              />
+            </svg>
           </div>
-          <div class="header__user-info">
-            <p class="header__item">support@corteos.travel</p>
-            <button class="header__btn-logout button button--primary">Выйти</button>
-            <!-- <b-button class="header__btn-logout button button--primary">Кнопка</b-button> -->
+          <div class="header__datetimes">
+            <div class="datetime">25 ноя, 12:45</div>
+            <div class="datetime">25 ноя, 12:45</div>
+          </div>
+          <div class="header__icon header__icon-search" @click="headerSearch = true">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M15.5402 8.92603C15.5402 5.25163 12.5615 2.27295 8.88709 2.27295C5.2127 2.27295 2.23401 5.25163 2.23401 8.92603C2.23401 12.6004 5.2127 15.5791 8.88709 15.5791C12.5615 15.5791 15.5402 12.6004 15.5402 8.92603ZM8.88709 0.272949C13.6661 0.272949 17.5402 4.14706 17.5402 8.92603C17.5402 10.9551 16.8418 12.8211 15.6722 14.2967L19.434 18.0585C19.8246 18.449 19.8246 19.0822 19.434 19.4727C19.0435 19.8632 18.4103 19.8632 18.0198 19.4727L14.258 15.7109C12.7824 16.8806 10.9163 17.5791 8.88709 17.5791C4.10813 17.5791 0.234013 13.705 0.234013 8.92603C0.234013 4.14706 4.10813 0.272949 8.88709 0.272949Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+
+          <div class="header__input-search" :class="{'header__input-search--show': headerSearch}">
+            <div class="header__icon header__icon-back" @click="headerSearch = false">
+              <svg
+                width="18"
+                height="13"
+                viewBox="0 0 18 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.29834 12.7061C5.68872 13.0968 6.32224 13.0974 6.71334 12.7074C7.10445 12.3175 7.10504 11.6847 6.71466 11.294L3.42313 8.00007L17 8.00007C17.5523 8.00007 18 7.55236 18 7.00007C18 6.44779 17.5523 6.00007 17 6.00007L3.40906 6.00007L6.71466 2.69205C7.10504 2.30138 7.10445 1.66857 6.71334 1.27863C6.32224 0.888687 5.68872 0.889274 5.29834 1.27994L0.506636 6.07516C-0.000192081 6.58236 -0.000192153 7.4037 0.506636 7.9109L5.29834 12.7061Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+
+            <input class="header__input" type="text" />
           </div>
         </div>
       </header>
       <main>
+        <b-modal
+          v-model="modalFilter"
+          class="modalFilter"
+          hide-footer
+          hide-header
+          static="false"
+          @show="disableScroll()"
+          @hide="enableScroll()"
+        >
+          <template #default>
+            <div class="modalFilter__block">
+              <p class="modalFilter__title">Настроить таблицу</p>
+              <div
+                class="modalFilter__item-block"
+                v-for="item, index in modalFilterList"
+                :key="index"
+              >
+                <input
+                  class="modalFilter__item-check"
+                  type="checkbox"
+                  name=""
+                  :id="'modalFilter'+ index"
+                  v-model="item.status"
+                />
+                <label :for="'modalFilter'+ index" class="modalFilter__item-label">
+                  {{item.name}} {{index+1}}
+                </label>
+              </div>
+              <div class="modalFilter__buttons">
+                <button class="button">Отмена</button>
+                <button class="button">Установить</button>
+              </div>
+            </div>
+          </template>
+        </b-modal>
+
         <div class="containerС container-main">
-          <!-- инфо о логах -->
-          <div class="log-info">
-            <p class="log-info__name log-info__name--queue-length">
-              Длина очередей<span class="log-info__space">—</span>2 лога
-            </p>
-            <p class="log-info__name log-info__name--saving-speed">
-              Скорость сохранений<span class="log-info__space">—</span>1337,5465 лога/сек
-            </p>
-            <p class="log-info__name log-info__name--error">
-              Ошибок<span class="log-info__space">—</span>19
-            </p>
-          </div>
-
-          <!-- график  -->
-          <div class="collapseC">
-            <div v-b-toggle.collapse class="collapseC__toggle" @click="collapse = !collapse">
-              <span class="collapseC__toggle-title">
-                <span class="collapseC__icon-filter">
-                  <b-dropdown
-                    class="dropdown dropdown--icon"
-                    ref="dropdownIcon"
-                    size="lg"
-                    variant="link"
-                    lazy
-                    toggle-class="text-decoration-none dropdown__toggle dropdown__toggle--icon"
-                    menu-class="dropdown__menu dropdown__menu--chart-filter dropdown__menu--icon"
-                    no-caret
-                    no-flip
-                  >
-                    <template #button-content>
-                      <svg
-                        width="14"
-                        height="12"
-                        viewBox="0 0 14 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                          d="M5.00004 0.666672C6.2426 0.666672 7.28667 1.51652 7.5827 2.66667L13 2.66667C13.3682 2.66667 13.6667 2.96515 13.6667 3.33334C13.6667 3.70153 13.3682 4.00001 13 4.00001L7.5827 4.00001C7.28667 5.15016 6.2426 6 5.00004 6C3.75565 6 2.71034 5.14765 2.41608 3.99493C2.38898 3.99828 2.36138 4.00001 2.33337 4.00001L1.00004 4C0.63185 4 0.333374 3.70153 0.333374 3.33334C0.333374 2.96515 0.631851 2.66667 1.00004 2.66667L2.33337 2.66667C2.36138 2.66667 2.38898 2.6684 2.41608 2.67175C2.71034 1.51902 3.75565 0.666672 5.00004 0.666672ZM6.33337 3.33334C6.33337 4.06972 5.73642 4.66667 5.00004 4.66667C4.26366 4.66667 3.66671 4.06972 3.66671 3.33334C3.66671 2.59696 4.26366 2.00001 5.00004 2.00001C5.73642 2.00001 6.33337 2.59696 6.33337 3.33334Z"
-                          fill="#293553"
-                        />
-                        <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                          d="M11.584 9.32826C11.2897 10.481 10.2444 11.3333 9.00004 11.3333C7.75748 11.3333 6.71341 10.4835 6.41739 9.33334H1.00004C0.631851 9.33334 0.333374 9.03486 0.333374 8.66667C0.333374 8.29848 0.631851 8 1.00004 8H6.41739C6.71341 6.84985 7.75748 6 9.00004 6C10.2444 6 11.2897 6.85236 11.584 8.00509C11.6111 8.00173 11.6387 8 11.6667 8H13C13.3682 8 13.6667 8.29848 13.6667 8.66667C13.6667 9.03486 13.3682 9.33334 13 9.33334H11.6667C11.6387 9.33334 11.6111 9.33161 11.584 9.32826ZM10.3334 8.66667C10.3334 9.40305 9.73642 10 9.00004 10C8.26366 10 7.66671 9.40305 7.66671 8.66667C7.66671 7.93029 8.26366 7.33334 9.00004 7.33334C9.73642 7.33334 10.3334 7.93029 10.3334 8.66667Z"
-                          fill="#293553"
-                        />
-                      </svg>
-                    </template>
-                    <b-dropdown-item
-                      v-for="(item, index) in dropdownItemsCountLog"
-                      :key="index"
-                      href="#"
-                      class="dropdown__item dropdown__item--chart-filter"
-                      boundary="viewport"
-                      @click.native.capture.stop
-                    >
-                      <label :for="'chart-filter'+index" class="dropdown__item-label">
-                        <input
-                          class="dropdown__item-check"
-                          type="checkbox"
-                          name=""
-                          :id="'chart-filter'+index"
-                        />
-                        Текст 1
-                      </label>
-                    </b-dropdown-item>
-                  </b-dropdown>
-                </span>
-                График
-                <b-dropdown
-                  class="dropdown dropdown--chart-time"
-                  variant="outline-secondary"
-                  toggle-class="dropdown__toggle dropdown__toggle--chart-time"
-                  menu-class="dropdown__menu dropdown__menu--chart-time"
-                  lazy
-                >
-                  <!-- Настраиваем контент кнопки -->
-                  <template #button-content>
-                    <span class="dropdown__toggle-title dropdown__toggle-title--chart-time">
-                      {{ selectedItemChratTime }}
-                    </span>
-                    <span class="dropdown__icon-arrow">
-                      <svg
-                        width="10"
-                        height="6"
-                        viewBox="0 0 10 6"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                          fill="#293553"
-                        />
-                      </svg>
-                    </span>
-                  </template>
-
-                  <b-dropdown-item
-                    v-for="(item, index) in dropdownItemsCartTime"
-                    :key="index"
-                    href="#"
-                    class="dropdown__item dropdown__item--chart-time"
-                    @click.prevent="selectItemChartTime(item)"
-                    v-b-toggle.collapse
-                  >
-                    {{ item }}
-                  </b-dropdown-item>
-                </b-dropdown>
-              </span>
-
-              <span class="collapseC__icon-arrow">
-                <svg
-                  width="10"
-                  height="6"
-                  viewBox="0 0 10 6"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                    fill="#293553"
-                  />
-                </svg>
-              </span>
-            </div>
-            <b-collapse id="collapse">
-              <div class="collapseC__menu">
-                <canvas id="collapseC__logChart" class="collapseC__logChart"></canvas>
-
-                <div class="legend-chart">
-                  <div class="legend-chart__block legend-chart__block--error">
-                    <div class="legend-chart__color legend-chart__color--danger"></div>
-                    <p class="legend-chart__description">Error</p>
-                  </div>
-                  <div class="legend-chart__block legend-chart__block--normal">
-                    <div class="legend-chart__color legend-chart__color--normal"></div>
-                    <p class="legend-chart__description">Normal</p>
-                  </div>
-                  <div class="legend-chart__block legend-chart__block--warning">
-                    <div class="legend-chart__color legend-chart__color--warning"></div>
-                    <p class="legend-chart__description">Warning</p>
-                  </div>
-                </div>
-              </div>
-            </b-collapse>
-          </div>
-          <!-- блок для настроек таблицы -->
-          <div class="log-table-settings">
-            <div class="log-table-settings__l-side">
-              <b-dropdown
-                id="dropdown-filte-type"
-                class="dropdown"
-                variant="outline-secondary"
-                toggle-class="dropdown__toggle dropdown__toggle--filte-type"
-                menu-class="dropdown__menu"
-                lazy
-              >
-                <!-- Настраиваем контент кнопки -->
-                <template #button-content>
-                  <span class="dropdown__toggle-title"> Тип </span>
-                  <span class="dropdown__toggle-select">{{ selectedItemFilteType }}</span>
-
-                  <span class="dropdown__icon-arrow">
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </span>
-                </template>
-
-                <b-dropdown-item
-                  v-for="(item, index) in dropdownItemsFilteType"
-                  :key="index"
-                  href="#"
-                  class="dropdown__item dropdown__item--filte-type"
-                  @click.prevent="selectItem__filteType(item)"
-                >
-                  {{ item }}
-                </b-dropdown-item>
-              </b-dropdown>
-
-              <div class="datetime">
-                <span class="datetime_icon-calendar">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4 0.5C4 0.223858 4.22386 0 4.5 0C4.77614 0 5 0.223858 5 0.5V4.5C5 4.77614 4.77614 5 4.5 5C4.22386 5 4 4.77614 4 4.5V0.5Z"
-                      fill="#293553"
-                    />
-                    <path d="M8 2H6V2.92311H8V2Z" fill="#293553" />
-                    <path
-                      d="M1.29289 3.19338C1.36902 3.1231 1.50496 3.0362 1.9387 2.98236C2.21873 2.94761 2.55931 2.93318 3 2.9272V2.00391C1.76022 2.02046 1.05733 2.10535 0.585786 2.54064C0 3.08138 0 3.9517 0 5.69233V10.3079C0 12.0485 0 12.9188 0.585786 13.4596C1.17157 14.0003 2.11438 14.0003 4 14.0003H10C11.8856 14.0003 12.8284 14.0003 13.4142 13.4596C14 12.9188 14 12.0485 14 10.3079V5.69233C14 3.9517 14 3.08138 13.4142 2.54064C12.9427 2.10535 12.2398 2.02046 11 2.00391V2.9272C11.4407 2.93318 11.7813 2.94761 12.0613 2.98236C12.495 3.0362 12.631 3.1231 12.7071 3.19338C12.7832 3.26365 12.8774 3.38914 12.9357 3.78953C12.9979 4.21647 13 4.79592 13 5.69233V10.3079C13 11.2043 12.9979 11.7837 12.9357 12.2107C12.8774 12.6111 12.7832 12.7365 12.7071 12.8068C12.631 12.8771 12.495 12.964 12.0613 13.0178C11.5988 13.0752 10.9711 13.0772 10 13.0772h6C3.02892 13.0772 2.40121 13.0752 1.9387 13.0178C1.50496 12.964 1.36902 12.8771 1.29289 12.8068C1.21677 12.7365 1.12262 12.6111 1.06431 12.2107C1.00212 11.7837 1 11.2043 1 10.3079V5.69233C1 4.79592 1.00212 4.21647 1.06431 3.78953C1.12262 3.38914 1.21677 3.26365 1.29289 3.19338Z"
-                      fill="#293553"
-                    />
-                    <path
-                      d="M9.5 0C9.22386 0 9 0.223858 9 0.5V4.5C9 4.77614 9.22386 5 9.5 5C9.77614 5 10 4.77614 10 4.5V0.5C10 0.223858 9.77614 0 9.5 0Z"
-                      fill="#293553"
-                    />
-                  </svg>
-                </span>
-                <input
-                  class="datetime__input datetime__date"
-                  type="date"
-                  v-model="dateTime.first[0]"
-                />
-                <div class="datetime__border"></div>
-                <input
-                  class="datetime__input datetime__time"
-                  type="time"
-                  v-model="dateTime.first[1]"
-                />
-              </div>
-
-              <div class="log-table-settings__dash"></div>
-
-              <div class="datetime">
-                <span class="datetime_icon-calendar">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M4 0.5C4 0.223858 4.22386 0 4.5 0C4.77614 0 5 0.223858 5 0.5V4.5C5 4.77614 4.77614 5 4.5 5C4.22386 5 4 4.77614 4 4.5V0.5Z"
-                      fill="#293553"
-                    />
-                    <path d="M8 2H6V2.92311H8V2Z" fill="#293553" />
-                    <path
-                      d="M1.29289 3.19338C1.36902 3.1231 1.50496 3.0362 1.9387 2.98236C2.21873 2.94761 2.55931 2.93318 3 2.9272V2.00391C1.76022 2.02046 1.05733 2.10535 0.585786 2.54064C0 3.08138 0 3.9517 0 5.69233V10.3079C0 12.0485 0 12.9188 0.585786 13.4596C1.17157 14.0003 2.11438 14.0003 4 14.0003H10C11.8856 14.0003 12.8284 14.0003 13.4142 13.4596C14 12.9188 14 12.0485 14 10.3079V5.69233C14 3.9517 14 3.08138 13.4142 2.54064C12.9427 2.10535 12.2398 2.02046 11 2.00391V2.9272C11.4407 2.93318 11.7813 2.94761 12.0613 2.98236C12.495 3.0362 12.631 3.1231 12.7071 3.19338C12.7832 3.26365 12.8774 3.38914 12.9357 3.78953C12.9979 4.21647 13 4.79592 13 5.69233V10.3079C13 11.2043 12.9979 11.7837 12.9357 12.2107C12.8774 12.6111 12.7832 12.7365 12.7071 12.8068C12.631 12.8771 12.495 12.964 12.0613 13.0178C11.5988 13.0752 10.9711 13.0772 10 13.0772h6C3.02892 13.0772 2.40121 13.0752 1.9387 13.0178C1.50496 12.964 1.36902 12.8771 1.29289 12.8068C1.21677 12.7365 1.12262 12.6111 1.06431 12.2107C1.00212 11.7837 1 11.2043 1 10.3079V5.69233C1 4.79592 1.00212 4.21647 1.06431 3.78953C1.12262 3.38914 1.21677 3.26365 1.29289 3.19338Z"
-                      fill="#293553"
-                    />
-                    <path
-                      d="M9.5 0C9.22386 0 9 0.223858 9 0.5V4.5C9 4.77614 9.22386 5 9.5 5C9.77614 5 10 4.77614 10 4.5V0.5C10 0.223858 9.77614 0 9.5 0Z"
-                      fill="#293553"
-                    />
-                  </svg>
-                </span>
-                <input
-                  class="datetime__input datetime__date"
-                  type="date"
-                  v-model="dateTime.second[0]"
-                />
-                <div class="datetime__border"></div>
-                <input
-                  class="datetime__input datetime__time"
-                  type="time"
-                  v-model="dateTime.second[1]"
-                />
-              </div>
-              <button class="button button--primary log-table-settings__btn">Найти</button>
-              <button class="log-table-settings__reset">
-                <!-- иконка reset -->
-                <svg
-                  width="16"
-                  height="14"
-                  viewBox="0 0 16 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.27928 1.95397C6.77727 1.28356 4.2211 2.51187 3.1565 4.74456C3.03765 4.99382 2.73924 5.09953 2.48998 4.98068C2.24072 4.86183 2.13501 4.56342 2.25386 4.31416C3.52469 1.64897 6.56767 0.19212 9.5381 0.988044C12.1012 1.67481 13.8724 3.84112 14.1609 6.31337L14.9862 5.49127C15.1819 5.29639 15.4984 5.297 15.6933 5.49264C15.8882 5.68828 15.8876 6.00487 15.692 6.19975L14.1634 7.72238C14.0012 7.88395 13.75 7.91471 13.5536 7.79707L11.7027 6.68835C11.4658 6.54645 11.3888 6.23937 11.5308 6.00248C11.6727 5.76559 11.9797 5.68859 12.2166 5.83049L13.1625 6.39708L13.1345 6.20657L13.1366 6.20625C12.8175 4.22603 11.3606 2.51167 9.27928 1.95397Z"
-                    fill="#293553"
-                  />
-                  <path
-                    d="M6.71972 11.8535C9.22173 12.5239 11.7779 11.2956 12.8425 9.06293C12.9613 8.81367 13.2598 8.70796 13.509 8.82681C13.7583 8.94566 13.864 9.24407 13.7451 9.49333C12.4743 12.1585 9.43133 13.6154 6.4609 12.8195C3.89783 12.1327 2.12661 9.96634 1.83807 7.49408L1.01278 8.31616C0.817137 8.51105 0.500555 8.51043 0.305673 8.31479C0.11079 8.11915 0.111405 7.80257 0.307046 7.60769L1.8356 6.08506C1.9978 5.92349 2.24901 5.89272 2.44541 6.01037L4.29626 7.11908C4.53315 7.26099 4.61015 7.56806 4.46824 7.80495C4.32634 8.04185 4.01926 8.11885 3.78237 7.97694L2.83654 7.41036L2.86453 7.60086L2.86237 7.60118C3.18148 9.58143 4.63833 11.2958 6.71972 11.8535Z"
-                    fill="#293553"
-                  />
-                </svg>
-                Сбросить
-              </button>
-            </div>
-            <div class="log-table-settings__r-side count-log">
-              <p class="count-log__title">Показывать</p>
-              <b-dropdown
-                id="dropdown-count-log"
-                class="dropdown"
-                variant="outline-secondary"
-                toggle-class="dropdown__toggle dropdown__toggle--count-log"
-                menu-class="dropdown__menu"
-                lazy
-              >
-                <!-- Настраиваем контент кнопки -->
-                <template #button-content>
-                  <span class="dropdown__toggle-title dropdown__toggle-title--count-log">
-                    {{ selectedItem }}
-                  </span>
-                  <span class="dropdown__icon-arrow">
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </span>
-                </template>
-
-                <b-dropdown-item
-                  v-for="(item, index) in dropdownItemsCountLog"
-                  :key="index"
-                  href="#"
-                  class="dropdown__item dropdown__item--count-log"
-                  @click.prevent="selectItem(item)"
-                >
-                  {{ item }}
-                </b-dropdown-item>
-              </b-dropdown>
-            </div>
-          </div>
-
           <div class="log">
             <table id="tableC" class="tableC tableC__fixed tableС--log">
               <thead class="tableC__columns">
                 <tr>
-                  <th class="tableC__column tableC__column--filterCell">
-                    <!-- иконка фильтр -->
-                    <svg
-                      width="14"
-                      height="12"
-                      viewBox="0 0 14 12"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M5.00004 0.666672C6.2426 0.666672 7.28667 1.51652 7.5827 2.66667L13 2.66667C13.3682 2.66667 13.6667 2.96515 13.6667 3.33334C13.6667 3.70153 13.3682 4.00001 13 4.00001L7.5827 4.00001C7.28667 5.15016 6.2426 6 5.00004 6C3.75565 6 2.71034 5.14765 2.41608 3.99493C2.38898 3.99828 2.36138 4.00001 2.33337 4.00001L1.00004 4C0.63185 4 0.333374 3.70153 0.333374 3.33334C0.333374 2.96515 0.631851 2.66667 1.00004 2.66667L2.33337 2.66667C2.36138 2.66667 2.38898 2.6684 2.41608 2.67175C2.71034 1.51902 3.75565 0.666672 5.00004 0.666672ZM6.33337 3.33334C6.33337 4.06972 5.73642 4.66667 5.00004 4.66667C4.26366 4.66667 3.66671 4.06972 3.66671 3.33334C3.66671 2.59696 4.26366 2.00001 5.00004 2.00001C5.73642 2.00001 6.33337 2.59696 6.33337 3.33334Z"
-                        fill="#293553"
-                      />
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M11.584 9.32826C11.2897 10.481 10.2444 11.3333 9.00004 11.3333C7.75748 11.3333 6.71341 10.4835 6.41739 9.33334H1.00004C0.631851 9.33334 0.333374 9.03486 0.333374 8.66667C0.333374 8.29848 0.631851 8 1.00004 8H6.41739C6.71341 6.84985 7.75748 6 9.00004 6C10.2444 6 11.2897 6.85236 11.584 8.00509C11.6111 8.00173 11.6387 8 11.6667 8H13C13.3682 8 13.6667 8.29848 13.6667 8.66667C13.6667 9.03486 13.3682 9.33334 13 9.33334H11.6667C11.6387 9.33334 11.6111 9.33161 11.584 9.32826ZM10.3334 8.66667C10.3334 9.40305 9.73642 10 9.00004 10C8.26366 10 7.66671 9.40305 7.66671 8.66667C7.66671 7.93029 8.26366 7.33334 9.00004 7.33334C9.73642 7.33334 10.3334 7.93029 10.3334 8.66667Z"
-                        fill="#293553"
-                      />
-                    </svg>
-                  </th>
+                  <th class="tableC__column tableC__column--filterCell"></th>
                   <th
                     class="tableC__column tableC__column--date tableC__column--no-border"
                     draggable="false"
@@ -410,21 +144,6 @@
                   >
                     <div class="tableC__column-cell">
                       Дата
-                      <!-- иконка стрелки -->
-                      <span class="tableC__icon-arrow">
-                        <svg
-                          width="10"
-                          height="6"
-                          viewBox="0 0 10 6"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                            fill="#293553"
-                          />
-                        </svg>
-                      </span>
                       <!-- иконка закрепления столбца -->
                       <span class="tableC__icon-pin" @click="pin">
                         <svg
@@ -460,19 +179,6 @@
                       class="tableC__status"
                       :class="log.status === 'activ' ? 'tableC__line-cell--activ' : log.status === 'warning' ? 'tableC__line-cell--warning' : 'tableC__line-cell--error'"
                     ></div>
-
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M0.396447 0.146447C0.591709 -0.0488153 0.908291 -0.0488153 1.10355 0.146447L4.99968 4.04257L8.89581 0.146447C9.09107 -0.0488156 9.40765 -0.0488156 9.60291 0.146447C9.79817 0.341709 9.79817 0.658291 9.60291 0.853553L5.70679 4.74968C5.31626 5.1402 4.6831 5.1402 4.29257 4.74968L0.396447 0.853554C0.201184 0.658292 0.201184 0.341709 0.396447 0.146447Z"
-                        fill="#293553"
-                      />
-                    </svg>
                   </td>
                   <td class="tableC__line-cell tableC__line-cell--date">{{ log.date }}</td>
                   <td class="tableC__border"></td>
@@ -1389,9 +1095,6 @@
               </table>
             </div>
           </div>
-          <div class="download-add-user">
-            <button class="download-add-user__button">Загрузить еще 100 записей</button>
-          </div>
         </div>
       </main>
       <b-modal
@@ -1747,571 +1450,7 @@
         </template>
       </b-modal>
     </div>
-    <script>
-      Vue.use(BootstrapVue);
-      Vue.use(BootstrapVueIcons);
 
-      new Vue({
-        el: "#app",
-        data: () => ({
-          dropdownItemsCountLog: ["10 000", "20 000", "30 000", "40 000", "99 999"], // Опции countLog
-          dropdownItemsFilteType: ["Все", "Normal", "Error", "Warning"], // Опции type
-          dropdownItemsCartTime: ["За последние сутки", "За последние час"], // Опции время графика
-
-          selectedItem: "10 000", // Начальное значение countLog
-          selectedItemFilteType: "Все", // Начальное значение type
-          selectedItemChratTime: "За последние сутки",
-
-          modalShow: false,
-          itemModal: undefined,
-
-          collapse: true,
-
-          draggedColumn: null,
-          draggedColumnIndex: null,
-          resizeHandleMouse: false,
-
-          dateTime: {
-            first: ["2024-12-16", "22:46:18"],
-            second: ["2024-12-17", "22:46:18"],
-          },
-
-          eventLog: [
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "warning",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Клиент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "error",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-          ],
-
-          chart: null,
-
-          options: {
-            animation: false,
-            responsive: true,
-            plugins: {
-              legend: {
-                display: false,
-              },
-            },
-            scales: {
-              x: {
-                stacked: true,
-                title: {
-                  display: true,
-                },
-              },
-              y: {
-                stacked: true,
-                title: {
-                  display: true,
-                },
-                beginAtZero: true,
-              },
-            },
-          },
-
-          code: `<Contact DateChanged="31.10.2024 23:45:11"
-                  DateCreate="27.09.2023 18:57:29" deleted="false">
-                  <id_Contact>3117465</id_Contact>
-                  <id_Person>2647942</id_Person>
-                  <id_ContactType>3</id_ContactType>
-                  <Content>SV.TIKHONOV@SEVERSTAL.COM</Content>
-                  <ContactTypeName>Email</ContactTypeName>
-                </Contact>`,
-        }),
-        methods: {
-          selectItem(item) {
-            this.selectedItem = item; // Устанавливаем выбранный элемент в countLog
-          },
-          selectItem__filteType(item) {
-            this.selectedItemFilteType = item; // Устанавливаем выбранный элемент в type
-          },
-          selectItemChartTime(item) {
-            this.selectedItemChratTime = item; // Устанавливаем выбранный элемент в chart time
-          },
-          highlighter(code) {
-            return Prism.highlight(code, Prism.languages.html, "html");
-          },
-
-          openModal(item) {
-            this.modalShow = true;
-            this.itemModal = item;
-          },
-
-          disableScroll() {
-            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-            document.documentElement.style.overflow = "hidden";
-            document.documentElement.style.paddingRight = `${scrollBarWidth}px`; // Добавляем отступ
-          },
-          enableScroll() {
-            document.documentElement.style.overflow = "";
-            document.documentElement.style.paddingRight = ""; // Убираем отступ
-          },
-
-          renderChart() {
-            const ctx = document.getElementById("collapseC__logChart").getContext("2d");
-
-            // data можно потом вынести в отдельную переменую, сейчас сделано для генерации рандомных значений
-            const data = {
-              labels: this.generateLabels(),
-              datasets: [
-                {
-                  label: "Warning",
-                  data: this.generateRandomData(48, 5, 20),
-                  backgroundColor: "rgb(255, 173, 14)",
-                },
-                {
-                  label: "Active",
-                  data: this.generateRandomData(48, 10, 30),
-                  backgroundColor: "rgb(15, 144, 233)",
-                },
-                {
-                  label: "Error",
-                  data: this.generateRandomData(48, 1, 10),
-                  backgroundColor: "rgb(255, 73, 88)",
-                },
-              ],
-            };
-
-            // const options = this.options;
-            const options = {
-              animation: false,
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: {
-                legend: {
-                  display: false,
-                },
-              },
-              scales: {
-                x: {
-                  stacked: true,
-                  title: {
-                    display: true,
-                  },
-                  ticks: {
-                    maxRotation: 0,
-                    minRotation: 0,
-                    autoSkip: true,
-                  },
-                },
-                y: {
-                  stacked: true,
-                  title: {
-                    display: true,
-                  },
-                  beginAtZero: true,
-                },
-              },
-            };
-
-            // Создание графика
-            this.chart = new Chart(ctx, {
-              type: "bar",
-              data,
-              options,
-            });
-          },
-
-          // удалить. Нужно только для рандомной генерации
-          generateLabels() {
-            const labels = [];
-            let currentDate = new Date();
-            currentDate.setHours(currentDate.getHours() - 24);
-
-            for (let i = 0; i < 24; i++) {
-              labels.push(currentDate.toISOString().slice(10, 16).replace("T", " "));
-              currentDate.setHours(currentDate.getHours() + 1);
-            }
-
-            return labels;
-          },
-
-          // удалить. Нужно только для рандомной генерации
-          generateRandomData(count, min, max) {
-            const data = [];
-            for (let i = 0; i < count; i++) {
-              data.push(Math.floor(Math.random() * (max - min + 1)) + min);
-            }
-            return data;
-          },
-
-          // ТАБЛИЦА
-          // закрепление
-          pin(item) {
-            const th = item.target.closest("th");
-            const span = item.target.closest("span");
-            const borderTh = document.querySelector(".tableC__fixed .tableC__border");
-            const tableFixed = document.querySelector(".tableC__fixed");
-            const tableScroll = document.querySelector(".tableC__scroll");
-
-            if (!tableFixed || !tableScroll) {
-              console.error("Таблицы не найдены. Проверьте классы.");
-              return;
-            }
-
-            const parentRow = th.parentElement;
-            console.log(parentRow);
-
-            const arrayParentRow = Array.from(parentRow.children);
-
-            const arraytableFixed = Array.from(tableFixed.querySelectorAll("th"));
-
-            const thIndex = arrayParentRow.indexOf(th);
-            const borderIndex = arraytableFixed.indexOf(borderTh);
-            console.log(arraytableFixed);
-
-            const currentTable = th.closest("table");
-
-            if (currentTable === tableScroll) {
-              const rowsScroll = tableScroll.querySelectorAll("tbody tr");
-              const rowsFixed = tableFixed.querySelectorAll("tbody tr");
-
-              const columnToMove = th;
-
-              columnToMove.draggable = false;
-
-              arraytableFixed[borderIndex - 1].classList.toggle("tableC__column--no-border");
-              columnToMove.classList.toggle("tableC__column--no-border");
-
-              tableFixed.querySelector("thead tr").insertBefore(columnToMove, borderTh);
-
-              rowsScroll.forEach((row, index) => {
-                const cells = Array.from(row.children);
-                const cellToMove = cells[thIndex];
-
-                if (cellToMove && rowsFixed[index]) {
-                  const borderCell = rowsFixed[index].children[borderIndex];
-
-                  console.log(borderCell);
-
-                  rowsFixed[index].insertBefore(cellToMove, borderCell);
-                }
-              });
-
-              span.classList.toggle("tableC__icon-pin--disabled");
-            } else if (currentTable === tableFixed) {
-              const rowsFixed = tableFixed.querySelectorAll("tbody tr");
-              const rowsScroll = tableScroll.querySelectorAll("tbody tr");
-
-              const columnToMove = th;
-
-              columnToMove.draggable = true;
-
-              arraytableFixed[borderIndex - 2].classList.toggle("tableC__column--no-border");
-              columnToMove.classList.toggle("tableC__column--no-border");
-
-              tableScroll
-                .querySelector("thead tr")
-                .insertBefore(columnToMove, tableScroll.querySelector("thead tr").firstChild);
-
-              rowsFixed.forEach((row, index) => {
-                const cells = Array.from(row.children);
-                const cellToMove = cells[thIndex];
-
-                if (cellToMove && rowsScroll[index]) {
-                  rowsScroll[index].insertBefore(cellToMove, rowsScroll[index].firstChild);
-                }
-              });
-
-              span.classList.toggle("tableC__icon-pin--disabled");
-            }
-          },
-
-          // darg and drop
-          drag(event) {
-            const column = event.target.closest("th");
-
-            if (column && !this.resizeHandleMouse) {
-              this.draggedColumn = column;
-              this.draggedColumnIndex = Array.from(column.parentNode.children).indexOf(column);
-              column.classList.add("dragging");
-            } else {
-              event.preventDefault();
-            }
-          },
-
-          allowDrop(event) {
-            event.preventDefault();
-          },
-
-          drop(event) {
-            event.preventDefault();
-
-            const target = event.target.closest("th");
-
-            if (
-              this.draggedColumn &&
-              target &&
-              target !== this.draggedColumn &&
-              target.closest(".tableC").classList.contains("tableC__scroll")
-            ) {
-              const table = document.querySelector(".tableC__scroll");
-              const headerRow = table.querySelector("thead tr");
-
-              const targetIndex = Array.from(headerRow.children).indexOf(target);
-              const draggedIndex = Array.from(headerRow.children).indexOf(this.draggedColumn);
-
-              if (targetIndex < draggedIndex) {
-                headerRow.insertBefore(this.draggedColumn, target);
-              } else {
-                headerRow.insertBefore(this.draggedColumn, target.nextSibling);
-              }
-
-              const rows = table.querySelectorAll("tbody tr");
-
-              rows.forEach((row) => {
-                const cells = Array.from(row.children);
-                const draggedCell = cells[draggedIndex];
-                const targetCell = cells[targetIndex];
-
-                if (draggedCell) {
-                  if (targetIndex < draggedIndex) {
-                    row.insertBefore(draggedCell, targetCell);
-                  } else {
-                    row.insertBefore(draggedCell, targetCell.nextSibling);
-                  }
-                }
-              });
-
-              this.draggedColumn.classList.remove("dragging");
-              this.draggedColumn = null;
-              this.draggedColumnIndex = null;
-            }
-          },
-
-          startResize(event, th) {
-            const tableScroll = document.querySelector(".tableC__scroll");
-            this.resizeHandleMouse = true;
-            let startX = event.pageX;
-            let startWidth = th.offsetWidth;
-            let startWidthTable = tableScroll.offsetWidth;
-            let newTableWidth;
-
-            const mouseMove = (e) => {
-              const newWidth = startWidth + (e.pageX - startX);
-
-              if (th.closest(".tableC__scroll")) {
-                newTableWidth = startWidthTable + e.pageX - startX;
-              }
-              const minWidth = 130;
-
-              if (newWidth > minWidth) {
-                if (th.closest(".tableC__scroll")) {
-                  tableScroll.style.width = `${newTableWidth}px`;
-                }
-                th.style.width = `${newWidth}px`;
-              }
-            };
-
-            const mouseUp = () => {
-              document.removeEventListener("mousemove", mouseMove);
-              document.removeEventListener("mouseup", mouseUp);
-              this.resizeHandleMouse = false;
-            };
-
-            document.addEventListener("mousemove", mouseMove);
-            document.addEventListener("mouseup", mouseUp);
-
-            event.stopPropagation();
-          },
-        },
-        mounted() {
-          this.$root.$on("bv::dropdown::show", (bvEvent) => {
-            if (this.collapse) {
-              console.log(bvEvent);
-
-              this.$refs.dropdownIcon.hide();
-            }
-          });
-
-          this.$nextTick(() => {
-            document.querySelectorAll("th").forEach((th) => {
-              th.addEventListener("dragstart", this.drag);
-              th.addEventListener("dragover", this.allowDrop);
-              th.addEventListener("drop", this.drop);
-
-              th.querySelectorAll(".resize-handle").forEach((handle) => {
-                handle.addEventListener("mousedown", (e) => this.startResize(e, th));
-              });
-            });
-          });
-
-          const tableCScrollLine = document.querySelectorAll(".tableC__scroll .tableC__line");
-
-          const tableCFixedLine = document.querySelectorAll(".tableC__fixed .tableC__line");
-
-          this.renderChart();
-
-          // выделение строк таблицы
-          tableCScrollLine.forEach((item) => {
-            item.addEventListener("mouseenter", () => {
-              const index = Array.from(tableCScrollLine).indexOf(item);
-
-              tableCFixedLine[index].classList.add("tableC__line--hover");
-            });
-
-            item.addEventListener("mouseleave", () => {
-              const index = Array.from(tableCScrollLine).indexOf(item);
-
-              tableCFixedLine[index].classList.remove("tableC__line--hover");
-            });
-          });
-
-          // выделение строк таблицы
-          tableCFixedLine.forEach((item) => {
-            item.addEventListener("mouseenter", () => {
-              const index = Array.from(tableCFixedLine).indexOf(item);
-
-              tableCScrollLine[index].classList.add("tableC__line--hover");
-            });
-
-            item.addEventListener("mouseleave", () => {
-              const index = Array.from(tableCFixedLine).indexOf(item);
-
-              tableCScrollLine[index].classList.remove("tableC__line--hover");
-            });
-          });
-
-          // установка значений для блока datetime
-          const today = new Date();
-          today.setDate(today.getDate() - 1);
-
-          this.$set(this.dateTime.first, 0, today.toISOString().substr(0, 10));
-          this.$set(this.dateTime.second, 0, new Date().toISOString().substr(0, 10));
-          this.$set(this.dateTime.first, 1, new Date().toTimeString().substr(0, 8));
-          this.$set(this.dateTime.second, 1, new Date().toTimeString().substr(0, 8));
-
-          console.log(this.dateTime);
-        },
-      });
-    </script>
-    <script src="./js/button-click.js"></script>
+    <script src="./js/scriptM.js"></script>
   </body>
 </html>

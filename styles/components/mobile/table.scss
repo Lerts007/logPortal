@@ -1,0 +1,30 @@
+.tableC {
+  &__fixed {
+    position: relative;
+    transform: translateX(0);
+
+    & .tableC__column {
+      &:first-child::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 50%;
+        transform: translateY(50%);
+
+        height: 18px;
+        width: 0;
+
+        background-color: $gray-light;
+      }
+    }
+  }
+
+  &__column {
+  }
+
+  &__line-cell {
+    &--activ {
+      background-color: inherit;
+    }
+  }
+}

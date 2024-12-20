@@ -1,0 +1,10 @@
+.modalFilter {
+  position: absolute;
+}
+.modalFilter .modal {
+  top: inherit;
+  padding: 13px 24px !important;
+}
+.modalFilter .modal-backdrop {
+  top: inherit;
+}/*# sourceMappingURL=modalFilter.css.map */

@@ -29,6 +29,7 @@ $client-background: rgb(226, 244, 255);
 // прочее
 
 $white: rgb(255, 255, 255);
+$white-opacity-10: rgba(255, 255, 255, 0.1);
 $blueberry: rgb(223, 228, 242);
 $blue-light: rgb(223, 239, 250);
 $brown-dark: rgb(49, 49, 49);
@@ -41,3 +42,7 @@ $gray-dark: rgb(139, 139, 147);
 $red: rgb(255, 73, 88);
 $blue: rgb(15, 144, 233);
 $orange: rgb(255, 173, 14);
+
+// mobile
+$blackBlue: rgb(55, 71, 112);
+$blackBlue-light: rgb(135, 151, 192);

@@ -6,6 +6,10 @@
 }
 
 .collapseC {
+  &__logChart {
+    width: 100%;
+    height: 50vh !important;
+  }
   &__toggle {
     @include fonts(400);
 

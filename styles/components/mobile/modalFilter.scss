@@ -1,0 +1,84 @@
+.modalFilter {
+  position: absolute;
+
+  & .modal {
+    top: inherit;
+
+    padding: 13px 24px !important;
+  }
+
+  & .modal-backdrop {
+    top: inherit;
+  }
+
+  &__block {
+    padding: 20px 32px;
+
+    background-color: $secondary;
+  }
+
+  &__title {
+    @include fonts(700, 14px, $white);
+
+    text-align: center;
+  }
+
+  &__item-block {
+    padding: 11px 0;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__item-label {
+    @include fonts(400, 14px, $white);
+  }
+
+  &__item-check {
+    appearance: none;
+    position: relative;
+
+    width: 22px;
+    height: 22px;
+
+    margin-right: 17px;
+
+    background: inherit;
+    border-radius: 4px;
+    border: 1px solid $gray-dark;
+
+    overflow: hidden;
+
+    &::after {
+      position: absolute;
+      content: "";
+
+      width: 0px;
+      height: 0px;
+
+      background-color: $active;
+      background-image: url("../img/icon/checkmark.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 16px 16px;
+    }
+
+    &:checked {
+      border: none;
+
+      &::after {
+        width: 22px;
+        height: 22px;
+      }
+
+      & + .modalFilter__item-label {
+        @include fonts(700, 14px, $white);
+      }
+    }
+
+    &:disabled {
+      border: 1px solid $secondary;
+      opacity: 0.3;
+    }
+  }
+}
