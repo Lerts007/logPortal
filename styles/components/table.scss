@@ -11,17 +11,6 @@
   cursor: ew-resize;
   z-index: 1;
 }
-.block-scroll {
-  @extend %scrollbarStyling-X;
-
-  width: calc(((100vw - 1300px) / 2) + 1300px - 24px);
-  // width: 1000px;
-
-  padding-right: calc((100vw - 1300px + 17px) / 2);
-
-  display: block;
-  overflow-x: auto;
-}
 
 .tableC {
   position: relative;
@@ -39,6 +28,27 @@
     left: 0;
     transform: translateX(-100%);
   }
+
+  @media (max-width: 1600px) {
+    &__fixed {
+      position: relative;
+      top: inherit;
+      left: inherit;
+      transform: translateX(0);
+    }
+  }
+
+  &__block-scroll {
+    @extend %scrollbarStyling-X;
+
+    width: calc(((100vw - 1300px) / 2) + 1300px - 24px);
+
+    padding-right: calc((100vw - 1300px + 17px) / 2);
+
+    display: block;
+    overflow-x: auto;
+  }
+
   &__scroll {
   }
 

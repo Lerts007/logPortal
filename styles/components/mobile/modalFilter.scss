@@ -81,4 +81,10 @@
       opacity: 0.3;
     }
   }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

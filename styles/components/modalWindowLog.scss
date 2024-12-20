@@ -14,6 +14,19 @@
 .modal-body {
   padding: 0;
 }
+
+.modal-content {
+  border: none;
+}
+
+.modal.fade .modal-dialog {
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  -webkit-transform: translate(0, 0px);
+  transform: translate(0, 0px);
+}
+
 .modal-window-log {
   position: relative;
 

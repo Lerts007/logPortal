@@ -1,22 +1,27 @@
 .collapse {
-  border: 1px solid $gray-medium;
-  border-top: none;
-  border-radius: 0 0 4px 4px;
+  border: none;
+
   overflow: hidden;
 }
 
 .collapseC {
+  margin-top: 10px;
+
+  border: 1px solid $gray-medium;
+  border-radius: 4px;
+  overflow: hidden;
+
   &__logChart {
     width: 100%;
     height: 50vh !important;
   }
+
   &__toggle {
     @include fonts(400);
 
     width: 100%;
     min-height: 40px;
 
-    margin-top: 10px;
     padding: 9.5px 8px;
 
     display: flex;
@@ -25,8 +30,7 @@
     gap: 8px;
 
     background-color: $white;
-    border: 1px solid $gray-medium;
-    border-radius: 4px;
+
     box-shadow: inherit;
 
     color: $secondary;

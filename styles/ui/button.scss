@@ -87,6 +87,18 @@
     }
   }
 
+  &--outline {
+    @include fonts(400, 16px, $active);
+
+    padding: 0;
+
+    background-color: inherit;
+
+    &:active {
+      color: $primary-hover;
+    }
+  }
+
   &__click--primary {
     animation: gradient--primary 200ms ease;
     background: $primary-activ;

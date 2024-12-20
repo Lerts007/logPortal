@@ -34,7 +34,9 @@
           </div>
           <div class="header__user-info">
             <p class="header__item">support@corteos.travel</p>
-            <button class="header__btn-logout button button--primary">Выйти</button>
+            <button class="header__btn-logout button button--primary">
+              Выйти
+            </button>
             <!-- <b-button class="header__btn-logout button button--primary">Кнопка</b-button> -->
           </div>
         </div>
@@ -47,7 +49,8 @@
               Длина очередей<span class="log-info__space">—</span>2 лога
             </p>
             <p class="log-info__name log-info__name--saving-speed">
-              Скорость сохранений<span class="log-info__space">—</span>1337,5465 лога/сек
+              Скорость сохранений<span class="log-info__space">—</span>1337,5465
+              лога/сек
             </p>
             <p class="log-info__name log-info__name--error">
               Ошибок<span class="log-info__space">—</span>19
@@ -56,7 +59,11 @@
 
           <!-- график  -->
           <div class="collapseC">
-            <div v-b-toggle.collapse class="collapseC__toggle" @click="collapse = !collapse">
+            <div
+              v-b-toggle.collapse
+              class="collapseC__toggle"
+              @click="collapse = !collapse"
+            >
               <span class="collapseC__toggle-title">
                 <span class="collapseC__icon-filter">
                   <b-dropdown
@@ -67,6 +74,7 @@
                     lazy
                     toggle-class="text-decoration-none dropdown__toggle dropdown__toggle--icon"
                     menu-class="dropdown__menu dropdown__menu--chart-filter dropdown__menu--icon"
+                    v-b-toggle.collapse
                     no-caret
                     no-flip
                   >
@@ -100,7 +108,10 @@
                       boundary="viewport"
                       @click.native.capture.stop
                     >
-                      <label :for="'chart-filter'+index" class="dropdown__item-label">
+                      <label
+                        :for="'chart-filter'+index"
+                        class="dropdown__item-label"
+                      >
                         <input
                           class="dropdown__item-check"
                           type="checkbox"
@@ -122,7 +133,9 @@
                 >
                   <!-- Настраиваем контент кнопки -->
                   <template #button-content>
-                    <span class="dropdown__toggle-title dropdown__toggle-title--chart-time">
+                    <span
+                      class="dropdown__toggle-title dropdown__toggle-title--chart-time"
+                    >
                       {{ selectedItemChratTime }}
                     </span>
                     <span class="dropdown__icon-arrow">
@@ -146,8 +159,7 @@
                     :key="index"
                     href="#"
                     class="dropdown__item dropdown__item--chart-time"
-                    @click.prevent="selectItemChartTime(item)"
-                    v-b-toggle.collapse
+                    @click.prevent.stop="selectItemChartTime(item)"
                   >
                     {{ item }}
                   </b-dropdown-item>
@@ -171,19 +183,28 @@
             </div>
             <b-collapse id="collapse">
               <div class="collapseC__menu">
-                <canvas id="collapseC__logChart" class="collapseC__logChart"></canvas>
+                <canvas
+                  id="collapseC__logChart"
+                  class="collapseC__logChart"
+                ></canvas>
 
                 <div class="legend-chart">
                   <div class="legend-chart__block legend-chart__block--error">
-                    <div class="legend-chart__color legend-chart__color--danger"></div>
+                    <div
+                      class="legend-chart__color legend-chart__color--danger"
+                    ></div>
                     <p class="legend-chart__description">Error</p>
                   </div>
                   <div class="legend-chart__block legend-chart__block--normal">
-                    <div class="legend-chart__color legend-chart__color--normal"></div>
+                    <div
+                      class="legend-chart__color legend-chart__color--normal"
+                    ></div>
                     <p class="legend-chart__description">Normal</p>
                   </div>
                   <div class="legend-chart__block legend-chart__block--warning">
-                    <div class="legend-chart__color legend-chart__color--warning"></div>
+                    <div
+                      class="legend-chart__color legend-chart__color--warning"
+                    ></div>
                     <p class="legend-chart__description">Warning</p>
                   </div>
                 </div>
@@ -204,7 +225,9 @@
                 <!-- Настраиваем контент кнопки -->
                 <template #button-content>
                   <span class="dropdown__toggle-title"> Тип </span>
-                  <span class="dropdown__toggle-select">{{ selectedItemFilteType }}</span>
+                  <span class="dropdown__toggle-select"
+                    >{{ selectedItemFilteType }}</span
+                  >
 
                   <span class="dropdown__icon-arrow">
                     <svg
@@ -308,7 +331,9 @@
                   v-model="dateTime.second[1]"
                 />
               </div>
-              <button class="button button--primary log-table-settings__btn">Найти</button>
+              <button class="button button--primary log-table-settings__btn">
+                Найти
+              </button>
               <button class="log-table-settings__reset">
                 <!-- иконка reset -->
                 <svg
@@ -342,7 +367,9 @@
               >
                 <!-- Настраиваем контент кнопки -->
                 <template #button-content>
-                  <span class="dropdown__toggle-title dropdown__toggle-title--count-log">
+                  <span
+                    class="dropdown__toggle-title dropdown__toggle-title--count-log"
+                  >
                     {{ selectedItem }}
                   </span>
                   <span class="dropdown__icon-arrow">
@@ -455,7 +482,10 @@
                   class="tableC__line tableC__line--log"
                   :class="log.status === 'activ' ? 'tableC__line--activ' : log.status === 'warning' ? 'tableC__line--warning' : 'tableC__line--error'"
                 >
-                  <td class="tableC__line-cell tableC__line-cell--status" @click="openModal(log)">
+                  <td
+                    class="tableC__line-cell tableC__line-cell--status"
+                    @click="openModal(log)"
+                  >
                     <div
                       class="tableC__status"
                       :class="log.status === 'activ' ? 'tableC__line-cell--activ' : log.status === 'warning' ? 'tableC__line-cell--warning' : 'tableC__line-cell--error'"
@@ -474,12 +504,14 @@
                       />
                     </svg>
                   </td>
-                  <td class="tableC__line-cell tableC__line-cell--date">{{ log.date }}</td>
+                  <td class="tableC__line-cell tableC__line-cell--date">
+                    {{ log.date }}
+                  </td>
                   <td class="tableC__border"></td>
                 </tr>
               </tbody>
             </table>
-            <div class="block-scroll">
+            <div class="tableC__block-scroll">
               <table id="tableC" class="tableC tableC__scroll tableС--log">
                 <thead class="tableC__columns">
                   <tr>
@@ -604,7 +636,10 @@
                           </b-dropdown>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                        <span
+                          class="tableC__icon-pin tableC__icon-pin--disabled"
+                          @click="pin"
+                        >
                           <svg
                             width="9"
                             height="12"
@@ -744,7 +779,10 @@
                           </b-dropdown>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                        <span
+                          class="tableC__icon-pin tableC__icon-pin--disabled"
+                          @click="pin"
+                        >
                           <svg
                             width="9"
                             height="12"
@@ -788,7 +826,10 @@
                           </svg>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                        <span
+                          class="tableC__icon-pin tableC__icon-pin--disabled"
+                          @click="pin"
+                        >
                           <svg
                             width="9"
                             height="12"
@@ -832,7 +873,10 @@
                           </svg>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                        <span
+                          class="tableC__icon-pin tableC__icon-pin--disabled"
+                          @click="pin"
+                        >
                           <svg
                             width="9"
                             height="12"
@@ -972,7 +1016,10 @@
                           </b-dropdown>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                        <span
+                          class="tableC__icon-pin tableC__icon-pin--disabled"
+                          @click="pin"
+                        >
                           <svg
                             width="9"
                             height="12"
@@ -1112,7 +1159,10 @@
                           </b-dropdown>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                        <span
+                          class="tableC__icon-pin tableC__icon-pin--disabled"
+                          @click="pin"
+                        >
                           <svg
                             width="9"
                             height="12"
@@ -1156,7 +1206,10 @@
                           </svg>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                        <span
+                          class="tableC__icon-pin tableC__icon-pin--disabled"
+                          @click="pin"
+                        >
                           <svg
                             width="9"
                             height="12"
@@ -1200,7 +1253,10 @@
                           </svg>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                        <span
+                          class="tableC__icon-pin tableC__icon-pin--disabled"
+                          @click="pin"
+                        >
                           <svg
                             width="9"
                             height="12"
@@ -1340,7 +1396,10 @@
                           </b-dropdown>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
+                        <span
+                          class="tableC__icon-pin tableC__icon-pin--disabled"
+                          @click="pin"
+                        >
                           <svg
                             width="9"
                             height="12"
@@ -1368,8 +1427,12 @@
                     class="tableC__line tableC__line--log"
                     :class="log.status === 'activ' ? 'tableC__line--activ' : log.status === 'warning' ? 'tableC__line--warning' : 'tableC__line--error'"
                   >
-                    <td class="tableC__line-cell tableC__line-cell--message">{{log.message}}</td>
-                    <td class="tableC__line-cell tableC__line-cell--email">{{log.email}}</td>
+                    <td class="tableC__line-cell tableC__line-cell--message">
+                      {{log.message}}
+                    </td>
+                    <td class="tableC__line-cell tableC__line-cell--email">
+                      {{log.email}}
+                    </td>
                     <td class="tableC__line-cell tableC__line-cell--badge">
                       <div
                         class="badgeС badgeС--agent"
@@ -1378,19 +1441,33 @@
                         {{log.badge}}
                       </div>
                     </td>
-                    <td class="tableC__line-cell tableC__line-cell--site">{{log.site}}</td>
-                    <td class="tableC__line-cell tableC__line-cell--session">{{log.session}}</td>
-                    <td class="tableC__line-cell tableC__line-cell--id">{{log.id}}</td>
-                    <td class="tableC__line-cell tableC__line-cell--class">{{log.class}}</td>
-                    <td class="tableC__line-cell tableC__line-cell--source">{{log.source}}</td>
-                    <td class="tableC__line-cell tableC__line-cell--ipClient">{{log.ipClient}}</td>
+                    <td class="tableC__line-cell tableC__line-cell--site">
+                      {{log.site}}
+                    </td>
+                    <td class="tableC__line-cell tableC__line-cell--session">
+                      {{log.session}}
+                    </td>
+                    <td class="tableC__line-cell tableC__line-cell--id">
+                      {{log.id}}
+                    </td>
+                    <td class="tableC__line-cell tableC__line-cell--class">
+                      {{log.class}}
+                    </td>
+                    <td class="tableC__line-cell tableC__line-cell--source">
+                      {{log.source}}
+                    </td>
+                    <td class="tableC__line-cell tableC__line-cell--ipClient">
+                      {{log.ipClient}}
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
           <div class="download-add-user">
-            <button class="download-add-user__button">Загрузить еще 100 записей</button>
+            <button class="download-add-user__button">
+              Загрузить еще 100 записей
+            </button>
           </div>
         </div>
       </main>
@@ -1425,9 +1502,12 @@
                   <p class="log-status__badge-text">Error</p>
                 </div>
                 <div class="log-status__details">
-                  <p class="log-status__id"># 6d4dd62b-ff0c-42a7-b071-b9960b56ae46</p>
+                  <p class="log-status__id">
+                    # 6d4dd62b-ff0c-42a7-b071-b9960b56ae46
+                  </p>
                   <p class="log-status__message">
-                    ModPasswordSecurity - Запуск таймера проверки срока действия паролей <br />
+                    ModPasswordSecurity - Запуск таймера проверки срока действия
+                    паролей <br />
                     <span class="log-status__time">373 ms</span>
                   </p>
                 </div>
@@ -1471,7 +1551,9 @@
                 </div>
                 <div class="info-user--typeObject">
                   <h6 class="info-user__title">Тип объекта</h6>
-                  <p class="info-user__text--no-active">SiteSettingsDalObject</p>
+                  <p class="info-user__text--no-active">
+                    SiteSettingsDalObject
+                  </p>
                 </div>
                 <div class="info-user--idObject">
                   <h6 class="info-user__title">ID объекта</h6>
@@ -1485,7 +1567,9 @@
                   <h6 class="info-user__title">Источник</h6>
                   <p class="info-user__text--no-active">api</p>
                 </div>
-                <button class="button button--primary info-user__donwnload">Скачать</button>
+                <button class="button button--primary info-user__donwnload">
+                  Скачать
+                </button>
               </div>
             </div>
             <div class="modal-window-log__r-side">
@@ -1754,7 +1838,13 @@
       new Vue({
         el: "#app",
         data: () => ({
-          dropdownItemsCountLog: ["10 000", "20 000", "30 000", "40 000", "99 999"], // Опции countLog
+          dropdownItemsCountLog: [
+            "10 000",
+            "20 000",
+            "30 000",
+            "40 000",
+            "99 999",
+          ], // Опции countLog
           dropdownItemsFilteType: ["Все", "Normal", "Error", "Warning"], // Опции type
           dropdownItemsCartTime: ["За последние сутки", "За последние час"], // Опции время графика
 
@@ -1952,7 +2042,7 @@
           selectItem__filteType(item) {
             this.selectedItemFilteType = item; // Устанавливаем выбранный элемент в type
           },
-          selectItemChartTime(item) {
+          selectItemChartTime(item, event) {
             this.selectedItemChratTime = item; // Устанавливаем выбранный элемент в chart time
           },
           highlighter(code) {
@@ -1965,7 +2055,8 @@
           },
 
           disableScroll() {
-            const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+            const scrollBarWidth =
+              window.innerWidth - document.documentElement.clientWidth;
             document.documentElement.style.overflow = "hidden";
             document.documentElement.style.paddingRight = `${scrollBarWidth}px`; // Добавляем отступ
           },
@@ -1975,7 +2066,9 @@
           },
 
           renderChart() {
-            const ctx = document.getElementById("collapseC__logChart").getContext("2d");
+            const ctx = document
+              .getElementById("collapseC__logChart")
+              .getContext("2d");
 
             // data можно потом вынести в отдельную переменую, сейчас сделано для генерации рандомных значений
             const data = {
@@ -2046,7 +2139,9 @@
             currentDate.setHours(currentDate.getHours() - 24);
 
             for (let i = 0; i < 24; i++) {
-              labels.push(currentDate.toISOString().slice(10, 16).replace("T", " "));
+              labels.push(
+                currentDate.toISOString().slice(10, 16).replace("T", " ")
+              );
               currentDate.setHours(currentDate.getHours() + 1);
             }
 
@@ -2067,7 +2162,9 @@
           pin(item) {
             const th = item.target.closest("th");
             const span = item.target.closest("span");
-            const borderTh = document.querySelector(".tableC__fixed .tableC__border");
+            const borderTh = document.querySelector(
+              ".tableC__fixed .tableC__border"
+            );
             const tableFixed = document.querySelector(".tableC__fixed");
             const tableScroll = document.querySelector(".tableC__scroll");
 
@@ -2077,11 +2174,12 @@
             }
 
             const parentRow = th.parentElement;
-            console.log(parentRow);
 
             const arrayParentRow = Array.from(parentRow.children);
 
-            const arraytableFixed = Array.from(tableFixed.querySelectorAll("th"));
+            const arraytableFixed = Array.from(
+              tableFixed.querySelectorAll("th")
+            );
 
             const thIndex = arrayParentRow.indexOf(th);
             const borderIndex = arraytableFixed.indexOf(borderTh);
@@ -2097,10 +2195,14 @@
 
               columnToMove.draggable = false;
 
-              arraytableFixed[borderIndex - 1].classList.toggle("tableC__column--no-border");
+              arraytableFixed[borderIndex - 1].classList.toggle(
+                "tableC__column--no-border"
+              );
               columnToMove.classList.toggle("tableC__column--no-border");
 
-              tableFixed.querySelector("thead tr").insertBefore(columnToMove, borderTh);
+              tableFixed
+                .querySelector("thead tr")
+                .insertBefore(columnToMove, borderTh);
 
               rowsScroll.forEach((row, index) => {
                 const cells = Array.from(row.children);
@@ -2108,8 +2210,6 @@
 
                 if (cellToMove && rowsFixed[index]) {
                   const borderCell = rowsFixed[index].children[borderIndex];
-
-                  console.log(borderCell);
 
                   rowsFixed[index].insertBefore(cellToMove, borderCell);
                 }
@@ -2124,23 +2224,47 @@
 
               columnToMove.draggable = true;
 
-              arraytableFixed[borderIndex - 2].classList.toggle("tableC__column--no-border");
+              arraytableFixed[borderIndex - 2].classList.toggle(
+                "tableC__column--no-border"
+              );
               columnToMove.classList.toggle("tableC__column--no-border");
 
               tableScroll
                 .querySelector("thead tr")
-                .insertBefore(columnToMove, tableScroll.querySelector("thead tr").firstChild);
+                .insertBefore(
+                  columnToMove,
+                  tableScroll.querySelector("thead tr").firstChild
+                );
 
               rowsFixed.forEach((row, index) => {
                 const cells = Array.from(row.children);
                 const cellToMove = cells[thIndex];
 
                 if (cellToMove && rowsScroll[index]) {
-                  rowsScroll[index].insertBefore(cellToMove, rowsScroll[index].firstChild);
+                  rowsScroll[index].insertBefore(
+                    cellToMove,
+                    rowsScroll[index].firstChild
+                  );
                 }
               });
 
               span.classList.toggle("tableC__icon-pin--disabled");
+            }
+
+            if (window.innerWidth < 1600) {
+              const container = document.querySelector(".containerС");
+              const blockScroll = document.querySelector(
+                ".tableC__block-scroll"
+              );
+
+              blockScroll.style.width = `
+                ${
+                  (window.innerWidth - container.offsetWidth) / 2 +
+                  (container.offsetWidth - tableFixed.offsetWidth) -
+                  24
+                }px`;
+              blockScroll.style.paddingRight = `
+                ${(window.innerWidth - container.offsetWidth + 17) / 2}px`;
             }
           },
 
@@ -2150,7 +2274,9 @@
 
             if (column && !this.resizeHandleMouse) {
               this.draggedColumn = column;
-              this.draggedColumnIndex = Array.from(column.parentNode.children).indexOf(column);
+              this.draggedColumnIndex = Array.from(
+                column.parentNode.children
+              ).indexOf(column);
               column.classList.add("dragging");
             } else {
               event.preventDefault();
@@ -2175,8 +2301,12 @@
               const table = document.querySelector(".tableC__scroll");
               const headerRow = table.querySelector("thead tr");
 
-              const targetIndex = Array.from(headerRow.children).indexOf(target);
-              const draggedIndex = Array.from(headerRow.children).indexOf(this.draggedColumn);
+              const targetIndex = Array.from(headerRow.children).indexOf(
+                target
+              );
+              const draggedIndex = Array.from(headerRow.children).indexOf(
+                this.draggedColumn
+              );
 
               if (targetIndex < draggedIndex) {
                 headerRow.insertBefore(this.draggedColumn, target);
@@ -2258,14 +2388,20 @@
               th.addEventListener("drop", this.drop);
 
               th.querySelectorAll(".resize-handle").forEach((handle) => {
-                handle.addEventListener("mousedown", (e) => this.startResize(e, th));
+                handle.addEventListener("mousedown", (e) =>
+                  this.startResize(e, th)
+                );
               });
             });
           });
 
-          const tableCScrollLine = document.querySelectorAll(".tableC__scroll .tableC__line");
+          const tableCScrollLine = document.querySelectorAll(
+            ".tableC__scroll .tableC__line"
+          );
 
-          const tableCFixedLine = document.querySelectorAll(".tableC__fixed .tableC__line");
+          const tableCFixedLine = document.querySelectorAll(
+            ".tableC__fixed .tableC__line"
+          );
 
           this.renderChart();
 
@@ -2304,9 +2440,21 @@
           today.setDate(today.getDate() - 1);
 
           this.$set(this.dateTime.first, 0, today.toISOString().substr(0, 10));
-          this.$set(this.dateTime.second, 0, new Date().toISOString().substr(0, 10));
-          this.$set(this.dateTime.first, 1, new Date().toTimeString().substr(0, 8));
-          this.$set(this.dateTime.second, 1, new Date().toTimeString().substr(0, 8));
+          this.$set(
+            this.dateTime.second,
+            0,
+            new Date().toISOString().substr(0, 10)
+          );
+          this.$set(
+            this.dateTime.first,
+            1,
+            new Date().toTimeString().substr(0, 8)
+          );
+          this.$set(
+            this.dateTime.second,
+            1,
+            new Date().toTimeString().substr(0, 8)
+          );
 
           console.log(this.dateTime);
         },
