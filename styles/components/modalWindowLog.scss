@@ -17,6 +17,7 @@
 
 .modal-content {
   border: none;
+  background-color: inherit;
 }
 
 .modal.fade .modal-dialog {
@@ -26,16 +27,16 @@
   -webkit-transform: translate(0, 0px);
   transform: translate(0, 0px);
 }
-
 .modal-window-log {
-  position: relative;
+  &__block {
+    position: relative;
 
-  width: 100%;
-  max-height: 642px;
+    width: 100%;
+    max-height: 642px;
 
-  display: grid;
-  grid-template-columns: 220px 1fr;
-
+    display: grid;
+    grid-template-columns: 220px 1fr;
+  }
   &--disabled {
     display: none;
   }
@@ -84,6 +85,12 @@
     background-color: #fff;
 
     overflow-y: auto;
+
+    & .prism-editor__textarea {
+      max-width: 100vw;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
   }
 }
 
@@ -158,4 +165,8 @@
     padding: 4px 10px;
     display: flex;
   }
+}
+
+.info-user {
+  color: black;
 }

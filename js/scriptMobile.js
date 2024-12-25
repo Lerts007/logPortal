@@ -39,6 +39,7 @@ new Vue({
     ],
 
     modalShow: false,
+    modalSide: true,
     itemModal: undefined,
 
     draggedColumn: null,
@@ -185,40 +186,23 @@ new Vue({
       second: ["2024-12-17", "22:46:18"],
     },
 
-    chart: null,
-
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          display: false,
-        },
-      },
-      scales: {
-        x: {
-          stacked: true,
-          title: {
-            display: true,
-          },
-        },
-        y: {
-          stacked: true,
-          title: {
-            display: true,
-          },
-          beginAtZero: true,
-        },
-      },
-    },
-
     code: `<Contact DateChanged="31.10.2024 23:45:11" DateCreate="27.09.2023 18:57:29" deleted="false">
-                  <id_Contact>3117465</id_Contact>
-                  <id_Person>2647942</id_Person>
-                  <id_ContactType>3</id_ContactType>
-                  <Content>SV.TIKHONOV@SEVERSTAL.COM</Content>
-                  <ContactTypeName>Email</ContactTypeName> 
-                </Contact>`,
+  <id_Contact>3117465</id_Contact>
+  <id_Person>2647942</id_Person>
+  <id_ContactType>3</id_ContactType>
+  <Content>SV.TIKHONOV@SEVERSTAL.COM</Content>
+  <ContactTypeName>Email</ContactTypeName>
+</Contact>`,
   }),
+  watch: {
+    // whenever question changes, this function will run
+    modalShow(newQuestion, oldQuestion) {
+      if (newQuestion) {
+        console.log("привет");
+        this.modalSide = true;
+      }
+    },
+  },
   methods: {
     highlighter(code) {
       return Prism.highlight(code, Prism.languages.html, "html");
@@ -239,19 +223,32 @@ new Vue({
       this.itemModal = item;
     },
 
+    selectRole(index) {
+      const buttons = document.querySelectorAll(".btn-slider__btn");
+      const slider = document.querySelector(".btn-slider__slider");
+
+      buttons.forEach((btn) => btn.classList.remove("btn-slider__btn--active"));
+
+      buttons[index].classList.add("btn-slider__btn--active");
+
+      if (index) {
+        slider.style.left = `calc(${index * 50}% )`;
+        this.modalSide = false;
+      } else {
+        slider.style.left = `2px`;
+        this.modalSide = true;
+      }
+    },
+
     // ТАБЛИЦА
     // закрепление
-    pin(item) {
-      const th = item.target.closest("th");
-      const span = item.target.closest("span");
+    pin(event) {
+      const item = event.currentTarget;
+      const th = item.closest("th");
+      const span = th.querySelector(".tableC__icon-pin");
       const borderTh = document.querySelector(".tableC__fixed .tableC__border");
       const tableFixed = document.querySelector(".tableC__fixed");
       const tableScroll = document.querySelector(".tableC__scroll");
-
-      if (!tableFixed || !tableScroll) {
-        console.error("Таблицы не найдены. Проверьте классы.");
-        return;
-      }
 
       const parentRow = th.parentElement;
       console.log(parentRow);
@@ -318,6 +315,24 @@ new Vue({
         });
 
         span.classList.toggle("tableC__icon-pin--disabled");
+      }
+
+      const container = document.querySelector(".containerС");
+      const blockScroll = document.querySelector(".tableC__block-scroll");
+
+      blockScroll.style.width = `
+          ${
+            (window.innerWidth - container.offsetWidth) / 2 +
+            (container.offsetWidth - tableFixed.offsetWidth) -
+            24
+          }px`;
+
+      console.log(tableFixed.closest(".log"));
+      if (tableFixed.querySelectorAll("th").length === 2) {
+        console.log(tableFixed.querySelectorAll("th").length === 2);
+        tableFixed.closest(".log").classList.add("tableC__no-border");
+      } else {
+        tableFixed.closest(".log").classList.remove("tableC__no-border");
       }
     },
 
@@ -440,40 +455,6 @@ new Vue({
       });
     });
 
-    const tableCScrollLine = document.querySelectorAll(".tableC__scroll .tableC__line");
-
-    const tableCFixedLine = document.querySelectorAll(".tableC__fixed .tableC__line");
-
-    // выделение строк таблицы
-    tableCScrollLine.forEach((item) => {
-      item.addEventListener("mouseenter", () => {
-        const index = Array.from(tableCScrollLine).indexOf(item);
-
-        tableCFixedLine[index].classList.add("tableC__line--hover");
-      });
-
-      item.addEventListener("mouseleave", () => {
-        const index = Array.from(tableCScrollLine).indexOf(item);
-
-        tableCFixedLine[index].classList.remove("tableC__line--hover");
-      });
-    });
-
-    // выделение строк таблицы
-    tableCFixedLine.forEach((item) => {
-      item.addEventListener("mouseenter", () => {
-        const index = Array.from(tableCFixedLine).indexOf(item);
-
-        tableCScrollLine[index].classList.add("tableC__line--hover");
-      });
-
-      item.addEventListener("mouseleave", () => {
-        const index = Array.from(tableCFixedLine).indexOf(item);
-
-        tableCScrollLine[index].classList.remove("tableC__line--hover");
-      });
-    });
-
     // установка значений для блока datetime
     const today = new Date();
     today.setDate(today.getDate() - 1);
@@ -482,5 +463,20 @@ new Vue({
     this.$set(this.dateTime.second, 0, new Date().toISOString().substr(0, 10));
     this.$set(this.dateTime.first, 1, new Date().toTimeString().substr(0, 8));
     this.$set(this.dateTime.second, 1, new Date().toTimeString().substr(0, 8));
+
+    window.onload = () => {
+      const container = document.querySelector(".containerС");
+      const blockScroll = document.querySelector(".tableC__block-scroll");
+      const tableFixed = document.querySelector(".tableC__fixed");
+
+      console.log(blockScroll);
+
+      blockScroll.style.width = `
+          ${
+            (window.innerWidth - container.offsetWidth) / 2 +
+            (container.offsetWidth - tableFixed.offsetWidth) -
+            24
+          }px`;
+    };
   },
 });

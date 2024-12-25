@@ -1,0 +1,11 @@
+.log-message {
+  gap: 12px;
+}
+.log-message__text {
+  white-space: inherit;
+  text-overflow: inherit;
+}
+.log-message__block {
+  grid-template-columns: inherit;
+  gap: 6px;
+}/*# sourceMappingURL=log-message.css.map */

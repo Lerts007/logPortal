@@ -23,10 +23,7 @@
   border-spacing: 0 6px;
 
   &__fixed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateX(-100%);
+    z-index: 10;
   }
 
   @media (max-width: 1600px) {
@@ -41,12 +38,8 @@
   &__block-scroll {
     @extend %scrollbarStyling-X;
 
-    width: calc(((100vw - 1300px) / 2) + 1300px - 24px);
-
-    padding-right: calc((100vw - 1300px + 17px) / 2);
-
     display: block;
-    overflow-x: auto;
+    overflow-x: scroll;
   }
 
   &__scroll {
@@ -130,6 +123,7 @@
 
   &__line {
     position: relative;
+    z-index: 1;
 
     height: 36px;
 
@@ -166,7 +160,8 @@
   &__line-cell {
     padding: 0 10px;
 
-    min-width: 130px;
+    width: 60px;
+    max-width: 135px;
     height: 36px;
 
     text-align: left;
@@ -176,7 +171,7 @@
     overflow: hidden;
 
     &--status {
-      min-width: 5px;
+      max-width: 30px;
 
       display: flex;
       align-items: center;
@@ -225,9 +220,11 @@
   }
 
   // Иконки
+  &__icon,
   &__icon-pin,
   &__icon-search {
     display: flex;
+    align-items: center;
   }
   &__icon-pin--disabled {
     display: none;
@@ -236,9 +233,8 @@
   &__icon-arrow {
     margin: 0;
   }
+}
 
-  &__line {
-    position: relative;
-    height: 36px;
-  }
+.tableC__no-border .tableC__border {
+  display: none;
 }

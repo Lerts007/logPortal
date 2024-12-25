@@ -128,10 +128,8 @@
       width: 130px;
       height: 126px;
 
-      // padding-right: calc(4px + 1rem);
-
       border: none;
-      overflow-y: scroll;
+      overflow-y: auto;
       scrollbar-gutter: stable;
     }
     &--icon {

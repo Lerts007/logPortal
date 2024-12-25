@@ -19,10 +19,16 @@
 @import "components/alert";
 @import "components/log-message";
 @import "components/modalWindowLog";
+
+// mobile
 @import "components/mobile/header";
 @import "components/mobile/datetime";
+@import "components/mobile/dropdown";
 @import "components/mobile/table.scss";
 @import "components/mobile/modalFilter.scss";
+@import "components/mobile/modalWindowLog";
+@import "components/mobile/log-message";
+@import "components/mobile/alert";
 
 // page
 @import "page/index";

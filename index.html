@@ -34,9 +34,7 @@
           </div>
           <div class="header__user-info">
             <p class="header__item">support@corteos.travel</p>
-            <button class="header__btn-logout button button--primary">
-              Выйти
-            </button>
+            <button class="header__btn-logout button button--primary">Выйти</button>
             <!-- <b-button class="header__btn-logout button button--primary">Кнопка</b-button> -->
           </div>
         </div>
@@ -49,8 +47,7 @@
               Длина очередей<span class="log-info__space">—</span>2 лога
             </p>
             <p class="log-info__name log-info__name--saving-speed">
-              Скорость сохранений<span class="log-info__space">—</span>1337,5465
-              лога/сек
+              Скорость сохранений<span class="log-info__space">—</span>1337,5465 лога/сек
             </p>
             <p class="log-info__name log-info__name--error">
               Ошибок<span class="log-info__space">—</span>19
@@ -59,11 +56,7 @@
 
           <!-- график  -->
           <div class="collapseC">
-            <div
-              v-b-toggle.collapse
-              class="collapseC__toggle"
-              @click="collapse = !collapse"
-            >
+            <div v-b-toggle.collapse class="collapseC__toggle" @click="collapse = !collapse">
               <span class="collapseC__toggle-title">
                 <span class="collapseC__icon-filter">
                   <b-dropdown
@@ -108,10 +101,7 @@
                       boundary="viewport"
                       @click.native.capture.stop
                     >
-                      <label
-                        :for="'chart-filter'+index"
-                        class="dropdown__item-label"
-                      >
+                      <label :for="'chart-filter'+index" class="dropdown__item-label">
                         <input
                           class="dropdown__item-check"
                           type="checkbox"
@@ -133,9 +123,7 @@
                 >
                   <!-- Настраиваем контент кнопки -->
                   <template #button-content>
-                    <span
-                      class="dropdown__toggle-title dropdown__toggle-title--chart-time"
-                    >
+                    <span class="dropdown__toggle-title dropdown__toggle-title--chart-time">
                       {{ selectedItemChratTime }}
                     </span>
                     <span class="dropdown__icon-arrow">
@@ -183,28 +171,19 @@
             </div>
             <b-collapse id="collapse">
               <div class="collapseC__menu">
-                <canvas
-                  id="collapseC__logChart"
-                  class="collapseC__logChart"
-                ></canvas>
+                <canvas id="collapseC__logChart" class="collapseC__logChart"></canvas>
 
                 <div class="legend-chart">
                   <div class="legend-chart__block legend-chart__block--error">
-                    <div
-                      class="legend-chart__color legend-chart__color--danger"
-                    ></div>
+                    <div class="legend-chart__color legend-chart__color--danger"></div>
                     <p class="legend-chart__description">Error</p>
                   </div>
                   <div class="legend-chart__block legend-chart__block--normal">
-                    <div
-                      class="legend-chart__color legend-chart__color--normal"
-                    ></div>
+                    <div class="legend-chart__color legend-chart__color--normal"></div>
                     <p class="legend-chart__description">Normal</p>
                   </div>
                   <div class="legend-chart__block legend-chart__block--warning">
-                    <div
-                      class="legend-chart__color legend-chart__color--warning"
-                    ></div>
+                    <div class="legend-chart__color legend-chart__color--warning"></div>
                     <p class="legend-chart__description">Warning</p>
                   </div>
                 </div>
@@ -225,9 +204,7 @@
                 <!-- Настраиваем контент кнопки -->
                 <template #button-content>
                   <span class="dropdown__toggle-title"> Тип </span>
-                  <span class="dropdown__toggle-select"
-                    >{{ selectedItemFilteType }}</span
-                  >
+                  <span class="dropdown__toggle-select">{{ selectedItemFilteType }}</span>
 
                   <span class="dropdown__icon-arrow">
                     <svg
@@ -331,9 +308,7 @@
                   v-model="dateTime.second[1]"
                 />
               </div>
-              <button class="button button--primary log-table-settings__btn">
-                Найти
-              </button>
+              <button class="button button--primary log-table-settings__btn">Найти</button>
               <button class="log-table-settings__reset">
                 <!-- иконка reset -->
                 <svg
@@ -367,9 +342,7 @@
               >
                 <!-- Настраиваем контент кнопки -->
                 <template #button-content>
-                  <span
-                    class="dropdown__toggle-title dropdown__toggle-title--count-log"
-                  >
+                  <span class="dropdown__toggle-title dropdown__toggle-title--count-log">
                     {{ selectedItem }}
                   </span>
                   <span class="dropdown__icon-arrow">
@@ -482,10 +455,7 @@
                   class="tableC__line tableC__line--log"
                   :class="log.status === 'activ' ? 'tableC__line--activ' : log.status === 'warning' ? 'tableC__line--warning' : 'tableC__line--error'"
                 >
-                  <td
-                    class="tableC__line-cell tableC__line-cell--status"
-                    @click="openModal(log)"
-                  >
+                  <td class="tableC__line-cell tableC__line-cell--status" @click="openModal(log)">
                     <div
                       class="tableC__status"
                       :class="log.status === 'activ' ? 'tableC__line-cell--activ' : log.status === 'warning' ? 'tableC__line-cell--warning' : 'tableC__line-cell--error'"
@@ -504,9 +474,7 @@
                       />
                     </svg>
                   </td>
-                  <td class="tableC__line-cell tableC__line-cell--date">
-                    {{ log.date }}
-                  </td>
+                  <td class="tableC__line-cell tableC__line-cell--date">{{ log.date }}</td>
                   <td class="tableC__border"></td>
                 </tr>
               </tbody>
@@ -636,10 +604,7 @@
                           </b-dropdown>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span
-                          class="tableC__icon-pin tableC__icon-pin--disabled"
-                          @click="pin"
-                        >
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
                           <svg
                             width="9"
                             height="12"
@@ -779,10 +744,7 @@
                           </b-dropdown>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span
-                          class="tableC__icon-pin tableC__icon-pin--disabled"
-                          @click="pin"
-                        >
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
                           <svg
                             width="9"
                             height="12"
@@ -826,10 +788,7 @@
                           </svg>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span
-                          class="tableC__icon-pin tableC__icon-pin--disabled"
-                          @click="pin"
-                        >
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
                           <svg
                             width="9"
                             height="12"
@@ -873,10 +832,7 @@
                           </svg>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span
-                          class="tableC__icon-pin tableC__icon-pin--disabled"
-                          @click="pin"
-                        >
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
                           <svg
                             width="9"
                             height="12"
@@ -1016,10 +972,7 @@
                           </b-dropdown>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span
-                          class="tableC__icon-pin tableC__icon-pin--disabled"
-                          @click="pin"
-                        >
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
                           <svg
                             width="9"
                             height="12"
@@ -1159,10 +1112,7 @@
                           </b-dropdown>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span
-                          class="tableC__icon-pin tableC__icon-pin--disabled"
-                          @click="pin"
-                        >
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
                           <svg
                             width="9"
                             height="12"
@@ -1206,10 +1156,7 @@
                           </svg>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span
-                          class="tableC__icon-pin tableC__icon-pin--disabled"
-                          @click="pin"
-                        >
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
                           <svg
                             width="9"
                             height="12"
@@ -1253,10 +1200,7 @@
                           </svg>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span
-                          class="tableC__icon-pin tableC__icon-pin--disabled"
-                          @click="pin"
-                        >
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
                           <svg
                             width="9"
                             height="12"
@@ -1396,10 +1340,7 @@
                           </b-dropdown>
                         </span>
                         <!-- иконка закрепления столбца -->
-                        <span
-                          class="tableC__icon-pin tableC__icon-pin--disabled"
-                          @click="pin"
-                        >
+                        <span class="tableC__icon-pin tableC__icon-pin--disabled" @click="pin">
                           <svg
                             width="9"
                             height="12"
@@ -1427,12 +1368,8 @@
                     class="tableC__line tableC__line--log"
                     :class="log.status === 'activ' ? 'tableC__line--activ' : log.status === 'warning' ? 'tableC__line--warning' : 'tableC__line--error'"
                   >
-                    <td class="tableC__line-cell tableC__line-cell--message">
-                      {{log.message}}
-                    </td>
-                    <td class="tableC__line-cell tableC__line-cell--email">
-                      {{log.email}}
-                    </td>
+                    <td class="tableC__line-cell tableC__line-cell--message">{{log.message}}</td>
+                    <td class="tableC__line-cell tableC__line-cell--email">{{log.email}}</td>
                     <td class="tableC__line-cell tableC__line-cell--badge">
                       <div
                         class="badgeС badgeС--agent"
@@ -1441,1025 +1378,377 @@
                         {{log.badge}}
                       </div>
                     </td>
-                    <td class="tableC__line-cell tableC__line-cell--site">
-                      {{log.site}}
-                    </td>
-                    <td class="tableC__line-cell tableC__line-cell--session">
-                      {{log.session}}
-                    </td>
-                    <td class="tableC__line-cell tableC__line-cell--id">
-                      {{log.id}}
-                    </td>
-                    <td class="tableC__line-cell tableC__line-cell--class">
-                      {{log.class}}
-                    </td>
-                    <td class="tableC__line-cell tableC__line-cell--source">
-                      {{log.source}}
-                    </td>
-                    <td class="tableC__line-cell tableC__line-cell--ipClient">
-                      {{log.ipClient}}
-                    </td>
+                    <td class="tableC__line-cell tableC__line-cell--site">{{log.site}}</td>
+                    <td class="tableC__line-cell tableC__line-cell--session">{{log.session}}</td>
+                    <td class="tableC__line-cell tableC__line-cell--id">{{log.id}}</td>
+                    <td class="tableC__line-cell tableC__line-cell--class">{{log.class}}</td>
+                    <td class="tableC__line-cell tableC__line-cell--source">{{log.source}}</td>
+                    <td class="tableC__line-cell tableC__line-cell--ipClient">{{log.ipClient}}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
           <div class="download-add-user">
-            <button class="download-add-user__button">
-              Загрузить еще 100 записей
-            </button>
+            <button class="download-add-user__button">Загрузить еще 100 записей</button>
           </div>
         </div>
       </main>
-      <b-modal
-        v-model="modalShow"
-        hide-footer
-        hide-header
-        static="false"
-        @show="disableScroll()"
-        @hide="enableScroll()"
-      >
-        <template #default>
-          <div class="modal-window-log">
-            <button class="modal-window-log__close" @click="modalShow = false">
-              <svg
-                width="10"
-                height="10"
-                viewBox="0 0 10 10"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8.81085 1.73746C9.00611 1.5422 9.00611 1.22562 8.81085 1.03036C8.61559 0.835096 8.29901 0.835096 8.10375 1.03036L5.0004 4.1337L1.89709 1.03038C1.70183 0.835119 1.38524 0.835119 1.18998 1.03038C0.994718 1.22564 0.994719 1.54223 1.18998 1.73749L4.2933 4.8408L1.03268 8.10142C0.837415 8.29669 0.837415 8.61327 1.03268 8.80853C1.22794 9.00379 1.54452 9.00379 1.73978 8.80853L5.0004 5.54791L8.26105 8.80856C8.45631 9.00382 8.77289 9.00382 8.96815 8.80856C9.16342 8.61329 9.16342 8.29671 8.96815 8.10145L5.70751 4.8408L8.81085 1.73746Z"
-                  fill="white"
-                />
-              </svg>
-            </button>
-            <div class="modal-window-log__l-side">
-              <div class="log-status">
-                <p class="log-status__date">14 ноя, 12:30:56</p>
-                <div class="log-status__badge log-status__badge--error">
-                  <p class="log-status__badge-text">Error</p>
-                </div>
-                <div class="log-status__details">
-                  <p class="log-status__id">
-                    # 6d4dd62b-ff0c-42a7-b071-b9960b56ae46
-                  </p>
-                  <p class="log-status__message">
-                    ModPasswordSecurity - Запуск таймера проверки срока действия
-                    паролей <br />
-                    <span class="log-status__time">373 ms</span>
-                  </p>
-                </div>
-              </div>
-              <div class="info-user">
-                <div class="info-user--email">
-                  <h6 class="info-user__title">Email</h6>
-                  <p class="info-user__text">v.chepurnoy@skyland.travel</p>
-                </div>
-                <div class="info-user__site">
-                  <h6 class="info-user__title">Сайт</h6>
-                  <div class="info-user__block">
-                    <p class="info-user__text">https://prd.sso.corteos.ru</p>
-                    <button class="button button--primary info-user__btn-page">
-                      <svg
-                        width="8"
-                        height="8"
-                        viewBox="0 0 9 9"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M0.961155 8.5C0.71671 8.5 0.507451 8.41296 0.333377 8.23889C0.159303 8.06482 0.0722656 7.85556 0.0722656 7.61111V1.38889C0.0722656 1.14444 0.159303 0.935185 0.333377 0.761111C0.507451 0.587037 0.71671 0.5 0.961155 0.5h6.07227V1.38889H0.961155V7.61111H7.18338V4.5H8.07227V7.61111C8.07227 7.85556 7.98523 8.06482 7.81115 8.23889C7.63708 8.41296 7.42782 8.5 7.18338 8.5H0.961155ZM3.05004 6.14444L2.42782 5.52222L6.56115 1.38889h6.96115V0.5H8.07227V3.61111H7.18338V2.01111L3.05004 6.14444Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </button>
+      <div class="modal-window-log">
+        <b-modal
+          v-model="modalShow"
+          hide-footer
+          hide-header
+          static="false"
+          @show="disableScroll()"
+          @hide="enableScroll()"
+        >
+          <template #default>
+            <div class="modal-window-log__block">
+              <button class="modal-window-log__close" @click="modalShow = false">
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 10 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8.81085 1.73746C9.00611 1.5422 9.00611 1.22562 8.81085 1.03036C8.61559 0.835096 8.29901 0.835096 8.10375 1.03036L5.0004 4.1337L1.89709 1.03038C1.70183 0.835119 1.38524 0.835119 1.18998 1.03038C0.994718 1.22564 0.994719 1.54223 1.18998 1.73749L4.2933 4.8408L1.03268 8.10142C0.837415 8.29669 0.837415 8.61327 1.03268 8.80853C1.22794 9.00379 1.54452 9.00379 1.73978 8.80853L5.0004 5.54791L8.26105 8.80856C8.45631 9.00382 8.77289 9.00382 8.96815 8.80856C9.16342 8.61329 9.16342 8.29671 8.96815 8.10145L5.70751 4.8408L8.81085 1.73746Z"
+                    fill="white"
+                  />
+                </svg>
+              </button>
+              <div class="modal-window-log__l-side">
+                <div class="log-status">
+                  <p class="log-status__date">14 ноя, 12:30:56</p>
+                  <div class="log-status__badge log-status__badge--error">
+                    <p class="log-status__badge-text">Error</p>
+                  </div>
+                  <div class="log-status__details">
+                    <p class="log-status__id"># 6d4dd62b-ff0c-42a7-b071-b9960b56ae46</p>
+                    <p class="log-status__message">
+                      ModPasswordSecurity - Запуск таймера проверки срока действия паролей <br />
+                      <span class="log-status__time">373 ms</span>
+                    </p>
                   </div>
                 </div>
-                <div class="info-user--class">
-                  <h6 class="info-user__title">Класс</h6>
-                  <p class="info-user__text">ImapIdleHelper.cs</p>
-                </div>
-                <div class="info-user--user">
-                  <h6 class="info-user__title">Пользователь</h6>
-                  <p class="info-user__text--no-active">Клиент</p>
-                </div>
-                <div class="info-user--session">
-                  <h6 class="info-user__title">Сессия</h6>
-                  <p class="info-user__text">1O44AS4KU64H8</p>
-                </div>
-                <div class="info-user--typeObject">
-                  <h6 class="info-user__title">Тип объекта</h6>
-                  <p class="info-user__text--no-active">
-                    SiteSettingsDalObject
-                  </p>
-                </div>
-                <div class="info-user--idObject">
-                  <h6 class="info-user__title">ID объекта</h6>
-                  <p class="info-user__text">6688756</p>
-                </div>
-                <div class="info-user--ip">
-                  <h6 class="info-user__title">IP</h6>
-                  <p class="info-user__text">212.233.125.182</p>
-                </div>
-                <div class="info-user--source">
-                  <h6 class="info-user__title">Источник</h6>
-                  <p class="info-user__text--no-active">api</p>
-                </div>
-                <button class="button button--primary info-user__donwnload">
-                  Скачать
-                </button>
-              </div>
-            </div>
-            <div class="modal-window-log__r-side">
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса:</span>
-                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                  </p>
-                </div>
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса завершена</span>
-                  </p>
-                </div>
-              </div>
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса:</span>
-                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                  </p>
-                </div>
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса завершена</span>
-                  </p>
+                <div class="info-user">
+                  <div class="info-user--email">
+                    <h6 class="info-user__title">Email</h6>
+                    <p class="info-user__text">v.chepurnoy@skyland.travel</p>
+                  </div>
+                  <div class="info-user__site">
+                    <h6 class="info-user__title">Сайт</h6>
+                    <div class="info-user__block">
+                      <p class="info-user__text">https://prd.sso.corteos.ru</p>
+                      <button class="button button--primary info-user__btn-page">
+                        <svg
+                          width="8"
+                          height="8"
+                          viewBox="0 0 9 9"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0.961155 8.5C0.71671 8.5 0.507451 8.41296 0.333377 8.23889C0.159303 8.06482 0.0722656 7.85556 0.0722656 7.61111V1.38889C0.0722656 1.14444 0.159303 0.935185 0.333377 0.761111C0.507451 0.587037 0.71671 0.5 0.961155 0.5h6.07227V1.38889H0.961155V7.61111H7.18338V4.5H8.07227V7.61111C8.07227 7.85556 7.98523 8.06482 7.81115 8.23889C7.63708 8.41296 7.42782 8.5 7.18338 8.5H0.961155ZM3.05004 6.14444L2.42782 5.52222L6.56115 1.38889h6.96115V0.5H8.07227V3.61111H7.18338V2.01111L3.05004 6.14444Z"
+                            fill="white"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="info-user--class">
+                    <h6 class="info-user__title">Класс</h6>
+                    <p class="info-user__text">ImapIdleHelper.cs</p>
+                  </div>
+                  <div class="info-user--user">
+                    <h6 class="info-user__title">Пользователь</h6>
+                    <p class="info-user__text--no-active">Клиент</p>
+                  </div>
+                  <div class="info-user--session">
+                    <h6 class="info-user__title">Сессия</h6>
+                    <p class="info-user__text">1O44AS4KU64H8</p>
+                  </div>
+                  <div class="info-user--typeObject">
+                    <h6 class="info-user__title">Тип объекта</h6>
+                    <p class="info-user__text--no-active">SiteSettingsDalObject</p>
+                  </div>
+                  <div class="info-user--idObject">
+                    <h6 class="info-user__title">ID объекта</h6>
+                    <p class="info-user__text">6688756</p>
+                  </div>
+                  <div class="info-user--ip">
+                    <h6 class="info-user__title">IP</h6>
+                    <p class="info-user__text">212.233.125.182</p>
+                  </div>
+                  <div class="info-user--source">
+                    <h6 class="info-user__title">Источник</h6>
+                    <p class="info-user__text--no-active">api</p>
+                  </div>
+                  <button class="button button--primary info-user__donwnload">Скачать</button>
                 </div>
               </div>
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса:</span>
-                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                  </p>
+              <div class="modal-window-log__r-side">
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса:</span>
+                      bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса завершена</span>
+                    </p>
+                  </div>
                 </div>
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса завершена</span>
-                  </p>
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса:</span>
+                      bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса завершена</span>
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса:</span>
-                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                  </p>
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса:</span>
+                      bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса завершена</span>
+                    </p>
+                  </div>
                 </div>
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса завершена</span>
-                  </p>
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса:</span>
+                      bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса завершена</span>
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса:</span>
-                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                  </p>
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса:</span>
+                      bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса завершена</span>
+                    </p>
+                  </div>
                 </div>
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса завершена</span>
-                  </p>
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса:</span>
+                      bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса завершена</span>
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса:</span>
-                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                  </p>
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса:</span>
+                      bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса завершена</span>
+                    </p>
+                  </div>
                 </div>
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса завершена</span>
-                  </p>
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса:</span>
+                      bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса завершена</span>
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса:</span>
-                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                  </p>
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса:</span>
+                      bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса завершена</span>
+                    </p>
+                  </div>
                 </div>
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса завершена</span>
-                  </p>
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса:</span>
+                      bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса завершена</span>
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса:</span>
-                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                  </p>
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса:</span>
+                      bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса завершена</span>
+                    </p>
+                  </div>
                 </div>
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса завершена</span>
-                  </p>
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса:</span>
+                      bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса завершена</span>
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса:</span>
-                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                  </p>
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса:</span>
+                      bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса завершена</span>
+                    </p>
+                  </div>
                 </div>
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса завершена</span>
-                  </p>
-                </div>
-              </div>
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса:</span>
-                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                  </p>
-                </div>
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса завершена</span>
-                  </p>
-                </div>
-              </div>
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса:</span>
-                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                  </p>
-                </div>
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса завершена</span>
-                  </p>
-                </div>
-              </div>
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса:</span>
-                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                  </p>
-                </div>
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса завершена</span>
-                  </p>
-                </div>
-              </div>
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса:</span>
-                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                  </p>
-                </div>
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса завершена</span>
-                  </p>
-                </div>
-              </div>
 
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса:</span>
-                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса:</span>
+                      bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса завершена</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса:</span>
+                      bbc66164-75a3-4f2a-94a2-e31955e8ed28
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>Загрузка поискового запроса завершена</span>
+                    </p>
+                  </div>
+                </div>
+                <div class="alert alert--error">
+                  <p class="alert__date">14 ноя, 12:30:56</p>
+                  <p class="alert__message">
+                    <span>ОШИБКА: EndCustomerAPI:</span>
+                    Командировка #3340230 не найдена и еще что-то
                   </p>
                 </div>
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса завершена</span>
-                  </p>
-                </div>
-              </div>
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса:</span>
-                    bbc66164-75a3-4f2a-94a2-e31955e8ed28
-                  </p>
-                </div>
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>Загрузка поискового запроса завершена</span>
-                  </p>
-                </div>
-              </div>
-              <div class="alert alert--error">
-                <p class="alert__date">14 ноя, 12:30:56</p>
-                <p class="alert__message">
-                  <span>ОШИБКА: EndCustomerAPI:</span>
-                  Командировка #3340230 не найдена и еще что-то
-                </p>
-              </div>
-              <div class="log-message">
-                <div class="log-message__block">
-                  <p class="log-message__date">14 ноя, 12:30:56</p>
-                  <p class="log-message__text">
-                    <span>ПРЕДЫДУЩЕЕ</span>
-                    состояние объекта
-                  </p>
-                </div>
-                <div class="log-message__block">
-                  <p class="log-message__date"></p>
-                  <p class="log-message__xml">
-                    <prism-editor
-                      class="my-editor height-200"
-                      v-model="code"
-                      :highlight="highlighter"
-                      line-numbers
-                    ></prism-editor>
-                  </p>
+                <div class="log-message">
+                  <div class="log-message__block">
+                    <p class="log-message__date">14 ноя, 12:30:56</p>
+                    <p class="log-message__text">
+                      <span>ПРЕДЫДУЩЕЕ</span>
+                      состояние объекта
+                    </p>
+                  </div>
+                  <div class="log-message__block">
+                    <p class="log-message__date"></p>
+                    <p class="log-message__xml">
+                      <prism-editor
+                        class="my-editor height-200"
+                        v-model="code"
+                        :highlight="highlighter"
+                      ></prism-editor>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </template>
-      </b-modal>
+          </template>
+        </b-modal>
+      </div>
     </div>
-    <script>
-      Vue.use(BootstrapVue);
-      Vue.use(BootstrapVueIcons);
-
-      new Vue({
-        el: "#app",
-        data: () => ({
-          dropdownItemsCountLog: [
-            "10 000",
-            "20 000",
-            "30 000",
-            "40 000",
-            "99 999",
-          ], // Опции countLog
-          dropdownItemsFilteType: ["Все", "Normal", "Error", "Warning"], // Опции type
-          dropdownItemsCartTime: ["За последние сутки", "За последние час"], // Опции время графика
-
-          selectedItem: "10 000", // Начальное значение countLog
-          selectedItemFilteType: "Все", // Начальное значение type
-          selectedItemChratTime: "За последние сутки",
-
-          modalShow: false,
-          itemModal: undefined,
-
-          collapse: true,
-
-          draggedColumn: null,
-          draggedColumnIndex: null,
-          resizeHandleMouse: false,
-
-          dateTime: {
-            first: ["2024-12-16", "22:46:18"],
-            second: ["2024-12-17", "22:46:18"],
-          },
-
-          eventLog: [
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "warning",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Клиент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "error",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-            {
-              status: "activ",
-              date: "14 ноя, 12:30:56",
-              message: "ТАЙМЕР CallbackTimerAction",
-              email: "v.chepurnoy@skylane.com",
-              badge: "Агент",
-              site: "https://prd.sso.corteos.ru",
-              session: "ENFG2ODHWLBW",
-              id: "3117465",
-              class: "ImapIdleHelper.cs",
-              source: "imap-monitor",
-              ipClient: "212.233.132.22",
-            },
-          ],
-
-          chart: null,
-
-          options: {
-            animation: false,
-            responsive: true,
-            plugins: {
-              legend: {
-                display: false,
-              },
-            },
-            scales: {
-              x: {
-                stacked: true,
-                title: {
-                  display: true,
-                },
-              },
-              y: {
-                stacked: true,
-                title: {
-                  display: true,
-                },
-                beginAtZero: true,
-              },
-            },
-          },
-
-          code: `<Contact DateChanged="31.10.2024 23:45:11"
-                  DateCreate="27.09.2023 18:57:29" deleted="false">
-                  <id_Contact>3117465</id_Contact>
-                  <id_Person>2647942</id_Person>
-                  <id_ContactType>3</id_ContactType>
-                  <Content>SV.TIKHONOV@SEVERSTAL.COM</Content>
-                  <ContactTypeName>Email</ContactTypeName>
-                </Contact>`,
-        }),
-        methods: {
-          selectItem(item) {
-            this.selectedItem = item; // Устанавливаем выбранный элемент в countLog
-          },
-          selectItem__filteType(item) {
-            this.selectedItemFilteType = item; // Устанавливаем выбранный элемент в type
-          },
-          selectItemChartTime(item, event) {
-            this.selectedItemChratTime = item; // Устанавливаем выбранный элемент в chart time
-          },
-          highlighter(code) {
-            return Prism.highlight(code, Prism.languages.html, "html");
-          },
-
-          openModal(item) {
-            this.modalShow = true;
-            this.itemModal = item;
-          },
-
-          disableScroll() {
-            const scrollBarWidth =
-              window.innerWidth - document.documentElement.clientWidth;
-            document.documentElement.style.overflow = "hidden";
-            document.documentElement.style.paddingRight = `${scrollBarWidth}px`; // Добавляем отступ
-          },
-          enableScroll() {
-            document.documentElement.style.overflow = "";
-            document.documentElement.style.paddingRight = ""; // Убираем отступ
-          },
-
-          renderChart() {
-            const ctx = document
-              .getElementById("collapseC__logChart")
-              .getContext("2d");
-
-            // data можно потом вынести в отдельную переменую, сейчас сделано для генерации рандомных значений
-            const data = {
-              labels: this.generateLabels(),
-              datasets: [
-                {
-                  label: "Warning",
-                  data: this.generateRandomData(48, 5, 20),
-                  backgroundColor: "rgb(255, 173, 14)",
-                },
-                {
-                  label: "Active",
-                  data: this.generateRandomData(48, 10, 30),
-                  backgroundColor: "rgb(15, 144, 233)",
-                },
-                {
-                  label: "Error",
-                  data: this.generateRandomData(48, 1, 10),
-                  backgroundColor: "rgb(255, 73, 88)",
-                },
-              ],
-            };
-
-            // const options = this.options;
-            const options = {
-              animation: false,
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: {
-                legend: {
-                  display: false,
-                },
-              },
-              scales: {
-                x: {
-                  stacked: true,
-                  title: {
-                    display: true,
-                  },
-                  ticks: {
-                    maxRotation: 0,
-                    minRotation: 0,
-                    autoSkip: true,
-                  },
-                },
-                y: {
-                  stacked: true,
-                  title: {
-                    display: true,
-                  },
-                  beginAtZero: true,
-                },
-              },
-            };
-
-            // Создание графика
-            this.chart = new Chart(ctx, {
-              type: "bar",
-              data,
-              options,
-            });
-          },
-
-          // удалить. Нужно только для рандомной генерации
-          generateLabels() {
-            const labels = [];
-            let currentDate = new Date();
-            currentDate.setHours(currentDate.getHours() - 24);
-
-            for (let i = 0; i < 24; i++) {
-              labels.push(
-                currentDate.toISOString().slice(10, 16).replace("T", " ")
-              );
-              currentDate.setHours(currentDate.getHours() + 1);
-            }
-
-            return labels;
-          },
-
-          // удалить. Нужно только для рандомной генерации
-          generateRandomData(count, min, max) {
-            const data = [];
-            for (let i = 0; i < count; i++) {
-              data.push(Math.floor(Math.random() * (max - min + 1)) + min);
-            }
-            return data;
-          },
-
-          // ТАБЛИЦА
-          // закрепление
-          pin(item) {
-            const th = item.target.closest("th");
-            const span = item.target.closest("span");
-            const borderTh = document.querySelector(
-              ".tableC__fixed .tableC__border"
-            );
-            const tableFixed = document.querySelector(".tableC__fixed");
-            const tableScroll = document.querySelector(".tableC__scroll");
-
-            if (!tableFixed || !tableScroll) {
-              console.error("Таблицы не найдены. Проверьте классы.");
-              return;
-            }
-
-            const parentRow = th.parentElement;
-
-            const arrayParentRow = Array.from(parentRow.children);
-
-            const arraytableFixed = Array.from(
-              tableFixed.querySelectorAll("th")
-            );
-
-            const thIndex = arrayParentRow.indexOf(th);
-            const borderIndex = arraytableFixed.indexOf(borderTh);
-            console.log(arraytableFixed);
-
-            const currentTable = th.closest("table");
-
-            if (currentTable === tableScroll) {
-              const rowsScroll = tableScroll.querySelectorAll("tbody tr");
-              const rowsFixed = tableFixed.querySelectorAll("tbody tr");
-
-              const columnToMove = th;
-
-              columnToMove.draggable = false;
-
-              arraytableFixed[borderIndex - 1].classList.toggle(
-                "tableC__column--no-border"
-              );
-              columnToMove.classList.toggle("tableC__column--no-border");
-
-              tableFixed
-                .querySelector("thead tr")
-                .insertBefore(columnToMove, borderTh);
-
-              rowsScroll.forEach((row, index) => {
-                const cells = Array.from(row.children);
-                const cellToMove = cells[thIndex];
-
-                if (cellToMove && rowsFixed[index]) {
-                  const borderCell = rowsFixed[index].children[borderIndex];
-
-                  rowsFixed[index].insertBefore(cellToMove, borderCell);
-                }
-              });
-
-              span.classList.toggle("tableC__icon-pin--disabled");
-            } else if (currentTable === tableFixed) {
-              const rowsFixed = tableFixed.querySelectorAll("tbody tr");
-              const rowsScroll = tableScroll.querySelectorAll("tbody tr");
-
-              const columnToMove = th;
-
-              columnToMove.draggable = true;
-
-              arraytableFixed[borderIndex - 2].classList.toggle(
-                "tableC__column--no-border"
-              );
-              columnToMove.classList.toggle("tableC__column--no-border");
-
-              tableScroll
-                .querySelector("thead tr")
-                .insertBefore(
-                  columnToMove,
-                  tableScroll.querySelector("thead tr").firstChild
-                );
-
-              rowsFixed.forEach((row, index) => {
-                const cells = Array.from(row.children);
-                const cellToMove = cells[thIndex];
-
-                if (cellToMove && rowsScroll[index]) {
-                  rowsScroll[index].insertBefore(
-                    cellToMove,
-                    rowsScroll[index].firstChild
-                  );
-                }
-              });
-
-              span.classList.toggle("tableC__icon-pin--disabled");
-            }
-
-            if (window.innerWidth < 1600) {
-              const container = document.querySelector(".containerС");
-              const blockScroll = document.querySelector(
-                ".tableC__block-scroll"
-              );
-
-              blockScroll.style.width = `
-                ${
-                  (window.innerWidth - container.offsetWidth) / 2 +
-                  (container.offsetWidth - tableFixed.offsetWidth) -
-                  24
-                }px`;
-              blockScroll.style.paddingRight = `
-                ${(window.innerWidth - container.offsetWidth + 17) / 2}px`;
-            }
-          },
-
-          // darg and drop
-          drag(event) {
-            const column = event.target.closest("th");
-
-            if (column && !this.resizeHandleMouse) {
-              this.draggedColumn = column;
-              this.draggedColumnIndex = Array.from(
-                column.parentNode.children
-              ).indexOf(column);
-              column.classList.add("dragging");
-            } else {
-              event.preventDefault();
-            }
-          },
-
-          allowDrop(event) {
-            event.preventDefault();
-          },
-
-          drop(event) {
-            event.preventDefault();
-
-            const target = event.target.closest("th");
-
-            if (
-              this.draggedColumn &&
-              target &&
-              target !== this.draggedColumn &&
-              target.closest(".tableC").classList.contains("tableC__scroll")
-            ) {
-              const table = document.querySelector(".tableC__scroll");
-              const headerRow = table.querySelector("thead tr");
-
-              const targetIndex = Array.from(headerRow.children).indexOf(
-                target
-              );
-              const draggedIndex = Array.from(headerRow.children).indexOf(
-                this.draggedColumn
-              );
-
-              if (targetIndex < draggedIndex) {
-                headerRow.insertBefore(this.draggedColumn, target);
-              } else {
-                headerRow.insertBefore(this.draggedColumn, target.nextSibling);
-              }
-
-              const rows = table.querySelectorAll("tbody tr");
-
-              rows.forEach((row) => {
-                const cells = Array.from(row.children);
-                const draggedCell = cells[draggedIndex];
-                const targetCell = cells[targetIndex];
-
-                if (draggedCell) {
-                  if (targetIndex < draggedIndex) {
-                    row.insertBefore(draggedCell, targetCell);
-                  } else {
-                    row.insertBefore(draggedCell, targetCell.nextSibling);
-                  }
-                }
-              });
-
-              this.draggedColumn.classList.remove("dragging");
-              this.draggedColumn = null;
-              this.draggedColumnIndex = null;
-            }
-          },
-
-          startResize(event, th) {
-            const tableScroll = document.querySelector(".tableC__scroll");
-            this.resizeHandleMouse = true;
-            let startX = event.pageX;
-            let startWidth = th.offsetWidth;
-            let startWidthTable = tableScroll.offsetWidth;
-            let newTableWidth;
-
-            const mouseMove = (e) => {
-              const newWidth = startWidth + (e.pageX - startX);
-
-              if (th.closest(".tableC__scroll")) {
-                newTableWidth = startWidthTable + e.pageX - startX;
-              }
-              const minWidth = 130;
-
-              if (newWidth > minWidth) {
-                if (th.closest(".tableC__scroll")) {
-                  tableScroll.style.width = `${newTableWidth}px`;
-                }
-                th.style.width = `${newWidth}px`;
-              }
-            };
-
-            const mouseUp = () => {
-              document.removeEventListener("mousemove", mouseMove);
-              document.removeEventListener("mouseup", mouseUp);
-              this.resizeHandleMouse = false;
-            };
-
-            document.addEventListener("mousemove", mouseMove);
-            document.addEventListener("mouseup", mouseUp);
-
-            event.stopPropagation();
-          },
-        },
-        mounted() {
-          this.$root.$on("bv::dropdown::show", (bvEvent) => {
-            if (this.collapse) {
-              console.log(bvEvent);
-
-              this.$refs.dropdownIcon.hide();
-            }
-          });
-
-          this.$nextTick(() => {
-            document.querySelectorAll("th").forEach((th) => {
-              th.addEventListener("dragstart", this.drag);
-              th.addEventListener("dragover", this.allowDrop);
-              th.addEventListener("drop", this.drop);
-
-              th.querySelectorAll(".resize-handle").forEach((handle) => {
-                handle.addEventListener("mousedown", (e) =>
-                  this.startResize(e, th)
-                );
-              });
-            });
-          });
-
-          const tableCScrollLine = document.querySelectorAll(
-            ".tableC__scroll .tableC__line"
-          );
-
-          const tableCFixedLine = document.querySelectorAll(
-            ".tableC__fixed .tableC__line"
-          );
-
-          this.renderChart();
-
-          // выделение строк таблицы
-          tableCScrollLine.forEach((item) => {
-            item.addEventListener("mouseenter", () => {
-              const index = Array.from(tableCScrollLine).indexOf(item);
-
-              tableCFixedLine[index].classList.add("tableC__line--hover");
-            });
-
-            item.addEventListener("mouseleave", () => {
-              const index = Array.from(tableCScrollLine).indexOf(item);
-
-              tableCFixedLine[index].classList.remove("tableC__line--hover");
-            });
-          });
-
-          // выделение строк таблицы
-          tableCFixedLine.forEach((item) => {
-            item.addEventListener("mouseenter", () => {
-              const index = Array.from(tableCFixedLine).indexOf(item);
-
-              tableCScrollLine[index].classList.add("tableC__line--hover");
-            });
-
-            item.addEventListener("mouseleave", () => {
-              const index = Array.from(tableCFixedLine).indexOf(item);
-
-              tableCScrollLine[index].classList.remove("tableC__line--hover");
-            });
-          });
-
-          // установка значений для блока datetime
-          const today = new Date();
-          today.setDate(today.getDate() - 1);
-
-          this.$set(this.dateTime.first, 0, today.toISOString().substr(0, 10));
-          this.$set(
-            this.dateTime.second,
-            0,
-            new Date().toISOString().substr(0, 10)
-          );
-          this.$set(
-            this.dateTime.first,
-            1,
-            new Date().toTimeString().substr(0, 8)
-          );
-          this.$set(
-            this.dateTime.second,
-            1,
-            new Date().toTimeString().substr(0, 8)
-          );
-
-          console.log(this.dateTime);
-        },
-      });
-    </script>
+    <script src="./js/script.js"></script>
     <script src="./js/button-click.js"></script>
   </body>
 </html>

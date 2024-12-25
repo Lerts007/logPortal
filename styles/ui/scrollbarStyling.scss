@@ -38,8 +38,43 @@
     background: transparent;
   }
   &::-webkit-scrollbar-button:start:increment {
-    // width: calc((100vw - 1300px) / 2);
+    width: 5px;
     display: block;
     background: transparent;
+  }
+}
+
+%scrollbarStyling-X-mobile {
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $secondary-opacity-30;
+    border-radius: 2px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $secondary;
+    border-radius: 2px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $active;
+  }
+
+  &::-webkit-scrollbar-button:end:decrement {
+    width: 20px;
+    display: block;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-button:start:increment {
+    width: 5px;
+
+    display: block;
+    background: transparent;
+  }
+}
+
+%scrollbarStyling-none {
+  &::-webkit-scrollbar {
+    display: none;
   }
 }

@@ -1,0 +1,12 @@
+.log-message {
+  gap: 12px;
+  &__text {
+    white-space: inherit;
+    text-overflow: inherit;
+  }
+
+  &__block {
+    grid-template-columns: inherit;
+    gap: 6px;
+  }
+}
