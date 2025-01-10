@@ -21,6 +21,9 @@
     <!-- Chart.js -->
     <script src="framework/chart.js"></script>
 
+    <!-- vue-the-mask -->
+    <script src="framework/vue-the-mask.min.js"></script>
+
     <link rel="stylesheet" href="styles/styles.css" />
     <title>Document</title>
   </head>
@@ -257,17 +260,23 @@
                     />
                   </svg>
                 </span>
-                <input
-                  class="datetime__input datetime__date"
-                  type="date"
-                  v-model="dateTime.first[0]"
-                />
+                <div>
+                  <the-mask
+                    class="datetime__input datetime__date"
+                    :mask="['##.##.####']"
+                    :masked="true"
+                    v-model="dateTime.first[0]"
+                  />
+                </div>
                 <div class="datetime__border"></div>
-                <input
-                  class="datetime__input datetime__time"
-                  type="time"
-                  v-model="dateTime.first[1]"
-                />
+                <div>
+                  <the-mask
+                    class="datetime__input datetime__time"
+                    :mask="['##:##:##']"
+                    :masked="true"
+                    v-model="dateTime.first[1]"
+                  />
+                </div>
               </div>
 
               <div class="log-table-settings__dash"></div>
@@ -296,17 +305,23 @@
                     />
                   </svg>
                 </span>
-                <input
-                  class="datetime__input datetime__date"
-                  type="date"
-                  v-model="dateTime.second[0]"
-                />
+                <div>
+                  <the-mask
+                    class="datetime__input datetime__date"
+                    :mask="['##.##.####']"
+                    :masked="true"
+                    v-model="dateTime.second[0]"
+                  />
+                </div>
                 <div class="datetime__border"></div>
-                <input
-                  class="datetime__input datetime__time"
-                  type="time"
-                  v-model="dateTime.second[1]"
-                />
+                <div>
+                  <the-mask
+                    class="datetime__input datetime__time"
+                    :mask="['##:##:##']"
+                    :masked="true"
+                    v-model="dateTime.second[1]"
+                  />
+                </div>
               </div>
               <button class="button button--primary log-table-settings__btn">Найти</button>
               <button class="log-table-settings__reset">

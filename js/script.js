@@ -561,10 +561,13 @@ new Vue({
     const today = new Date();
     today.setDate(today.getDate() - 1);
 
-    this.$set(this.dateTime.first, 0, today.toISOString().substr(0, 10));
-    this.$set(this.dateTime.second, 0, new Date().toISOString().substr(0, 10));
-    this.$set(this.dateTime.first, 1, new Date().toTimeString().substr(0, 8));
-    this.$set(this.dateTime.second, 1, new Date().toTimeString().substr(0, 8));
+    this.$set(this.dateTime.first, 0, today.toLocaleDateString("ru-RU"));
+    console.log(today.toLocaleDateString("ru-RU"));
+    console.log(today.toLocaleTimeString("ru-RU"));
+
+    this.$set(this.dateTime.second, 0, new Date().toLocaleDateString("ru-RU"));
+    this.$set(this.dateTime.first, 1, new Date().toLocaleTimeString("ru-RU"));
+    this.$set(this.dateTime.second, 1, new Date().toLocaleTimeString("ru-RU"));
 
     console.log(this.dateTime);
 

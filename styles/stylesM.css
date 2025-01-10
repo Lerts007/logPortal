@@ -366,6 +366,7 @@ h6 {
   background: transparent;
 }
 .tableC__block-scroll::-webkit-scrollbar-button:start:increment {
+  width: 5px;
   display: block;
   background: transparent;
 }
@@ -1627,6 +1628,30 @@ h6 {
 .alert__message {
   white-space: inherit;
   text-overflow: inherit;
+}
+
+.modal-datetime-mobile {
+  padding: 13px 24px;
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+}
+
+.datetime-mobile {
+  padding: 20px 32px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(41, 53, 83);
+  border-radius: 8px;
+}
+.datetime-mobile__title {
+  font-weight: 700;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+}
+
+.rolldate-panel {
+  margin: 10px;
 }
 
 .log {

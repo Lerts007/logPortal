@@ -160,8 +160,8 @@
   &__line-cell {
     padding: 0 10px;
 
-    width: 60px;
-    max-width: 135px;
+    min-width: 133px;
+    max-width: 160px;
     height: 36px;
 
     text-align: left;
@@ -171,6 +171,7 @@
     overflow: hidden;
 
     &--status {
+      min-width: 30px;
       max-width: 30px;
 
       display: flex;
@@ -182,6 +183,12 @@
       & svg {
         transform: rotate(-90deg);
       }
+    }
+    &--badge {
+      min-width: 90px;
+    }
+    &--id {
+      min-width: 90px;
     }
 
     &--activ {

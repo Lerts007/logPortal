@@ -1059,8 +1059,8 @@ h6 {
 }
 .tableC__line-cell {
   padding: 0 10px;
-  width: 60px;
-  max-width: 135px;
+  min-width: 133px;
+  max-width: 160px;
   height: 36px;
   text-align: left;
   white-space: nowrap;
@@ -1068,6 +1068,7 @@ h6 {
   overflow: hidden;
 }
 .tableC__line-cell--status {
+  min-width: 30px;
   max-width: 30px;
   display: flex;
   align-items: center;
@@ -1077,6 +1078,12 @@ h6 {
 }
 .tableC__line-cell--status svg {
   transform: rotate(-90deg);
+}
+.tableC__line-cell--badge {
+  min-width: 90px;
+}
+.tableC__line-cell--id {
+  min-width: 90px;
 }
 .tableC__line-cell--activ {
   background-color: rgb(15, 144, 233);

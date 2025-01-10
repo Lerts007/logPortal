@@ -1,0 +1,23 @@
+.modal-datetime-mobile {
+  padding: 13px 24px;
+
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+.datetime-mobile {
+  padding: 20px 32px;
+
+  display: flex;
+  justify-content: center;
+
+  background-color: $secondary;
+  border-radius: 8px;
+
+  &__title {
+    @include fonts(700, 14px, $white);
+  }
+}
+
+.rolldate-panel {
+  margin: 10px;
+}
