@@ -497,6 +497,7 @@ new Vue({
         this.dateTime.first = new Date();
         inst.setOptions({
           headerText: `${new Date(this.dateTime.first).getFullYear()}`,
+          max: this.dateTime.second,
         });
       },
       onChange: (event, inst) => {
@@ -504,6 +505,7 @@ new Vue({
         console.log(event.headerText);
         inst.setOptions({
           headerText: `${new Date(this.dateTime.first).getFullYear()}`,
+          max: this.dateTime.second,
         });
       },
 
@@ -525,12 +527,14 @@ new Vue({
         this.dateTime.second = new Date();
         inst.setOptions({
           headerText: `${new Date(this.dateTime.second).getFullYear()}`,
+          min: this.dateTime.first,
         });
       },
       onChange: (event, inst) => {
         this.dateTime.second = event.value;
         inst.setOptions({
           headerText: `${new Date(this.dateTime.second).getFullYear()}`,
+          min: this.dateTime.first,
         });
       },
 
