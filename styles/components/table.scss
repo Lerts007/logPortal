@@ -202,7 +202,12 @@
     }
 
     &--domain-info {
-      max-width: 695px;
+      max-width: 650px;
+    }
+
+    &--button {
+      min-width: 205px;
+      max-width: 205px;
     }
   }
   &__status {

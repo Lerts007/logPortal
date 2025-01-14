@@ -29,13 +29,13 @@
 }
 
 html {
-  width: 100vw;
+  width: 100%;
   background-color: #f4f4f5;
   overflow-x: hidden;
 }
 
 body {
-  width: 100vw;
+  width: 100%;
   position: relative;
   background-color: #f4f4f5;
   line-height: inherit;
@@ -1095,7 +1095,11 @@ h6 {
   background-color: rgb(242, 20, 17);
 }
 .tableC__line-cell--domain-info {
-  max-width: 695px;
+  max-width: 650px;
+}
+.tableC__line-cell--button {
+  min-width: 205px;
+  max-width: 205px;
 }
 .tableC__status {
   width: 6px;
@@ -1300,9 +1304,7 @@ h6 {
 
 .modal {
   padding: 63px 47px !important;
-  background-color: rgba(0, 0, 0, 0.6);
-  -webkit-backdrop-filter: blur(8px);
-          backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-dialog {
@@ -1501,8 +1503,6 @@ h6 {
 
 .log {
   position: relative;
-  width: -moz-max-content;
-  width: max-content;
   display: flex;
 }
 

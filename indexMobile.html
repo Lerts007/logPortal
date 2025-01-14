@@ -21,6 +21,10 @@
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <!--MOBISCROLL-->
+    <link rel="stylesheet" href="framework/mobiscroll/css/mobiscroll.javascript.min.css" />
+    <script src="framework/mobiscroll/js/mobiscroll.javascript.min.js"></script>
+
     <link rel="stylesheet" href="styles/stylesM.css" />
     <title>Document</title>
   </head>
@@ -52,8 +56,8 @@
             </svg>
           </div>
           <div class="header__datetimes">
-            <div class="datetime">25 ноя, 12:45</div>
-            <div class="datetime">25 ноя, 12:45</div>
+            <input id="prev" class="datetime" value="dateTime.first" />
+            <input id="next" class="datetime" value="dateTime.second" />
           </div>
           <div class="header__icon header__icon-search" @click="headerSearch = true">
             <svg
@@ -135,6 +139,7 @@
         </div>
       </header>
       <main>
+        {{dateTime.first}}
         <b-modal
           v-model="modalFilter"
           class="modalFilter"
@@ -192,7 +197,6 @@
                         ref="dropdownIcon"
                         size="lg"
                         variant="link"
-                        lazy
                         toggle-class="text-decoration-none dropdown__toggle"
                         menu-class="dropdown__menu "
                         no-caret
@@ -219,7 +223,32 @@
                         </template>
                         <b-dropdown-item
                           href=""
-                          link-class="dropdown__item"
+                          link-class="dropdown__item dropdown__item--attach"
+                          boundary="viewport"
+                          @click.prevent="pin"
+                          style="display: none"
+                        >
+                          <span class="tableC__icon">
+                            <svg
+                              width="8"
+                              height="11"
+                              viewBox="0 0 8 11"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M2.0934 0.00244141C1.26497 0.00244141 0.593397 0.674014 0.593397 1.50244V1.52757C0.593397 2.10718 0.927322 2.63492 1.4511 2.8831L1.47378 2.89385C1.64838 2.97658 1.75968 3.15249 1.75968 3.34569V5.26106L0.478465 6.47523C0.179558 6.75849 0.0102539 7.15219 0.0102539 7.56399V8.23921V8.73921H0.510254H3.50909V11.0019H4.50909V8.73921H7.50798H8.00798V8.23921V7.56399C8.00798 7.15219 7.83867 6.75849 7.53976 6.47523L6.25854 5.26106V3.34569C6.25854 3.15249 6.36985 2.97658 6.54445 2.89385L6.56713 2.8831C7.09091 2.63492 7.42483 2.10718 7.42483 1.52757V1.50244C7.42483 0.674014 6.75326 0.00244141 5.92483 0.00244141H2.0934ZM1.5934 1.50244C1.5934 1.2263 1.81725 1.00244 2.0934 1.00244H5.92483C6.20097 1.00244 6.42483 1.2263 6.42483 1.50244V1.52757C6.42483 1.72078 6.31352 1.89669 6.13893 1.97942L6.11625 1.99016C5.59247 2.23835 5.25854 2.76609 5.25854 3.34569V5.47608V5.6911L5.41462 5.839L6.85191 7.20107C6.95154 7.29549 7.00798 7.42672 7.00798 7.56399V7.73921H1.01025V7.56399C1.01025 7.42672 1.06669 7.29549 1.16632 7.20107L2.60361 5.839L2.75968 5.6911V5.47608V3.34569C2.75968 2.76609 2.42576 2.23835 1.90198 1.99016L1.8793 1.97942C1.70471 1.89669 1.5934 1.72078 1.5934 1.52757V1.50244Z"
+                                fill="#293553"
+                              />
+                            </svg>
+                          </span>
+                          Закрепить
+                        </b-dropdown-item>
+                        <b-dropdown-item
+                          href=""
+                          link-class="dropdown__item dropdown__item--detach"
                           boundary="viewport"
                           @click.prevent="pin"
                         >
@@ -239,8 +268,7 @@
                               />
                             </svg>
                           </span>
-
-                          Закрепить
+                          Открепить
                         </b-dropdown-item>
                         <b-dropdown-item
                           href="#"
@@ -345,7 +373,6 @@
                           ref="dropdownIcon"
                           size="lg"
                           variant="link"
-                          lazy
                           toggle-class="text-decoration-none dropdown__toggle"
                           menu-class="dropdown__menu "
                           no-caret
@@ -372,7 +399,7 @@
                           </template>
                           <b-dropdown-item
                             href=""
-                            link-class="dropdown__item"
+                            link-class="dropdown__item dropdown__item--attach"
                             boundary="viewport"
                             @click.prevent="pin"
                           >
@@ -392,8 +419,32 @@
                                 />
                               </svg>
                             </span>
-
                             Закрепить
+                          </b-dropdown-item>
+                          <b-dropdown-item
+                            href=""
+                            link-class="dropdown__item dropdown__item--detach"
+                            boundary="viewport"
+                            @click.prevent="pin"
+                            style="display: none"
+                          >
+                            <span class="tableC__icon">
+                              <svg
+                                width="8"
+                                height="11"
+                                viewBox="0 0 8 11"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M2.0934 0.00244141C1.26497 0.00244141 0.593397 0.674014 0.593397 1.50244V1.52757C0.593397 2.10718 0.927322 2.63492 1.4511 2.8831L1.47378 2.89385C1.64838 2.97658 1.75968 3.15249 1.75968 3.34569V5.26106L0.478465 6.47523C0.179558 6.75849 0.0102539 7.15219 0.0102539 7.56399V8.23921V8.73921H0.510254H3.50909V11.0019H4.50909V8.73921H7.50798H8.00798V8.23921V7.56399C8.00798 7.15219 7.83867 6.75849 7.53976 6.47523L6.25854 5.26106V3.34569C6.25854 3.15249 6.36985 2.97658 6.54445 2.89385L6.56713 2.8831C7.09091 2.63492 7.42483 2.10718 7.42483 1.52757V1.50244C7.42483 0.674014 6.75326 0.00244141 5.92483 0.00244141H2.0934ZM1.5934 1.50244C1.5934 1.2263 1.81725 1.00244 2.0934 1.00244H5.92483C6.20097 1.00244 6.42483 1.2263 6.42483 1.50244V1.52757C6.42483 1.72078 6.31352 1.89669 6.13893 1.97942L6.11625 1.99016C5.59247 2.23835 5.25854 2.76609 5.25854 3.34569V5.47608V5.6911L5.41462 5.839L6.85191 7.20107C6.95154 7.29549 7.00798 7.42672 7.00798 7.56399V7.73921H1.01025V7.56399C1.01025 7.42672 1.06669 7.29549 1.16632 7.20107L2.60361 5.839L2.75968 5.6911V5.47608V3.34569C2.75968 2.76609 2.42576 2.23835 1.90198 1.99016L1.8793 1.97942C1.70471 1.89669 1.5934 1.72078 1.5934 1.52757V1.50244Z"
+                                  fill="#293553"
+                                />
+                              </svg>
+                            </span>
+                            Открепить
                           </b-dropdown-item>
                           <b-dropdown-item
                             href="#"
@@ -472,7 +523,6 @@
                           ref="dropdownIcon"
                           size="lg"
                           variant="link"
-                          lazy
                           toggle-class="text-decoration-none dropdown__toggle"
                           menu-class="dropdown__menu "
                           no-caret
@@ -499,7 +549,7 @@
                           </template>
                           <b-dropdown-item
                             href=""
-                            link-class="dropdown__item"
+                            link-class="dropdown__item dropdown__item--attach"
                             boundary="viewport"
                             @click.prevent="pin"
                           >
@@ -519,8 +569,32 @@
                                 />
                               </svg>
                             </span>
-
                             Закрепить
+                          </b-dropdown-item>
+                          <b-dropdown-item
+                            href=""
+                            link-class="dropdown__item dropdown__item--detach"
+                            boundary="viewport"
+                            @click.prevent="pin"
+                            style="display: none"
+                          >
+                            <span class="tableC__icon">
+                              <svg
+                                width="8"
+                                height="11"
+                                viewBox="0 0 8 11"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M2.0934 0.00244141C1.26497 0.00244141 0.593397 0.674014 0.593397 1.50244V1.52757C0.593397 2.10718 0.927322 2.63492 1.4511 2.8831L1.47378 2.89385C1.64838 2.97658 1.75968 3.15249 1.75968 3.34569V5.26106L0.478465 6.47523C0.179558 6.75849 0.0102539 7.15219 0.0102539 7.56399V8.23921V8.73921H0.510254H3.50909V11.0019H4.50909V8.73921H7.50798H8.00798V8.23921V7.56399C8.00798 7.15219 7.83867 6.75849 7.53976 6.47523L6.25854 5.26106V3.34569C6.25854 3.15249 6.36985 2.97658 6.54445 2.89385L6.56713 2.8831C7.09091 2.63492 7.42483 2.10718 7.42483 1.52757V1.50244C7.42483 0.674014 6.75326 0.00244141 5.92483 0.00244141H2.0934ZM1.5934 1.50244C1.5934 1.2263 1.81725 1.00244 2.0934 1.00244H5.92483C6.20097 1.00244 6.42483 1.2263 6.42483 1.50244V1.52757C6.42483 1.72078 6.31352 1.89669 6.13893 1.97942L6.11625 1.99016C5.59247 2.23835 5.25854 2.76609 5.25854 3.34569V5.47608V5.6911L5.41462 5.839L6.85191 7.20107C6.95154 7.29549 7.00798 7.42672 7.00798 7.56399V7.73921H1.01025V7.56399C1.01025 7.42672 1.06669 7.29549 1.16632 7.20107L2.60361 5.839L2.75968 5.6911V5.47608V3.34569C2.75968 2.76609 2.42576 2.23835 1.90198 1.99016L1.8793 1.97942C1.70471 1.89669 1.5934 1.72078 1.5934 1.52757V1.50244Z"
+                                  fill="#293553"
+                                />
+                              </svg>
+                            </span>
+                            Открепить
                           </b-dropdown-item>
                           <b-dropdown-item
                             href="#"
@@ -599,7 +673,6 @@
                           ref="dropdownIcon"
                           size="lg"
                           variant="link"
-                          lazy
                           toggle-class="text-decoration-none dropdown__toggle"
                           menu-class="dropdown__menu "
                           no-caret
@@ -626,7 +699,7 @@
                           </template>
                           <b-dropdown-item
                             href=""
-                            link-class="dropdown__item"
+                            link-class="dropdown__item dropdown__item--attach"
                             boundary="viewport"
                             @click.prevent="pin"
                           >
@@ -646,8 +719,32 @@
                                 />
                               </svg>
                             </span>
-
                             Закрепить
+                          </b-dropdown-item>
+                          <b-dropdown-item
+                            href=""
+                            link-class="dropdown__item dropdown__item--detach"
+                            boundary="viewport"
+                            @click.prevent="pin"
+                            style="display: none"
+                          >
+                            <span class="tableC__icon">
+                              <svg
+                                width="8"
+                                height="11"
+                                viewBox="0 0 8 11"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M2.0934 0.00244141C1.26497 0.00244141 0.593397 0.674014 0.593397 1.50244V1.52757C0.593397 2.10718 0.927322 2.63492 1.4511 2.8831L1.47378 2.89385C1.64838 2.97658 1.75968 3.15249 1.75968 3.34569V5.26106L0.478465 6.47523C0.179558 6.75849 0.0102539 7.15219 0.0102539 7.56399V8.23921V8.73921H0.510254H3.50909V11.0019H4.50909V8.73921H7.50798H8.00798V8.23921V7.56399C8.00798 7.15219 7.83867 6.75849 7.53976 6.47523L6.25854 5.26106V3.34569C6.25854 3.15249 6.36985 2.97658 6.54445 2.89385L6.56713 2.8831C7.09091 2.63492 7.42483 2.10718 7.42483 1.52757V1.50244C7.42483 0.674014 6.75326 0.00244141 5.92483 0.00244141H2.0934ZM1.5934 1.50244C1.5934 1.2263 1.81725 1.00244 2.0934 1.00244H5.92483C6.20097 1.00244 6.42483 1.2263 6.42483 1.50244V1.52757C6.42483 1.72078 6.31352 1.89669 6.13893 1.97942L6.11625 1.99016C5.59247 2.23835 5.25854 2.76609 5.25854 3.34569V5.47608V5.6911L5.41462 5.839L6.85191 7.20107C6.95154 7.29549 7.00798 7.42672 7.00798 7.56399V7.73921H1.01025V7.56399C1.01025 7.42672 1.06669 7.29549 1.16632 7.20107L2.60361 5.839L2.75968 5.6911V5.47608V3.34569C2.75968 2.76609 2.42576 2.23835 1.90198 1.99016L1.8793 1.97942C1.70471 1.89669 1.5934 1.72078 1.5934 1.52757V1.50244Z"
+                                  fill="#293553"
+                                />
+                              </svg>
+                            </span>
+                            Открепить
                           </b-dropdown-item>
                           <b-dropdown-item
                             href="#"
@@ -726,7 +823,6 @@
                           ref="dropdownIcon"
                           size="lg"
                           variant="link"
-                          lazy
                           toggle-class="text-decoration-none dropdown__toggle"
                           menu-class="dropdown__menu "
                           no-caret
@@ -753,7 +849,7 @@
                           </template>
                           <b-dropdown-item
                             href=""
-                            link-class="dropdown__item"
+                            link-class="dropdown__item dropdown__item--attach"
                             boundary="viewport"
                             @click.prevent="pin"
                           >
@@ -773,8 +869,32 @@
                                 />
                               </svg>
                             </span>
-
                             Закрепить
+                          </b-dropdown-item>
+                          <b-dropdown-item
+                            href=""
+                            link-class="dropdown__item dropdown__item--detach"
+                            boundary="viewport"
+                            @click.prevent="pin"
+                            style="display: none"
+                          >
+                            <span class="tableC__icon">
+                              <svg
+                                width="8"
+                                height="11"
+                                viewBox="0 0 8 11"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M2.0934 0.00244141C1.26497 0.00244141 0.593397 0.674014 0.593397 1.50244V1.52757C0.593397 2.10718 0.927322 2.63492 1.4511 2.8831L1.47378 2.89385C1.64838 2.97658 1.75968 3.15249 1.75968 3.34569V5.26106L0.478465 6.47523C0.179558 6.75849 0.0102539 7.15219 0.0102539 7.56399V8.23921V8.73921H0.510254H3.50909V11.0019H4.50909V8.73921H7.50798H8.00798V8.23921V7.56399C8.00798 7.15219 7.83867 6.75849 7.53976 6.47523L6.25854 5.26106V3.34569C6.25854 3.15249 6.36985 2.97658 6.54445 2.89385L6.56713 2.8831C7.09091 2.63492 7.42483 2.10718 7.42483 1.52757V1.50244C7.42483 0.674014 6.75326 0.00244141 5.92483 0.00244141H2.0934ZM1.5934 1.50244C1.5934 1.2263 1.81725 1.00244 2.0934 1.00244H5.92483C6.20097 1.00244 6.42483 1.2263 6.42483 1.50244V1.52757C6.42483 1.72078 6.31352 1.89669 6.13893 1.97942L6.11625 1.99016C5.59247 2.23835 5.25854 2.76609 5.25854 3.34569V5.47608V5.6911L5.41462 5.839L6.85191 7.20107C6.95154 7.29549 7.00798 7.42672 7.00798 7.56399V7.73921H1.01025V7.56399C1.01025 7.42672 1.06669 7.29549 1.16632 7.20107L2.60361 5.839L2.75968 5.6911V5.47608V3.34569C2.75968 2.76609 2.42576 2.23835 1.90198 1.99016L1.8793 1.97942C1.70471 1.89669 1.5934 1.72078 1.5934 1.52757V1.50244Z"
+                                  fill="#293553"
+                                />
+                              </svg>
+                            </span>
+                            Открепить
                           </b-dropdown-item>
                           <b-dropdown-item
                             href="#"
@@ -853,7 +973,6 @@
                           ref="dropdownIcon"
                           size="lg"
                           variant="link"
-                          lazy
                           toggle-class="text-decoration-none dropdown__toggle"
                           menu-class="dropdown__menu "
                           no-caret
@@ -880,7 +999,7 @@
                           </template>
                           <b-dropdown-item
                             href=""
-                            link-class="dropdown__item"
+                            link-class="dropdown__item dropdown__item--attach"
                             boundary="viewport"
                             @click.prevent="pin"
                           >
@@ -900,8 +1019,32 @@
                                 />
                               </svg>
                             </span>
-
                             Закрепить
+                          </b-dropdown-item>
+                          <b-dropdown-item
+                            href=""
+                            link-class="dropdown__item dropdown__item--detach"
+                            boundary="viewport"
+                            @click.prevent="pin"
+                            style="display: none"
+                          >
+                            <span class="tableC__icon">
+                              <svg
+                                width="8"
+                                height="11"
+                                viewBox="0 0 8 11"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M2.0934 0.00244141C1.26497 0.00244141 0.593397 0.674014 0.593397 1.50244V1.52757C0.593397 2.10718 0.927322 2.63492 1.4511 2.8831L1.47378 2.89385C1.64838 2.97658 1.75968 3.15249 1.75968 3.34569V5.26106L0.478465 6.47523C0.179558 6.75849 0.0102539 7.15219 0.0102539 7.56399V8.23921V8.73921H0.510254H3.50909V11.0019H4.50909V8.73921H7.50798H8.00798V8.23921V7.56399C8.00798 7.15219 7.83867 6.75849 7.53976 6.47523L6.25854 5.26106V3.34569C6.25854 3.15249 6.36985 2.97658 6.54445 2.89385L6.56713 2.8831C7.09091 2.63492 7.42483 2.10718 7.42483 1.52757V1.50244C7.42483 0.674014 6.75326 0.00244141 5.92483 0.00244141H2.0934ZM1.5934 1.50244C1.5934 1.2263 1.81725 1.00244 2.0934 1.00244H5.92483C6.20097 1.00244 6.42483 1.2263 6.42483 1.50244V1.52757C6.42483 1.72078 6.31352 1.89669 6.13893 1.97942L6.11625 1.99016C5.59247 2.23835 5.25854 2.76609 5.25854 3.34569V5.47608V5.6911L5.41462 5.839L6.85191 7.20107C6.95154 7.29549 7.00798 7.42672 7.00798 7.56399V7.73921H1.01025V7.56399C1.01025 7.42672 1.06669 7.29549 1.16632 7.20107L2.60361 5.839L2.75968 5.6911V5.47608V3.34569C2.75968 2.76609 2.42576 2.23835 1.90198 1.99016L1.8793 1.97942C1.70471 1.89669 1.5934 1.72078 1.5934 1.52757V1.50244Z"
+                                  fill="#293553"
+                                />
+                              </svg>
+                            </span>
+                            Открепить
                           </b-dropdown-item>
                           <b-dropdown-item
                             href="#"
@@ -980,7 +1123,6 @@
                           ref="dropdownIcon"
                           size="lg"
                           variant="link"
-                          lazy
                           toggle-class="text-decoration-none dropdown__toggle"
                           menu-class="dropdown__menu "
                           no-caret
@@ -1007,7 +1149,7 @@
                           </template>
                           <b-dropdown-item
                             href=""
-                            link-class="dropdown__item"
+                            link-class="dropdown__item dropdown__item--attach"
                             boundary="viewport"
                             @click.prevent="pin"
                           >
@@ -1027,8 +1169,32 @@
                                 />
                               </svg>
                             </span>
-
                             Закрепить
+                          </b-dropdown-item>
+                          <b-dropdown-item
+                            href=""
+                            link-class="dropdown__item dropdown__item--detach"
+                            boundary="viewport"
+                            @click.prevent="pin"
+                            style="display: none"
+                          >
+                            <span class="tableC__icon">
+                              <svg
+                                width="8"
+                                height="11"
+                                viewBox="0 0 8 11"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M2.0934 0.00244141C1.26497 0.00244141 0.593397 0.674014 0.593397 1.50244V1.52757C0.593397 2.10718 0.927322 2.63492 1.4511 2.8831L1.47378 2.89385C1.64838 2.97658 1.75968 3.15249 1.75968 3.34569V5.26106L0.478465 6.47523C0.179558 6.75849 0.0102539 7.15219 0.0102539 7.56399V8.23921V8.73921H0.510254H3.50909V11.0019H4.50909V8.73921H7.50798H8.00798V8.23921V7.56399C8.00798 7.15219 7.83867 6.75849 7.53976 6.47523L6.25854 5.26106V3.34569C6.25854 3.15249 6.36985 2.97658 6.54445 2.89385L6.56713 2.8831C7.09091 2.63492 7.42483 2.10718 7.42483 1.52757V1.50244C7.42483 0.674014 6.75326 0.00244141 5.92483 0.00244141H2.0934ZM1.5934 1.50244C1.5934 1.2263 1.81725 1.00244 2.0934 1.00244H5.92483C6.20097 1.00244 6.42483 1.2263 6.42483 1.50244V1.52757C6.42483 1.72078 6.31352 1.89669 6.13893 1.97942L6.11625 1.99016C5.59247 2.23835 5.25854 2.76609 5.25854 3.34569V5.47608V5.6911L5.41462 5.839L6.85191 7.20107C6.95154 7.29549 7.00798 7.42672 7.00798 7.56399V7.73921H1.01025V7.56399C1.01025 7.42672 1.06669 7.29549 1.16632 7.20107L2.60361 5.839L2.75968 5.6911V5.47608V3.34569C2.75968 2.76609 2.42576 2.23835 1.90198 1.99016L1.8793 1.97942C1.70471 1.89669 1.5934 1.72078 1.5934 1.52757V1.50244Z"
+                                  fill="#293553"
+                                />
+                              </svg>
+                            </span>
+                            Открепить
                           </b-dropdown-item>
                           <b-dropdown-item
                             href="#"
@@ -1107,7 +1273,6 @@
                           ref="dropdownIcon"
                           size="lg"
                           variant="link"
-                          lazy
                           toggle-class="text-decoration-none dropdown__toggle"
                           menu-class="dropdown__menu "
                           no-caret
@@ -1134,7 +1299,7 @@
                           </template>
                           <b-dropdown-item
                             href=""
-                            link-class="dropdown__item"
+                            link-class="dropdown__item dropdown__item--attach"
                             boundary="viewport"
                             @click.prevent="pin"
                           >
@@ -1154,8 +1319,32 @@
                                 />
                               </svg>
                             </span>
-
                             Закрепить
+                          </b-dropdown-item>
+                          <b-dropdown-item
+                            href=""
+                            link-class="dropdown__item dropdown__item--detach"
+                            boundary="viewport"
+                            @click.prevent="pin"
+                            style="display: none"
+                          >
+                            <span class="tableC__icon">
+                              <svg
+                                width="8"
+                                height="11"
+                                viewBox="0 0 8 11"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M2.0934 0.00244141C1.26497 0.00244141 0.593397 0.674014 0.593397 1.50244V1.52757C0.593397 2.10718 0.927322 2.63492 1.4511 2.8831L1.47378 2.89385C1.64838 2.97658 1.75968 3.15249 1.75968 3.34569V5.26106L0.478465 6.47523C0.179558 6.75849 0.0102539 7.15219 0.0102539 7.56399V8.23921V8.73921H0.510254H3.50909V11.0019H4.50909V8.73921H7.50798H8.00798V8.23921V7.56399C8.00798 7.15219 7.83867 6.75849 7.53976 6.47523L6.25854 5.26106V3.34569C6.25854 3.15249 6.36985 2.97658 6.54445 2.89385L6.56713 2.8831C7.09091 2.63492 7.42483 2.10718 7.42483 1.52757V1.50244C7.42483 0.674014 6.75326 0.00244141 5.92483 0.00244141H2.0934ZM1.5934 1.50244C1.5934 1.2263 1.81725 1.00244 2.0934 1.00244H5.92483C6.20097 1.00244 6.42483 1.2263 6.42483 1.50244V1.52757C6.42483 1.72078 6.31352 1.89669 6.13893 1.97942L6.11625 1.99016C5.59247 2.23835 5.25854 2.76609 5.25854 3.34569V5.47608V5.6911L5.41462 5.839L6.85191 7.20107C6.95154 7.29549 7.00798 7.42672 7.00798 7.56399V7.73921H1.01025V7.56399C1.01025 7.42672 1.06669 7.29549 1.16632 7.20107L2.60361 5.839L2.75968 5.6911V5.47608V3.34569C2.75968 2.76609 2.42576 2.23835 1.90198 1.99016L1.8793 1.97942C1.70471 1.89669 1.5934 1.72078 1.5934 1.52757V1.50244Z"
+                                  fill="#293553"
+                                />
+                              </svg>
+                            </span>
+                            Открепить
                           </b-dropdown-item>
                           <b-dropdown-item
                             href="#"
@@ -1234,7 +1423,6 @@
                           ref="dropdownIcon"
                           size="lg"
                           variant="link"
-                          lazy
                           toggle-class="text-decoration-none dropdown__toggle"
                           menu-class="dropdown__menu "
                           no-caret
@@ -1261,7 +1449,7 @@
                           </template>
                           <b-dropdown-item
                             href=""
-                            link-class="dropdown__item"
+                            link-class="dropdown__item dropdown__item--attach"
                             boundary="viewport"
                             @click.prevent="pin"
                           >
@@ -1281,8 +1469,32 @@
                                 />
                               </svg>
                             </span>
-
                             Закрепить
+                          </b-dropdown-item>
+                          <b-dropdown-item
+                            href=""
+                            link-class="dropdown__item dropdown__item--detach"
+                            boundary="viewport"
+                            @click.prevent="pin"
+                            style="display: none"
+                          >
+                            <span class="tableC__icon">
+                              <svg
+                                width="8"
+                                height="11"
+                                viewBox="0 0 8 11"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M2.0934 0.00244141C1.26497 0.00244141 0.593397 0.674014 0.593397 1.50244V1.52757C0.593397 2.10718 0.927322 2.63492 1.4511 2.8831L1.47378 2.89385C1.64838 2.97658 1.75968 3.15249 1.75968 3.34569V5.26106L0.478465 6.47523C0.179558 6.75849 0.0102539 7.15219 0.0102539 7.56399V8.23921V8.73921H0.510254H3.50909V11.0019H4.50909V8.73921H7.50798H8.00798V8.23921V7.56399C8.00798 7.15219 7.83867 6.75849 7.53976 6.47523L6.25854 5.26106V3.34569C6.25854 3.15249 6.36985 2.97658 6.54445 2.89385L6.56713 2.8831C7.09091 2.63492 7.42483 2.10718 7.42483 1.52757V1.50244C7.42483 0.674014 6.75326 0.00244141 5.92483 0.00244141H2.0934ZM1.5934 1.50244C1.5934 1.2263 1.81725 1.00244 2.0934 1.00244H5.92483C6.20097 1.00244 6.42483 1.2263 6.42483 1.50244V1.52757C6.42483 1.72078 6.31352 1.89669 6.13893 1.97942L6.11625 1.99016C5.59247 2.23835 5.25854 2.76609 5.25854 3.34569V5.47608V5.6911L5.41462 5.839L6.85191 7.20107C6.95154 7.29549 7.00798 7.42672 7.00798 7.56399V7.73921H1.01025V7.56399C1.01025 7.42672 1.06669 7.29549 1.16632 7.20107L2.60361 5.839L2.75968 5.6911V5.47608V3.34569C2.75968 2.76609 2.42576 2.23835 1.90198 1.99016L1.8793 1.97942C1.70471 1.89669 1.5934 1.72078 1.5934 1.52757V1.50244Z"
+                                  fill="#293553"
+                                />
+                              </svg>
+                            </span>
+                            Открепить
                           </b-dropdown-item>
                           <b-dropdown-item
                             href="#"
@@ -1361,7 +1573,6 @@
                           ref="dropdownIcon"
                           size="lg"
                           variant="link"
-                          lazy
                           toggle-class="text-decoration-none dropdown__toggle"
                           menu-class="dropdown__menu "
                           no-caret
@@ -1388,7 +1599,7 @@
                           </template>
                           <b-dropdown-item
                             href=""
-                            link-class="dropdown__item"
+                            link-class="dropdown__item dropdown__item--attach"
                             boundary="viewport"
                             @click.prevent="pin"
                           >
@@ -1408,8 +1619,32 @@
                                 />
                               </svg>
                             </span>
-
                             Закрепить
+                          </b-dropdown-item>
+                          <b-dropdown-item
+                            href=""
+                            link-class="dropdown__item dropdown__item--detach"
+                            boundary="viewport"
+                            @click.prevent="pin"
+                            style="display: none"
+                          >
+                            <span class="tableC__icon">
+                              <svg
+                                width="8"
+                                height="11"
+                                viewBox="0 0 8 11"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M2.0934 0.00244141C1.26497 0.00244141 0.593397 0.674014 0.593397 1.50244V1.52757C0.593397 2.10718 0.927322 2.63492 1.4511 2.8831L1.47378 2.89385C1.64838 2.97658 1.75968 3.15249 1.75968 3.34569V5.26106L0.478465 6.47523C0.179558 6.75849 0.0102539 7.15219 0.0102539 7.56399V8.23921V8.73921H0.510254H3.50909V11.0019H4.50909V8.73921H7.50798H8.00798V8.23921V7.56399C8.00798 7.15219 7.83867 6.75849 7.53976 6.47523L6.25854 5.26106V3.34569C6.25854 3.15249 6.36985 2.97658 6.54445 2.89385L6.56713 2.8831C7.09091 2.63492 7.42483 2.10718 7.42483 1.52757V1.50244C7.42483 0.674014 6.75326 0.00244141 5.92483 0.00244141H2.0934ZM1.5934 1.50244C1.5934 1.2263 1.81725 1.00244 2.0934 1.00244H5.92483C6.20097 1.00244 6.42483 1.2263 6.42483 1.50244V1.52757C6.42483 1.72078 6.31352 1.89669 6.13893 1.97942L6.11625 1.99016C5.59247 2.23835 5.25854 2.76609 5.25854 3.34569V5.47608V5.6911L5.41462 5.839L6.85191 7.20107C6.95154 7.29549 7.00798 7.42672 7.00798 7.56399V7.73921H1.01025V7.56399C1.01025 7.42672 1.06669 7.29549 1.16632 7.20107L2.60361 5.839L2.75968 5.6911V5.47608V3.34569C2.75968 2.76609 2.42576 2.23835 1.90198 1.99016L1.8793 1.97942C1.70471 1.89669 1.5934 1.72078 1.5934 1.52757V1.50244Z"
+                                  fill="#293553"
+                                />
+                              </svg>
+                            </span>
+                            Открепить
                           </b-dropdown-item>
                           <b-dropdown-item
                             href="#"

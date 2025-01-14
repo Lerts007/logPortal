@@ -182,8 +182,8 @@ new Vue({
     ],
 
     dateTime: {
-      first: ["2024-12-16", "22:46:18"],
-      second: ["2024-12-17", "22:46:18"],
+      first: null,
+      second: null,
     },
 
     code: `<Contact DateChanged="31.10.2024 23:45:11" DateCreate="27.09.2023 18:57:29" deleted="false">
@@ -195,10 +195,8 @@ new Vue({
 </Contact>`,
   }),
   watch: {
-    // whenever question changes, this function will run
     modalShow(newQuestion, oldQuestion) {
       if (newQuestion) {
-        console.log("привет");
         this.modalSide = true;
       }
     },
@@ -246,6 +244,8 @@ new Vue({
       const item = event.currentTarget;
       const th = item.closest("th");
       const span = th.querySelector(".tableC__icon-pin");
+      const attach = th.querySelector(".dropdown__item--attach");
+      const detach = th.querySelector(".dropdown__item--detach");
       const borderTh = document.querySelector(".tableC__fixed .tableC__border");
       const tableFixed = document.querySelector(".tableC__fixed");
       const tableScroll = document.querySelector(".tableC__scroll");
@@ -268,6 +268,12 @@ new Vue({
         const rowsFixed = tableFixed.querySelectorAll("tbody tr");
 
         const columnToMove = th;
+
+        attach.parentNode.style.display = "none";
+        detach.parentNode.style.display = "flex";
+
+        console.log(attach);
+        console.log(detach);
 
         columnToMove.draggable = false;
 
@@ -295,6 +301,9 @@ new Vue({
         const rowsScroll = tableScroll.querySelectorAll("tbody tr");
 
         const columnToMove = th;
+
+        attach.parentNode.style.display = "flex";
+        detach.parentNode.style.display = "none";
 
         columnToMove.draggable = true;
 
@@ -455,15 +464,6 @@ new Vue({
       });
     });
 
-    // установка значений для блока datetime
-    const today = new Date();
-    today.setDate(today.getDate() - 1);
-
-    this.$set(this.dateTime.first, 0, today.toISOString().substr(0, 10));
-    this.$set(this.dateTime.second, 0, new Date().toISOString().substr(0, 10));
-    this.$set(this.dateTime.first, 1, new Date().toTimeString().substr(0, 8));
-    this.$set(this.dateTime.second, 1, new Date().toTimeString().substr(0, 8));
-
     window.onload = () => {
       const container = document.querySelector(".containerС");
       const blockScroll = document.querySelector(".tableC__block-scroll");
@@ -478,5 +478,65 @@ new Vue({
             24
           }px`;
     };
+
+    mobiscroll.setOptions({
+      locale: mobiscroll.localeRu,
+      theme: "material",
+      themeVariant: "light",
+    });
+
+    const prev = mobiscroll.datepicker("#prev", {
+      controls: ["date", "time"],
+      dateFormat: "D MMM.,",
+      timeFormat: "HH:mm",
+      dateWheels: "D MMM",
+      display: "center",
+      touchUi: true,
+      headerText: `${new Date(this.dateTime.first).getFullYear()}`,
+      onInit: (event, inst) => {
+        this.dateTime.first = new Date();
+        inst.setOptions({
+          headerText: `${new Date(this.dateTime.first).getFullYear()}`,
+        });
+      },
+      onChange: (event, inst) => {
+        this.dateTime.first = event.value;
+        console.log(event.headerText);
+        inst.setOptions({
+          headerText: `${new Date(this.dateTime.first).getFullYear()}`,
+        });
+      },
+
+      max: this.dateTime.second,
+    });
+
+    // this.dateTime.first = prev.getVal();
+    // console.log(prev.headerText);
+
+    const next = mobiscroll.datepicker("#next", {
+      controls: ["date", "time"],
+      dateFormat: "D MMM.,",
+      timeFormat: "HH:mm",
+      dateWheels: "D MMM",
+      display: "center",
+      touchUi: true,
+      headerText: `${new Date(this.dateTime.second).getFullYear()}`,
+      onInit: (event, inst) => {
+        this.dateTime.second = new Date();
+        inst.setOptions({
+          headerText: `${new Date(this.dateTime.second).getFullYear()}`,
+        });
+      },
+      onChange: (event, inst) => {
+        this.dateTime.second = event.value;
+        inst.setOptions({
+          headerText: `${new Date(this.dateTime.second).getFullYear()}`,
+        });
+      },
+
+      min: this.dateTime.first,
+    });
+
+    console.log(prev.headerText);
   },
 });

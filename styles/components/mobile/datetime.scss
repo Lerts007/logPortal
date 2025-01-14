@@ -1,15 +1,16 @@
-// CALENDAR
 .datetime {
   position: relative;
   display: flex;
   align-items: center;
 
+  max-width: 120px;
   height: 30px;
 
   padding: 4px 8px;
 
   background-color: $blackBlue;
   color: $blackBlue-light;
+  text-align: center;
 
   &:first-child {
     border-radius: 4px 0 0 4px;
@@ -18,45 +19,98 @@
   &:last-child {
     border-radius: 0 4px 4px 0;
   }
+}
+.mbsc-popup-header {
+  font-weight: 700;
+  font-size: 14px;
+  color: $white;
+  text-align: center;
+}
+.mbsc-popup-wrapper {
+  padding: 13px 24px !important;
 
-  &_icon-calendar {
-    margin-right: 10px;
+  align-items: flex-start;
+}
 
-    display: flex;
+.mbsc-popup-overlay,
+.mbsc-popup-limits {
+  margin: 0;
+}
+
+.mbsc-popup,
+.mbsc-popup-limits {
+  top: 40px;
+}
+
+.mbsc-popup-overlay {
+  // background: none;
+}
+.mbsc-popup-limits {
+  background: rgba(0, 0, 0, 0.5);
+  max-width: 100% !important;
+}
+
+.mbsc-popup-body,
+.mbsc-ios.mbsc-scroller-wheel-cont-3d {
+  background-color: $secondary !important;
+}
+
+.mbsc-ios.mbsc-scroller-wheel-cont-3d {
+  @include fonts(400, 14px, $white);
+}
+
+.mbsc-ios.mbsc-scroller {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+.mbsc-ios.mbsc-scroller-wheel-line,
+.mbsc-ios.mbsc-scroller-wheel-overlay {
+  background: none;
+}
+.mbsc-datepicker-tab-wrapper {
+  flex-direction: column;
+  align-items: center;
+}
+
+.mbsc-ios.mbsc-popup-button-flex.mbsc-font.mbsc-button-flat {
+  border: none;
+}
+
+.mbsc-selected {
+  @include fonts(400, 14px, $white);
+  font-size: 14px !important;
+  color: $white !important;
+}
+
+.mbsc-material.mbsc-scroller-wheel-item {
+  @include fonts(400, 14px, $gray-dark);
+  font-size: 14px !important;
+
+  & div {
+    display: none;
   }
+}
+.mbsc-scroller-wheel-group {
+  gap: 16px;
+}
+.mbsc-scroller-wheel-wrapper {
+  min-width: 54px;
+  max-width: 54px;
+}
 
-  &__input {
-    @include fonts();
-    -webkit-appearance: none;
-    -moz-appearance: nones;
-    appearance: none;
+.mbsc-material.mbsc-scroller-wheel-cont:after,
+.mbsc-material.mbsc-scroller-wheel-cont:before {
+  border-color: $white;
+  border-radius: 1px;
+}
 
-    border: none;
-    border-radius: 0;
-    outline: none;
+.mbsc-material.mbsc-popup-buttons {
+  display: flex;
+  justify-content: space-between;
+}
 
-    &::-webkit-inner-spin-button,
-    &::-webkit-calendar-picker-indicator {
-      display: none;
-      opacity: 0;
-      -webkit-appearance: none;
-    }
-  }
-
-  &__date {
-    width: 75px;
-  }
-  &__time {
-    width: 60px;
-  }
-
-  &__border {
-    width: 1px;
-    height: 22px;
-
-    margin-left: 8px;
-    margin-right: 8px;
-
-    background-color: $gray-medium;
-  }
+.mbsc-material.mbsc-button {
+  text-transform: none;
+}
+.mbsc-material.mbsc-popup-button.mbsc-font {
+  @include fonts(400, 16px, $primary);
 }

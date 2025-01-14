@@ -572,20 +572,14 @@ new Vue({
     console.log(this.dateTime);
 
     window.onload = () => {
-      const container = document.querySelector(".containerС");
+      const container = document.querySelector(".log");
       const blockScroll = document.querySelector(".tableC__block-scroll");
       const tableFixed = document.querySelector(".tableC__fixed");
 
-      console.log(blockScroll);
+      console.log(container.offsetWidth);
 
       blockScroll.style.width = `
-          ${
-            (window.innerWidth - container.offsetWidth) / 2 +
-            (container.offsetWidth - tableFixed.offsetWidth) -
-            24
-          }px`;
-      blockScroll.style.paddingRight = `
-          ${(window.innerWidth - container.offsetWidth + 17) / 2}px`;
+          ${container.offsetWidth - tableFixed.offsetWidth}px`;
     };
   },
 });
