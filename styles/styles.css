@@ -361,7 +361,6 @@ h6 {
   background-color: rgb(15, 144, 233);
 }
 .tableC__block-scroll::-webkit-scrollbar-button:end:decrement {
-  width: calc((100vw - 1300px) / 2);
   display: block;
   background: transparent;
 }
@@ -972,7 +971,10 @@ h6 {
 }
 .tableC__block-scroll {
   display: block;
-  overflow-x: scroll;
+  overflow-x: auto;
+}
+.tableC__scroll {
+  width: 100%;
 }
 .tableC--user {
   width: 100%;

@@ -39,10 +39,11 @@
     @extend %scrollbarStyling-X;
 
     display: block;
-    overflow-x: scroll;
+    overflow-x: auto;
   }
 
   &__scroll {
+    width: 100%;
   }
 
   &--user {
